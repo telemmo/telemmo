@@ -1,0 +1,15 @@
+{
+  "name": "telegrammo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "mongojs": "^2.4.0",
+    "node-emoji": "^1.4.3",
+    "node-telegram-bot-api": "^0.25.0"
+  },
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}
