@@ -2,6 +2,7 @@ const Promise = require('bluebird')
 const mongojs = require('mongojs')
 const db = mongojs('telebot', ['players'])
 const players = Promise.promisifyAll(db.players)
+const { buildPlayer } = require('../models/player')
 
 module.exports = {
   fromId
@@ -9,11 +10,11 @@ module.exports = {
 
 function fromId (telegramId) {
   return {
-    create: () => {
+    create: (character) => {
       return players
         .findAsync({ telegramId })
         .then(checkExisting)
-        .then(() => createPlayer(telegramId))
+        .then(() => createPlayer(telegramId, character))
     },
     isUnregistered: () => {
       return players
