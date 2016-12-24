@@ -61,10 +61,6 @@ function buildCharacter (name) {
     {},
     baseClass,
     classes.baseStats,
-    {
-      exp: 0,
-      gold: 0,
-    }
   )
 }
 
