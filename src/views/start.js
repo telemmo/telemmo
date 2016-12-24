@@ -5,8 +5,9 @@ module.exports = {
   keyboard:{
     reply_markup: {
       keyboard: [
-        ['Mage', 'Fighter', 'Thief'],
-        ['Acolyte', 'Ranger', 'Merchant' ],
+        ['Mage', 'Fighter'],
+        ['Thief', 'Acolyte'],
+        ['Ranger', 'Merchant'],
       ].map(row => row.map(className =>
         emoji.emojify(
           `:question: ${className} ${getEmoji(className)}`
