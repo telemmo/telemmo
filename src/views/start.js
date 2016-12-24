@@ -1,5 +1,5 @@
 const emoji = require('node-emoji')
-const { getEmoji } = require('../models/character')
+const { getEmoji, getAllEmoji } = require('../models/character')
 
 module.exports = {
   keyboard:{
@@ -15,9 +15,11 @@ module.exports = {
     },
   },
   message: emoji.emojify(`
-:earth_americas: Welcome to telemmo! :earth_americas:
+:globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
 
-Please, choose a class in your keyboard menu to see info about it.
+Explore the starter classes in your keyboard menu.
+
+${getAllEmoji()}
   `.trim()),
   error: 'You already have a character :)'
 }

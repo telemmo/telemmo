@@ -51,7 +51,8 @@ const classes = {
 
 module.exports = {
   buildCharacter,
-  getEmoji
+  getEmoji,
+  getAllEmoji,
 }
 
 function buildCharacter (name) {
@@ -71,3 +72,8 @@ function getEmoji (name) {
   const baseClass = classes.all.find(c => c.name === name)
   return baseClass.emoji
 }
+
+function getAllEmoji () {
+  return classes.all.map(c => c.emoji).join(' ')
+}
+
