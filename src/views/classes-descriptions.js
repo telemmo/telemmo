@@ -1,17 +1,25 @@
 const emoji = require('node-emoji')
 const { fromName , getAllEmoji } = require('../models/character')
+const { stanceDescriptionFromName } = require('../models/stances')
 
-const getStats = cName =>
-  `Main Stats: ${fromName(cName).mainStats.join(' ').toUpperCase()}`
+const getStats = clas =>
+  `Main Stats: ${clas.mainStats.join(' ').toUpperCase()}`
 
 
 module.exports = {
-  buildMessage: className => emoji.emojify(`
+  buildMessage: className => {
+    const clas = fromName(className)
+    return emoji.emojify(`
 
-${fromName(className).emoji} ${className} ${fromName(className).emoji}
+${clas.emoji} ${className} ${clas.emoji}
 
-${getStats(className)}
+${getStats(clas)}
 
-  `.trim()),
+*Stances:* These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.
+
+${clas.stances.map(stanceDescriptionFromName).join('\n\n')}
+
+    `.trim())
+  },
   error: `You can't do this :(`
 }

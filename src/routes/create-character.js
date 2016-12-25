@@ -12,9 +12,10 @@ function handler (bot, msg, match) {
       checkClass(className)
     })
     .then(() => {
-      bot.sendMessage(msg.chat.id, view.buildMessage(className))
+      bot.sendMessage(msg.chat.id, view.buildMessage(className), {parse_mode: 'Markdown'})
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e)
       bot.sendMessage(msg.chat.id, view.error)
     })
 }

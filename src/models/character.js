@@ -15,36 +15,37 @@ const classes = {
       emoji: ':crystal_ball:',
       mainStats: ['int', 'dex'],
       skills: ['Fireball'],
+      stances: ['Arcane', 'Debuff'],
     },
     {
       name: 'Fighter',
       emoji: ':muscle:',
       mainStats: ['str', 'vit'],
-      skills: ['Heal'],
+      stances: ['Tank', 'Berserk'],
     },
     {
       name: 'Thief',
       emoji: ':hocho:',
       mainStats: ['agi', 'str'],
-      skills: ['Double Attack'],
+      stances: ['Loot', 'Stealth'],
     },
     {
       name: 'Acolyte',
       emoji: ':sparkling_heart:',
       mainStats: ['int', 'dex'],
-      skills: ['Heal'],
+      stances: ['Heretic', 'Buff']
     },
     {
       name: 'Ranger',
       emoji: ':trident:',
       mainStats: ['dex', 'agi'],
-      skills: ['Heal'],
+      stances: ['Sniper', 'Trapper'],
     },
     {
       name: 'Merchant',
       emoji: ':moneybag:',
       mainStats: ['luk', 'dex'],
-      skills: ['Luck Strike'],
+      stances: ['Gambler', 'Breaker'],
     },
   ],
 }
