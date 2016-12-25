@@ -60,7 +60,7 @@ function buildCharacter (name) {
   return Object.assign(
     {},
     baseClass,
-    classes.baseStats,
+    classes.baseStats
   )
 }
 
