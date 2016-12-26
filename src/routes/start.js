@@ -8,7 +8,8 @@ function handler (bot, msg) {
     .then(() => {
       bot.sendMessage(msg.chat.id, view.message, view.keyboard)
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e)
       bot.sendMessage(msg.chat.id, view.error)
     })
 }

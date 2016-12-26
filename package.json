@@ -10,6 +10,7 @@
     "node-telegram-bot-api": "^0.25.0"
   },
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "mongo:clean": "mongo telebot --eval \"db.dropDatabase()\""
   }
 }
