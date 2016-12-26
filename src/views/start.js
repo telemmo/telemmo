@@ -1,5 +1,5 @@
 const emoji = require('node-emoji')
-const { fromName, getAllEmoji } = require('../models/character')
+const { classFromName, getAllEmoji } = require('../models/character')
 
 module.exports = {
   keyboard:{
@@ -10,7 +10,7 @@ module.exports = {
         ['Ranger', 'Merchant'],
       ].map(row => row.map(className =>
         emoji.emojify(
-          `:question: ${className} ${fromName(className).emoji}`
+          `:question: ${className} ${classFromName(className).emoji}`
         )
       ))
     },

@@ -2,7 +2,7 @@ const emoji = require('node-emoji')
 const persistence = require('../persistence')
 const { fromId } = persistence.player
 const view = require('../views/classes-descriptions')
-const { fromName } = require('../models/character')
+const { classFromName } = require('../models/character')
 
 function handler (bot, msg, match) {
   const className = match[1].split(' ')[0]
@@ -21,7 +21,7 @@ function handler (bot, msg, match) {
 }
 
 function checkClass (className) {
-  if (!fromName(className)) {
+  if (!classFromName(className)) {
     throw new Error(`Class doesn't exist`)
   }
 }

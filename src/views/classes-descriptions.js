@@ -1,5 +1,5 @@
 const emoji = require('node-emoji')
-const { fromName , getAllEmoji } = require('../models/character')
+const { classFromName , getAllEmoji } = require('../models/character')
 const { stanceDescriptionFromName } = require('../models/stances')
 
 const getStats = clas =>
@@ -8,7 +8,7 @@ const getStats = clas =>
 
 module.exports = {
   buildMessage: className => {
-    const clas = fromName(className)
+    const clas = classFromName(className)
     return emoji.emojify(`
 
 ${clas.emoji} ${className} ${clas.emoji}
