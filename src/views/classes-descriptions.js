@@ -5,7 +5,6 @@ const { stanceDescriptionFromName } = require('../models/stances')
 const getStats = clas =>
   `Main Stats: ${clas.mainStats.join(' ').toUpperCase()}`
 
-
 module.exports = {
   buildOptions: className => {
     return {
@@ -14,7 +13,10 @@ module.exports = {
           [
             {
               text: 'I want this class',
-              callback_data: className,
+              callback_data: JSON.stringify({
+                route: 'Create character',
+                payload: className
+              }),
             }
           ]
         ]

@@ -3,18 +3,20 @@ const mongojs = require('mongojs')
 const db = mongojs('telebot', ['players'])
 const players = Promise.promisifyAll(db.players)
 const { buildPlayer } = require('../models/player')
+const { buildCharacter } = require('../models/character')
 
 module.exports = {
-  fromId
+  playerFromId
 }
 
-function fromId (telegramId) {
+function playerFromId (telegramId) {
   return {
-    create: (character) => {
+    create: (className) => {
       return players
         .findAsync({ telegramId })
         .then(checkExisting)
-        .then(() => createPlayer(telegramId, character))
+        .then(() => createPlayer(telegramId, className))
+        .then(console.log)
     },
     isUnregistered: () => {
       return players
@@ -30,8 +32,8 @@ function checkExisting (players) {
   }
 }
 
-function createPlayer (telegramId) {
-  const player = buildPlayer(telegramId)
+function createPlayer (telegramId, className) {
+  const player = buildPlayer(telegramId, buildCharacter(className))
   return db.players.insertAsync(player)
 }
 

@@ -1,9 +1,9 @@
 const view = require('../views/start')
 const persistence = require('../persistence')
-const { fromId } = persistence.player
+const { playerFromId } = persistence.player
 
 function handler (bot, msg) {
-  const player = fromId(msg.from.id)
+  const player = playerFromId(msg.from.id)
   player.isUnregistered()
     .then(() => {
       bot.sendMessage(msg.chat.id, view.message, view.keyboard)
