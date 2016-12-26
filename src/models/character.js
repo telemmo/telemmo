@@ -33,7 +33,7 @@ const classes = {
       name: 'Acolyte',
       emoji: ':sparkling_heart:',
       mainStats: ['int', 'dex'],
-      stances: ['Heretic', 'Buff']
+      stances: ['Heretic', 'Priest']
     },
     {
       name: 'Ranger',
