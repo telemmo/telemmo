@@ -1,7 +1,9 @@
 # Bot key
 key.js
 
-
+.tern-port
+*.swp
+*.swo
 
 # Created by https://www.gitignore.io/api/node
 
