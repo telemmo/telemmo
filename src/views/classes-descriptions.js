@@ -1,5 +1,5 @@
 const emoji = require('node-emoji')
-const { classFromName , getAllEmoji } = require('../models/character')
+const { classFromName , getAllEmoji } = require('../models/classes')
 const { stanceDescriptionFromName } = require('../models/stances')
 
 const getStats = clas =>
@@ -7,11 +7,26 @@ const getStats = clas =>
 
 
 module.exports = {
+  buildOptions: className => {
+    return {
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: 'I want this class',
+              callback_data: className,
+            }
+          ]
+        ]
+      },
+      parse_mode: 'Markdown'
+    }
+  },
   buildMessage: className => {
     const clas = classFromName(className)
     return emoji.emojify(`
 
-${clas.emoji} ${className} ${clas.emoji}
+${clas.classEmoji} ${className} ${clas.classEmoji}
 
 ${getStats(clas)}
 

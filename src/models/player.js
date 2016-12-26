@@ -6,7 +6,7 @@ module.exports = {
 
 function buildPlayer (telegramId, character) {
   return Object.assign({},
-    buildGems(),
+    { gems: buildGems() },
     {
       telegramId,
       character,

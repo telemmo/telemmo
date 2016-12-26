@@ -8,10 +8,14 @@ function startBot (key, config = { polling: true }) {
 
 const bot = startBot(key)
 
-bot.on('message', (msg) => {
-  console.log(msg)
-})
-
+// bot.on('message', (msg) => {
+//   console.log(msg)
+// })
+//
+// bot.on('callback_query', (msg) => {
+//   console.log(msg)
+// })
+//
 routes.forEach((route) => {
   bot.onText(route.message, route.handler.bind(null, bot))
 })

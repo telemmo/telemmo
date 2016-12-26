@@ -1,8 +1,8 @@
 const emoji = require('node-emoji')
+const view = require('../views/classes-descriptions')
 const persistence = require('../persistence')
 const { fromId } = persistence.player
-const view = require('../views/classes-descriptions')
-const { classFromName } = require('../models/character')
+const { classFromName } = require('../models/classes')
 
 function handler (bot, msg, match) {
   const className = match[1].split(' ')[0]
@@ -12,11 +12,12 @@ function handler (bot, msg, match) {
       checkClass(className)
     })
     .then(() => {
-      bot.sendMessage(msg.chat.id, view.buildMessage(className), {parse_mode: 'Markdown'})
+      bot.sendMessage(msg.chat.id, view.buildMessage(className), view.buildOptions(className))
+        .then(a => console.log(a))
     })
     .catch((e) => {
       console.log(e)
-      bot.sendMessage(msg.chat.id, view.error)
+      bot.sendMessage(msg.chat.id, view.error(e))
     })
 }
 
