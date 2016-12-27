@@ -3,7 +3,6 @@ const classes = [
       className: 'Mage',
       classEmoji: ':crystal_ball:',
       mainStats: ['int', 'dex'],
-      classSkills: ['Fireball'],
       stances: ['Arcane', 'Debuff'],
     },
     {

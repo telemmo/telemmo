@@ -7,6 +7,7 @@ const baseStats = {
   luk: 1,
   int: 1,
   dex: 1,
+  stance: null,
 }
 
 module.exports = {

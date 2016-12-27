@@ -22,12 +22,23 @@ function playerFromId (telegramId) {
         .findAsync({ telegramId })
         .then(checkExisting)
     },
+    isRegistered: () => {
+      return players
+        .findAsync({ telegramId })
+        .then(checkNotExisting)
+    },
   }
 }
 
 function checkExisting (players) {
   if (players.length > 0) {
     throw new Error('Player already exists.')
+  }
+}
+
+function checkNotExisting (players) {
+  if (players.length === 0) {
+    throw new Error('Account not created')
   }
 }
 
