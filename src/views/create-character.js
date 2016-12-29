@@ -1,4 +1,5 @@
 const emoji = require('node-emoji')
+const errorKeyboard = require('./keyboards/overworld')
 const { classFromName , getAllEmoji } = require('../models/classes')
 const { stanceDescriptionFromName } = require('../models/stances')
 
@@ -38,5 +39,6 @@ ${clas.stances.map(stanceDescriptionFromName).join('\n\n')}
 
     `.trim())
   },
-  error: `You can't do this :(`
+  error: `You already have a character :).`,
+  errorKeyboard
 }

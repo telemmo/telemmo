@@ -1,22 +1,14 @@
 const emoji = require('node-emoji')
+const keyboard = require('./keyboards/maps')
 const { getAllEmoji } = require('../models/classes')
 
 module.exports = {
-  keyboard: {
-    reply_markup: {
-      keyboard: [
-        ['Easy Fields'],
-        [':no_entry_sign: Generic Desert'],
-        [':no_entry_sign: Old Town'],
-        [':no_entry_sign: Wild Place'],
-      ].map(row => row.map(el => emoji.emojify(el)))
-    }
-  },
+  keyboard,
   message: emoji.emojify(`
 :earth_asia:' Explore :earth_asia:
 
 Choose a map to explore:
 
 `.trim()),
-  error: `You can't do this :(`
+  error: `You don't have a character, create one at /start`
 }

@@ -1,5 +1,5 @@
 const emoji = require('node-emoji')
-const view = require('../views/classes-descriptions')
+const view = require('../views/create-character')
 const persistence = require('../persistence')
 const { playerFromId } = persistence.player
 const { classFromName } = require('../models/classes')
@@ -16,7 +16,7 @@ function handler (bot, msg, match) {
     })
     .catch((e) => {
       console.log(e)
-      bot.sendMessage(msg.chat.id, view.error(e))
+      bot.sendMessage(msg.chat.id, view.error, view.errorKeyboard)
     })
 }
 
