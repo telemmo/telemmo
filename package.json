@@ -11,6 +11,8 @@
   },
   "scripts": {
     "start": "node src/main.js",
-    "mongo:clean": "mongo telebot --eval \"db.dropDatabase()\""
+    "logs:clean": "rm ./src/user-logs/*",
+    "mongo:clean": "mongo telebot --eval \"db.dropDatabase()\"",
+    "all:clean": "npm run logs:clean && npm run mongo:clean"
   }
 }

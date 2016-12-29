@@ -3,11 +3,11 @@ const persistence = require('../../persistence')
 const { classFromName } = require('../../models/classes')
 const { playerFromId } = persistence.player
 
-function handler (bot, payload, callbackQuery) {
-  const className = payload
-  const chatId = callbackQuery.message.chat.id
-  const playerId = callbackQuery.from.id
-  const username = callbackQuery.from.username
+function handler (bot, dataPayload, payload) {
+  const className = dataPayload
+  const chatId = payload.message.chat.id
+  const playerId = payload.from.id
+  const username = payload.from.username
   const player = playerFromId(playerId)
   Promise.resolve(checkClass(className))
     .then(() => player.create(username, className))
