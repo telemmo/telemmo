@@ -5,7 +5,7 @@ const { getAllEmoji } = require('../models/classes')
 module.exports = {
   keyboard,
   message: emoji.emojify(`
-:earth_asia:' Explore :earth_asia:
+:earth_asia: Explore :earth_asia:
 
 Choose a map to explore:
 

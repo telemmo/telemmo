@@ -22,7 +22,6 @@ function registerLog (username, payload) {
   }
   fs.appendFile(
     path.join(__dirname, `/user-logs/${username}.txt`),
-    `${JSON.stringify(log, null, 2)},`,
-    console.log
+    `${JSON.stringify(log, null, 2)},`
   )
 }

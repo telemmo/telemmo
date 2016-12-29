@@ -1,6 +1,8 @@
 # Bot key
 key.js
+user-logs
 
+.yarnclean
 .tern-port
 *.swp
 *.swo
