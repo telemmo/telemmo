@@ -10,7 +10,8 @@ module.exports = {
         classFromName(className).stances
           .map(stance => emoji.emojify(
             'Stance: ' + stance + ' ' + stanceFromName(stance).emoji)
-          )
+          ),
+        ['Back to overworld :globe_with_meridians:'],
       ]
     }
   }),
