@@ -2,26 +2,32 @@ const emoji = require('node-emoji')
 const view = require('../views/combat')
 const persistence = require('../persistence')
 const { playerFromId } = persistence.player
+const farming = require('../farming')
+const { isValidMap } = require('../models/monsters')
 
 function handler (bot, msg, match) {
   const map = match[1]
+  if (!isValidMap(map)) {
+    bot.sendMessage(msg.chat.id, 'Invalid Map')
+    return
+  }
   const player = playerFromId(msg.from.id)
-  player.isRegistered()
-    .then(() => {
-      player.get()
-        .then((player) => {
-          const className = player[0].character.className
-          bot.sendMessage(
-            msg.chat.id,
-            view.message(map),
-            view.keyboard(className)
-          )
-        })
+  player.isRegistered().then(() => {
+    player.get().then(players => {
+      const player = players[0]
+      const className = player.character.className
+      bot.sendMessage(
+        msg.chat.id,
+        view.message(map),
+        view.keyboard(className)
+      )
+      farming.start(bot, player, map, msg)
     })
-    .catch((e) => {
-      console.log(e)
-      bot.sendMessage(msg.chat.id, view.error, view.errorKeyboard)
-    })
+  })
+  .catch((e) => {
+    console.log(e)
+    bot.sendMessage(msg.chat.id, view.error, view.errorKeyboard)
+  })
 }
 
 module.exports = {

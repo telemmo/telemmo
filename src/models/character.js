@@ -1,12 +1,12 @@
 const { classFromName, isValidClass } = require('./classes')
 
 const baseStats = {
-  str: 1,
-  vit: 1,
-  agi: 1,
-  luk: 1,
-  int: 1,
-  dex: 1,
+  str: 5,
+  vit: 5,
+  agi: 5,
+  luk: 5,
+  int: 5,
+  dex: 5,
   stance: null,
 }
 
@@ -14,13 +14,13 @@ module.exports = {
   buildCharacter,
 }
 
-function buildCharacter (className) {
+function buildCharacter (className, name) {
 
   if (!isValidClass(className)) { throw new Error('Invalid Class') }
 
   return Object.assign(
     {},
-    { className },
+    { className, name },
     baseStats
   )
 }

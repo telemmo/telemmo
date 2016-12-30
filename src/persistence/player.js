@@ -46,7 +46,7 @@ function checkNotExisting (players) {
 }
 
 function createPlayer (telegramId, username, className) {
-  const player = buildPlayer(telegramId, username, buildCharacter(className))
+  const player = buildPlayer(telegramId, username, buildCharacter(className, username))
   return db.players.insertAsync(player)
 }
 
