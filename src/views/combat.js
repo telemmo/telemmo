@@ -8,11 +8,11 @@ module.exports = {
       keyboard: [
         ['Refresh Energy'],
         classFromName(className).stances
-          .map(stance => emoji.emojify(
-            'Stance: ' + stance + ' ' + stanceFromName(stance).emoji)
+          .map(stance =>
+            'Stance: ' + stance + ' ' + stanceFromName(stance).emoji
           ),
         ['Back to overworld :globe_with_meridians:'],
-      ]
+      ].map(row => row.map(el => emoji.emojify(el)))
     }
   }),
   message: (map) => emoji.emojify(`
