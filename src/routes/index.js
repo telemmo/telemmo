@@ -3,4 +3,5 @@ module.exports = [
   require('./create-character'),
   require('./explore'),
   require('./overworld'),
+  require('./combat'),
 ]

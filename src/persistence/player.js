@@ -27,6 +27,9 @@ function playerFromId (telegramId) {
         .findAsync({ telegramId })
         .then(checkNotExisting)
     },
+    get: () => players
+      .findAsync({ telegramId })
+
   }
 }
 

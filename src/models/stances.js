@@ -120,7 +120,7 @@ const stances = [
 
 module.exports = {
   stanceDescriptionFromName,
-  stanceEmoji,
+  stanceFromName,
 }
 
 function stanceDescriptionFromName (name) {
@@ -129,8 +129,7 @@ function stanceDescriptionFromName (name) {
   return emoji.emojify(`${stance.emoji} ${name}: ${stance.description}`)
 }
 
-function stanceEmoji (name) {
+function stanceFromName (name) {
   const stance = stances.find(stance => stance.name === name)
-  if (!stance) { return }
-  return stance.description
+  return stance
 }
