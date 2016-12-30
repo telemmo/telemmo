@@ -17,11 +17,12 @@ function listenMessages (bot) {
 function registerLog (username, payload) {
   const timestamp = Date.now()
   const log = {
+    username,
     timestamp,
-    payload
+    payload,
   }
   fs.appendFile(
-    path.join(__dirname, `/user-logs/${username}.txt`),
+    path.join(__dirname, `/user-logs/all.txt`),
     `${JSON.stringify(log, null, 2)},`
   )
 }
