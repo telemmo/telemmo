@@ -10,6 +10,7 @@ function start (bot, player, map, msg) {
       msg.chat.id,
       prepare(player.character, randomFromMap(map))
     )
+    start(bot, player, map, msg)
   }, (Math.random() * 60 + 15) * 1000)
 }
 
