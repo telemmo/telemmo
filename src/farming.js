@@ -89,15 +89,18 @@ function attack (attacker, defender) {
 }
 
 function buildAttackLog (attacker, defender, action, number) {
-  return `*${attacker.name}* ${action} ${defender.name} for *${number}* dmg.
-${defender.name} -${
-  Array.from({ length: 20 })
-    .map((el, i) =>
-      (defender.hp/defender.maxHp) * 20 >= i
+  return `*${attacker.name}* ${action} for *${number} dmg*.
+*${defender.name}* has *${Math.ceil(defender.hp/defender.maxHp * 100)}% hp* \`${buildHpBar(defender.hp, defender.maxHp)}\`
+`
+}
+
+function buildHpBar(current, max) {
+  return `<${
+    Array.from({ length: 10 })
+      .map((el, i) =>
+        (current/max) * 10 >= i + 1
         ? '|'
         : ' '
-    ).join('')
-}- HP%
-
-`
+      ).join('')
+  }>`
 }
