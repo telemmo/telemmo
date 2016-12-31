@@ -6,38 +6,49 @@ module.exports = {
 
 function start (bot, player, map, msg) {
   setTimeout(() => {
+    afterCombat = combat(player.character, randomFromMap(map))
     bot.sendMessage(
       msg.chat.id,
-      prepare(player.character, randomFromMap(map))
+      afterCombat.log,
+      { parse_mode: 'Markdown' }
     )
     start(bot, player, map, msg)
   }, (Math.random() * 60 + 15) * 1000)
 }
 
-
-function prepare (fighter1, fighter2) {
-  fighter1 = build(fighter1)
-  fighter2 = build(fighter2)
-  return combat(fighter1, fighter2)
-}
-
 function combat (fighter1, fighter2) {
-  const fighters = [fighter1, fighter2]
-	var fightLog = ''
+  const fighters = [build(fighter1), build(fighter2)]
+	var log = `A wild ${fighter2.name} appeared!\n\n`
+  var winner = null
   var time = 0
 
-	while (fighter1.hp > 0 && fighter2.hp > 0) {
-    const willAttack = fighters.filter(fighter => time % fighter.aspd === 0)
+	turns: while (winner === null) {
+    const willAttack = fighters
+      .filter(fighter => time % fighter.aspd === 0)
+
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
-				const i = fighters.indexOf(fighter)
-				fightLog += attack(fighter, fighters[(i + 1)%2])
+				const afterAttack = attack(fighter, getDefender(fighters, fighter))
+        log += afterAttack.log
+        if (afterAttack.winner) {
+          log += `${afterAttack.winner} won!`
+          winner = afterAttack.winner
+        }
 			})
     }
+
     time += 1
   }
 
-	return fightLog
+  return {
+    log,
+    winner
+  }
+}
+
+function getDefender (fighters, attacker) {
+  const i = fighters.indexOf(attacker)
+  return fighters[(i + 1)%2]
 }
 
 function build (fighter) {
@@ -46,20 +57,47 @@ function build (fighter) {
     hp:  20 + fighter.vit,
     aspd: 200 - fighter.agi,
 		atk: 10 + fighter.str,
-		def: 5 + Math.floor(fighter.vit/2)
+		def: 5 + Math.floor(fighter.vit/2),
   })
   return built
 }
 
 function attack (attacker, defender) {
-	const damage = Math.floor(attacker.atk * (Math.random() + 0.5) - defender.def)
-  const trueDamage = damage > 0 ? damage : 0
-	defender.hp -= trueDamage
-  if (defender.hp <= 0) {
-    return `${attacker.name} attacked for ${trueDamage}
-${defender.name} died.`
+  var log = ''
+  var action = 'attacked'
+  var damage = Math.floor(attacker.atk * (Math.max(Math.random(), 0.6 + attacker.dex/200)) - defender.def)
+  if (Math.random() * 100 < attacker.luk) {
+    action = '*CRITTED*'
+    damage = Math.floor(damage * 1.5 + damage * attacker.luk/100)
   }
-  return `${attacker.name} attacked for ${trueDamage}
-${defender.name} has ${defender.hp}/${defender.maxHp}hp
+  const trueDamage = Math.max(damage, 0)
+  const hpAfterDamage = defender.hp - trueDamage
+  defender.hp = Math.max(hpAfterDamage, 0)
+
+  log += buildAttackLog(attacker, defender, action, trueDamage)
+
+  if (defender.hp <= 0) {
+    return {
+      log,
+      winner: attacker.name,
+    }
+  }
+  return {
+    log,
+    winner: null,
+  }
+}
+
+function buildAttackLog (attacker, defender, action, number) {
+  return `*${attacker.name}* ${action} ${defender.name} for *${number}* dmg.
+${defender.name} -${
+  Array.from({ length: 20 })
+    .map((el, i) =>
+      (defender.hp/defender.maxHp) * 20 >= i
+        ? '|'
+        : ' '
+    ).join('')
+}- HP%
+
 `
 }
