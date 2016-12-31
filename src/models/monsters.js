@@ -13,6 +13,10 @@ const monsters = [
     luk: 3,
     int: 3,
     dex: 3,
+    loot: {
+      types: ['Rock', 'Earth'],
+      max: 2,
+    },
   },
   {
     name: 'Jello',
@@ -28,6 +32,10 @@ const monsters = [
     luk: 1,
     int: 1,
     dex: 1,
+    loot: {
+      types: ['Water', 'Ice'],
+      max: 2,
+    },
   },
 ]
 

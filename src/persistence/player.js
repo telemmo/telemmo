@@ -28,8 +28,16 @@ function playerFromId (telegramId) {
         .then(checkNotExisting)
     },
     get: () => players
-      .findAsync({ telegramId })
-
+      .findAsync({ telegramId }),
+    giveGems: (rawGems) => {
+      const gems = {}
+      Object.keys(rawGems)
+        .forEach((key) => gems['gems.'+key] = rawGems[key])
+      return players
+        .updateAsync({ telegramId }, {
+          $inc: gems
+        })
+    }
   }
 }
 

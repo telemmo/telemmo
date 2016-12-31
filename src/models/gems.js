@@ -2,7 +2,8 @@ const emoji = require('node-emoji')
 
 module.exports = {
   buildGems,
-  getEmoji
+  getEmoji,
+  buildDrop,
 }
 
 const gems = [
@@ -18,7 +19,7 @@ const gems = [
 
 const emojis = {
   'Rock': ':moyai:',
-  'Earth': ':mushroom:',
+  'Earth': ':chestnut:',
   'Water': ':droplet:',
   'Ice': ':snowflake:',
   'Wind': ':leaves:',
@@ -28,7 +29,7 @@ const emojis = {
 }
 
 function getEmoji (name) {
-  return emojis[name]
+  return emoji.emojify(emojis[name])
 }
 
 function buildGems () {
@@ -38,3 +39,12 @@ function buildGems () {
   )
 }
 
+function buildDrop (monsterLoot) {
+  if (!monsterLoot) { return false }
+  return monsterLoot.types.reduce((drop, type) => {
+    if (Math.random() * 100 < 50) {
+      drop[type] = Math.floor(Math.random() * monsterLoot.max) + 1
+    }
+    return drop
+  }, {})
+}
