@@ -1,8 +1,7 @@
 const { randomFromMap } = require('./models/monsters')
 const { buildDrop, getEmoji } = require('./models/gems')
-const persistence = require('./persistence')
-const { playerFromId } = persistence.player
-
+const { combatStats } = require('./models/combat')
+const { playerFromId } = require('./persistence').player
 
 module.exports = {
   start
@@ -26,7 +25,7 @@ function start (bot, player, map, msg, $player = playerFromId(msg.from.id)) {
 }
 
 function combat (fighter1, fighter2) {
-  const fighters = [build(fighter1), build(fighter2)]
+  const fighters = [combatStats(fighter1), combatStats(fighter2)]
 	var log = `A wild ${fighter2.name} appeared!\n\n`
   var winner = null
   var drop = {}
@@ -67,24 +66,13 @@ function getDefender (fighters, attacker) {
   return fighters[(i + 1)%2]
 }
 
-function build (fighter) {
-  const built = Object.assign({}, fighter, {
-    maxHp: 20 + fighter.vit,
-    hp:  20 + fighter.vit,
-    aspd: 200 - fighter.agi,
-		atk: 10 + fighter.str,
-		def: 5 + Math.floor(fighter.vit/2),
-  })
-  return built
-}
-
 function attack (attacker, defender) {
   var log = ''
   var action = 'attacked'
-  var damage = Math.floor(attacker.atk * (Math.max(Math.random(), 0.6 + attacker.dex/200)) - defender.def)
-  if (Math.random() * 100 < attacker.luk) {
+  var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation - defender.def)
+  if (Math.random() < attacker.critChance) {
     action = '*CRITTED*'
-    damage = Math.floor(damage * 1.5 + damage * attacker.luk/100)
+    damage = Math.floor(damage * attacker.critDmg)
   }
   const trueDamage = Math.max(damage, 0)
   const hpAfterDamage = defender.hp - trueDamage

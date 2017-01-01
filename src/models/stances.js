@@ -14,9 +14,11 @@ const stances = [
     name: 'Debuff',
     emoji: ':hotsprings:',
     classes: ['Mage'],
-    description: '+25% stun chance on every attack.',
+    description: '+20% chance to stun, slow or silence on every attack',
     buff: player => ({
-      stunChance: player.stunChance + 0.25
+      stunChance: player.stunChance + 0.20,
+      slowChance: player.slowChance + 0.20,
+      silenceChance: player.silenceChance + 0.20,
     })
   },
   {
@@ -102,18 +104,16 @@ const stances = [
     classes: ['Merchant'],
     description: 'Wild RNG! All damage is multiplied by a random number between 0 and 4',
     buff: player => ({
-      wildRng: true
+      wildRngDamage: true
     })
   },
   {
     name: 'Breaker',
     emoji: ':eight_spoked_asterisk:',
     classes: ['Merchant'],
-    description: '+20% chance to stun, slow or silence on every attack',
+    description: '+25% stun chance on every attack.',
     buff: player => ({
-      stunChance: player.stunChance + 0.20,
-      slowChance: player.slowChance + 0.20,
-      silenceChance: player.silenceChance + 0.20,
+      stunChance: player.stunChance + 0.25
     })
   },
 ]
