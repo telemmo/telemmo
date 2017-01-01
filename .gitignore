@@ -6,6 +6,7 @@ user-logs
 .tern-port
 *.swp
 *.swo
+*.swn
 
 # Created by https://www.gitignore.io/api/node
 
