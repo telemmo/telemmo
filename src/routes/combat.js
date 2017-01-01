@@ -13,13 +13,12 @@ function handler (bot, msg, match) {
   }
   const player = playerFromId(msg.from.id)
   player.isRegistered().then(() => {
-    player.get().then(players => {
-      const player = players[0]
+    player.get().then(player => {
       const className = player.character.className
       bot.sendMessage(
         msg.chat.id,
         view.message(map),
-        view.keyboard(className)
+        view.keyboard(map, className)
       )
       farming.start(bot, player, map, msg)
     })

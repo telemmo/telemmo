@@ -7,10 +7,21 @@ module.exports = {
   start
 }
 
+const timers = {}
+
+const clearTimer = (name) => {
+  if (timers[name] !== undefined) {
+    clearTimeout(timers[name])
+    timers[name] = undefined
+  }
+}
+
 function start (bot, player, map, msg, $player = playerFromId(msg.from.id)) {
-  setTimeout(() => {
+  clearTimer(player.username)
+  timers[player.username] = setTimeout(() => {
     afterCombat = combat(player.character, randomFromMap(map))
-    if (afterCombat.winner === player.character.name) {
+		const playerWon = (afterCombat.winner === player.character.name)
+    if (playerWon) {
       if (Object.keys(afterCombat.drop).length !== 0) {
         $player.giveGems(afterCombat.drop)
       }
@@ -20,6 +31,10 @@ function start (bot, player, map, msg, $player = playerFromId(msg.from.id)) {
       afterCombat.log,
       { parse_mode: 'Markdown' }
     )
+		if (!playerWon) {
+      clearTimer(player.username)
+      return
+    }
     start(bot, player, map, msg, $player)
   }, (Math.random() * 60 + 15) * 1000)
 }

@@ -28,7 +28,8 @@ function playerFromId (telegramId) {
         .then(checkNotExisting)
     },
     get: () => players
-      .findAsync({ telegramId }),
+      .findAsync({ telegramId })
+      .then(players => players[0]),
     giveGems: (rawGems) => {
       const gems = {}
       Object.keys(rawGems)

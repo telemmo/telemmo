@@ -3,10 +3,10 @@ const { classFromName } = require('../models/classes')
 const { stanceFromName } = require('../models/stances')
 
 module.exports = {
-  keyboard: (className) => ({
+  keyboard: (map, className) => ({
     reply_markup: {
       keyboard: [
-        ['Refresh Energy'],
+        [`:boom: ${map}`],
         classFromName(className).stances
           .map(stance =>
             'Stance: ' + stance + ' ' + stanceFromName(stance).emoji
@@ -18,7 +18,7 @@ module.exports = {
   message: (map) => emoji.emojify(`
 You started exploring ${map}!
 
-You have 60 minutes of energy. Refreshing energy is free.
+You will only stop if you lose a battle. If you stop, just start exploring again.
 
 Good Luck!
   `.trim()),

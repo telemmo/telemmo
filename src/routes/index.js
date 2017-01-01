@@ -4,4 +4,5 @@ module.exports = [
   require('./explore'),
   require('./overworld'),
   require('./combat'),
+  require('./stats'),
 ]

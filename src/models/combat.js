@@ -1,9 +1,14 @@
 module.exports = {
   combatStats,
+  getStats,
 }
 
 function combatStats (fighter) {
-  const built = Object.assign({}, fighter, {
+  return Object.assign({}, fighter, getStats(fighter))
+}
+
+function getStats (fighter) {
+  return {
     maxHp: 20 + fighter.vit,
     hp:  20 + fighter.vit,
     aspd: 200 - fighter.agi,
@@ -20,6 +25,5 @@ function combatStats (fighter) {
     accuracy: 0.65 + fighter.dex/200,
 		critChance: fighter.luk/150,
 		critDmg: 2 + fighter.str/100 + fighter.luk/200,
-  })
-  return built
+  }
 }
