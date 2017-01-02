@@ -46,12 +46,13 @@ function combat (fighter1, fighter2) {
   var drop = {}
   var time = 0
 
-	turns: while (winner === null) {
+	while (winner === null) {
     const willAttack = fighters
       .filter(fighter => time % fighter.aspd === 0)
 
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
+        if (fighter.hp <= 0) { return }
 				const afterAttack = attack(fighter, getDefender(fighters, fighter))
         log += afterAttack.log
         if (afterAttack.winner) {
@@ -118,7 +119,7 @@ function buildHpBar(current, max) {
   return `<${
     Array.from({ length: 10 })
       .map((el, i) =>
-        (current/max) * 10 >= i + 1
+        Math.floor((current/max) * 10) >= i + 1
         ? '|'
         : ' '
       ).join('')
