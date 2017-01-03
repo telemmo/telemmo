@@ -1,6 +1,6 @@
 const Promise = require('bluebird')
 const mongojs = require('mongojs')
-const db = mongojs('telebot', ['players'])
+const db = mongojs(process.env.MONGO_URL, ['players'])
 const players = Promise.promisifyAll(db.players)
 const { buildPlayer } = require('../models/player')
 const { buildCharacter } = require('../models/character')

@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api')
 const routes = require('./routes')
 const inlineRoutes = require('./routes/inline-routes')
-const key = require('./key')
+const key = process.env.BOT_KEY
 const logs = require('./logs.js')
 function startBot (key, config = { polling: true }) {
   return new TelegramBot(key, config)
