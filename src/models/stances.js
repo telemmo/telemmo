@@ -95,7 +95,7 @@ const stances = [
     classes: ['Ranger'],
     description: '+400% dodge chance',
     buffs: player => ({
-      dodge: dodge * 4
+      dodge: player.dodge * 4
     }),
   },
   {

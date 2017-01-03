@@ -8,7 +8,7 @@ module.exports = {
 
 \`Dev notes:\`
 :no_entry_sign: = Not implemented yet :(
-:no_entry_sign: Merchant Gambler Stance
+
 Check the subreddit for information or feedback: https://www.reddit.com/r/telemmo
   `.trim()),
   error: `You don't have a character, create one at /start`
