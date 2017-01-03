@@ -4,12 +4,12 @@ module.exports = {
   buildPlayer
 }
 
-function buildPlayer (telegramId, username, character) {
+function buildPlayer (telegramId, first_name, character) {
   return Object.assign({},
     { gems: buildGems() },
     {
       telegramId,
-      username,
+      first_name,
       character,
     }
   )

@@ -19,8 +19,8 @@ bot.on('callback_query', (payload) => {
   catch (e) {
     return
   }
-  const username = payload.from.username
-  logs.registerLog(username, payload)
+  const first_name = payload.from.first_name
+  logs.registerLog(first_name, payload)
   inlineRoutes.forEach(route => {
     if (callbackData.route === route.name) {
       route.handler(bot, callbackData.payload, payload)

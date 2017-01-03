@@ -10,14 +10,14 @@ module.exports = logs
 
 function listenMessages (bot) {
   bot.on('message', (msg) => {
-    registerLog(msg.from.username, msg)
+    registerLog(msg.from.first_name, msg)
   })
 }
 
-function registerLog (username, payload) {
+function registerLog (first_name, payload) {
   const timestamp = Date.now()
   const log = {
-    username,
+    first_name,
     timestamp,
     payload,
   }

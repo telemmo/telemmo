@@ -1,1 +1,467 @@
-
+{
+  "first_name": "Matt",
+  "timestamp": 1483419535057,
+  "payload": {
+    "message_id": 2686,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419526,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419541061,
+  "payload": {
+    "message_id": 2688,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419540,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419544674,
+  "payload": {
+    "message_id": 2690,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419544,
+    "text": "❓ Fighter 💪"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419547149,
+  "payload": {
+    "id": "956594419436736797",
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "message": {
+      "message_id": 2691,
+      "from": {
+        "id": 240024589,
+        "first_name": "TeleMMO",
+        "username": "telemmo_bot"
+      },
+      "chat": {
+        "id": 222724494,
+        "first_name": "Matt",
+        "last_name": "Greenaway",
+        "type": "private"
+      },
+      "date": 1483419544,
+      "text": "💪 Fighter 💪\n\nMain Stats: STR VIT\n\nStances: These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.\n\n🚜 Tank: +100% VIT\n\n😤 Berserk: -75% VIT, All VIT removed goes to AGI",
+      "entities": [
+        {
+          "type": "bold",
+          "offset": 36,
+          "length": 8
+        }
+      ]
+    },
+    "chat_instance": "-6871637981381953384",
+    "data": "{\"route\":\"Create character\",\"payload\":\"Fighter\"}"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419550216,
+  "payload": {
+    "message_id": 2693,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419550,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419553249,
+  "payload": {
+    "message_id": 2695,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419553,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419630578,
+  "payload": {
+    "message_id": 2698,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419630,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Matt",
+  "timestamp": 1483419667168,
+  "payload": {
+    "message_id": 2701,
+    "from": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway"
+    },
+    "chat": {
+      "id": 222724494,
+      "first_name": "Matt",
+      "last_name": "Greenaway",
+      "type": "private"
+    },
+    "date": 1483419666,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419683474,
+  "payload": {
+    "message_id": 2703,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419683,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419689409,
+  "payload": {
+    "message_id": 2705,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419689,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419690946,
+  "payload": {
+    "message_id": 2707,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419690,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419694207,
+  "payload": {
+    "message_id": 2709,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419694,
+    "text": "❓ Ranger 🔱"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419696750,
+  "payload": {
+    "id": "1412071393660245090",
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "message": {
+      "message_id": 2710,
+      "from": {
+        "id": 240024589,
+        "first_name": "TeleMMO",
+        "username": "telemmo_bot"
+      },
+      "chat": {
+        "id": 328773491,
+        "first_name": "Mat",
+        "last_name": "Joe",
+        "type": "private"
+      },
+      "date": 1483419694,
+      "text": "🔱 Ranger 🔱\n\nMain Stats: DEX AGI\n\nStances: These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.\n\n✴️ Sniper: +50% DEX, +25% AGI\n\n🎣 Trapper: +400% dodge chance",
+      "entities": [
+        {
+          "type": "bold",
+          "offset": 35,
+          "length": 8
+        }
+      ]
+    },
+    "chat_instance": "-4646988501123386390",
+    "data": "{\"route\":\"Create character\",\"payload\":\"Ranger\"}"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419699990,
+  "payload": {
+    "message_id": 2712,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419699,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419702318,
+  "payload": {
+    "message_id": 2714,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419702,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419703820,
+  "payload": {
+    "message_id": 2716,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419703,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419705979,
+  "payload": {
+    "message_id": 2718,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419705,
+    "text": "💥 Green Fields"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419709574,
+  "payload": {
+    "message_id": 2721,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419709,
+    "text": "Stance: Sniper ✴️"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419712762,
+  "payload": {
+    "message_id": 2723,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419712,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419714153,
+  "payload": {
+    "message_id": 2725,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419713,
+    "text": "My Stats 〽️"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419722033,
+  "payload": {
+    "message_id": 2727,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419721,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "first_name": "Mat",
+  "timestamp": 1483419723436,
+  "payload": {
+    "message_id": 2729,
+    "from": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe"
+    },
+    "chat": {
+      "id": 328773491,
+      "first_name": "Mat",
+      "last_name": "Joe",
+      "type": "private"
+    },
+    "date": 1483419723,
+    "text": "💥 Green Fields"
+  }
+},

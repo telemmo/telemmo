@@ -11,11 +11,11 @@ module.exports = {
 
 function playerFromId (telegramId) {
   return {
-    create: (username, className) => {
+    create: (first_name, className) => {
       return players
         .findAsync({ telegramId })
         .then(checkExisting)
-        .then(() => createPlayer(telegramId, username, className))
+        .then(() => createPlayer(telegramId, first_name, className))
     },
     isUnregistered: () => {
       return players
@@ -60,8 +60,8 @@ function checkNotExisting (players) {
   }
 }
 
-function createPlayer (telegramId, username, className) {
-  const player = buildPlayer(telegramId, username, buildCharacter(className, username))
+function createPlayer (telegramId, first_name, className) {
+  const player = buildPlayer(telegramId, first_name, buildCharacter(className, first_name))
   return db.players.insertAsync(player)
 }
 

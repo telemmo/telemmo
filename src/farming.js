@@ -18,8 +18,8 @@ const clearTimer = (name) => {
 
 function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
   $player.get().then((player) => {
-    clearTimer(player.username)
-    timers[player.username] = setTimeout(() => {
+    clearTimer(player.first_name)
+    timers[player.first_name] = setTimeout(() => {
       afterCombat = combat(player.character, randomFromMap(map))
       const playerWon = (afterCombat.winner === player.character.name)
       if (playerWon) {
@@ -33,7 +33,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
         { parse_mode: 'Markdown' }
       )
       if (!playerWon) {
-        clearTimer(player.username)
+        clearTimer(player.first_name)
         return
       }
       start(bot, map, msg, $player)
