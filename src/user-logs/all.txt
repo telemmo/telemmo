@@ -1,0 +1,2390 @@
+{
+  "username": "marcoworms",
+  "timestamp": 1483297673416,
+  "payload": {
+    "message_id": 1422,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483297601,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305330178,
+  "payload": {
+    "message_id": 1424,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483305329,
+    "text": "❓ Ranger 🔱"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305354379,
+  "payload": {
+    "id": "291846018348865199",
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "message": {
+      "message_id": 1425,
+      "from": {
+        "id": 240024589,
+        "first_name": "TeleMMO",
+        "username": "telemmo_bot"
+      },
+      "chat": {
+        "id": 67950696,
+        "first_name": "Marco",
+        "last_name": "Worms",
+        "username": "marcoworms",
+        "type": "private"
+      },
+      "date": 1483305330,
+      "text": "🔱 Ranger 🔱\n\nMain Stats: DEX AGI\n\nStances: These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.\n\n✴️ Sniper: +50% DEX, +25% AGI\n\n🎣 Trapper: +400% dodge chance",
+      "entities": [
+        {
+          "type": "bold",
+          "offset": 35,
+          "length": 8
+        }
+      ]
+    },
+    "chat_instance": "4183551960783024143",
+    "data": "{\"route\":\"Create character\",\"payload\":\"Ranger\"}"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305381647,
+  "payload": {
+    "message_id": 1427,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483305380,
+    "text": "My Stats 〽️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305412564,
+  "payload": {
+    "message_id": 1429,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483305411,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305439848,
+  "payload": {
+    "message_id": 1431,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483305439,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483305847783,
+  "payload": {
+    "message_id": 1436,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483305846,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483307482907,
+  "payload": {
+    "message_id": 1443,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483307469,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483307835027,
+  "payload": {
+    "message_id": 1449,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483307834,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483308068238,
+  "payload": {
+    "message_id": 1455,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483308068,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483308504801,
+  "payload": {
+    "message_id": 1461,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483308503,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483369350906,
+  "payload": {
+    "message_id": 1466,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483369169,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483369353921,
+  "payload": {
+    "message_id": 1468,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483369354,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483369492508,
+  "payload": {
+    "message_id": 1471,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483369493,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483369554714,
+  "payload": {
+    "message_id": 1474,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483369555,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483374401190,
+  "payload": {
+    "message_id": 1481,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483374401,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375534242,
+  "payload": {
+    "message_id": 1487,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375534,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375539669,
+  "payload": {
+    "message_id": 1489,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375539,
+    "text": "❓ Thief 🔪"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375543017,
+  "payload": {
+    "id": "568378867027011429",
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "message": {
+      "message_id": 1490,
+      "from": {
+        "id": 240024589,
+        "first_name": "TeleMMO",
+        "username": "telemmo_bot"
+      },
+      "chat": {
+        "id": 132336017,
+        "first_name": "Philipe",
+        "last_name": "Paixao",
+        "username": "piih2",
+        "type": "private"
+      },
+      "date": 1483375539,
+      "text": "🔪 Thief 🔪\n\nMain Stats: AGI STR\n\nStances: These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.\n\n💰 Loot: Doubles monster drop ratio\n\n👻 Stealth: +25% AGI, +25% DEX",
+      "entities": [
+        {
+          "type": "bold",
+          "offset": 34,
+          "length": 8
+        }
+      ]
+    },
+    "chat_instance": "-5741268904804284283",
+    "data": "{\"route\":\"Create character\",\"payload\":\"Thief\"}"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375567614,
+  "payload": {
+    "message_id": 1492,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375567,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375572412,
+  "payload": {
+    "message_id": 1494,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375572,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375586633,
+  "payload": {
+    "message_id": 1496,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375586,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375593601,
+  "payload": {
+    "message_id": 1498,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375593,
+    "text": "🚫 Stance: Loot 💰"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375596717,
+  "payload": {
+    "message_id": 1499,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375596,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375599864,
+  "payload": {
+    "message_id": 1501,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375599,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375636479,
+  "payload": {
+    "message_id": 1503,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375636,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375638398,
+  "payload": {
+    "message_id": 1505,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375638,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483375640670,
+  "payload": {
+    "message_id": 1507,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375640,
+    "text": "My Stats 〽️"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483396741495,
+  "payload": {
+    "message_id": 1510,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375676,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483396741505,
+  "payload": {
+    "message_id": 1511,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375680,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396741506,
+  "payload": {
+    "message_id": 1514,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396729,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483396741506,
+  "payload": {
+    "message_id": 1512,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375685,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "piih2",
+  "timestamp": 1483396741506,
+  "payload": {
+    "message_id": 1513,
+    "from": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2"
+    },
+    "chat": {
+      "id": 132336017,
+      "first_name": "Philipe",
+      "last_name": "Paixao",
+      "username": "piih2",
+      "type": "private"
+    },
+    "date": 1483375688,
+    "text": "My Stats 〽️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396747081,
+  "payload": {
+    "message_id": 1520,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396746,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396750142,
+  "payload": {
+    "message_id": 1522,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396749,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396929068,
+  "payload": {
+    "message_id": 1524,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396928,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396946864,
+  "payload": {
+    "message_id": 1525,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396941,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396951973,
+  "payload": {
+    "message_id": 1526,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396943,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396956093,
+  "payload": {
+    "message_id": 1526,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396943,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483396986901,
+  "payload": {
+    "message_id": 1531,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483396986,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398786270,
+  "payload": {
+    "message_id": 1534,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483397124,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398821148,
+  "payload": {
+    "message_id": 1536,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398820,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398824444,
+  "payload": {
+    "message_id": 1538,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398824,
+    "text": "Stance: Sniper ✴️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398856683,
+  "payload": {
+    "message_id": 1539,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398856,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398858945,
+  "payload": {
+    "message_id": 1541,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398858,
+    "text": "Stance: Sniper ✴️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398862353,
+  "payload": {
+    "message_id": 1543,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398862,
+    "text": "Stance: Trapper 🎣"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398945898,
+  "payload": {
+    "message_id": 1545,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398945,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483398947738,
+  "payload": {
+    "message_id": 1547,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483398947,
+    "text": "Stance: Sniper ✴️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399266881,
+  "payload": {
+    "message_id": 1549,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399266,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399268965,
+  "payload": {
+    "message_id": 1551,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399268,
+    "text": "Stance: Sniper ✴️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399271198,
+  "payload": {
+    "message_id": 1553,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399270,
+    "text": "Stance: Trapper 🎣"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399457913,
+  "payload": {
+    "message_id": 1555,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399326,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399457930,
+  "payload": {
+    "message_id": 1556,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399457,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399459968,
+  "payload": {
+    "message_id": 1559,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399459,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399479799,
+  "payload": {
+    "message_id": 1561,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399479,
+    "text": "❓ Fighter 💪"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399482157,
+  "payload": {
+    "id": "291846017955510109",
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "message": {
+      "message_id": 1562,
+      "from": {
+        "id": 240024589,
+        "first_name": "TeleMMO",
+        "username": "telemmo_bot"
+      },
+      "chat": {
+        "id": 67950696,
+        "first_name": "Marco",
+        "last_name": "Worms",
+        "username": "marcoworms",
+        "type": "private"
+      },
+      "date": 1483399479,
+      "text": "💪 Fighter 💪\n\nMain Stats: STR VIT\n\nStances: These are combat stances that you can change any time in combat. Different stances casts different skills and gives your character unique passive bonuses.\n\n🚜 Tank: +100% total VIT\n\n😤 Berserk: -75% VIT, All VIT removed goes to AGI",
+      "entities": [
+        {
+          "type": "bold",
+          "offset": 36,
+          "length": 8
+        }
+      ]
+    },
+    "chat_instance": "4183551960783024143",
+    "data": "{\"route\":\"Create character\",\"payload\":\"Fighter\"}"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399486174,
+  "payload": {
+    "message_id": 1564,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399485,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399489102,
+  "payload": {
+    "message_id": 1566,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399488,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399493659,
+  "payload": {
+    "message_id": 1568,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399493,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399633058,
+  "payload": {
+    "message_id": 1570,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399632,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399635137,
+  "payload": {
+    "message_id": 1572,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399634,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399637021,
+  "payload": {
+    "message_id": 1574,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399636,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399703631,
+  "payload": {
+    "message_id": 1577,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399703,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399708846,
+  "payload": {
+    "message_id": 1579,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399708,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399722877,
+  "payload": {
+    "message_id": 1581,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399722,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399799431,
+  "payload": {
+    "message_id": 1583,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399799,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399841519,
+  "payload": {
+    "message_id": 1585,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399840,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399904109,
+  "payload": {
+    "message_id": 1587,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399903,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399906060,
+  "payload": {
+    "message_id": 1589,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399905,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399909319,
+  "payload": {
+    "message_id": 1591,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399909,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399910811,
+  "payload": {
+    "message_id": 1593,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399910,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399927843,
+  "payload": {
+    "message_id": 1595,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399927,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483399936820,
+  "payload": {
+    "message_id": 1597,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483399936,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400007009,
+  "payload": {
+    "message_id": 1600,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400006,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400025596,
+  "payload": {
+    "message_id": 1603,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400025,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400028163,
+  "payload": {
+    "message_id": 1605,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400027,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400078437,
+  "payload": {
+    "message_id": 1607,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400078,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400080057,
+  "payload": {
+    "message_id": 1609,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400079,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400372365,
+  "payload": {
+    "message_id": 1612,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400372,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483400374533,
+  "payload": {
+    "message_id": 1614,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483400374,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401603749,
+  "payload": {
+    "message_id": 1617,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401603,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401607224,
+  "payload": {
+    "message_id": 1619,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401607,
+    "text": "Stance: Berserk 😤"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401608285,
+  "payload": {
+    "message_id": 1621,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401608,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401634338,
+  "payload": {
+    "message_id": 1623,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401634,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401801778,
+  "payload": {
+    "message_id": 1626,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401801,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483401914022,
+  "payload": {
+    "message_id": 1629,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483401913,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402066272,
+  "payload": {
+    "message_id": 1632,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402066,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402069100,
+  "payload": {
+    "message_id": 1634,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402068,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402407284,
+  "payload": {
+    "message_id": 1637,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402407,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402409680,
+  "payload": {
+    "message_id": 1639,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402409,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402436530,
+  "payload": {
+    "message_id": 1641,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402436,
+    "text": "🚫 Alchemy 🌀"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402458523,
+  "payload": {
+    "message_id": 1642,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402458,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402460451,
+  "payload": {
+    "message_id": 1644,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402460,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402598635,
+  "payload": {
+    "message_id": 1646,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402517,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402598645,
+  "payload": {
+    "message_id": 1647,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402521,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402598645,
+  "payload": {
+    "message_id": 1648,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402544,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402599783,
+  "payload": {
+    "message_id": 1649,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402598,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483402600971,
+  "payload": {
+    "message_id": 1654,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483402600,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403227062,
+  "payload": {
+    "message_id": 1656,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403226,
+    "text": "Explore Map 🌏"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403229354,
+  "payload": {
+    "message_id": 1658,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403229,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403230593,
+  "payload": {
+    "message_id": 1660,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403230,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403238434,
+  "payload": {
+    "message_id": 1662,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403238,
+    "text": "Stance: Tank 🚜"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403752046,
+  "payload": {
+    "message_id": 1670,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403751,
+    "text": "💥 Green Fields"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403845160,
+  "payload": {
+    "message_id": 1673,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403844,
+    "text": "Back to overworld 🌐"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483403846604,
+  "payload": {
+    "message_id": 1675,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483403846,
+    "text": "My Stats 〽️"
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483405270684,
+  "payload": {
+    "message_id": 1687,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483405270,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483405439844,
+  "payload": {
+    "message_id": 1689,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483405415,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483405443503,
+  "payload": {
+    "message_id": 1691,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483405443,
+    "text": "/start",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  }
+},{
+  "username": "marcoworms",
+  "timestamp": 1483405490658,
+  "payload": {
+    "message_id": 1693,
+    "from": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms"
+    },
+    "chat": {
+      "id": 67950696,
+      "first_name": "Marco",
+      "last_name": "Worms",
+      "username": "marcoworms",
+      "type": "private"
+    },
+    "date": 1483405482,
+    "text": "My Stats 〽️"
+  }
+},

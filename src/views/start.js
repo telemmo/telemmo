@@ -1,6 +1,6 @@
 const emoji = require('node-emoji')
 const keyboard = require('./keyboards/classInfo')
-const errorKeyboard = require('./keyboards/overworld')
+const errorView = require('./overworld')
 const { getAllEmoji } = require('../models/classes')
 
 module.exports = {
@@ -12,6 +12,6 @@ Explore the starter classes in your keyboard menu.
 
 ${getAllEmoji()}
   `.trim()),
-    error: 'You already have a character :)',
-    errorKeyboard
+  error: errorView.message,
+  errorKeyboard: errorView.keyboard,
 }
