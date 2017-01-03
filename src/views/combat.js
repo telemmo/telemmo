@@ -9,7 +9,7 @@ module.exports = {
         [`:boom: ${map}`],
         classFromName(className).stances
           .map(stance =>
-            ':no_entry_sign: Stance: ' + stance + ' ' + stanceFromName(stance).emoji
+            'Stance: ' + stance + ' ' + stanceFromName(stance).emoji
           ),
         ['Back to overworld :globe_with_meridians:', 'Explore Map :earth_asia:'],
       ].map(row => row.map(el => emoji.emojify(el)))

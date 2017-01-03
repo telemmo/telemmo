@@ -40,7 +40,8 @@ const classes = [
 module.exports = {
   classFromName,
   getAllEmoji,
-  isValidClass
+  isValidClass,
+  classHasStance,
 }
 
 function classFromName (className) {
@@ -56,3 +57,10 @@ function getAllEmoji () {
   return classes.map(c => c.classEmoji).join(' ')
 }
 
+function classHasStance (className, stanceName) {
+  const clas = classFromName(className)
+  if (clas.stances.indexOf(stanceName) !== -1) {
+    return true
+  }
+  return false
+}

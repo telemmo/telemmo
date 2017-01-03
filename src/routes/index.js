@@ -5,4 +5,5 @@ module.exports = [
   require('./overworld'),
   require('./combat'),
   require('./stats'),
+  require('./change-stance'),
 ]

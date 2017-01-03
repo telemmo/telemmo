@@ -20,7 +20,7 @@ function handler (bot, msg, match) {
         view.message(map),
         view.keyboard(map, className)
       )
-      farming.start(bot, player, map, msg)
+      farming.start(bot, map, msg)
     })
   })
   .catch((e) => {

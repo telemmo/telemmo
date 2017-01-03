@@ -16,27 +16,29 @@ const clearTimer = (name) => {
   }
 }
 
-function start (bot, player, map, msg, $player = playerFromId(msg.from.id)) {
-  clearTimer(player.username)
-  timers[player.username] = setTimeout(() => {
-    afterCombat = combat(player.character, randomFromMap(map))
-		const playerWon = (afterCombat.winner === player.character.name)
-    if (playerWon) {
-      if (Object.keys(afterCombat.drop).length !== 0) {
-        $player.giveGems(afterCombat.drop)
+function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
+  $player.get().then((player) => {
+    clearTimer(player.username)
+    timers[player.username] = setTimeout(() => {
+      afterCombat = combat(player.character, randomFromMap(map))
+      const playerWon = (afterCombat.winner === player.character.name)
+      if (playerWon) {
+        if (Object.keys(afterCombat.drop).length !== 0) {
+          $player.giveGems(afterCombat.drop)
+        }
       }
-    }
-    bot.sendMessage(
-      msg.chat.id,
-      afterCombat.log,
-      { parse_mode: 'Markdown' }
-    )
-		if (!playerWon) {
-      clearTimer(player.username)
-      return
-    }
-    start(bot, player, map, msg, $player)
-  }, (Math.random() * 60 + 15) * 1000)
+      bot.sendMessage(
+        msg.chat.id,
+        afterCombat.log,
+        { parse_mode: 'Markdown' }
+      )
+      if (!playerWon) {
+        clearTimer(player.username)
+        return
+      }
+      start(bot, map, msg, $player)
+    }, (Math.random() * 60 + 15) * 1000)
+  })
 }
 
 function combat (fighter1, fighter2) {
@@ -87,7 +89,7 @@ function attack (attacker, defender) {
   var action = 'attacked'
   var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation - defender.def)
   if (Math.random() < attacker.critChance) {
-    action = '*CRITTED*'
+    action = 'CRITTED'
     damage = Math.floor(damage * attacker.critDmg)
   }
   const trueDamage = Math.max(damage, 0)
@@ -110,18 +112,9 @@ function attack (attacker, defender) {
 }
 
 function buildAttackLog (attacker, defender, action, number) {
-  return `*${attacker.name}* ${action} for *${number} dmg*.
-*${defender.name}* has *${Math.ceil(defender.hp/defender.maxHp * 100)}% hp* \`${buildHpBar(defender.hp, defender.maxHp)}\`
+  return `_${attacker.name} ${action} for ${number} dmg_.
+*${defender.name}* has *${Math.ceil(defender.hp/defender.maxHp * 100)}% hp* (${defender.hp}/${defender.maxHp})
 `
 }
 
-function buildHpBar(current, max) {
-  return `<${
-    Array.from({ length: 10 })
-      .map((el, i) =>
-        Math.floor((current/max) * 10) >= i + 1
-        ? '|'
-        : ' '
-      ).join('')
-  }>`
-}
+

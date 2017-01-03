@@ -38,7 +38,13 @@ function playerFromId (telegramId) {
         .updateAsync({ telegramId }, {
           $inc: gems
         })
-    }
+    },
+    changeStance: (stanceName) => players
+      .updateAsync({ telegramId }, {
+        $set: {
+          'character.stance': stanceName
+        }
+      })
   }
 }
 

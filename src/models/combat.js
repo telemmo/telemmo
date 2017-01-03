@@ -1,10 +1,26 @@
+const { stanceFromName } = require('./stances')
+
 module.exports = {
   combatStats,
   getStats,
 }
 
 function combatStats (fighter) {
-  return Object.assign({}, fighter, getStats(fighter))
+  var stats = getStats(fighter)
+  var combatStats = Object.assign({}, fighter, stats)
+
+  const stance = stanceFromName(fighter.stance)
+  if (stance) {
+    combatStats = applyBuff(stance.buffs(fighter), combatStats)
+  }
+  return combatStats
+}
+
+function applyBuff (buffs, stats) {
+  Object.keys(buffs).forEach(statName => {
+    stats[statName] = buffs[statName]
+  })
+  return stats
 }
 
 function getStats (fighter) {
