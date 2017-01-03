@@ -1,6 +1,6 @@
 # Bot key
 key.js
-all.txt
+*.txt
 
 .yarnclean
 .tern-port
