@@ -43,7 +43,9 @@ function buildDrop (monsterLoot) {
   if (!monsterLoot) { return false }
   return monsterLoot.types.reduce((drop, type) => {
     if (Math.random() * 100 < 50) {
-      drop[type] = Math.floor(Math.random() * monsterLoot.max) + 1
+      return (Object.assign({}, drop, {
+        [type]: Math.floor(Math.random() * monsterLoot.max) + 1
+      }))
     }
     return drop
   }, {})

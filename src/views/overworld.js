@@ -8,6 +8,7 @@ module.exports = {
 
 \`Dev notes:\`
 :no_entry_sign: = Not implemented yet :(
+:no_entry_sign: Merchant Gambler Stance
 
   `.trim()),
   error: `You don't have a character, create one at /start`
