@@ -8,7 +8,7 @@ function handler (bot, msg) {
     .then(() => {
       player.get()
         .then((player) => {
-          bot.sendMessage(msg.chat.id, view.message(player), view.keyboard)
+          bot.sendMessage(msg.chat.id, view.message(player))
         })
     })
     .catch((e) => {

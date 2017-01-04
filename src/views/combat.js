@@ -6,7 +6,7 @@ module.exports = {
   keyboard: (map, className) => ({
     reply_markup: {
       keyboard: [
-        [`:boom: ${map}`],
+        [`:boom: ${map}`, 'My Stats :part_alternation_mark:'],
         classFromName(className).stances
           .map(stance =>
             'Stance: ' + stance + ' ' + stanceFromName(stance).emoji

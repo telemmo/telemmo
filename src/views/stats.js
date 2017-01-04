@@ -4,7 +4,6 @@ const { getEmoji } = require('../models/gems')
 const { getStats } = require('../models/combat')
 
 module.exports = {
-  keyboard: Object.assign({}, keyboard, { parse_mode: 'markdown' }),
   message: player => {
     const combatStats = getStats(player.character)
     return emoji.emojify(`
