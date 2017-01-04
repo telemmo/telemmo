@@ -27,6 +27,10 @@ function playerFromId (telegramId) {
         .findAsync({ telegramId })
         .then(checkNotExisting)
     },
+    deleteCharacter: () => {
+      return players
+        .removeAsync({ telegramId })
+    },
     get: () => players
       .findAsync({ telegramId })
       .then(players => players[0]),
