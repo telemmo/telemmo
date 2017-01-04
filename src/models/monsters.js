@@ -4,7 +4,7 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 30,
+        spawnInfluence: 40,
       }
     ],
     str: 2,
@@ -14,8 +14,27 @@ const monsters = [
     int: 2,
     dex: 1,
     loot: {
-      types: ['Earth'],
-      max: 2,
+      types: ['Earth', 'Rock'],
+      max: 1,
+    },
+  },
+  {
+    name: 'Bird',
+    maps: [
+      {
+        name: 'Green Fields',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 2,
+    vit: 2,
+    agi: 2,
+    luk: 2,
+    int: 2,
+    dex: 2,
+    loot: {
+      types: ['Wind',],
+      max: 1,
     },
   },
   {
@@ -61,7 +80,7 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 15,
+        spawnInfluence: 18,
       }
     ],
     str: 4,
@@ -99,7 +118,7 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 5,
+        spawnInfluence: 4,
       }
     ],
     str: 10,
