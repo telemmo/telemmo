@@ -87,7 +87,7 @@ function getDefender (fighters, attacker) {
 function attack (attacker, defender) {
   var log = ''
   var action = 'attacked'
-  var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation - defender.def)
+  var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
   if (Math.random() < attacker.critChance) {
     action = 'CRITTED'
     damage = Math.floor(damage * attacker.critDmg)
