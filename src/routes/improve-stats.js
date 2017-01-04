@@ -1,3 +1,4 @@
+const emoji = require('node-emoji')
 const view = require('../views/improve-stats')
 const persistence = require('../persistence')
 const { playerFromId } = persistence.player
@@ -15,6 +16,6 @@ function handler (bot, msg) {
 }
 
 module.exports = {
-  message: /Stats .*/,
+  message: new RegExp(emoji.emojify('Stats :confetti_ball:')),
   handler,
 }
