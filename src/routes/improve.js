@@ -1,4 +1,4 @@
-const view = require('../views/stats')
+const view = require('../views/improve')
 const persistence = require('../persistence')
 const { playerFromId } = persistence.player
 
@@ -6,10 +6,7 @@ function handler (bot, msg) {
   const player = playerFromId(msg.from.id)
   player.isRegistered()
     .then(() => {
-      player.get()
-        .then((player) => {
-          bot.sendMessage(msg.chat.id, view.message(player))
-        })
+      bot.sendMessage(msg.chat.id, view.message, view.keyboard)
     })
     .catch((e) => {
       console.log(e)
@@ -18,6 +15,6 @@ function handler (bot, msg) {
 }
 
 module.exports = {
-  message: /My Stats.*/,
+  message: /Improve .*/,
   handler,
 }

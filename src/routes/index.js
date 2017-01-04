@@ -7,4 +7,8 @@ module.exports = [
   require('./combat'),
   require('./stats'),
   require('./change-stance'),
+  require('./improve'),
+  require('./improve-stats'),
+  require('./improve-stat'),
+  require('./add-stat-point'),
 ]

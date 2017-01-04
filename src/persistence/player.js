@@ -48,7 +48,33 @@ function playerFromId (telegramId) {
         $set: {
           'character.stance': stanceName
         }
-      })
+      }),
+    improve: (statName, amount) => {
+      const statRecipes = require('../models/recipes').stats[amount]
+      return players.findAsync({ telegramId })
+        .then(players => players[0])
+        .then(playerHard => {
+          statRecipes.forEach(gem => {
+            if (playerHard.gems[gem.name] < gem.amount) {
+              throw new Error('Not enough gems')
+            }
+          })
+          return statRecipes.reduce((acc, el) =>
+            Object.assign({}, acc, {
+              ['gems.' + el.name]: -el.amount
+            }),
+            {}
+          )
+        })
+        .then((gemsRemoved) => {
+          players.updateAsync({ telegramId }, {
+            $inc: Object.assign({},
+              { ['character.' + statName]: amount },
+              gemsRemoved
+            )
+          })
+        })
+    }
   }
 }
 
