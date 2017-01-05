@@ -133,26 +133,310 @@ const monsters = [
     },
   },
   {
-    name: 'Electric Buffalo',
+    name: 'Bat',
     maps: [
       {
-        name: 'Green Fields',
+        name: 'Cave',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 8,
+    vit: 8,
+    agi: 8,
+    luk: 8,
+    int: 8,
+    dex: 8,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind'],
+      max: 6,
+    },
+  },
+  {
+    name: 'Cave Spider',
+    maps: [
+      {
+        name: 'Cave',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 10,
+    vit: 10,
+    agi: 10,
+    luk: 10,
+    int: 10,
+    dex: 10,
+    loot: {
+      types: ['Rock', 'Earth'],
+      max: 7,
+    },
+  },
+  {
+    name: 'Rock Monster',
+    maps: [
+      {
+        name: 'Cave',
+        spawnInfluence: 10,
+      }
+    ],
+    str: 15,
+    vit: 15,
+    agi: 15,
+    luk: 15,
+    int: 15,
+    dex: 15,
+    loot: {
+      types: ['Rock'],
+      max: 20,
+    },
+  },
+    {
+    name: 'Cave Nightmare',
+    maps: [
+      {
+        name: 'Cave',
         spawnInfluence: 2,
       }
     ],
     str: 20,
     vit: 20,
+    agi: 5,
+    luk: 5,
+    int: 10,
+    dex: 10,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      max: 8,
+    },
+  },
+  {
+    name: 'Croco',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 35,
+      }
+    ],
+    str: 15,
+    vit: 15,
+    agi: 15,
+    luk: 15,
+    int: 15,
+    dex: 15,
+    loot: {
+      types: ['Earth', 'Shock'],
+      max: 8,
+    },
+  },
+  {
+    name: 'Piranha Horde',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 10,
+    vit: 13,
+    agi: 20,
+    luk: 15,
+    int: 5,
+    dex: 20,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      max: 6,
+    },
+  },
+  {
+    name: 'Crazed Tribesman',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 15,
+      }
+    ],
+    str: 15,
+    vit: 13,
+    agi: 20,
+    luk: 20,
+    int: 10,
+    dex: 20,
+    loot: {
+      types: ['Wind', 'Shock'],
+      max: 8,
+    },
+  },
+  {
+    name: 'Swamp Thing',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 20,
+    vit: 25,
+    agi: 20,
+    luk: 20,
+    int: 20,
+    dex: 20,
+    loot: {
+      types: ['Earth', 'Wind', 'Shock'],
+      max: 8,
+    },
+  },
+  {
+    name: 'Demonic Florest',
+    maps: [
+      {
+        name: 'Possessed Deer',
+        spawnInfluence: 40,
+      }
+    ],
+    str: 25,
+    vit: 20,
+    agi: 15,
+    luk: 20,
+    int: 10,
+    dex: 15,
+    loot: {
+      types: ['Wind', 'Shock'],
+      max: 8,
+    },
+  },
+  {
+    name: 'Flying Demon',
+    maps: [
+      {
+        name: 'Demonic Florest',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 15,
+    vit: 15,
+    agi: 30,
+    luk: 28,
+    int: 15,
+    dex: 30,
+    loot: {
+      types: ['Wind'],
+      max: 10,
+    },
+  },
+  {
+    name: 'Possessor',
+    maps: [
+      {
+        name: 'Demonic Florest',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 20,
+    vit: 40,
+    agi: 15,
+    luk: 15,
+    int: 30,
+    dex: 15,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      max: 15,
+    },
+  },
+  {
+    name: 'Corrupted Florest Keeper',
+    maps: [
+      {
+        name: 'Demonic Florest',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 40,
+    vit: 35,
     agi: 20,
     luk: 20,
     int: 20,
     dex: 20,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 8,
+      max: 10,
+    },
+  },
+  {
+    name: 'Raged Yak',
+    maps: [
+      {
+        name: 'Snowy Peak',
+        spawnInfluence: 40,
+      }
+    ],
+    str: 25,
+    vit: 40,
+    agi: 20,
+    luk: 20,
+    int: 20,
+    dex: 20,
+    loot: {
+      types: ['Rock','Wind'],
+      max: 10,
+    },
+  },
+  {
+    name: 'Wolf Pack',
+    maps: [
+      {
+        name: 'Snowy Peak',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 20,
+    vit: 20,
+    agi: 40,
+    luk: 30,
+    int: 20,
+    dex: 35,
+    loot: {
+      types: ['Wind', 'Shock'],
+      max: 10,
+    },
+  },
+  {
+    name: 'Breeze Owl',
+    maps: [
+      {
+        name: 'Snowy Peak',
+        spawnInfluence: 15,
+      }
+    ],
+    str: 20,
+    vit: 20,
+    agi: 40,
+    luk: 20,
+    int: 40,
+    dex: 40,
+    loot: {
+      types: ['Wind'],
+      max: 15,
+    },
+  },
+  {
+    name: 'Yeti',
+    maps: [
+      {
+        name: 'Snowy Peak',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 40,
+    vit: 40,
+    agi: 30,
+    luk: 20,
+    int: 25,
+    dex: 40,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      max: 20,
     },
   },
 ]
-
 module.exports = {
   randomFromMap,
   isValidMap
