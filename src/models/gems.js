@@ -43,8 +43,10 @@ function buildDrop (monsterLoot, dropRatio) {
   if (!monsterLoot) { return false }
   return monsterLoot.types.reduce((drop, type) => {
     if (Math.random() * 100 < 50) {
+      const amount = Math.floor(Math.random() * monsterLoot.max * dropRatio) + 1
+      if (isNaN(amount)) { return drop }
       return (Object.assign({}, drop, {
-        [type]: Math.floor(Math.random() * monsterLoot.max * dropRatio) + 1
+        [type]: amount
       }))
     }
     return drop
