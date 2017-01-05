@@ -8,10 +8,9 @@ module.exports = {
 function combatStats (fighter) {
   var stats = getStats(fighter)
   var combatStats = Object.assign({}, fighter, stats)
-
   const stance = stanceFromName(fighter.stance)
   if (stance) {
-    combatStats = applyBuff(stance.buffs(fighter), combatStats)
+    combatStats = applyBuff(stance.buffs(combatStats), combatStats)
   }
   return combatStats
 }
