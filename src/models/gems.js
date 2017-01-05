@@ -39,12 +39,12 @@ function buildGems () {
   )
 }
 
-function buildDrop (monsterLoot) {
+function buildDrop (monsterLoot, dropRatio) {
   if (!monsterLoot) { return false }
   return monsterLoot.types.reduce((drop, type) => {
     if (Math.random() * 100 < 50) {
       return (Object.assign({}, drop, {
-        [type]: Math.floor(Math.random() * monsterLoot.max) + 1
+        [type]: Math.floor(Math.random() * monsterLoot.max * dropRatio) + 1
       }))
     }
     return drop

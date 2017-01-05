@@ -50,7 +50,7 @@ function combat (fighter1, fighter2) {
 
 	while (winner === null) {
     const willAttack = fighters
-      .filter(fighter => time % fighter.aspd === 0)
+      .filter(fighter => time % Math.floor(1000/fighter.aspd) === 0)
 
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
@@ -102,7 +102,7 @@ function attack (attacker, defender) {
     return {
       log,
       winner: attacker.name,
-      drop: buildDrop(defender.loot)
+      drop: buildDrop(defender.loot, attacker.dropRatio)
     }
   }
   return {

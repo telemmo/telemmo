@@ -27,7 +27,7 @@ function getStats (fighter) {
   return {
     maxHp: 20 + fighter.vit,
     hp:  20 + fighter.vit,
-    aspd: 200 - fighter.agi,
+    aspd: fighter.agi*2 + 50,
 		atk: 10 + fighter.str,
 		def: 5 + Math.floor(fighter.vit/2),
 		atkVariation: 0.3 - fighter.dex/350,
