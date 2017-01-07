@@ -28,8 +28,8 @@ function getStats (fighter) {
     hp:  30 + Math.floor(fighter.vit/2),
     aspd: fighter.agi * 2 + 50,
     atk: 10 + fighter.str + Math.floor(fighter.dex/2),
-		def: 5 + Math.floor(fighter.vit/3),
-		atkVariation: 0.3 - fighter.dex/350,
+    def: 5 + Math.floor(fighter.vit/3),
+    atkVariation: 0.3 - fighter.dex/350,
     skillCast: 0.1 + fighter.dex/250,
     stunChance: 0,
     slowChance: 0,
@@ -38,7 +38,7 @@ function getStats (fighter) {
     dodge: 0.05 + fighter.agi/400,
     wildRngDamage: false,
     accuracy: 0.65 + fighter.dex/200,
-		critChance: fighter.luk/150,
-		critDmg: 2 + fighter.str/100 + fighter.luk/200,
+    critChance: fighter.luk/150,
+    critDmg: 2 + fighter.str/100 + fighter.luk/200,
   }
 }
