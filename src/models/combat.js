@@ -24,11 +24,11 @@ function applyBuff (buffs, stats) {
 
 function getStats (fighter) {
   return {
-    maxHp: 20 + fighter.vit,
-    hp:  20 + fighter.vit,
-    aspd: fighter.agi*2 + 50,
-		atk: 10 + fighter.str,
-		def: 5 + Math.floor(fighter.vit/2),
+    maxHp: 30 + Math.floor(fighter.vit/2),
+    hp:  30 + Math.floor(fighter.vit/2),
+    aspd: fighter.agi * 2 + 50,
+    atk: 10 + fighter.str + Math.floor(fighter.dex/2),
+		def: 5 + Math.floor(fighter.vit/3),
 		atkVariation: 0.3 - fighter.dex/350,
     skillCast: 0.1 + fighter.dex/250,
     stunChance: 0,
