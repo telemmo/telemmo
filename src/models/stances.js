@@ -25,19 +25,21 @@ const stances = [
     name: 'Tank',
     emoji: ':tractor:',
     classes: ['Fighter'],
-    description: '+100% VIT',
+    description: '+100% HP',
     buffs: player => ({
-      vit: player.vit * 2
+      hp: player.hp * 2,
+      maxHp: player.maxHp * 2,
     }),
   },
   {
     name: 'Berserk',
     emoji: ':triumph:',
     classes: ['Fighter'],
-    description: '-75% VIT, All VIT removed goes to AGI',
+    description: '-50% HP, +50% ATK',
     buffs: player => ({
-      vit: player.vit - Math.floor(player.vit * 0.75),
-      agi: player.agi + Math.floor(player.vit * 0.75)
+      hp: player.hp / 2,
+      maxHp: player.maxHp / 2,
+      atk: player.atk * 1.5,
     }),
   },
   {
@@ -53,21 +55,19 @@ const stances = [
     name: 'Stealth',
     emoji: ':ghost:',
     classes: ['Thief'],
-    description: '+25% AGI, +25% DEX',
+    description: '+25% Attack Speed, +25% ATK',
     buffs: player => ({
-      agi: player.agi + player.agi * 0.25,
-      dex: player.dex + player.dex * 0.25,
+      aspd: player.aspd * 1.25,
+      atk: player.atk * 1.25,
     }),
   },
   {
     name: 'Heretic',
     emoji: ':mortar_board:',
     classes: ['Acolyte'],
-    description: '-100% INT, all INT removed is split between STR and AGI',
+    description: '+100% ATK',
     buffs: player => ({
-      int: 0,
-      str: player.str + Math.floor(player.int/2),
-      agi: player.agi + Math.floor(player.int/2),
+      atk: player.atk *2,
     }),
   },
   {
@@ -83,10 +83,10 @@ const stances = [
     name: 'Sniper',
     emoji: ':eight_pointed_black_star:',
     classes: ['Ranger'],
-    description: '+50% DEX, +25% AGI',
+    description: '+50% ATK, +25% ASPD',
     buffs: player => ({
-      agi: player.agi + player.agi * 0.25,
-      dex: player.dex + player.dex * 0.50,
+      atk: player.atk * 1.5,
+      aspd: player.aspd * 1.25,
     }),
   },
   {
