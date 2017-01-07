@@ -15,7 +15,7 @@ const monsters = [
     dex: 1,
     loot: {
       types: ['Earth', 'Rock'],
-      max: 1,
+      max: 2,
     },
   },
   {
@@ -34,11 +34,11 @@ const monsters = [
     dex: 2,
     loot: {
       types: ['Wind',],
-      max: 1,
+      max: 2,
     },
   },
   {
-    name: 'Big Rat',
+    name: 'Goat',
     maps: [
       {
         name: 'Green Fields',
@@ -71,7 +71,7 @@ const monsters = [
     int: 6,
     dex: 7,
     loot: {
-      types: ['Wind'],
+      types: ['Wind', 'Rock'],
       max: 4,
     },
   },
@@ -91,7 +91,7 @@ const monsters = [
     dex: 5,
     loot: {
       types: ['Wind', 'Earth'],
-      max: 2,
+      max: 3,
     },
   },
   {
@@ -99,7 +99,7 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 7,
+        spawnInfluence: 5,
       }
     ],
     str: 7,
@@ -109,7 +109,7 @@ const monsters = [
     int: 7,
     dex: 7,
     loot: {
-      types: ['Water',],
+      types: ['Wind', 'Earth', 'Water',],
       max: 5,
     },
   },
@@ -118,7 +118,7 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 4,
+        spawnInfluence: 2,
       }
     ],
     str: 10,
@@ -285,7 +285,7 @@ const monsters = [
     },
   },
   {
-    name: 'Demonic Florest',
+    name: 'Demonic Forest',
     maps: [
       {
         name: 'Possessed Deer',
@@ -307,7 +307,7 @@ const monsters = [
     name: 'Flying Demon',
     maps: [
       {
-        name: 'Demonic Florest',
+        name: 'Demonic Forest',
         spawnInfluence: 30,
       }
     ],
@@ -319,14 +319,14 @@ const monsters = [
     dex: 30,
     loot: {
       types: ['Wind'],
-      max: 10,
+      max: 15,
     },
   },
   {
     name: 'Possessor',
     maps: [
       {
-        name: 'Demonic Florest',
+        name: 'Demonic Forest',
         spawnInfluence: 20,
       }
     ],
@@ -338,14 +338,14 @@ const monsters = [
     dex: 15,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 15,
+      max: 20,
     },
   },
   {
     name: 'Corrupted Florest Keeper',
     maps: [
       {
-        name: 'Demonic Florest',
+        name: 'Demonic Forest',
         spawnInfluence: 5,
       }
     ],
@@ -357,7 +357,7 @@ const monsters = [
     dex: 20,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 10,
+      max: 20,
     },
   },
   {
@@ -375,7 +375,7 @@ const monsters = [
     int: 20,
     dex: 20,
     loot: {
-      types: ['Rock','Wind'],
+      types: ['Water'],
       max: 10,
     },
   },
@@ -403,13 +403,13 @@ const monsters = [
     maps: [
       {
         name: 'Snowy Peak',
-        spawnInfluence: 15,
+        spawnInfluence: 10,
       }
     ],
-    str: 20,
-    vit: 20,
+    str: 30,
+    vit: 30,
     agi: 40,
-    luk: 20,
+    luk: 30,
     int: 40,
     dex: 40,
     loot: {
@@ -432,8 +432,27 @@ const monsters = [
     int: 25,
     dex: 40,
     loot: {
-      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      types: ['Rock', 'Water', 'Earth', 'Wind', 'Shock'],
       max: 20,
+    },
+  },
+  {
+    name: 'Ice Lord',
+    maps: [
+      {
+        name: 'Snowy Peak',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 60,
+    vit: 60,
+    agi: 60,
+    luk: 60,
+    int: 60,
+    dex: 60,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      max: 50,
     },
   },
 ]
