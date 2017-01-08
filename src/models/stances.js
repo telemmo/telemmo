@@ -53,7 +53,7 @@ const stances = [
     name: 'Stealth',
     emoji: ':ghost:',
     classes: ['Thief'],
-    description: '+25% Attack Speed, +25% ATK, +10% dodge',
+    description: '+35% Attack Speed, +35% ATK, +10% dodge',
     buffs: player => ({
       aspd: player.aspd * 1.35,
       atk: player.atk * 1.35,
