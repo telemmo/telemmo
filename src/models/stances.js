@@ -25,8 +25,8 @@ const stances = [
     classes: ['Fighter'],
     description: '+70% HP',
     buffs: player => ({
-      hp: player.hp * 1.70,
-      maxHp: player.maxHp * 1.70,
+      hp: Math.floor(player.hp * 1.70),
+      maxHp: Math.floor(player.maxHp * 1.70),
     }),
   },
   {
@@ -35,8 +35,8 @@ const stances = [
     classes: ['Fighter'],
     description: '-50% HP, +50% ATK',
     buffs: player => ({
-      hp: player.hp / 2,
-      maxHp: player.maxHp / 2,
+      hp: Math.floor(player.hp / 2),
+      maxHp: Math.floor(player.maxHp / 2),
       atk: player.atk * 1.5,
     }),
   },
