@@ -20,7 +20,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
   $player.get().then((player) => {
     clearTimer(player.first_name)
     timers[player.first_name] = setTimeout(() => {
-      afterCombat = combat(player.character, randomFromMap(map))
+      const afterCombat = combat(player.character, randomFromMap(map))
       const playerWon = (afterCombat.winner === player.character.name)
       if (playerWon) {
         if (Object.keys(afterCombat.drop).length !== 0) {
@@ -37,7 +37,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
         return
       }
       start(bot, map, msg, $player)
-    }, (Math.random() * 60 + 15) * 1000)
+    }, (Math.random() * 40 + 20) * 1000)
   })
 }
 
@@ -87,16 +87,36 @@ function getDefender (fighters, attacker) {
 function attack (attacker, defender) {
   var log = ''
   var action = 'attacked'
+  var modifiers = []
+
+  if (attacker.stunned) {
+    attacker.stunned = false
+    return {
+      log: `_${attacker.name} is stunned and lost a turn!_\n`,
+      winner: null,
+    }
+  }
+
   var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
+
   if (Math.random() < attacker.critChance) {
-    action = 'CRITTED'
+    modifiers.push('CRIT')
     damage = Math.floor(damage * attacker.critDmg)
   }
+  if (Math.random() < defender.dodge) {
+    modifiers.push('MISS')
+    damage = 0
+  }
+  if (Math.random() < attacker.stunChance && damage !== 0) {
+    modifiers.push('STUN')
+    defender.stunned = true
+  }
+
   const trueDamage = Math.max(damage, 0)
   const hpAfterDamage = defender.hp - trueDamage
   defender.hp = Math.max(hpAfterDamage, 0)
 
-  log += buildAttackLog(attacker, defender, action, trueDamage)
+  log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
 
   if (defender.hp <= 0) {
     return {
@@ -111,10 +131,18 @@ function attack (attacker, defender) {
   }
 }
 
-function buildAttackLog (attacker, defender, action, number) {
-  return `_${attacker.name} ${action} for ${number} dmg_.
-*${defender.name}* has *${Math.ceil(defender.hp/defender.maxHp * 100)}% hp* (${defender.hp}/${defender.maxHp})
+function buildAttackLog (attacker, defender, action, number, modifiers) {
+  return `_${attacker.name} ${action} for ${number} dmg_ *${modifiers.join('! ')}*
+${(modifiers.indexOf('MISS') === -1) ? `*${
+  defender.name
+}* has *${
+  Math.ceil(defender.hp/defender.maxHp * 100)
+}% hp* (${
+  defender.hp}/${defender.maxHp
+})
 `
+  : ''
+}`
 }
 
 

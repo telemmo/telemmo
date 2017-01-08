@@ -33,7 +33,7 @@ const classes = [
       className: 'Merchant',
       classEmoji: ':moneybag:',
       mainStats: ['luk', 'dex'],
-      stances: ['Gambler', 'Breaker'],
+      stances: ['Efficient', 'Breaker'],
     },
 ]
 

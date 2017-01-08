@@ -4,15 +4,15 @@ const monsters = [
     maps: [
       {
         name: 'Green Fields',
-        spawnInfluence: 40,
+        spawnInfluence: 30,
       }
     ],
-    str: 2,
-    vit: 1,
-    agi: 2,
-    luk: 1,
-    int: 2,
-    dex: 1,
+    str: 4,
+    vit: 4,
+    agi: 4,
+    luk: 4,
+    int: 4,
+    dex: 4,
     loot: {
       types: ['Earth', 'Rock'],
       max: 2,
@@ -26,12 +26,12 @@ const monsters = [
         spawnInfluence: 25,
       }
     ],
-    str: 2,
-    vit: 2,
-    agi: 2,
-    luk: 2,
-    int: 2,
-    dex: 2,
+    str: 4,
+    vit: 4,
+    agi: 4,
+    luk: 4,
+    int: 4,
+    dex: 4,
     loot: {
       types: ['Wind',],
       max: 2,
@@ -46,10 +46,10 @@ const monsters = [
       }
     ],
     str: 4,
-    vit: 5,
-    agi: 3,
-    luk: 3,
-    int: 4,
+    vit: 4,
+    agi: 4,
+    luk: 5,
+    int: 5,
     dex: 5,
     loot: {
       types: ['Earth', 'Rock'],
@@ -64,12 +64,12 @@ const monsters = [
         spawnInfluence: 15,
       }
     ],
-    str: 5,
-    vit: 6,
+    str: 7,
+    vit: 7,
     agi: 7,
-    luk: 5,
+    luk: 6,
     int: 6,
-    dex: 7,
+    dex: 6,
     loot: {
       types: ['Wind', 'Rock'],
       max: 4,
@@ -83,12 +83,12 @@ const monsters = [
         spawnInfluence: 18,
       }
     ],
-    str: 4,
-    vit: 2,
-    agi: 4,
-    luk: 3,
-    int: 3,
-    dex: 5,
+    str: 6,
+    vit: 6,
+    agi: 6,
+    luk: 6,
+    int: 6,
+    dex: 6,
     loot: {
       types: ['Wind', 'Earth'],
       max: 3,
@@ -185,8 +185,8 @@ const monsters = [
     int: 15,
     dex: 15,
     loot: {
-      types: ['Rock'],
-      max: 8,
+      types: ['Rock', 'Shock'],
+      max: 6,
     },
   },
     {

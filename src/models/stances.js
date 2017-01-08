@@ -14,21 +14,19 @@ const stances = [
     name: 'Debuff',
     emoji: ':hotsprings:',
     classes: ['Mage'],
-    description: '+20% chance to stun, slow or silence on every attack',
+    description: '+30% chance to stun',
     buffs: player => ({
-      stunChance: player.stunChance + 0.20,
-      slowChance: player.slowChance + 0.20,
-      silenceChance: player.silenceChance + 0.20,
+      stunChance: player.stunChance + 0.30,
     }),
   },
   {
     name: 'Tank',
     emoji: ':tractor:',
     classes: ['Fighter'],
-    description: '+100% HP',
+    description: '+70% HP',
     buffs: player => ({
-      hp: player.hp * 2,
-      maxHp: player.maxHp * 2,
+      hp: player.hp * 1.70,
+      maxHp: player.maxHp * 1.70,
     }),
   },
   {
@@ -46,28 +44,29 @@ const stances = [
     name: 'Loot',
     emoji: ':moneybag:',
     classes: ['Thief'],
-    description: 'Doubles monster drop ratio',
+    description: '+50% monster drop ratio',
     buffs: player => ({
-      dropRatio: player.dropRatio * 2,
+      dropRatio: player.dropRatio * 1.5,
     }),
   },
   {
     name: 'Stealth',
     emoji: ':ghost:',
     classes: ['Thief'],
-    description: '+25% Attack Speed, +25% ATK',
+    description: '+25% Attack Speed, +25% ATK, +10% dodge',
     buffs: player => ({
-      aspd: player.aspd * 1.25,
-      atk: player.atk * 1.25,
+      aspd: player.aspd * 1.35,
+      atk: player.atk * 1.35,
+      dodge: player.dodge * 1.1,
     }),
   },
   {
     name: 'Heretic',
     emoji: ':mortar_board:',
     classes: ['Acolyte'],
-    description: '+100% ATK',
+    description: '+80% ATK',
     buffs: player => ({
-      atk: player.atk *2,
+      atk: player.atk * 1.8,
     }),
   },
   {
@@ -99,21 +98,24 @@ const stances = [
     }),
   },
   {
-    name: 'Gambler',
+    name: 'Efficient',
     emoji: ':flower_playing_cards:',
     classes: ['Merchant'],
-    description: 'Wild RNG! All damage is multiplied by a random number between 0 and 4',
+    description: '+20% monster drop ratio, +20% DEX, +20% LUK',
     buffs: player => ({
-      wildRngDamage: true
+      dropRatio: player.dropRatio * 1.2,
+      dex: player.dex * 1.2,
+      luk: player.luk * 1.2,
     }),
   },
   {
     name: 'Breaker',
     emoji: ':eight_spoked_asterisk:',
     classes: ['Merchant'],
-    description: '+25% stun chance on every attack.',
+    description: '+20% ATK, +15% chance to stun.',
     buffs: player => ({
-      stunChance: player.stunChance + 0.25
+      atk: player.atk * 1.2,
+      stunChance: player.stunChance + 0.15,
     }),
   },
 ]
