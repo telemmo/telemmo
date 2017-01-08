@@ -10,7 +10,10 @@ Character created. Have fun!
 
 \`Dev notes:\`
 :no_entry_sign: = Not implemented yet :(
+
 Check the subreddit for information or feedback: https://www.reddit.com/r/telemmo
+
+Chat group: https://t.me/joinchat/AAAAAApF7BYJ4FpMQ5r0nA
 
   `.trim()),
   error: 'You already have a character :)'
