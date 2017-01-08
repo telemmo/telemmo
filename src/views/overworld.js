@@ -11,7 +11,7 @@ module.exports = {
 
 Check the subreddit for information or feedback: https://www.reddit.com/r/telemmo
 
-Chat group: https://t.me/joinchat/AAAAAApF7BYJ4FpMQ5r0nA
+Chat group: https://telegram.me/telemmo
   `.trim()),
   error: `You don't have a character, create one at /start`
 }

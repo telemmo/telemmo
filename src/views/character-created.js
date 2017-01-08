@@ -13,7 +13,7 @@ Character created. Have fun!
 
 Check the subreddit for information or feedback: https://www.reddit.com/r/telemmo
 
-Chat group: https://t.me/joinchat/AAAAAApF7BYJ4FpMQ5r0nA
+Chat group: https://telegram.me/telemmo
 
   `.trim()),
   error: 'You already have a character :)'
