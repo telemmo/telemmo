@@ -92,7 +92,7 @@ const stances = [
     name: 'Trapper',
     emoji: ':fishing_pole_and_fish:',
     classes: ['Ranger'],
-    description: '+400% dodge chance',
+    description: '4x dodge chance',
     buffs: player => ({
       dodge: player.dodge * 4
     }),
