@@ -285,10 +285,10 @@ const monsters = [
     },
   },
   {
-    name: 'Demonic Forest',
+    name: 'Possessed Deer',
     maps: [
       {
-        name: 'Possessed Deer',
+        name: 'Demonic Forest',
         spawnInfluence: 40,
       }
     ],
