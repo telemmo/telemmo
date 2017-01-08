@@ -1,3 +1,5 @@
+For information about the game check out the community: https://www.reddit.com/r/telemmo/
+
 Refactor notes:
 
 - Use ramda for imutability consistency and functional helpers
