@@ -33,11 +33,12 @@ const stances = [
     name: 'Berserk',
     emoji: ':triumph:',
     classes: ['Fighter'],
-    description: '-50% HP, +50% ATK',
+    description: '-75% HP, +100% ATK, +50% Attack Speed',
     buffs: player => ({
-      hp: Math.floor(player.hp / 2),
-      maxHp: Math.floor(player.maxHp / 2),
-      atk: player.atk * 1.5,
+      hp: Math.floor(player.hp * 0.25),
+      maxHp: Math.floor(player.maxHp * 0.25),
+      atk: player.atk * 2,
+      aspd: player.aspd * 1.5,
     }),
   },
   {
@@ -64,9 +65,9 @@ const stances = [
     name: 'Heretic',
     emoji: ':mortar_board:',
     classes: ['Acolyte'],
-    description: '+80% ATK',
+    description: '+70% ATK',
     buffs: player => ({
-      atk: player.atk * 1.8,
+      atk: player.atk * 1.7,
     }),
   },
   {
@@ -82,10 +83,10 @@ const stances = [
     name: 'Sniper',
     emoji: ':eight_pointed_black_star:',
     classes: ['Ranger'],
-    description: '+50% ATK, +25% ASPD',
+    description: '+30% ATK, +40% Attack Speed',
     buffs: player => ({
-      atk: player.atk * 1.5,
-      aspd: player.aspd * 1.25,
+      atk: player.atk * 1.3,
+      aspd: player.aspd * 1.4,
     }),
   },
   {
@@ -101,9 +102,9 @@ const stances = [
     name: 'Efficient',
     emoji: ':flower_playing_cards:',
     classes: ['Merchant'],
-    description: '+20% monster drop ratio, +20% DEX, +20% LUK',
+    description: '+30% monster drop ratio, +20% ATK, +20% dodge',
     buffs: player => ({
-      dropRatio: player.dropRatio * 1.2,
+      dropRatio: player.dropRatio * 1.3,
       dex: player.dex * 1.2,
       luk: player.luk * 1.2,
     }),
@@ -112,10 +113,10 @@ const stances = [
     name: 'Breaker',
     emoji: ':eight_spoked_asterisk:',
     classes: ['Merchant'],
-    description: '+20% ATK, +15% chance to stun.',
+    description: '+30% ATK, +20% chance to stun.',
     buffs: player => ({
-      atk: player.atk * 1.2,
-      stunChance: player.stunChance + 0.15,
+      atk: player.atk * 1.3,
+      stunChance: player.stunChance + 0.20,
     }),
   },
 ]
