@@ -1,3 +1,4 @@
+const emoji = require('node-emoji')
 const { randomFromMap } = require('./models/monsters')
 const { buildDrop, getEmoji } = require('./models/gems')
 const { combatStats } = require('./models/combat')
@@ -43,7 +44,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
 
 function combat (fighter1, fighter2) {
   const fighters = [combatStats(fighter1), combatStats(fighter2)]
-	var log = `A wild ${fighter2.name} appeared!\n\n`
+	var log = `*${fighter2.name}* _vs_ *${fighter1.name}*\n\n`
   var winner = null
   var drop = {}
   var time = 0
@@ -60,7 +61,9 @@ function combat (fighter1, fighter2) {
         if (afterAttack.winner) {
           winner = afterAttack.winner
           drop = afterAttack.drop ? afterAttack.drop : {}
-          log += `\n${afterAttack.winner} won!\n${viewDrop(afterAttack.drop)}`
+          log = `${
+            emoji.emojify(fighter.loot ? ':x:' : ':heavy_check_mark:')
+          } ${afterAttack.winner} won!\n\n` + log + '\n' + viewDrop(afterAttack.drop)
         }
 			})
     }
@@ -75,8 +78,9 @@ function combat (fighter1, fighter2) {
 }
 
 function viewDrop (drop) {
-  return Object.keys(drop)
-    .map(name => `${getEmoji(name)} +${drop[name]}\n`).join('')
+  return Object.keys(drop).length !== 0 ? 'Loot: ' + Object.keys(drop)
+        .map(name => `+${drop[name]} ${getEmoji(name)} `).join('')
+      : ''
 }
 
 function getDefender (fighters, attacker) {
@@ -132,8 +136,12 @@ function attack (attacker, defender) {
 }
 
 function buildAttackLog (attacker, defender, action, number, modifiers) {
-  return `_${attacker.name} ${action} for ${number} dmg_ *${modifiers.join('! ')}*
-${(modifiers.indexOf('MISS') === -1) ? `*${
+  return `${
+    emoji.emojify(attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:')
+  } _${attacker.name} ${action} for ${number} dmg_ *${modifiers.join('! ')}*
+${(modifiers.indexOf('MISS') === -1) ? `${
+  emoji.emojify(defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:')
+} *${
   defender.name
 }* has *${
   Math.ceil(defender.hp/defender.maxHp * 100)
