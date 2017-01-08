@@ -50,16 +50,17 @@ function playerFromId (telegramId) {
         }
       }),
     improve: (statName, amount) => {
-      const statRecipes = require('../models/recipes').stats[amount]
+      const recipe = require('../models/recipes').stats[amount]
+      if (!recipe) { throw new Error('Invalid amount of stats to improve') }
       return players.findAsync({ telegramId })
         .then(players => players[0])
         .then(playerHard => {
-          statRecipes.forEach(gem => {
+          recipe.forEach(gem => {
             if (playerHard.gems[gem.name] < gem.amount) {
               throw new Error('Not enough gems')
             }
           })
-          return statRecipes.reduce((acc, el) =>
+          return recipe.reduce((acc, el) =>
             Object.assign({}, acc, {
               ['gems.' + el.name]: -el.amount
             }),
@@ -69,7 +70,7 @@ function playerFromId (telegramId) {
         .then((gemsRemoved) => {
           players.updateAsync({ telegramId }, {
             $inc: Object.assign({},
-              { ['character.' + statName]: amount },
+              { ['character.' + statName]: parseInt(amount, 10) },
               gemsRemoved
             )
           })

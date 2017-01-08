@@ -8,9 +8,7 @@ module.exports = {
   keyboard: (statName) => ({
     reply_markup: {
       keyboard: [
-        [`${e} ${statName.toUpperCase()} +2`,
-        `:no_entry_sign: ${e} ${statName.toUpperCase()} +5`,
-        `:no_entry_sign: ${e} ${statName.toUpperCase()} +10`],
+        [`${e} ${statName.toUpperCase()} +1`, `${e} ${statName.toUpperCase()} +5`],
         ['Stats :confetti_ball:', 'Back to overworld :globe_with_meridians:', 'My Stats :part_alternation_mark:']
       ].map(row => row.map(key => emoji.emojify(key)))
     }
@@ -18,7 +16,9 @@ module.exports = {
   message: emoji.emojify(`
 Upgrades cost:
 
-+2 points:${recipes.stats[2].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
++1 point:${recipes.stats[1].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
+
++5 points:${recipes.stats[5].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
   `.trim()),
   error: `You don't have a character, create one at /start`
 }

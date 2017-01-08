@@ -15,10 +15,12 @@ const stats = [
 function handler (bot, msg, match) {
   const player = playerFromId(msg.from.id)
   var statName
+  var amount
   player.isRegistered()
     .then(() => {
       try {
         statName = match[1].split(' ')[0]
+        amount = match[1].split(' ')[1][1]
       } catch (e) {
         throw new Error(e)
       }
@@ -29,10 +31,10 @@ function handler (bot, msg, match) {
 
     })
     .then(() => {
-      return player.improve(statName.toLowerCase(), 2)
+      return player.improve(statName.toLowerCase(), amount)
     })
     .then(() => {
-      bot.sendMessage(msg.chat.id, view.message(statName))
+      bot.sendMessage(msg.chat.id, view.message(statName, amount))
     })
     .catch((e) => {
       console.log(e)
@@ -45,8 +47,3 @@ module.exports = {
   handler,
 }
 
-function checkStatName (statName) {
-  if (!statName) {
-    throw new Error('Invalid stat name')
-  }
-}
