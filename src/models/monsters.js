@@ -148,7 +148,7 @@ const monsters = [
     dex: 8,
     loot: {
       types: ['Rock', 'Earth', 'Wind'],
-      max: 5,
+      max: 3,
     },
   },
   {
@@ -166,8 +166,8 @@ const monsters = [
     int: 10,
     dex: 10,
     loot: {
-      types: ['Rock', 'Earth'],
-      max: 6,
+      types: ['Rock', 'Earth', 'Wind'],
+      max: 5,
     },
   },
   {
@@ -185,8 +185,8 @@ const monsters = [
     int: 15,
     dex: 15,
     loot: {
-      types: ['Rock', 'Shock'],
-      max: 6,
+      types: ['Rock'],
+      max: 7,
     },
   },
     {
@@ -199,12 +199,12 @@ const monsters = [
     ],
     str: 20,
     vit: 20,
-    agi: 5,
-    luk: 5,
+    agi: 25,
+    luk: 25,
     int: 10,
     dex: 10,
     loot: {
-      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      types: ['Earth', 'Wind', 'Shock'],
       max: 8,
     },
   },
@@ -223,8 +223,8 @@ const monsters = [
     int: 35,
     dex: 35,
     loot: {
-      types: ['Water', 'Earth', 'Shock'],
-      max: 9,
+      types: ['Water', 'Shock'],
+      max: 8,
     },
   },
   {
@@ -242,7 +242,7 @@ const monsters = [
     int: 35,
     dex: 30,
     loot: {
-      types: ['Water', 'Rock', 'Earth', 'Wind', 'Shock'],
+      types: ['Water', 'Wind', ],
       max: 10,
     },
   },
