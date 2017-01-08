@@ -102,15 +102,15 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 7,
-    vit: 7,
-    agi: 5,
-    luk: 6,
-    int: 7,
-    dex: 7,
+    str: 9,
+    vit: 9,
+    agi: 9,
+    luk: 9,
+    int: 9,
+    dex: 9,
     loot: {
       types: ['Wind', 'Earth', 'Water',],
-      max: 5,
+      max: 6,
     },
   },
   {
@@ -121,15 +121,15 @@ const monsters = [
         spawnInfluence: 2,
       }
     ],
-    str: 10,
-    vit: 10,
-    agi: 10,
-    luk: 10,
-    int: 10,
-    dex: 10,
+    str: 15,
+    vit: 15,
+    agi: 15,
+    luk: 15,
+    int: 15,
+    dex: 15,
     loot: {
       types: ['Rock', 'Earth', 'Wind'],
-      max: 6,
+      max: 7,
     },
   },
   {
@@ -148,7 +148,7 @@ const monsters = [
     dex: 8,
     loot: {
       types: ['Rock', 'Earth', 'Wind'],
-      max: 6,
+      max: 5,
     },
   },
   {
@@ -167,7 +167,7 @@ const monsters = [
     dex: 10,
     loot: {
       types: ['Rock', 'Earth'],
-      max: 7,
+      max: 6,
     },
   },
   {
@@ -186,7 +186,7 @@ const monsters = [
     dex: 15,
     loot: {
       types: ['Rock'],
-      max: 20,
+      max: 8,
     },
   },
     {
@@ -216,15 +216,15 @@ const monsters = [
         spawnInfluence: 35,
       }
     ],
-    str: 15,
-    vit: 15,
-    agi: 15,
-    luk: 15,
-    int: 15,
-    dex: 15,
+    str: 35,
+    vit: 35,
+    agi: 35,
+    luk: 35,
+    int: 35,
+    dex: 35,
     loot: {
       types: ['Earth', 'Shock'],
-      max: 8,
+      max: 9,
     },
   },
   {
@@ -235,15 +235,15 @@ const monsters = [
         spawnInfluence: 25,
       }
     ],
-    str: 10,
-    vit: 13,
-    agi: 20,
-    luk: 15,
-    int: 5,
-    dex: 20,
+    str: 30,
+    vit: 33,
+    agi: 30,
+    luk: 35,
+    int: 35,
+    dex: 30,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 6,
+      max: 10,
     },
   },
   {
@@ -254,15 +254,15 @@ const monsters = [
         spawnInfluence: 15,
       }
     ],
-    str: 15,
-    vit: 13,
-    agi: 20,
-    luk: 20,
-    int: 10,
-    dex: 20,
+    str: 45,
+    vit: 43,
+    agi: 40,
+    luk: 40,
+    int: 40,
+    dex: 40,
     loot: {
       types: ['Wind', 'Shock'],
-      max: 8,
+      max: 12,
     },
   },
   {
@@ -273,15 +273,15 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 20,
-    vit: 25,
-    agi: 20,
-    luk: 20,
-    int: 20,
-    dex: 20,
+    str: 50,
+    vit: 55,
+    agi: 50,
+    luk: 50,
+    int: 50,
+    dex: 50,
     loot: {
       types: ['Earth', 'Wind', 'Shock'],
-      max: 8,
+      max: 15,
     },
   },
   {
@@ -292,15 +292,15 @@ const monsters = [
         spawnInfluence: 40,
       }
     ],
-    str: 25,
-    vit: 20,
-    agi: 15,
-    luk: 20,
-    int: 10,
-    dex: 15,
+    str: 65,
+    vit: 60,
+    agi: 65,
+    luk: 60,
+    int: 60,
+    dex: 65,
     loot: {
       types: ['Wind', 'Shock'],
-      max: 8,
+      max: 18,
     },
   },
   {
@@ -311,15 +311,15 @@ const monsters = [
         spawnInfluence: 30,
       }
     ],
-    str: 15,
-    vit: 15,
-    agi: 30,
-    luk: 28,
-    int: 15,
-    dex: 30,
+    str: 65,
+    vit: 65,
+    agi: 60,
+    luk: 68,
+    int: 65,
+    dex: 60,
     loot: {
       types: ['Wind'],
-      max: 15,
+      max: 20,
     },
   },
   {
@@ -330,15 +330,15 @@ const monsters = [
         spawnInfluence: 20,
       }
     ],
-    str: 20,
-    vit: 40,
-    agi: 15,
-    luk: 15,
-    int: 30,
-    dex: 15,
+    str: 70,
+    vit: 70,
+    agi: 75,
+    luk: 75,
+    int: 70,
+    dex: 75,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 20,
+      max: 15,
     },
   },
   {
@@ -349,15 +349,15 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 40,
-    vit: 35,
-    agi: 20,
-    luk: 20,
-    int: 20,
-    dex: 20,
+    str: 80,
+    vit: 85,
+    agi: 80,
+    luk: 80,
+    int: 80,
+    dex: 80,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 20,
+      max: 17,
     },
   },
   {
@@ -368,15 +368,15 @@ const monsters = [
         spawnInfluence: 40,
       }
     ],
-    str: 25,
-    vit: 40,
-    agi: 20,
-    luk: 20,
-    int: 20,
-    dex: 20,
+    str: 125,
+    vit: 140,
+    agi: 120,
+    luk: 120,
+    int: 120,
+    dex: 120,
     loot: {
-      types: ['Water'],
-      max: 10,
+      types: ['Rock', 'Earth', 'Wind',],
+      max: 20,
     },
   },
   {
@@ -387,15 +387,15 @@ const monsters = [
         spawnInfluence: 30,
       }
     ],
-    str: 20,
-    vit: 20,
-    agi: 40,
-    luk: 30,
-    int: 20,
-    dex: 35,
+    str: 120,
+    vit: 120,
+    agi: 140,
+    luk: 130,
+    int: 120,
+    dex: 135,
     loot: {
       types: ['Wind', 'Shock'],
-      max: 10,
+      max: 25,
     },
   },
   {
@@ -406,15 +406,15 @@ const monsters = [
         spawnInfluence: 10,
       }
     ],
-    str: 30,
-    vit: 30,
-    agi: 40,
-    luk: 30,
-    int: 40,
-    dex: 40,
+    str: 130,
+    vit: 130,
+    agi: 140,
+    luk: 130,
+    int: 140,
+    dex: 140,
     loot: {
       types: ['Wind'],
-      max: 15,
+      max: 30,
     },
   },
   {
@@ -425,15 +425,15 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 40,
-    vit: 40,
-    agi: 30,
-    luk: 20,
-    int: 25,
-    dex: 40,
+    str: 140,
+    vit: 140,
+    agi: 130,
+    luk: 120,
+    int: 125,
+    dex: 140,
     loot: {
       types: ['Rock', 'Water', 'Earth', 'Wind', 'Shock'],
-      max: 20,
+      max: 40,
     },
   },
   {
@@ -444,12 +444,12 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 60,
-    vit: 60,
-    agi: 60,
-    luk: 60,
-    int: 60,
-    dex: 60,
+    str: 160,
+    vit: 160,
+    agi: 160,
+    luk: 160,
+    int: 160,
+    dex: 160,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
       max: 50,
@@ -460,7 +460,6 @@ module.exports = {
   randomFromMap,
   isValidMap
 }
-const tap = x => { console.log(x); return x }
 
 function randomFromMap(mapName) {
   const spawnPool = buildSpawnPool(mapMonsters(mapName))
