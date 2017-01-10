@@ -3,6 +3,7 @@ const { randomFromMap } = require('./models/monsters')
 const { buildDrop, getEmoji } = require('./models/gems')
 const { combatStats } = require('./models/combat')
 const { playerFromId } = require('./persistence').player
+const { castFromStance } = require('./models/skills')
 
 module.exports = {
   start
@@ -90,7 +91,7 @@ function getDefender (fighters, attacker) {
 
 function attack (attacker, defender) {
   var log = ''
-  var action = 'attacked'
+  var action = ''
   var modifiers = []
 
   if (attacker.stunned) {
@@ -101,26 +102,30 @@ function attack (attacker, defender) {
     }
   }
 
-  var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
-
-  if (Math.random() < attacker.critChance) {
-    modifiers.push('CRIT')
-    damage = Math.floor(damage * attacker.critDmg)
+  if (attacker.stance && Math.random() < attacker.skillCast) {
+    const cast = castFromStance(attacker, defender, modifiers)
+    log += buildAttackLog(attacker, defender, cast.action, cast.damage, modifiers)
+  } else {
+    action = 'attacked'
+    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
+    if (Math.random() < attacker.critChance) {
+      modifiers.push('CRIT')
+      damage = Math.floor(damage * attacker.critDmg)
+    }
+    if (Math.random() < defender.dodge) {
+      modifiers.push('MISS')
+      damage = 0
+    }
+    if (Math.random() < attacker.stunChance && damage !== 0) {
+      modifiers.push('STUN')
+      defender.stunned = true
+    }
+    const trueDamage = Math.max(damage, 1)
+    const hpAfterDamage = defender.hp - trueDamage
+    defender.hp = Math.max(hpAfterDamage, 0)
+    log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
   }
-  if (Math.random() < defender.dodge) {
-    modifiers.push('MISS')
-    damage = 0
-  }
-  if (Math.random() < attacker.stunChance && damage !== 0) {
-    modifiers.push('STUN')
-    defender.stunned = true
-  }
 
-  const trueDamage = Math.max(damage, 0)
-  const hpAfterDamage = defender.hp - trueDamage
-  defender.hp = Math.max(hpAfterDamage, 0)
-
-  log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
 
   if (defender.hp <= 0) {
     return {
@@ -136,11 +141,11 @@ function attack (attacker, defender) {
 }
 
 function buildAttackLog (attacker, defender, action, number, modifiers) {
-  return `${
-    emoji.emojify(attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:')
-  } _${attacker.name} ${action} for ${number} dmg_ *${modifiers.join('! ')}*
+  return emoji.emojify(`${
+    attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:'
+  } _${attacker.name} ${action} for ${number} dmg_ *${modifiers.join(' ')}*
 ${(modifiers.indexOf('MISS') === -1) ? `${
-  emoji.emojify(defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:')
+  defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:'
 } *${
   defender.name
 }* has *${
@@ -150,7 +155,8 @@ ${(modifiers.indexOf('MISS') === -1) ? `${
 })
 `
   : ''
-}`
+}`)
+
 }
 
 

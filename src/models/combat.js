@@ -24,17 +24,18 @@ function applyBuff (buffs, stats) {
 
 function getStats (fighter) {
   return {
-    maxHp: 50 + Math.floor(fighter.vit/1.5),
-    hp:  50 + Math.floor(fighter.vit/1.5),
+    maxHp: 100 + Math.floor(fighter.vit),
+    hp:  100 + Math.floor(fighter.vit),
     aspd: fighter.agi * 2 + 50,
-    atk: 10 + fighter.str + Math.floor(fighter.dex/2),
-    def: 5 + Math.floor(fighter.vit/2),
-    atkVariation: 0.3 - fighter.dex/350,
-    skillCast: Math.min(0.9, 0.1 + fighter.dex/250),
+    atk: 20 + fighter.str/4,
+    mAtk: 5 + Math.floor(fighter.int/10),
+    def: 10 + Math.floor(fighter.vit/8),
+    atkVariation: Math.max(0.05, 0.3 - fighter.dex/350),
+    skillCast: Math.min(0.9, 0.1 + fighter.dex/600),
     stunChance: 0,
-    dropRatio: 1 + fighter.luk/250,
+    dropRatio: 1 + fighter.luk/350,
     dodge: Math.min(0.03 + fighter.agi/3000, 0.8),
-    critChance: Math.min(fighter.luk/400, 0.9),
-    critDmg: 2 + fighter.str/200 + fighter.luk/200,
+    critChance: Math.min(fighter.luk/500, 0.9),
+    critDmg: 2 + fighter.str/400 + fighter.luk/400,
   }
 }
