@@ -10,17 +10,17 @@ module.exports = {
 
 const timers = {}
 
-const clearTimer = (name) => {
-  if (timers[name] !== undefined) {
-    clearTimeout(timers[name])
-    timers[name] = undefined
+const clearTimer = (id) => {
+  if (timers[id] !== undefined) {
+    clearTimeout(timers[id])
+    timers[id] = undefined
   }
 }
 
 function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
   $player.get().then((player) => {
-    clearTimer(player.first_name)
-    timers[player.first_name] = setTimeout(() => {
+    clearTimer(player.telegramId)
+    timers[player.telegramId] = setTimeout(() => {
       const afterCombat = combat(player.character, randomFromMap(map))
       const playerWon = (afterCombat.winner === player.character.name)
       if (playerWon) {
