@@ -30,7 +30,7 @@ function getStats (fighter) {
     atk: 10 + fighter.str + Math.floor(fighter.dex/2),
     def: 5 + Math.floor(fighter.vit/2),
     atkVariation: 0.3 - fighter.dex/350,
-    skillCast: 0.1 + fighter.dex/250,
+    skillCast: Math.min(0.9, 0.1 + fighter.dex/250),
     stunChance: 0,
     dropRatio: 1 + fighter.luk/250,
     dodge: Math.min(0.03 + fighter.agi/3000, 0.8),
