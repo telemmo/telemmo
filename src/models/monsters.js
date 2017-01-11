@@ -444,15 +444,72 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 160,
-    vit: 160,
-    agi: 160,
-    luk: 160,
-    int: 160,
-    dex: 160,
+    str: 180,
+    vit: 180,
+    agi: 180,
+    luk: 180,
+    int: 180,
+    dex: 180,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
       max: 40,
+    },
+  },
+  {
+    name: 'Beholder',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 9,
+      }
+    ],
+    str: 300,
+    vit: 300,
+    agi: 300,
+    luk: 300,
+    int: 300,
+    dex: 300,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      max: 80,
+    },
+  },
+  {
+    name: 'Obelisk',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 3,
+      }
+    ],
+    str: 500,
+    vit: 500,
+    agi: 500,
+    luk: 500,
+    int: 500,
+    dex: 500,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      max: 100,
+    },
+  },
+  {
+    name: 'Baphomet',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 1,
+      }
+    ],
+    str: 1000,
+    vit: 1000,
+    agi: 1000,
+    luk: 1000,
+    int: 1000,
+    dex: 1000,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      max: 200,
     },
   },
 ]
