@@ -52,7 +52,7 @@ function combat (fighter1, fighter2) {
 
 	while (winner === null) {
     const willAttack = fighters
-      .filter(fighter => time % Math.floor(1000/fighter.aspd) === 0)
+      .filter(fighter => time % Math.ceil(2000/fighter.aspd) === 0)
 
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
