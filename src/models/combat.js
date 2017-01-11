@@ -35,7 +35,7 @@ function getStats (fighter) {
     stunChance: 0,
     dropRatio: 1 + fighter.luk/350,
     dodge: Math.min(0.03 + fighter.agi/3000, 0.8),
-    critChance: Math.min(fighter.luk/500, 0.9),
-    critDmg: 2 + fighter.str/400 + fighter.luk/400,
+    critChance: Math.min(fighter.luk/2000, 0.9),
+    critDmg: 1.6 + fighter.str/1000 + fighter.luk/1000,
   }
 }
