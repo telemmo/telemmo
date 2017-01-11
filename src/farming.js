@@ -143,7 +143,7 @@ function attack (attacker, defender) {
 function buildAttackLog (attacker, defender, action, number, modifiers) {
   return emoji.emojify(`${
     attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:'
-  } _${attacker.name} ${action} for ${number} dmg_ *${modifiers.join(' ')}*
+  } _${attacker.name} ${action} for ${Math.round(number)} dmg_ *${modifiers.join(' ')}*
 ${(modifiers.indexOf('MISS') === -1) ? `${
   defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:'
 } *${
@@ -151,7 +151,7 @@ ${(modifiers.indexOf('MISS') === -1) ? `${
 }* has *${
   Math.ceil(defender.hp/defender.maxHp * 100)
 }% hp* (${
-  defender.hp}/${defender.maxHp
+  Math.round(defender.hp)}/${defender.maxHp
 })
 `
   : ''
