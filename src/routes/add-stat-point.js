@@ -21,7 +21,6 @@ function handler (bot, msg, match) {
       try {
         statName = match[1].split(' ')[0]
         amount = match[1].split(' ')[1].split('+')[1]
-        console.log(amount)
       } catch (e) {
         throw new Error(e)
       }
