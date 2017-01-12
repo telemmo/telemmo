@@ -185,7 +185,7 @@ const monsters = [
     int: 24,
     dex: 24,
     loot: {
-      types: ['Rock', 'earth'],
+      types: ['Rock', 'Earth'],
       max: 7,
     },
   },
