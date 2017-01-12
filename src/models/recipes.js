@@ -23,6 +23,20 @@ const stats = {
       amount: '100',
     },
   ],
+  '10': [
+    {
+      name: 'Earth',
+      amount: '200',
+    },
+    {
+      name: 'Rock',
+      amount: '200',
+    },
+    {
+      name: 'Wind',
+      amount: '200',
+    },
+  ],
 }
 
 module.exports = {
