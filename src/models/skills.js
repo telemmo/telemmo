@@ -4,7 +4,8 @@ const skills = [
   {
     name: 'Arcane Missels',
     stance: 'Arcane',
-    influence: 10,
+    influence: 99,
+    cooldown: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -475,13 +476,34 @@ module.exports = {
 }
 
 function castFromStance (attacker, defender, modifiers) {
-  const stanceSkills = skills.filter(skill => skill.stance === attacker.stance)
+  if(!attacker.cooldown)
+  {
+    attacker.cooldown = []
+  }
+  const stanceSkills = skills.filter(function(skill,item){
+     if(skill.stance === attacker.stance){
+      for(var i = 0; i < attacker.cooldown.length; i++){
+          if(attacker.cooldown[i][1] == skill.name){
+            var onCooldown = true
+          }
+        }
+
+        if(!onCooldown){
+          return true
+        }
+      }
+  })
   if (stanceSkills.length === 0) { return {} }
+
   const pool = stanceSkills.reduce((acc, skill) => [
     ...acc,
     ...Array.from({ length: skill.influence }).map(() => skill),
   ], [])
   const randomSkill = pool[Math.floor(Math.random() * pool.length)]
+  if(randomSkill.cooldown){
+  attacker.cooldown.push(new Array(randomSkill.cooldown, randomSkill.name));
+  }
+
   return {
     action: `${stanceFromName(attacker.stance).emoji} ` + randomSkill.name,
     damage: randomSkill.action(attacker, defender, modifiers),

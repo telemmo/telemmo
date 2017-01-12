@@ -78,6 +78,20 @@ function combat (fighter1, fighter2) {
   }
 }
 
+function reduceCooldown (fighter) {
+  for (i = 0; i < fighter.cooldown.length; i++) {
+    if(fighter.cooldown[i][0] > 0) {
+      fighter.cooldown[i][0] -= 1
+    }else{
+      fighter.cooldown = fighter.cooldown.filter(function(item) { 
+        return item !== fighter.cooldown[i]
+      })
+      
+    }
+
+  }
+}
+
 function viewDrop (drop) {
   return Object.keys(drop).length !== 0 ? 'Loot: ' + Object.keys(drop)
         .map(name => `+${drop[name]} ${getEmoji(name)} `).join('')
@@ -100,6 +114,12 @@ function attack (attacker, defender) {
       log: `_${attacker.name} is stunned and lost a turn!_\n`,
       winner: null,
     }
+  }
+  if(attacker.cooldown){
+    reduceCooldown(attacker);
+  }
+  if(defender.cooldown){
+    reduceCooldown(defender);
   }
 
   if (attacker.stance && Math.random() < attacker.skillCast) {
