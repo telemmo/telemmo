@@ -30,7 +30,7 @@ function getStats (fighter) {
     atk: 20 + fighter.str/4,
     mAtk: 5 + Math.floor(fighter.int/10),
     def: 10 + Math.floor(fighter.vit/8),
-    atkVariation: Math.max(0.05, 0.3 - fighter.dex/350),
+    atkVariation: Math.max(0.05, 0.3 - fighter.dex/800),
     skillCast: Math.min(0.9, 0.1 + fighter.dex/600),
     stunChance: 0,
     dropRatio: 1 + fighter.luk/350,

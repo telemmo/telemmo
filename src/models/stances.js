@@ -14,9 +14,9 @@ const stances = [
     name: 'Debuff',
     emoji: ':hotsprings:',
     classes: ['Mage'],
-    description: '+30% chance to stun',
+    description: '+20% chance to stun',
     buffs: player => ({
-      stunChance: player.stunChance + 0.30,
+      stunChance: player.stunChance + 0.20,
     }),
   },
   {
@@ -65,9 +65,10 @@ const stances = [
     name: 'Heretic',
     emoji: ':mortar_board:',
     classes: ['Acolyte'],
-    description: '+70% ATK',
+    description: '+40% ATK, +30% ASPD',
     buffs: player => ({
-      atk: player.atk * 1.7,
+      atk: player.atk * 1.4,
+      aspd: player.aspd * 1.3,
     }),
   },
   {
