@@ -683,7 +683,7 @@ const monsters = [
       max: 90,
     },
   },
-    {
+  {
     name: 'Rock Lobster',
     maps: [
       {

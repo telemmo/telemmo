@@ -3,6 +3,7 @@ const { randomFromMap } = require('./models/monsters')
 const { buildDrop, getEmoji } = require('./models/gems')
 const { combatStats } = require('./models/combat')
 const { playerFromId } = require('./persistence').player
+const { castFromStance } = require('./models/skills')
 
 module.exports = {
   start
@@ -10,17 +11,17 @@ module.exports = {
 
 const timers = {}
 
-const clearTimer = (name) => {
-  if (timers[name] !== undefined) {
-    clearTimeout(timers[name])
-    timers[name] = undefined
+const clearTimer = (id) => {
+  if (timers[id] !== undefined) {
+    clearTimeout(timers[id])
+    timers[id] = undefined
   }
 }
 
 function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
   $player.get().then((player) => {
-    clearTimer(player.first_name)
-    timers[player.first_name] = setTimeout(() => {
+    clearTimer(player.telegramId)
+    timers[player.telegramId] = setTimeout(() => {
       const afterCombat = combat(player.character, randomFromMap(map))
       const playerWon = (afterCombat.winner === player.character.name)
       if (playerWon) {
@@ -51,7 +52,7 @@ function combat (fighter1, fighter2) {
 
 	while (winner === null) {
     const willAttack = fighters
-      .filter(fighter => time % Math.floor(1000/fighter.aspd) === 0)
+      .filter(fighter => time % Math.ceil(2000/fighter.aspd) === 0)
 
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
@@ -90,7 +91,7 @@ function getDefender (fighters, attacker) {
 
 function attack (attacker, defender) {
   var log = ''
-  var action = 'attacked'
+  var action = ''
   var modifiers = []
 
   if (attacker.stunned) {
@@ -101,26 +102,30 @@ function attack (attacker, defender) {
     }
   }
 
-  var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
-
-  if (Math.random() < attacker.critChance) {
-    modifiers.push('CRIT')
-    damage = Math.floor(damage * attacker.critDmg)
+  if (attacker.stance && Math.random() < attacker.skillCast) {
+    const cast = castFromStance(attacker, defender, modifiers)
+    log += buildAttackLog(attacker, defender, cast.action, cast.damage, modifiers)
+  } else {
+    action = 'attacked'
+    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
+    if (Math.random() < attacker.critChance) {
+      modifiers.push('CRIT')
+      damage = Math.floor(damage * attacker.critDmg)
+    }
+    if (Math.random() < attacker.stunChance && damage !== 0) {
+      modifiers.push('STUN')
+      defender.stunned = true
+    }
+    var trueDamage = Math.max(damage, 1)
+    if (Math.random() < defender.dodge) {
+      modifiers.push('MISS')
+      trueDamage = 0
+    }
+    const hpAfterDamage = defender.hp - trueDamage
+    defender.hp = Math.max(hpAfterDamage, 0)
+    log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
   }
-  if (Math.random() < defender.dodge) {
-    modifiers.push('MISS')
-    damage = 0
-  }
-  if (Math.random() < attacker.stunChance && damage !== 0) {
-    modifiers.push('STUN')
-    defender.stunned = true
-  }
 
-  const trueDamage = Math.max(damage, 0)
-  const hpAfterDamage = defender.hp - trueDamage
-  defender.hp = Math.max(hpAfterDamage, 0)
-
-  log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
 
   if (defender.hp <= 0) {
     return {
@@ -136,21 +141,22 @@ function attack (attacker, defender) {
 }
 
 function buildAttackLog (attacker, defender, action, number, modifiers) {
-  return `${
-    emoji.emojify(attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:')
-  } _${attacker.name} ${action} for ${number} dmg_ *${modifiers.join('! ')}*
+  return emoji.emojify(`${
+    attacker.loot ? ':large_orange_diamond:' : ':large_blue_diamond:'
+  } _${attacker.name} ${action} for ${Math.round(number)} dmg_ *${modifiers.join(' ')}*
 ${(modifiers.indexOf('MISS') === -1) ? `${
-  emoji.emojify(defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:')
+  defender.hp <= 0 ? ':skull:' : defender.loot ? ':yellow_heart:' : ':blue_heart:'
 } *${
   defender.name
 }* has *${
   Math.ceil(defender.hp/defender.maxHp * 100)
 }% hp* (${
-  defender.hp}/${defender.maxHp
+  Math.round(defender.hp)}/${defender.maxHp
 })
 `
   : ''
-}`
+}`)
+
 }
 
 

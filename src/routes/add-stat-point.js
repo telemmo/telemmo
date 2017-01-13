@@ -20,7 +20,7 @@ function handler (bot, msg, match) {
     .then(() => {
       try {
         statName = match[1].split(' ')[0]
-        amount = match[1].split(' ')[1][1]
+        amount = match[1].split(' ')[1].split('+')[1]
       } catch (e) {
         throw new Error(e)
       }
