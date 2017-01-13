@@ -80,17 +80,13 @@ function combat (fighter1, fighter2) {
 }
 
 function reduceCooldown (fighter) {
-  for (i = 0; i < fighter.cooldown.length; i++) {
-    if(fighter.cooldown[i].cooldown > 0) {
-      fighter.cooldown[i].cooldown -= 1
-    }else{
-      fighter.cooldown = fighter.cooldown.filter(function(item) { 
-        return item !== fighter.cooldown[i]
-      })
-      
-    }
 
-  }
+  fighter.cooldown = fighter.cooldown
+  .filter(cd => {
+    if (cd.cooldown > 0) {
+      cd.cooldown -= 1
+      return true
+    }})
 }
 
 function viewDrop (drop) {

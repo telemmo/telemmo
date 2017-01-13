@@ -482,19 +482,11 @@ function castFromStance (attacker, defender, modifiers) {
   {
     attacker.cooldown = []
   }
-  const stanceSkills = skills.filter(function(skill,item){
-     if(skill.stance === attacker.stance){
-      for(var i = 0; i < attacker.cooldown.length; i++){
+  const stanceSkills = skills
+  .filter(skill => skill.stance === attacker.stance)
+  .filter(skill => !attacker.cooldown.find(cd => cd.name === skill.name))
 
-          if(attacker.cooldown[i].name == skill.name){
-            var onCooldown = true
-          }
-        }
-        if(!onCooldown){
-          return true
-        }
-      }
-  })
+  
   if (stanceSkills.length === 0) { return {} }
 
   const pool = stanceSkills.reduce((acc, skill) => [
