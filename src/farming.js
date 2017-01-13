@@ -60,6 +60,7 @@ function combat (fighter1, fighter2) {
 				const afterAttack = attack(fighter, getDefender(fighters, fighter))
         log += afterAttack.log
         if (afterAttack.winner) {
+          console.log(fighter.cooldown)
           winner = afterAttack.winner
           drop = afterAttack.drop ? afterAttack.drop : {}
           log = `${
@@ -80,8 +81,8 @@ function combat (fighter1, fighter2) {
 
 function reduceCooldown (fighter) {
   for (i = 0; i < fighter.cooldown.length; i++) {
-    if(fighter.cooldown[i][0] > 0) {
-      fighter.cooldown[i][0] -= 1
+    if(fighter.cooldown[i].cooldown > 0) {
+      fighter.cooldown[i].cooldown -= 1
     }else{
       fighter.cooldown = fighter.cooldown.filter(function(item) { 
         return item !== fighter.cooldown[i]

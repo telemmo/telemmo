@@ -4,8 +4,8 @@ const skills = [
   {
     name: 'Arcane Missels',
     stance: 'Arcane',
-    influence: 99,
-    cooldown: 3,
+    influence: 10,
+    cooldown: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -16,6 +16,7 @@ const skills = [
     name: 'Stunning Stars',
     stance: 'Arcane',
     influence: 5,
+    cooldown: 2,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -28,6 +29,7 @@ const skills = [
     name: 'Fireball',
     stance: 'Arcane',
     influence: 3,
+    cooldown: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 7
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -483,11 +485,11 @@ function castFromStance (attacker, defender, modifiers) {
   const stanceSkills = skills.filter(function(skill,item){
      if(skill.stance === attacker.stance){
       for(var i = 0; i < attacker.cooldown.length; i++){
-          if(attacker.cooldown[i][1] == skill.name){
+
+          if(attacker.cooldown[i].name == skill.name){
             var onCooldown = true
           }
         }
-
         if(!onCooldown){
           return true
         }
@@ -501,7 +503,8 @@ function castFromStance (attacker, defender, modifiers) {
   ], [])
   const randomSkill = pool[Math.floor(Math.random() * pool.length)]
   if(randomSkill.cooldown){
-  attacker.cooldown.push(new Array(randomSkill.cooldown, randomSkill.name));
+  attacker.cooldown.push({ name: randomSkill.name,cooldown: randomSkill.cooldown });
+  
   }
 
   return {
