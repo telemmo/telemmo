@@ -140,14 +140,14 @@ const monsters = [
         spawnInfluence: 25,
       }
     ],
-    str: 8,
-    vit: 8,
-    agi: 8,
-    luk: 8,
-    int: 8,
-    dex: 8,
+    str: 15,
+    vit: 15,
+    agi: 15,
+    luk: 15,
+    int: 15,
+    dex: 15,
     loot: {
-      types: ['Rock', 'Earth', 'Wind'],
+      types: ['Wind'],
       max: 3,
     },
   },
@@ -159,14 +159,14 @@ const monsters = [
         spawnInfluence: 20,
       }
     ],
-    str: 10,
-    vit: 10,
-    agi: 10,
-    luk: 10,
-    int: 10,
-    dex: 10,
+    str: 19,
+    vit: 19,
+    agi: 19,
+    luk: 19,
+    int: 19,
+    dex: 19,
     loot: {
-      types: ['Rock', 'Earth', 'Wind'],
+      types: ['Earth',],
       max: 5,
     },
   },
@@ -178,18 +178,37 @@ const monsters = [
         spawnInfluence: 10,
       }
     ],
-    str: 15,
-    vit: 15,
-    agi: 15,
-    luk: 15,
-    int: 15,
-    dex: 15,
+    str: 24,
+    vit: 24,
+    agi: 24,
+    luk: 24,
+    int: 24,
+    dex: 24,
     loot: {
-      types: ['Rock'],
+      types: ['Rock', 'Earth'],
       max: 7,
     },
   },
-    {
+  {
+    name: 'Earth Elemental',
+    maps: [
+      {
+        name: 'Cave',
+        spawnInfluence: 9,
+      }
+    ],
+    str: 28,
+    vit: 28,
+    agi: 28,
+    luk: 28,
+    int: 28,
+    dex: 28,
+    loot: {
+      types: ['Earth',],
+      max: 6,
+    },
+  },
+  {
     name: 'Cave Nightmare',
     maps: [
       {
@@ -197,12 +216,12 @@ const monsters = [
         spawnInfluence: 2,
       }
     ],
-    str: 20,
-    vit: 20,
-    agi: 25,
-    luk: 25,
-    int: 10,
-    dex: 10,
+    str: 33,
+    vit: 33,
+    agi: 30,
+    luk: 30,
+    int: 20,
+    dex: 33,
     loot: {
       types: ['Earth', 'Wind', 'Shock'],
       max: 8,
@@ -223,7 +242,7 @@ const monsters = [
     int: 35,
     dex: 35,
     loot: {
-      types: ['Water', 'Shock'],
+      types: ['Water', 'Rock', 'Earth',],
       max: 8,
     },
   },
@@ -242,16 +261,35 @@ const monsters = [
     int: 35,
     dex: 30,
     loot: {
-      types: ['Water', 'Wind', ],
+      types: ['Water', 'Wind', 'Shock'],
       max: 10,
     },
   },
   {
-    name: 'Crazed Tribesman',
+    name: 'Murder of Crows',
     maps: [
       {
         name: 'Dark Swamp',
-        spawnInfluence: 15,
+        spawnInfluence: 20,
+      }
+    ],
+    str: 31,
+    vit: 34,
+    agi: 40,
+    luk: 37,
+    int: 37,
+    dex: 32,
+    loot: {
+      types: ['Wind', 'Shock',],
+      max: 8,
+    },
+  },
+  {
+    name: 'Tribesman',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 25,
       }
     ],
     str: 45,
@@ -261,7 +299,7 @@ const monsters = [
     int: 40,
     dex: 40,
     loot: {
-      types: ['Wind', 'Shock'],
+      types: ['Shock', 'Rock', 'Earth'],
       max: 12,
     },
   },
@@ -270,7 +308,7 @@ const monsters = [
     maps: [
       {
         name: 'Dark Swamp',
-        spawnInfluence: 5,
+        spawnInfluence: 8,
       }
     ],
     str: 50,
@@ -280,12 +318,12 @@ const monsters = [
     int: 50,
     dex: 50,
     loot: {
-      types: ['Water', 'Earth', 'Wind', 'Shock'],
+      types: ['Water', 'Earth', 'Wind', 'Shock','Rock'],
       max: 13,
     },
   },
   {
-    name: 'Possessed Deer',
+    name: 'Corrupted Deer',
     maps: [
       {
         name: 'Demonic Forest',
@@ -304,22 +342,22 @@ const monsters = [
     },
   },
   {
-    name: 'Flying Demon',
+    name: 'Water Elemental',
     maps: [
       {
         name: 'Demonic Forest',
         spawnInfluence: 30,
       }
     ],
-    str: 65,
-    vit: 65,
-    agi: 60,
-    luk: 68,
-    int: 65,
-    dex: 60,
+    str: 70,
+    vit: 70,
+    agi: 70,
+    luk: 70,
+    int: 70,
+    dex: 80,
     loot: {
-      types: ['Wind'],
-      max: 20,
+      types: ['Water'],
+      max: 25,
     },
   },
   {
@@ -330,34 +368,34 @@ const monsters = [
         spawnInfluence: 20,
       }
     ],
-    str: 70,
-    vit: 70,
-    agi: 75,
-    luk: 75,
-    int: 70,
-    dex: 75,
+    str: 90,
+    vit: 90,
+    agi: 90,
+    luk: 90,
+    int: 90,
+    dex: 90,
     loot: {
       types: ['Rock', 'Earth', 'Wind', 'Shock'],
       max: 15,
     },
   },
   {
-    name: 'Corrupted Florest Keeper',
+    name: 'Dark Spirit',
     maps: [
       {
         name: 'Demonic Forest',
         spawnInfluence: 5,
       }
     ],
-    str: 80,
-    vit: 85,
-    agi: 80,
-    luk: 80,
-    int: 80,
-    dex: 80,
+    str: 100,
+    vit: 105,
+    agi: 110,
+    luk: 110,
+    int: 110,
+    dex: 110,
     loot: {
-      types: ['Rock', 'Earth', 'Wind', 'Shock'],
-      max: 17,
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      max: 20,
     },
   },
   {
@@ -376,7 +414,7 @@ const monsters = [
     dex: 120,
     loot: {
       types: ['Rock', 'Earth', 'Wind',],
-      max: 20,
+      max: 23,
     },
   },
   {
@@ -394,7 +432,7 @@ const monsters = [
     int: 120,
     dex: 135,
     loot: {
-      types: ['Wind', 'Shock'],
+      types: ['Wind', 'Shock',],
       max: 25,
     },
   },
@@ -432,7 +470,7 @@ const monsters = [
     int: 125,
     dex: 140,
     loot: {
-      types: ['Rock', 'Water', 'Earth', 'Wind', 'Shock'],
+      types: ['Rock', 'Water', 'Earth', 'Wind', 'Shock', 'Ice'],
       max: 35,
     },
   },
@@ -444,15 +482,452 @@ const monsters = [
         spawnInfluence: 5,
       }
     ],
-    str: 160,
-    vit: 160,
-    agi: 160,
-    luk: 160,
-    int: 160,
-    dex: 160,
+    str: 180,
+    vit: 180,
+    agi: 180,
+    luk: 180,
+    int: 180,
+    dex: 180,
     loot: {
-      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water', 'Ice'],
       max: 40,
+    },
+  },
+  {
+    name: 'Magma Golem',
+    maps: [
+      {
+        name: 'Volcanic Oasis',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 250,
+    vit: 250,
+    agi: 180,
+    luk: 180,
+    int: 180,
+    dex: 180,
+    loot: {
+      types: ['Rock', 'Fire',],
+      max: 40,
+    },
+  },
+  {
+    name: 'Fire Elemental',
+    maps: [
+      {
+        name: 'Volcanic Oasis',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 200,
+    vit: 200,
+    agi: 230,
+    luk: 180,
+    int: 180,
+    dex: 300,
+    loot: {
+      types: ['Fire',],
+      max: 55,
+    },
+  },
+  {
+    name: 'Komodo Serpent',
+    maps: [
+      {
+        name: 'Volcanic Oasis',
+        spawnInfluence: 13,
+      }
+    ],
+    str: 300,
+    vit: 300,
+    agi: 400,
+    luk: 300,
+    int: 300,
+    dex: 300,
+    loot: {
+      types: ['Earth', 'Wind', 'Water'],
+      max: 50,
+    },
+  },
+  {
+    name: 'Rock Giant',
+    maps: [
+      {
+        name: 'Volcanic Oasis',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 450,
+    vit: 450,
+    agi: 280,
+    luk: 280,
+    int: 280,
+    dex: 280,
+    loot: {
+      types: ['Rock', 'Earth',],
+      max: 70,
+    },
+  },
+  {
+    name: 'Patrol',
+    maps: [
+      {
+        name: 'Robot City',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 300,
+    vit: 300,
+    agi: 370,
+    luk: 340,
+    int: 300,
+    dex: 340,
+    loot: {
+      types: ['Shock', 'Rock', 'Metal',],
+      max: 60,
+    },
+  },
+  {
+    name: 'Seeker',
+    maps: [
+      {
+        name: 'Robot City',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 350,
+    vit: 350,
+    agi: 450,
+    luk: 340,
+    int: 350,
+    dex: 370,
+    loot: {
+      types: ['Shock', 'Wind', 'Metal',],
+      max: 70,
+    },
+  },
+  {
+    name: 'Dreadnought',
+    maps: [
+      {
+        name: 'Robot City',
+        spawnInfluence: 15,
+      }
+    ],
+    str: 530,
+    vit: 530,
+    agi: 400,
+    luk: 340,
+    int: 270,
+    dex: 340,
+    loot: {
+      types: ['Shock', 'Wind', 'Metal', 'Rock',],
+      max: 75,
+    },
+  },
+  {
+    name: 'BL4Z3N4T0R',
+    maps: [
+      {
+        name: 'Robot City',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 600,
+    vit: 600,
+    agi: 600,
+    luk: 600,
+    int: 600,
+    dex: 600,
+    loot: {
+      types: ['Shock', 'Wind', 'Metal',],
+      max: 80,
+    },
+  },
+  {
+    name: 'Merfolk',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 500,
+    vit: 500,
+    agi: 600,
+    luk: 500,
+    int: 500,
+    dex: 550,
+    loot: {
+      types: ['Water', 'Metal',],
+      max: 85,
+    },
+  },
+  {
+    name: 'Kraken',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 700,
+    vit: 700,
+    agi: 600,
+    luk: 450,
+    int: 400,
+    dex: 650,
+    loot: {
+      types: ['Water', 'Shock', 'Earth'],
+      max: 90,
+    },
+  },
+    {
+    name: 'Rock Lobster',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 700,
+    vit: 700,
+    agi: 600,
+    luk: 450,
+    int: 400,
+    dex: 650,
+    loot: {
+      types: ['Water', 'Rock',],
+      max: 90,
+    },
+  },
+  {
+    name: 'Megalodon',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 15,
+      }
+    ],
+    str: 650,
+    vit: 650,
+    agi: 750,
+    luk: 750,
+    int: 650,
+    dex: 750,
+    loot: {
+      types: ['Water', 'Ice', 'Wind', 'Shock'],
+      max: 95,
+    },
+  },
+  {
+    name: 'Merfolk King',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 850,
+    vit: 850,
+    agi: 750,
+    luk: 750,
+    int: 850,
+    dex: 750,
+    loot: {
+      types: ['Water', 'Ice', 'Wind', 'Metal', 'Ice',],
+      max: 95,
+    },
+  },
+  {
+    name: 'Wyrm',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 45,
+      }
+    ],
+    str: 800,
+    vit: 800,
+    agi: 850,
+    luk: 830,
+    int: 800,
+    dex: 830,
+    loot: {
+      types: ['Fire', 'Earth',],
+      max: 90,
+    },
+  },
+  {
+    name: 'Drake',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 950,
+    vit: 950,
+    agi: 900,
+    luk: 830,
+    int: 900,
+    dex: 830,
+    loot: {
+      types: ['Fire', 'Rock', 'Earth'],
+      max: 95,
+    },
+  },
+  {
+    name: 'Frost Dragon',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 930,
+    vit: 930,
+    agi: 850,
+    luk: 1000,
+    int: 930,
+    dex: 1000,
+    loot: {
+      types: ['Ice', 'Water', 'Wind'],
+      max: 95,
+    },
+  },
+  {
+    name: 'Electric Dragon',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 25,
+      }
+    ],
+    str: 930,
+    vit: 930,
+    agi: 850,
+    luk: 1000,
+    int: 930,
+    dex: 1000,
+    loot: {
+      types: ['Shock', 'Earth', 'Wind'],
+      max: 95,
+    },
+  },
+  {
+    name: 'Black Wyrm',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 1100,
+    vit: 1100,
+    agi: 900,
+    luk: 900,
+    int: 930,
+    dex: 1000,
+    loot: {
+      types: ['Shock', 'Earth', 'Wind', 'Metal', 'Fire'],
+      max: 95,
+    },
+  },
+  {
+    name: 'White Wyrm',
+    maps: [
+      {
+        name: 'Dragonic Sanctuary',
+        spawnInfluence: 10,
+      }
+    ],
+    str: 1250,
+    vit: 1250,
+    agi: 1200,
+    luk: 1000,
+    int: 1250,
+    dex: 1000,
+    loot: {
+      types: ['Shock', 'Earth', 'Wind', 'Ice', 'Metal', 'Rock', ],
+      max: 100,
+    },
+  },
+  {
+    name: 'Beholder',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 30,
+      }
+    ],
+    str: 2000,
+    vit: 2000,
+    agi: 2000,
+    luk: 2000,
+    int: 2000,
+    dex: 2000,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water', 'Ice'],
+      max: 130,
+    },
+  },
+  {
+    name: 'Obelisk',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 12,
+      }
+    ],
+    str: 4000,
+    vit: 4000,
+    agi: 4000,
+    luk: 4000,
+    int: 4000,
+    dex: 4000,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water', 'Metal'],
+      max: 160,
+    },
+  },
+  {
+    name: 'Baphomet',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 5,
+      }
+    ],
+    str: 6000,
+    vit: 6000,
+    agi: 6000,
+    luk: 6000,
+    int: 6000,
+    dex: 6000,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water' ,'Ice', 'Metal', 'Fire'],
+      max: 200,
+    },
+  },
+  {
+    name: 'Death',
+    maps: [
+      {
+        name: 'Doom Hill',
+        spawnInfluence: 1,
+      }
+    ],
+    str: 10000,
+    vit: 10000,
+    agi: 10000,
+    luk: 10000,
+    int: 10000,
+    dex: 10000,
+    loot: {
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water' ,'Ice', 'Metal', 'Fire'],
+      max: 300,
     },
   },
 ]
