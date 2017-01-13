@@ -25,6 +25,8 @@ Upgrades cost:
 +5 points:${recipes.stats[5].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
 
 +10 points:${recipes.stats[10].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
+
++1000 points:${recipes.stats[1000].map(gem => `\n${getEmoji(gem.name)}: ${gem.amount}`).join('')}
   `.trim()),
   error: `You don't have a character, create one at /start`
 }
