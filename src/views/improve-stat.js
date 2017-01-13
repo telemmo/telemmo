@@ -12,6 +12,7 @@ module.exports = {
           `${e} ${statName.toUpperCase()} +1`,
           `${e} ${statName.toUpperCase()} +5`,
           `${e} ${statName.toUpperCase()} +10`,
+          `${e} ${statName.toUpperCase()} +1000`,
         ],
         ['Stats :confetti_ball:', 'Back to overworld :globe_with_meridians:', 'My Stats :part_alternation_mark:']
       ].map(row => row.map(key => emoji.emojify(key)))
