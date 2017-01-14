@@ -304,7 +304,7 @@ const skills = [
     stance: 'Sniper',
     influence: 20,
     action: (attacker, defender, modifiers) => {
-      const damage = Math.sqrt(attacker.dex) * 10
+      const damage = Math.sqrt(attacker.dex) * 8
       defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
@@ -314,7 +314,7 @@ const skills = [
     stance: 'Sniper',
     influence: 7,
     action: (attacker, defender, modifiers) => {
-      const damage = Math.sqrt(attacker.dex) * 30
+      const damage = Math.sqrt(attacker.dex) * 20
       defender.hp = Math.max(defender.hp - damage, 0)
       defender.aspd = Math.max(defender.aspd * 0.8)
       modifiers.push('-ASPD')
@@ -326,7 +326,7 @@ const skills = [
     stance: 'Sniper',
     influence: 3,
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 10
+      const damage = attacker.mAtk * 15
       defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
@@ -338,7 +338,7 @@ const skills = [
     stance: 'Sniper',
     influence: 1,
     action: (attacker, defender, modifiers) => {
-      const damage = Math.sqrt(attacker.dex) * 50
+      const damage = Math.sqrt(attacker.dex) * 30
       defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
