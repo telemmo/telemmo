@@ -39,7 +39,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
         return
       }
       start(bot, map, msg, $player)
-    }, (Math.random() * 40 + 20) * 1000)
+    }, (Math.random() * 20 + 20) * 1000)
   })
 }
 
@@ -50,17 +50,22 @@ function combat (fighter1, fighter2) {
   var drop = {}
   var time = 0
 
+
 	while (winner === null) {
     const willAttack = fighters
-      .filter(fighter => time % Math.ceil(2000/fighter.aspd) === 0)
+      .filter(fighter => {
 
+        if(time % Math.ceil(2000/fighter.castSpeed) === 0 && time !== 0) {
+          fighter.readyToCast = true
+        }
+        if(time % Math.ceil(2000/fighter.aspd) === 0){return true}
+      })
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
         if (fighter.hp <= 0) { return }
 				const afterAttack = attack(fighter, getDefender(fighters, fighter))
         log += afterAttack.log
         if (afterAttack.winner) {
-          console.log(fighter.cooldown)
           winner = afterAttack.winner
           drop = afterAttack.drop ? afterAttack.drop : {}
           log = `${
@@ -118,13 +123,14 @@ function attack (attacker, defender) {
   if(defender.cooldown){
     reduceCooldown(defender);
   }
-
-  if (attacker.stance && Math.random() < attacker.skillCast) {
+  if(!attacker.readyToCast){attacker.readyToCast = false}
+  if (attacker.stance && attacker.readyToCast === true) {
+    attacker.readyToCast = false
     const cast = castFromStance(attacker, defender, modifiers)
     log += buildAttackLog(attacker, defender, cast.action, cast.damage, modifiers)
   } else {
     action = 'attacked'
-    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
+    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() * (1 - defender.def))
     if (Math.random() < attacker.critChance) {
       modifiers.push('CRIT')
       damage = Math.floor(damage * attacker.critDmg)

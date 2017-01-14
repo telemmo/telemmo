@@ -6,6 +6,7 @@ const skills = [
     stance: 'Arcane',
     influence: 10,
     cooldown: 1,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -17,6 +18,7 @@ const skills = [
     stance: 'Arcane',
     influence: 5,
     cooldown: 2,
+    type: 'True',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -172,6 +174,7 @@ const skills = [
     name: 'Steal Strike',
     stance: 'Loot',
     influence: 10,
+    type: 'Physical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -182,6 +185,7 @@ const skills = [
     name: 'Poison Blade',
     stance: 'Loot',
     influence: 5,
+    type: 'Physical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 5
       defender.hp = Math.max(defender.hp - damage, 0)
@@ -477,7 +481,15 @@ module.exports = {
   castFromStance
 }
 
+function skillDamageReduction(skilltype, defender) {
+  if(skilltype === "True"){ return 0}
+  if(skilltype === "Magic"){ return defender.mDef}
+  if(skilltype === "Physical"){ return defender.def}
+
+}
+
 function castFromStance (attacker, defender, modifiers) {
+  var skillReduction = 0
   if(!attacker.cooldown)
   {
     attacker.cooldown = []
@@ -486,7 +498,7 @@ function castFromStance (attacker, defender, modifiers) {
   .filter(skill => skill.stance === attacker.stance)
   .filter(skill => !attacker.cooldown.find(cd => cd.name === skill.name))
 
-  
+
   if (stanceSkills.length === 0) { return {} }
 
   const pool = stanceSkills.reduce((acc, skill) => [
@@ -499,8 +511,11 @@ function castFromStance (attacker, defender, modifiers) {
   
   }
 
+  if(randomSkill.type){
+    skillReduction = skillDamageReduction(randomSkill.type, defender)
+  }
   return {
     action: `${stanceFromName(attacker.stance).emoji} ` + randomSkill.name,
-    damage: randomSkill.action(attacker, defender, modifiers),
+    damage: randomSkill.action(attacker, defender, modifiers) * (1 - skillReduction),
   }
 }
