@@ -131,19 +131,19 @@ function attack (attacker, defender) {
   } else {
     action = 'attacked'
     var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() * (1 - defender.def))
+    var trueDamage = Math.max(damage, 1)
     if (Math.random() < attacker.critChance) {
       modifiers.push('CRIT')
       damage = Math.floor(damage * attacker.critDmg)
+    }else if (Math.random() < defender.dodge) {
+      modifiers.push('MISS')
+      trueDamage = 0
     }
     if (Math.random() < attacker.stunChance && damage !== 0) {
       modifiers.push('STUN')
       defender.stunned = true
     }
-    var trueDamage = Math.max(damage, 1)
-    if (Math.random() < defender.dodge) {
-      modifiers.push('MISS')
-      trueDamage = 0
-    }
+    
     const hpAfterDamage = defender.hp - trueDamage
     defender.hp = Math.max(hpAfterDamage, 0)
     log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)

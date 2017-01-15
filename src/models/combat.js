@@ -36,7 +36,7 @@ function getStats (fighter) {
     dropRatio: 1 + fighter.luk/350,
     dodge: Math.min(0.03 + (fighter.agi/(fighter.agi+400)), 0.8),
     critChance: Math.min(fighter.luk/(fighter.luk+500), 0.9),
-    critDmg: 1.6 + fighter.str/1000 + fighter.luk/1000,
+    critDmg: 2,
     mDef: Math.min(0.95, fighter.int/(200 + fighter.int)),
   }
 }
