@@ -1,7 +1,19 @@
+const fs = require('fs')
+const { merge, objOf } = require('ramda')
+
+const externals = fs.readdirSync('node_modules')
+  .filter(module => module !== '.bin')
+  .reduce((modules, module) =>
+      merge(modules, objOf(module, `commonjs ${module}`)), {})
+
 module.exports = {
   entry: './src/index.js',
-  output: { path: __dirname, filename: 'build.js' },
+  output: {
+    path: __dirname,
+    filename: 'build.js',
+  },
   target: 'node',
+  externals,
   module: {
     loaders: [
       {
@@ -10,8 +22,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel?presets=es2015',
+        loader: 'babel',
+        query: {
+          presets: ['es2015'],
+        },
       },
     ],
-  }
+  },
 }
+

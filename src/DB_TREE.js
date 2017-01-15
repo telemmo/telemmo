@@ -3,10 +3,16 @@ const db = {
     {
       createdAt: Date,
       updatedAt: Date,
-      telegramId: Number,
+      providers: [
+        {
+          name: String,
+          userId: String,
+        },
+      ],
       name: String,
       gold: Number,
       titles: [String],
+      language: String,
       items: [
         {
           name: String,
