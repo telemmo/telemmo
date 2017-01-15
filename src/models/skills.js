@@ -9,7 +9,6 @@ const skills = [
     type: 'Magical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -21,7 +20,6 @@ const skills = [
     type: 'True',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -31,10 +29,10 @@ const skills = [
     name: 'Fireball',
     stance: 'Arcane',
     influence: 3,
-    cooldown: 3,
+    cooldown: 4,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 7
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 3
       return damage
     },
   },
@@ -42,9 +40,10 @@ const skills = [
     name: 'Pyroblast',
     stance: 'Arcane',
     influence: 1,
+    cooldown: 14,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 13
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 5
       return damage
     },
   },
@@ -52,11 +51,17 @@ const skills = [
     name: 'Sickness',
     stance: 'Debuff',
     influence: 10,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
-      modifiers.push('STUN')
-      defender.stunned = true
+      if(attacker.passive.debuff < 5){
+        const damage = attacker.mAtk * 0.8
+        attacker.passive.debuff += 1
+        modifiers.push('+DEBUFF')
+      }else{
+        const damage = attacker.mAtk * 5
+        attacker.passive.debuff = 0
+        modifiers.push('--DEBUFF')
+      }  
       return damage
     },
   },
@@ -64,11 +69,14 @@ const skills = [
     name: 'Soul Strike',
     stance: 'Debuff',
     influence: 5,
+    cooldown: 3,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 5
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 2
       defender.aspd = defender.aspd * 0.8
       modifiers.push('-ASPD')
+      attacker.passive.debuff += 1
+      modifiers.push('+DEBUFF')
       return damage
     },
   },
@@ -76,11 +84,14 @@ const skills = [
     name: 'Locus Plague',
     stance: 'Debuff',
     influence: 3,
+    cooldown: 3,
+    type: 'True',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 8
-      defender.hp = Math.max(defender.hp - damage, 0)
-      defender.aspd = defender.aspd * 0.8
-      modifiers.push('-ASPD')
+      const damage = attacker.mAtk * 2.5
+      defender.mDef = defender.mDef * 0.8
+      attacker.passive.debuff += 1
+      modifiers.push('-Magic Defense')
+      modifiers.push('+DEBUFF')
       return damage
     },
   },
@@ -88,12 +99,15 @@ const skills = [
     name: 'Curse',
     stance: 'Debuff',
     influence: 1,
+    cooldown: 5,
+    type: 'True',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 11
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 3
       defender.aspd = defender.aspd * 0.8
       modifiers.push('-ASPD')
       modifiers.push('STUN')
+      modifiers.push('++DEBUFF')
+      attacker.passive.debuff = 5
       defender.stunned = true
       return damage
     },
@@ -102,9 +116,10 @@ const skills = [
     name: 'Shield Up',
     stance: 'Tank',
     influence: 10,
+    cooldown: 2,
+    type: 'Physical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.atk/2
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.atk
       attacker.def = attacker.def * 1.2
       modifiers.push('+DEF')
       return damage
@@ -114,9 +129,10 @@ const skills = [
     name: 'Shield Smash',
     stance: 'Tank',
     influence: 5,
+    cooldown: 5,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 5
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 2
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -126,9 +142,10 @@ const skills = [
     name: 'Iron Garden',
     stance: 'Tank',
     influence: 3,
+    cooldown: 5,
+    type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.mAtk * 3
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.mAtk * 2.5
       attacker.def = attacker.def * 1.6
       modifiers.push('++DEF')
       return damage
@@ -138,21 +155,27 @@ const skills = [
     name: 'Heavenly Fall',
     stance: 'Tank',
     influence: 1,
+    cooldown: 12,
+    type: 'True',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.vit/1.5
-      defender.hp = Math.max(defender.hp - damage, 0)
+      const damage = attacker.maxHp/2.5
       return damage
     },
   },
   {
     name: 'Rage',
     stance: 'Berserk',
-    influence: 15,
+    influence: 5,
+    type: 'Physical',
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.atk/2
-      defender.hp = Math.max(defender.hp - damage, 0)
-      attacker.atk = Math.max(attacker.atk * 1.2)
-      modifiers.push('+ATK')
+      const damage = attacker.atk*1.2
+      if(attacker.passive.lasthope){
+        if(attacker.passive.lasthope === true){
+          attacker.hp += damage * 0.4
+          var string = "+" + damage*0.4 + " HEAL"
+          modifiers.push(string)
+        }
+      }
       return damage
     },
   },
@@ -160,13 +183,23 @@ const skills = [
     name: 'Last Hope',
     stance: 'Berserk',
     influence: 1,
-    action: (attacker, defender, modifiers) => {
+    type: 'Physical',
+    cooldown: 15,
+    duration: 5,
+    action: function(attacker, defender, modifiers) {
       const damage = attacker.atk
-      defender.hp = Math.max(defender.hp - damage, 0)
       attacker.atk = Math.max(attacker.atk * 1.2)
       modifiers.push('+ATK')
       attacker.atk = Math.max(attacker.aspd * 1.2)
       modifiers.push('+APSD')
+      modifiers.push('+IGNORING PAIN')
+      attacker.passive.lasthope = true
+      attacker.unkilable = true
+      attacker.effects.push({ name: this.name, duration: this.duration, action: (attacker, modifiers) => {
+        attacker.passive.lasthope = false
+        attacker.unkilable = false
+        modifiers.push('-IGNORING PAIN')
+      }})
       return damage
     },
   },
@@ -177,7 +210,6 @@ const skills = [
     type: 'Physical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -188,7 +220,6 @@ const skills = [
     type: 'Physical',
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 5
-      defender.hp = Math.max(defender.hp - damage, 0)
       defender.aspd = defender.aspd * 0.8
       modifiers.push('-ASPD')
       return damage
@@ -200,7 +231,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 10
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -210,7 +240,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       attacker.dodge = attacker.dodge * 1.2
       modifiers.push('+DODGE')
       return damage
@@ -222,7 +251,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.atk
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -232,7 +260,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       attacker.atk = attacker.atk * 1.2
       modifiers.push('+ATK')
       return damage
@@ -244,7 +271,6 @@ const skills = [
     influence: 5,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 5
-      defender.hp = Math.max(defender.hp - damage, 0)
       attacker.aspd = attacker.aspd * 1.2
       modifiers.push('+ASPD')
       return damage
@@ -256,7 +282,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.atk
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -266,7 +291,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 3
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -278,7 +302,7 @@ const skills = [
       const damage = attacker.mAtk * 2
       modifiers.push('HEAL')
       attacker.hp = Math.max(attacker.hp  + damage, attacker.maxHp)
-      return damage
+      return 0
     },
   },
   {
@@ -287,7 +311,6 @@ const skills = [
     influence: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk
-      defender.hp = Math.max(defender.hp - damage, 0)
       attacker.def = attacker.def * 1.6
       modifiers.push('++DEF')
       return damage
@@ -299,7 +322,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 15
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -309,7 +331,6 @@ const skills = [
     influence: 20,
     action: (attacker, defender, modifiers) => {
       const damage = Math.sqrt(attacker.dex) * 8
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -319,7 +340,6 @@ const skills = [
     influence: 7,
     action: (attacker, defender, modifiers) => {
       const damage = Math.sqrt(attacker.dex) * 20
-      defender.hp = Math.max(defender.hp - damage, 0)
       defender.aspd = Math.max(defender.aspd * 0.8)
       modifiers.push('-ASPD')
       return damage
@@ -331,7 +351,6 @@ const skills = [
     influence: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 15
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -343,7 +362,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = Math.sqrt(attacker.dex) * 30
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -355,7 +373,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 4
-      defender.hp = Math.max(defender.hp - damage, 0)
       defender.aspd = Math.max(defender.aspd * 0.8)
       modifiers.push('-ASPD')
       return damage
@@ -367,7 +384,6 @@ const skills = [
     influence: 5,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 8
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -377,7 +393,6 @@ const skills = [
     influence: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 10
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -389,7 +404,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 20
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -399,7 +413,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 3
-      defender.hp = Math.max(defender.hp - damage, 0)
       defender.def = defender.def * 0.8
       modifiers.push('-DEF')
       return damage
@@ -411,7 +424,6 @@ const skills = [
     influence: 6,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 4
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -423,7 +435,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 7
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.stunned = true
       return damage
@@ -435,7 +446,6 @@ const skills = [
     influence: 10,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 2
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -445,7 +455,6 @@ const skills = [
     influence: 5,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 5
-      defender.hp = Math.max(defender.hp - damage, 0)
       return damage
     },
   },
@@ -455,7 +464,6 @@ const skills = [
     influence: 3,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 6
-      defender.hp = Math.max(defender.hp - damage, 0)
       defender.def = defender.def * 0.8
       modifiers.push('-DEF')
       return damage
@@ -467,7 +475,6 @@ const skills = [
     influence: 1,
     action: (attacker, defender, modifiers) => {
       const damage = attacker.mAtk * 8
-      defender.hp = Math.max(defender.hp - damage, 0)
       modifiers.push('STUN')
       defender.def = defender.def * 0.8
       modifiers.push('-DEF')
@@ -514,8 +521,10 @@ function castFromStance (attacker, defender, modifiers) {
   if(randomSkill.type){
     skillReduction = skillDamageReduction(randomSkill.type, defender)
   }
+  skillDamage = randomSkill.action(attacker, defender, modifiers) * (1 - skillReduction)
+  defender.hp = Math.max(defender.hp - skillDamage, 0) 
   return {
     action: `${stanceFromName(attacker.stance).emoji} ` + randomSkill.name,
-    damage: randomSkill.action(attacker, defender, modifiers) * (1 - skillReduction),
+    damage: skillDamage,
   }
 }

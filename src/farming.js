@@ -62,7 +62,7 @@ function combat (fighter1, fighter2) {
       })
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
-        if (fighter.hp <= 0) { return }
+        if (fighter.hp <= 0 && fighter.unkilable === false) { return }
 				const afterAttack = attack(fighter, getDefender(fighters, fighter))
         log += afterAttack.log
         if (afterAttack.winner) {
@@ -83,7 +83,22 @@ function combat (fighter1, fighter2) {
     drop
   }
 }
+function checkEffects (fighter, modifiers) {
+  if(!fighter.effects){return}
+  fighter.effects = fighter.effects
+  .filter(effc => {
+    if(effc.duration > 0) {
+      effc.duration -= 1
+    }
+    if(effc.duration === 0){
+      effc.action(fighter, modifiers)
+      return false
+    }
+    return true
 
+  })
+
+}
 function reduceCooldown (fighter) {
 
   fighter.cooldown = fighter.cooldown
@@ -110,6 +125,9 @@ function attack (attacker, defender) {
   var action = ''
   var modifiers = []
 
+  if(!defender.unkilable){ defender.unkilable = false}
+  if(!attacker.effects){attacker.effects = []}
+  if(!attacker.passive){attacker.passive = {}}
   if (attacker.stunned) {
     attacker.stunned = false
     return {
@@ -123,6 +141,8 @@ function attack (attacker, defender) {
   if(defender.cooldown){
     reduceCooldown(defender);
   }
+  checkEffects(defender, modifiers)
+
   if(!attacker.readyToCast){attacker.readyToCast = false}
   if (attacker.stance && attacker.readyToCast === true) {
     attacker.readyToCast = false
@@ -148,9 +168,7 @@ function attack (attacker, defender) {
     defender.hp = Math.max(hpAfterDamage, 0)
     log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
   }
-
-
-  if (defender.hp <= 0) {
+  if (defender.hp <= 0 && defender.unkilable===false) {
     return {
       log,
       winner: attacker.name,

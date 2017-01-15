@@ -7,7 +7,7 @@ const stances = [
     classes: ['Mage'],
     description: 'Doubles skill casting chance',
     buffs: player => ({
-      skillCast: player.skillCast * 2
+      skillCast: player.castSpeed * 2
     }),
   },
   {
