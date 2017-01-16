@@ -166,7 +166,7 @@ const monsters = [
     int: 19,
     dex: 19,
     loot: {
-      types: ['Earth',],
+      types: ['Earth','Wind'],
       max: 5,
     },
   },
@@ -242,7 +242,7 @@ const monsters = [
     int: 35,
     dex: 35,
     loot: {
-      types: ['Water', 'Shock', 'Earth',],
+      types: ['Water', 'Rock', 'Earth',],
       max: 8,
     },
   },
@@ -261,8 +261,27 @@ const monsters = [
     int: 35,
     dex: 30,
     loot: {
-      types: ['Water', 'Wind', ],
+      types: ['Water', 'Wind', 'Shock'],
       max: 10,
+    },
+  },
+  {
+    name: 'Murder of Crows',
+    maps: [
+      {
+        name: 'Dark Swamp',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 31,
+    vit: 34,
+    agi: 40,
+    luk: 37,
+    int: 37,
+    dex: 32,
+    loot: {
+      types: ['Wind', 'Shock',],
+      max: 8,
     },
   },
   {
@@ -270,7 +289,7 @@ const monsters = [
     maps: [
       {
         name: 'Dark Swamp',
-        spawnInfluence: 15,
+        spawnInfluence: 25,
       }
     ],
     str: 45,
@@ -280,7 +299,7 @@ const monsters = [
     int: 40,
     dex: 40,
     loot: {
-      types: ['Shock', 'Rock'],
+      types: ['Shock', 'Rock', 'Earth'],
       max: 12,
     },
   },
@@ -289,7 +308,7 @@ const monsters = [
     maps: [
       {
         name: 'Dark Swamp',
-        spawnInfluence: 5,
+        spawnInfluence: 8,
       }
     ],
     str: 50,
@@ -299,7 +318,7 @@ const monsters = [
     int: 50,
     dex: 50,
     loot: {
-      types: ['Water', 'Earth', 'Wind', 'Shock'],
+      types: ['Water', 'Earth', 'Wind', 'Shock','Rock'],
       max: 13,
     },
   },
@@ -375,7 +394,7 @@ const monsters = [
     int: 110,
     dex: 110,
     loot: {
-      types: ['Rock', 'Earth', 'Wind', 'Shock'],
+      types: ['Rock', 'Earth', 'Wind', 'Shock', 'Water'],
       max: 20,
     },
   },
@@ -413,7 +432,7 @@ const monsters = [
     int: 120,
     dex: 135,
     loot: {
-      types: ['Wind', 'Shock',],
+      types: ['Wind', 'Shock', 'Water'],
       max: 25,
     },
   },
@@ -510,6 +529,25 @@ const monsters = [
     loot: {
       types: ['Fire',],
       max: 55,
+    },
+  },
+  {
+    name: 'Acid Crab',
+    maps: [
+      {
+        name: 'Volcanic Oasis',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 250,
+    vit: 250,
+    agi: 280,
+    luk: 280,
+    int: 280,
+    dex: 280,
+    loot: {
+      types: ['Earth', 'Water'],
+      max: 70,
     },
   },
   {
@@ -664,6 +702,25 @@ const monsters = [
       max: 90,
     },
   },
+    {
+    name: 'Rock Lobster',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 700,
+    vit: 700,
+    agi: 600,
+    luk: 450,
+    int: 400,
+    dex: 650,
+    loot: {
+      types: ['Water', 'Rock',],
+      max: 90,
+    },
+  },
   {
     name: 'Megalodon',
     maps: [
@@ -679,7 +736,7 @@ const monsters = [
     int: 650,
     dex: 750,
     loot: {
-      types: ['Water', 'Ice', 'Wind'],
+      types: ['Water', 'Ice', 'Wind', 'Shock'],
       max: 95,
     },
   },
@@ -760,7 +817,7 @@ const monsters = [
     },
   },
   {
-    name: 'Eletric Dragon',
+    name: 'Electric Dragon',
     maps: [
       {
         name: 'Dragonic Sanctuary',
