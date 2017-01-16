@@ -212,7 +212,8 @@ const skills = [
       attacker.effects.push({ name: this.name, duration: this.duration, action: (fighter, enemy, modifiers) => {
         fighter.passive.lasthope = false
         fighter.unkilable = false
-        modifiers.push('-IGNORING PAIN')
+        if(modifiers){modifiers.push('-IGNORING PAIN')}
+        
       }})
       return damage
     },
@@ -232,9 +233,9 @@ const skills = [
         var skillDamage = enemy.mAtk * 1.5
         fighter.hp = Math.max(fighter.hp - skillDamage, 0) 
         var string = '+' + skillDamage + ' DAMAGE DUE TO EXPLOSIVES'
-        modifiers.push(string)
+        if(modifiers){modifiers.push(string)}
+        
       }})
-      console.log(defender.effects)
       return damage
     },
   },
@@ -255,7 +256,7 @@ const skills = [
         skillDamage = Math.ceil(skillDamage)
         fighter.hp = Math.max(fighter.hp - skillDamage, 0) 
         var string = '+' + skillDamage + ' DAMAGE DUE TO POISON'
-        modifiers.push(string)
+        if(modifiers){modifiers.push(string)}
       }})
 
       return damage
@@ -276,7 +277,7 @@ const skills = [
         fighter.hp = Math.max(fighter.hp - skillDamage, 0) 
         var string =  skillDamage + ' HP TRANSFERED DUE TO LEECH'
         enemy.hp += skillDamage
-        modifiers.push(string)
+        if(modifiers){modifiers.push(string)}
       }})
       return damage
     },
