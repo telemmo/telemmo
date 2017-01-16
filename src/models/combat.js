@@ -34,7 +34,7 @@ function getStats (fighter) {
     castSpeed: Math.floor(Math.pow(fighter.dex, 2)/(fighter.dex+200)) + 20,
     stunChance: 0,
     dropRatio: 1 + fighter.luk/350,
-    dodge: Math.min(0.03 + (fighter.agi/(fighter.agi+400)), 0.8),
+    dodge: Math.min(0.03 + (fighter.agi/(fighter.agi+10000)), 0.8),
     critChance: Math.min(fighter.luk/(fighter.luk+500), 0.9),
     critDmg: 2,
     mDef: Math.min(0.95, fighter.int/(200 + fighter.int)),

@@ -83,15 +83,16 @@ function combat (fighter1, fighter2) {
     drop
   }
 }
-function checkEffects (fighter, modifiers) {
+function checkEffects (fighter, enemy, modifiers) {
   if(!fighter.effects){return}
   fighter.effects = fighter.effects
   .filter(effc => {
+    //console.log(effc)
     if(effc.duration > 0) {
       effc.duration -= 1
     }
     if(effc.duration === 0){
-      effc.action(fighter, modifiers)
+      effc.action(fighter, enemy, modifiers)
       return false
     }
     return true
@@ -141,7 +142,7 @@ function attack (attacker, defender) {
   if(defender.cooldown){
     reduceCooldown(defender);
   }
-  checkEffects(defender, modifiers)
+  checkEffects(defender, attacker, modifiers)
 
   if(!attacker.readyToCast){attacker.readyToCast = false}
   if (attacker.stance && attacker.readyToCast === true) {
