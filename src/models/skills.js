@@ -185,7 +185,7 @@ const skills = [
       const damage = attacker.atk*1.2
       if(attacker.passive.lasthope){
         if(attacker.passive.lasthope === true){
-          attacker.hp += damage * 0.4
+          Math.min(attacker.hp  + damage*0.4, attacker.maxHp)
           var string = "+" + damage*0.4 + " HEAL"
           modifiers.push(string)
         }
@@ -546,7 +546,7 @@ const skills = [
         }
         if(foundsomething === 2) {
           modifiers.push('OMG A HEAL STONE!')
-          attacker.hp += attacker.mAtk*3
+          Math.min(attacker.hp  + attacker.mAtk*3, attacker.maxHp)
         }
         if(foundsomething === 3) {
           modifiers.push('IS THAT A WEAPON?')
