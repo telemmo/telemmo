@@ -127,6 +127,7 @@ function attack (attacker, defender) {
 
   if(!defender.unkilable){ defender.unkilable = false}
   if(!attacker.effects){attacker.effects = []}
+  if(!defender.effects){defender.effects = []}
   if(!attacker.passive){attacker.passive = {}}
   if (attacker.stunned) {
     attacker.stunned = false
