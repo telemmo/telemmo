@@ -153,9 +153,11 @@ function attack (attacker, defender) {
     action = 'attacked'
     var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() * (1 - defender.def))
     var trueDamage = Math.max(damage, 1)
+    console.log(damage + ' BEFORE CRIT')
     if (Math.random() < attacker.critChance) {
       modifiers.push('CRIT')
-      damage = Math.floor(damage * attacker.critDmg)
+      damage = Math.floor((attacker.atk - attacker.atk*attacker.atkVariation*Math.random()) * attacker.critDmg)
+      console.log(damage + 'AFTER CRIT')
     }else if (Math.random() < defender.dodge) {
       modifiers.push('MISS')
       trueDamage = 0
