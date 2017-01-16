@@ -54,7 +54,7 @@ const skills = [
     type: 'Magical',
     action: (attacker, defender, modifiers) => {
       console.log(attacker.passive.debuff)
-      damage = attacker.mAtk * 0.8
+      var damage = attacker.mAtk * 0.8
       if(!attacker.passive.debuff){ attacker.passive.debuff = 0}
       if(attacker.passive.debuff < 5){
         attacker.passive.debuff += 1
@@ -309,7 +309,7 @@ const skills = [
     type: 'True',
     cooldown: 6,
     action: (attacker, defender, modifiers) => {
-      damage = attacker.atk
+      var damage = attacker.atk
       if(attacker.passive.fadeout){
         if(attacker.passive.fadeout === true){
           damage = attacker.atk * 3
@@ -354,7 +354,7 @@ const skills = [
     type: 'True',
     cooldown: 10,
     action: (attacker, defender, modifiers) => {
-      damage = (attacker.atk*2 + attacker.mAtk*2)/2
+      var damage = (attacker.atk*2 + attacker.mAtk*2)/2
       damage = Math.ceil(damage)
       return damage
     },
@@ -422,7 +422,7 @@ const skills = [
       this.name = 'Quick Shot'
       this.type = 'Physical'
       attacker.passive.quickshot += 1
-      damage = attacker.dex + attacker.atk
+      var damage = attacker.dex + attacker.atk
       if(attacker.passive.quickshot === 2){
         this.name = 'Charged Shot'
         damage = attacker.dex*2 + attacker.atk
@@ -537,7 +537,7 @@ const skills = [
     influence: 10,
     type: 'Magical',
     action: (attacker, defender, modifiers) => {
-      damage = attacker.mAtk
+      var damage = attacker.mAtk
       if(Math.random() < attacker.critChance){
         var foundsomething = Math.floor(Math.random() * 5) + 1;
         if(foundsomething === 1) {
