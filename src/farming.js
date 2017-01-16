@@ -50,13 +50,19 @@ function combat (fighter1, fighter2) {
   var drop = {}
   var time = 0
 
+
 	while (winner === null) {
     const willAttack = fighters
-      .filter(fighter => time % Math.ceil(2000/fighter.aspd) === 0)
+      .filter(fighter => {
 
+        if(time % Math.ceil(2000/fighter.castSpeed) === 0 && time !== 0) {
+          fighter.readyToCast = true
+        }
+        if(time % Math.ceil(2000/fighter.aspd) === 0){return true}
+      })
     if (time !== 0 && willAttack) {
 			willAttack.forEach(fighter => {
-        if (fighter.hp <= 0) { return }
+        if (fighter.hp <= 0 && fighter.unkilable === false) { return }
 				const afterAttack = attack(fighter, getDefender(fighters, fighter))
         log += afterAttack.log
         if (afterAttack.winner) {
@@ -77,6 +83,31 @@ function combat (fighter1, fighter2) {
     drop
   }
 }
+function checkEffects (fighter, enemy, modifiers) {
+  if(!fighter.effects){return}
+  fighter.effects = fighter.effects
+  .filter(effc => {
+    if(effc.duration > 0) {
+      effc.duration -= 1
+    }
+    if(effc.duration === 0){
+      effc.action(fighter, enemy, modifiers)
+      return false
+    }
+    return true
+
+  })
+
+}
+function reduceCooldown (fighter) {
+
+  fighter.cooldown = fighter.cooldown
+  .filter(cd => {
+    if (cd.cooldown > 0) {
+      cd.cooldown -= 1
+      return true
+    }})
+}
 
 function viewDrop (drop) {
   return Object.keys(drop).length !== 0 ? 'Loot: ' + Object.keys(drop)
@@ -94,6 +125,9 @@ function attack (attacker, defender) {
   var action = ''
   var modifiers = []
 
+  if(!defender.unkilable){ defender.unkilable = false}
+  if(!attacker.effects){attacker.effects = []}
+  if(!attacker.passive){attacker.passive = {}}
   if (attacker.stunned) {
     attacker.stunned = false
     return {
@@ -101,33 +135,40 @@ function attack (attacker, defender) {
       winner: null,
     }
   }
+  if(attacker.cooldown){
+    reduceCooldown(attacker);
+  }
+  if(defender.cooldown){
+    reduceCooldown(defender);
+  }
+  checkEffects(defender, attacker, modifiers)
 
-  if (attacker.stance && Math.random() < attacker.skillCast) {
+  if(!attacker.readyToCast){attacker.readyToCast = false}
+  if (attacker.stance && attacker.readyToCast === true) {
+    attacker.readyToCast = false
     const cast = castFromStance(attacker, defender, modifiers)
     log += buildAttackLog(attacker, defender, cast.action, cast.damage, modifiers)
   } else {
     action = 'attacked'
-    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() - defender.def)
+    var damage = Math.floor(attacker.atk - attacker.atk*attacker.atkVariation*Math.random() * (1 - defender.def))
+    var trueDamage = Math.max(damage, 1)
     if (Math.random() < attacker.critChance) {
       modifiers.push('CRIT')
       damage = Math.floor(damage * attacker.critDmg)
+    }else if (Math.random() < defender.dodge) {
+      modifiers.push('MISS')
+      trueDamage = 0
     }
     if (Math.random() < attacker.stunChance && damage !== 0) {
       modifiers.push('STUN')
       defender.stunned = true
     }
-    var trueDamage = Math.max(damage, 1)
-    if (Math.random() < defender.dodge) {
-      modifiers.push('MISS')
-      trueDamage = 0
-    }
+    
     const hpAfterDamage = defender.hp - trueDamage
     defender.hp = Math.max(hpAfterDamage, 0)
     log += buildAttackLog(attacker, defender, action, trueDamage, modifiers)
   }
-
-
-  if (defender.hp <= 0) {
+  if (defender.hp <= 0 && defender.unkilable===false) {
     return {
       log,
       winner: attacker.name,
