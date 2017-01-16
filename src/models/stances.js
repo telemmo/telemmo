@@ -77,7 +77,7 @@ const stances = [
     classes: ['Acolyte'],
     description: 'Doubles skill casting chance',
     buffs: player => ({
-      skillCast: player.skillCast * 2
+      skillCast: player.castSpeed * 2
     }),
   },
   {
@@ -103,11 +103,11 @@ const stances = [
     name: 'Efficient',
     emoji: ':flower_playing_cards:',
     classes: ['Merchant'],
-    description: '+30% monster drop ratio, +20% ATK, +20% dodge',
+    description: '+30% monster drop ratio, +20% DEX, +30% CritChance',
     buffs: player => ({
       dropRatio: player.dropRatio * 1.3,
       dex: player.dex * 1.2,
-      luk: player.luk * 1.2,
+      critChance: player.critChance + 0.3,
     }),
   },
   {
