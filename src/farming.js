@@ -39,7 +39,7 @@ function start (bot, map, msg, $player = playerFromId(msg.from.id)) {
         return
       }
       start(bot, map, msg, $player)
-    }, (Math.random() * 20 + 20) * 1000)
+    }, (Math.random() * 40 + 20) * 1000)
   })
 }
 
@@ -87,7 +87,6 @@ function checkEffects (fighter, enemy, modifiers) {
   if(!fighter.effects){return}
   fighter.effects = fighter.effects
   .filter(effc => {
-    //console.log(effc)
     if(effc.duration > 0) {
       effc.duration -= 1
     }
