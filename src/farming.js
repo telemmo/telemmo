@@ -156,7 +156,7 @@ function attack (attacker, defender) {
     console.log(damage + ' BEFORE CRIT')
     if (Math.random() < attacker.critChance) {
       modifiers.push('CRIT')
-      damage = Math.floor((attacker.atk - attacker.atk*attacker.atkVariation*Math.random()) * attacker.critDmg)
+      damage = Math.floor(attacker.atk  * attacker.critDmg)
       console.log(damage + 'AFTER CRIT')
     }else if (Math.random() < defender.dodge) {
       modifiers.push('MISS')
