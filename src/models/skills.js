@@ -309,7 +309,7 @@ const skills = [
     type: 'True',
     cooldown: 6,
     action: (attacker, defender, modifiers) => {
-      const damage = attacker.atk
+      damage = attacker.atk
       if(attacker.passive.fadeout){
         if(attacker.passive.fadeout === true){
           damage = attacker.atk * 3
