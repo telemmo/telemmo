@@ -1,6 +1,22 @@
-import { Observable } from 'rx'
+import {
+  partial,
+} from 'ramda'
 
 export default function start (dao, provider, msg) {
-  return provider.send(msg.from.id, msg.text)
+  console.log(msg)
+
+  if (!msg.player) {
+    const player = {
+      providers: {
+        [msg.provider.name]: {
+          id: msg.fromId,
+        },
+      },
+    }
+    return dao.player.create(player)
+      .then(partial(provider.send, [msg.provider.chat, 'Player created!']))
+  }
+
+  return provider.send(msg.provider.chat, `Hi ${msg.provider.nick}`)
 }
 
