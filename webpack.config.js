@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const { merge, objOf } = require('ramda')
 
 const externals = fs.readdirSync('node_modules')
@@ -9,10 +10,11 @@ const externals = fs.readdirSync('node_modules')
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname,
-    filename: 'build.js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'telemmo.js',
   },
   target: 'node',
+  devtool: 'source-map',
   externals,
   module: {
     loaders: [
@@ -29,5 +31,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+  ],
 }
 

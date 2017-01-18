@@ -15,14 +15,16 @@
     "node-emoji": "1.5.0",
     "node-telegram-bot-api": "0.25.0",
     "ramda": "0.23.0",
-    "rx": "^4.1.0",
+    "rx": "4.1.0",
+    "source-map-support": "0.4.9",
     "webpack": "1.14.0"
   },
   "scripts": {
-    "start": "node build.js",
-    "lint": "eslint src/",
-    "predev": "webpack --progress --colors",
-    "dev": "npm start"
+    "prestart": "webpack --progress --colors --config webpack.config.prod.js",
+    "predev": "webpack --progress --colors --config webpack.config.dev.js",
+    "start": "node dist/telemmo.js",
+    "dev": "node dist/telemmo.dev.js",
+    "lint": "eslint src/"
   },
   "devDependencies": {
     "eslint": "3.13.1",

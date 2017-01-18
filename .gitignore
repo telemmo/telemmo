@@ -1,8 +1,9 @@
-# Bot key
-key.js
-*.txt
+# Project releases
+# When doing a release commit
+# git add --force dist
+dist
 
-.yarnclean
+# Vim Stuff
 .tern-port
 *.swp
 *.swo
@@ -15,6 +16,7 @@ key.js
 logs
 *.log
 npm-debug.log*
+yarn-error.log*
 
 # Runtime data
 pids

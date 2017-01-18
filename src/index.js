@@ -1,9 +1,7 @@
 import engine from './engine'
 import game from './game'
 
-if (process.env.NODE_ENV !== 'production') {
-  require('source-map-support').install()
-}
+require('source-map-support').install()
 
 function handleError (error) {
   console.error('Engine exploded')
