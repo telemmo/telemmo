@@ -1,10 +1,17 @@
-import TelegramBot from 'node-telegram-bot-api'
+import engine from './engine'
 import game from './game'
 
-const token = process.env.BOT_KEY
-const bot = new TelegramBot(token, { polling: true })
+require('source-map-support').install()
 
-bot.on('message', function (msg) {
-  const chatId = msg.chat.id
-  bot.sendMessage(chatId, 'hallo')
-})
+function handleError (error) {
+  console.error('Engine exploded')
+  console.error(error.message)
+  console.error(error.stack)
+}
+
+Promise.resolve()
+  .then(game.start)
+  .then(engine.start)
+  .then(() => console.log('Engine started'))
+  .catch(handleError)
+
