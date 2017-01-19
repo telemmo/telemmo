@@ -722,6 +722,25 @@ const monsters = [
     },
   },
   {
+    name: 'Rock Lobster',
+    maps: [
+      {
+        name: 'Deeps Below',
+        spawnInfluence: 20,
+      }
+    ],
+    str: 700,
+    vit: 700,
+    agi: 600,
+    luk: 450,
+    int: 400,
+    dex: 650,
+    loot: {
+      types: ['Water', 'Rock',],
+      max: 90,
+    },
+  },
+  {
     name: 'Megalodon',
     maps: [
       {
