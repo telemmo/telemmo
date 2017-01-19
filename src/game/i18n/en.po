@@ -16,3 +16,19 @@ msgtr ""
 msgid "Player already exists!"
 msgtr ""
 
+#: src/game/handlers/start.js 30:26
+msgid "Welcome to TeleMMO! You will now create your first character. Touch the comands bellow to see information about the class
+
+/mage
+/thief
+/fighter
+/ranger
+/acolyte
+/merchant
+"
+msgtr ""
+
+#: src/game/handlers/start.js 30:26
+msgid "Welcome to TeleMMO! You will now create your first character. Touch the comands below to see information about the class. If you can't see the keyboard menu, click the 4 squares icon right next to the emojis."
+msgtr ""
+
