@@ -13,6 +13,7 @@
     "mongodb": "2.2.21",
     "mongojs": "2.4.0",
     "node-emoji": "1.5.0",
+    "node-gettext": "^1.1.0",
     "node-telegram-bot-api": "0.25.0",
     "ramda": "0.23.0",
     "rx": "4.1.0",
@@ -31,6 +32,7 @@
     "eslint-config-airbnb": "14.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
-    "eslint-plugin-react": "6.9.0"
+    "eslint-plugin-react": "6.9.0",
+    "gettext-loader": "^0.2.2"
   }
 }

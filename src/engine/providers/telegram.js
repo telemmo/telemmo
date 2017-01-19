@@ -23,7 +23,9 @@ function start () {
 
   const stream = Observable.fromEvent(bot, 'message')
 
-  stream.subscribe(console.log)
+  if (process.env.NODE_ENV !== 'production') {
+    stream.subscribe(console.log)
+  }
 
   return bot.getMe()
     .then(always({
