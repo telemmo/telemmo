@@ -12,8 +12,8 @@ function buildFilter (stream, regex) {
   return stream.filter(msg => match.test(msg.text))
 }
 
-function sendMessage (bot, message, options) {
-  bot.sendMessage(message, options)
+function sendMessage (bot, chat, message, options) {
+  bot.sendMessage(chat, message, options)
   return Observable.of(false)
 }
 
