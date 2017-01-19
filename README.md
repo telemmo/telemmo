@@ -1,7 +1,5 @@
 For information about the game check out the community: https://www.reddit.com/r/telemmo/
 
-Refactor notes:
+The game is undergoing a major refactor and that's happening here: https://github.com/MarcoWorms/telemmo/tree/future
 
-- Use ramda for imutability consistency and functional helpers
-- Consistent routing between commmon routes and callback queries
-- Decouple keyboard from view options (I didn't count for more view options other than keyboard)
+The new version should be ready in 01/30 :D
