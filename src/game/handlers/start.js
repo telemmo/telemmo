@@ -2,21 +2,29 @@ import {
   partial,
 } from 'ramda'
 
-export default function start (dao, provider, msg) {
-  console.log(msg)
+import { reject } from './errors'
 
-  if (!msg.player) {
-    const player = {
-      providers: {
-        [msg.provider.name]: {
-          id: msg.fromId,
-        },
-      },
-    }
-    return dao.player.create(player)
-      .then(partial(provider.send, [msg.provider.chat, 'Player created!']))
+function createPlayer (dao, _, msg) {
+  if (msg.player._id) {
+    return reject(msg, _('Player already exists!'))
   }
 
-  return provider.send(msg.provider.chat, `Hi ${msg.provider.nick}`)
+  const player = {
+    language: 'en',
+    providers: {
+      [msg.provider]: {
+        id: msg.user,
+      },
+    },
+  }
+
+  return dao.player.create(player)
+}
+
+export default function call (dao, provider, _, msg) {
+  const params = [msg.chat, _('Player created!')]
+
+  return createPlayer(dao, _, msg)
+    .then(partial(provider.send, params))
 }
 

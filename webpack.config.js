@@ -24,10 +24,10 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015'],
-        },
+        loaders: [
+          'gettext',
+          'babel?presets=es2015',
+        ],
       },
     ],
   },
