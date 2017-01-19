@@ -22,7 +22,20 @@ function createPlayer (dao, _, msg) {
 }
 
 export default function call (dao, provider, _, msg) {
-  const params = [msg.chat, _('Player created!')]
+  const params = [
+    msg.chat,
+    _('Welcome to TeleMMO! You will now create your first character.'
+    + 'Touch the comands below to see information about a class.'),
+    {
+      reply_markup: {
+        keyboard: [
+          ['/info-mage', '/info-fighter'],
+          ['/info-thief', '/info-ranger'],
+          ['/info-merchant', '/info-acolyte'],
+        ],
+      },
+    },
+  ]
 
   return createPlayer(dao, _, msg)
     .then(partial(provider.send, params))
