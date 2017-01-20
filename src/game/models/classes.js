@@ -1,3 +1,7 @@
+import {
+  toLower
+} from 'ramda'
+
 const classes = [
   {
     name: 'Mage',
@@ -31,6 +35,15 @@ const classes = [
   },
 ]
 
-export default function find (name) {
-  return classes.find(clas => clas.name === name)
+function find (name) {
+  return classes.find(clas => toLower(clas.name) === toLower(name))
+}
+
+function all () {
+  return classes
+}
+
+export default {
+  find,
+  all,
 }
