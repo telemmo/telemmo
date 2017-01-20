@@ -1,23 +1,23 @@
+------------------------------------------------------------
 BASE STATS
 
 STR . strength
 INT . intelligence
 
 REF . reflex
-CBT . combat
+ACC . accuracy
 
 CON . constitution
 KNO . knowledge
 
 ------------------------------------------------------------
-
 COMBAT STATS
 
-ATK . attack = STR and CBT
+ATK . attack = STR and ACC
 DEF . defense = STR and REF
 ATKSPD . attack speed = STR and CON
 
-MATK . magical attack = INT and CBT
+MATK . magical attack = INT and ACC
 MDEF . magical defense = INT and REF
 MATKSPD . magical attack speed = INT and KNO
 
