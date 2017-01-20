@@ -1,8 +1,13 @@
 import {
   partial,
+  splitEvery,
+  map,
+  pipe,
+  toLower,
 } from 'ramda'
 
 import { reject } from './errors'
+import classes from '../models/classes'
 
 function createPlayer (dao, _, msg) {
   if (msg.player._id) {
@@ -21,18 +26,18 @@ function createPlayer (dao, _, msg) {
   return dao.player.create(player)
 }
 
+const buildKeyboard = pipe(
+    map(clas => `/info_${toLower(clas.name)}`),
+    splitEvery(2),
+  )
+
 export default function call (dao, provider, _, msg) {
   const params = [
     msg.chat,
-    _('Welcome to TeleMMO! You will now create your first character.'
-    + 'Touch the comands below to see information about a class.'),
+    _(':globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:\n\n You will now create your first character. Touch the comands below to see information about a class.'),
     {
       reply_markup: {
-        keyboard: [
-          ['/info-mage', '/info-fighter'],
-          ['/info-thief', '/info-ranger'],
-          ['/info-merchant', '/info-acolyte'],
-        ],
+        keyboard: buildKeyboard(classes.all()),
       },
     },
   ]
