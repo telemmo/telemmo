@@ -1,3 +1,4 @@
+import emoji from 'node-emoji'
 import TelegramBot from 'node-telegram-bot-api'
 import { Observable } from 'rx'
 
@@ -13,7 +14,7 @@ function buildFilter (stream, regex) {
 }
 
 function sendMessage (bot, chat, message, options) {
-  bot.sendMessage(chat, message, options)
+  bot.sendMessage(chat, emoji.emojify(message), options)
   return Observable.of(false)
 }
 
