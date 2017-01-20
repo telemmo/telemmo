@@ -13,9 +13,10 @@ function handleError (provider, error) {
   return provider.send(error.msg.chat, error.text)
 }
 
-function normalizeMessage (dao, provider, msg) {
+function normalizeMessage (dao, provider, route, msg) {
   const normal = {
     text: msg.text,
+    matches: msg.text.match(route.match),
     provider: 'telegram',
     nick: msg.from.username,
     chat: msg.chat.id,
@@ -45,7 +46,7 @@ export default function start (dao, provider) {
   return routes.map(route =>
     provider
       .subscribe(route.match)
-      .flatMap(partial(normalizeMessage, [dao, provider]))
+      .flatMap(partial(normalizeMessage, [dao, provider, route]))
       .subscribe(partial(handle, [dao, provider, route])),
   )
 }
