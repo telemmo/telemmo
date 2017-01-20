@@ -15,6 +15,7 @@
     "node-emoji": "1.5.0",
     "node-gettext": "^1.1.0",
     "node-telegram-bot-api": "0.25.0",
+    "printf": "^0.2.5",
     "ramda": "0.23.0",
     "rx": "4.1.0",
     "source-map-support": "0.4.9",

@@ -1,4 +1,5 @@
 import fs from 'fs'
+import printf from 'printf'
 import Gettext from 'node-gettext'
 
 const gettext = new Gettext()
@@ -14,5 +15,18 @@ fs.readdirSync(__dirname)
   .filter(entry => filter.test(entry))
   .forEach(registerLanguage)
 
-export default gettext.dngettext.bind(gettext)
+function singular (lang) {
+  return (msg, ...args) =>
+    gettext.dngettext(lang, printf(msg, ...args))
+}
+
+function plural (lang) {
+  return (sing, plur, ...args) =>
+    gettext.dngettext(lang, sing, plur, ...args)
+}
+
+export default {
+  singular,
+  plural,
+}
 

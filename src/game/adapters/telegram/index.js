@@ -33,7 +33,7 @@ function normalizeMessage (dao, provider, msg) {
 }
 
 function handle (dao, provider, route, msg) {
-  const translate = partial(i18n, [msg.player.language])
+  const translate = i18n.singular(msg.player.language)
 
   return route.handler(dao, provider, translate, msg)
     .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
