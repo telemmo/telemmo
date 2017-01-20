@@ -6,8 +6,8 @@ export default [
     handler: handlers.start,
   },
   {
-    match: /\/stop/,
-    handler: handlers.start,
+    match: /\/info_(.*)/,
+    handler: handlers.classInfo,
   },
 ]
 
