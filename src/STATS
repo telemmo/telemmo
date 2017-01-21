@@ -13,13 +13,48 @@ KNO . knowledge
 ------------------------------------------------------------
 COMBAT STATS
 
+AIM . aim = ACC and REF
+FLOW . flow = KNO
+
 ATK . attack = STR and ACC
 DEF . defense = STR and REF
 
-MATK . magical attack = INT and ACC
-MDEF . magical defense = INT and REF
+SATK . skill attack = INT and ACC
+SDEF . skill defense = INT and REF
 
 HP . health points = CON
-FLOW . flow = KNO
-
 INIT . initiative = STR and CON and INT and KNO
+------------------------------------------------------------
+COMBAT DICES
+
+dices = skill, aim, hit
++penemy = !
+
+will cast? skill + FLOW
+aim where? aim + AIM - !REF (higher = more damage)
+
+if attack:
+  hit damage: ATK - !DEF + CON (higher = more damage)
+
+if skill:
+  cast skill = (find random skill from player)
+    ^skill_hit = skill_power + SATK - !SDEF + INT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
