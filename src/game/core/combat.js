@@ -1,42 +1,41 @@
 import {
   merge,
-  repeat,
-  zipObj,
   partial,
 } from 'ramda'
 
-import crypto from 'crypto'
 
-function buildCombatStats ({ str, int, ref, acc, con, kno }) {
+export function combatStats ({ str, int, ref, acc, con, kno }) {
   return {
     atk: str + acc,
     def: str + ref,
     matk: int + acc,
     mdef: int + ref,
-    hp: con,
+    initialHp: con,
     flow: kno,
     init: str + con + int + kno,
   }
 }
 
-function d20 () {
-  return new Promise((resolve, reject) => {
-    crypto.randomBytes(1, (err, buf) => {
-      if (err) {
-        reject()
-      }
-      resolve(Math.ceil((buf[0]) / (256 / 20)))
-    })
-  })
+export function buildCombatStats (fighter) {
+  return Promise.resolve(fighter)
+    .then(partial(merge, [combatStats(fighter)]))
+    .then(all => merge(all, { hp: all.initialHp }))
 }
 
-function combatStats (obj) {
-  return merge(obj, buildCombatStats(obj))
+function testBuild (s) {
+  console.log(
+    s + ': ',
+    combatStats({ str:s, int:s, ref:s, acc:s, con:s, kno:s }),
+    '\n-----',
+  )
 }
 
-function rollTurn () {
-  return Promise.all(repeat(d20, 3)
-    .map(p => p()))
-    .then(partial(zipObj, [['initiative', 'aim', 'strength']]))
+export function test () {
+  testBuild(1)
+  testBuild(10)
+  testBuild(25)
+  testBuild(50)
+  testBuild(75)
+  testBuild(100)
 }
 
