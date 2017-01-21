@@ -8,32 +8,8 @@
 "Content-Type : text/plain; charset=UTF-8"
 "Content-Transfer-Encoding : 8bit"
 
-#: src/game/handlers/start.js 28:26
-msgid "Player created!"
-msgtr ""
-
-#: src/game/handlers/start.js 18:36
+#: src/game/handlers/start.js 22:36
 msgid "Player already exists!"
-msgtr ""
-
-#: src/game/handlers/start.js 30:26
-msgid "Welcome to TeleMMO! You will now create your first character. Touch the comands bellow to see information about the class
-
-/mage
-/thief
-/fighter
-/ranger
-/acolyte
-/merchant
-"
-msgtr ""
-
-#: src/game/handlers/start.js 30:26
-msgid "Welcome to TeleMMO! You will now create your first character. Touch the comands below to see information about the class. If you can't see the keyboard menu, click the 4 squares icon right next to the emojis."
-msgtr ""
-
-#: src/game/handlers/start.js 45:26
-msgid "Welcome to TeleMMO! You will now create your first character. Touch the comands below to see information about a class."
 msgtr ""
 
 #: src/game/handlers/start.js 40:26
@@ -42,25 +18,43 @@ msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
  You will now create your first character. Touch the comands below to see information about a class."
 msgtr ""
 
-#: src/game/handlers/classInfo.js 21:24
+#: src/game/handlers/classInfo.js 21:31
 msgid "No class name"
 msgtr ""
 
-#: src/game/handlers/classInfo.js 25:24
+#: src/game/handlers/classInfo.js 25:31
 msgid "Invalid class name"
 msgtr ""
 
-#: src/game/handlers/classInfo.js 27:26
-msgid "%s information:
-
-"
-msgtr[0] ""
-msgtr[1] ""
-
-#: src/game/handlers/classInfo.js 27:26
+#: src/game/handlers/classInfo.js 28:26
 msgid "%s information:
 
 %s"
 msgtr[0] ""
 msgtr[1] ""
+
+#: src/game/handlers/classInfo.js 19:9
+msgid "%s %s information:
+
+%s"
+msgtr[0] ""
+msgtr[1] ""
+
+#: src/game/handlers/classInfo.js 19:9
+msgid "%s %s %s
+
+%s"
+msgtr[0] ""
+msgtr[1] ""
+
+#: src/game/handlers/classInfo.js 19:9
+msgid "%s%s%s
+
+%s"
+msgtr[0] ""
+msgtr[1] ""
+
+#: src/game/handlers/classInfo.js 27:77
+msgid "No match"
+msgtr ""
 
