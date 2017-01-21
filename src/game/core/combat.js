@@ -3,6 +3,12 @@ import {
   partial,
 } from 'ramda'
 
+const expTable = Array.from({ length: 100 })
+  .map((el, i) => 20 * i * i * i)
+
+export const fighterLevel = fighter => expTable
+  .reverse()
+  .find(lvl => fighter.exp > lvl)
 
 export function combatStats ({ str, int, ref, acc, con, kno }) {
   return {
@@ -25,7 +31,7 @@ export function buildCombatStats (fighter) {
 function testBuild (s) {
   console.log(
     s + ': ',
-    combatStats({ str:s, int:s, ref:s, acc:s, con:s, kno:s }),
+    combatStats({ str: s, int: s, ref: s, acc: s, con: s, kno: s }),
     '\n-----',
   )
 }

@@ -41,23 +41,21 @@ const testRolls = () => {
   ).map(r => r())
 }
 
-
-// COMBAT WIP VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 export const test = () => {
   // testRolls()
-  
-  rollBatch(20, ['team 1 initiative', 'team 2 initiative'])
-    .then(console.log)
 
-  Promise.all(
-    repeat(
-      () => rollBatch(20, ['skill', 'aim', 'hit']),
-      100,
-    ).map(r => r()),
-  )
-    .then(map(dices => {
-      dices.reduce((state, dice, turn) => {
-         
-      })
-    }))
+  // rollBatch(20, ['team 1 initiative', 'team 2 initiative'])
+  //   .then(console.log)
+  //
+  // Promise.all(
+  //   repeat(
+  //     () => rollBatch(20, ['skill', 'aim', 'hit']),
+  //     100,
+  //   ).map(r => r()),
+  // )
+  //   .then(map(dices => {
+  //     dices.reduce((state, dice, turn) => {
+  //
+  //     })
+  //   }))
 }
