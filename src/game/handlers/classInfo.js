@@ -4,25 +4,24 @@ import {
   __,
   nth,
   split,
+  flatten,
+  join,
+  compose,
 } from 'ramda'
 
 import { rejectUndefined } from './errors'
 import models from '../models'
 
 function view (_, clas) {
-  return _(
-    '%s%s%s\n\n%s',
-    clas.emoji,
-    _(clas.name),
-    clas.emoji,
-    '*Stances* - _You can change them any time_\n\n' + clas.stances
-      .map((name) => {
-        const stance = models.stances.find(name)
-        const e = stance.emoji
-        return `${stance.name} ${e} ${stance.description}\n\n`
-      })
-      .join(''),
-  )
+  return compose(join(''), flatten)([
+    `${clas.emoji} ${_(clas.name)} ${clas.emoji}\n\n`,
+    _('*Stances* - _You can change them any time_\n\n'),
+    clas.stances.map((name) => {
+      const stance = models.stances.find(name)
+      const e = stance.emoji
+      return `${_(stance.name)} ${e} ${_(stance.description)}\n\n`
+    }),
+  ])
 }
 
 export default function call (dao, provider, _, msg) {
