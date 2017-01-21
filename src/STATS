@@ -15,11 +15,11 @@ COMBAT STATS
 
 ATK . attack = STR and ACC
 DEF . defense = STR and REF
-ATKSPD . attack speed = STR and CON
 
 MATK . magical attack = INT and ACC
 MDEF . magical defense = INT and REF
-MATKSPD . magical attack speed = INT and KNO
 
 HP . health points = CON
 FLOW . flow = KNO
+
+INIT . initiative = STR and CON and INT and KNO
