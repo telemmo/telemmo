@@ -1,8 +1,4 @@
-import {
-  toLower
-} from 'ramda'
-
-const classes = [
+export default [
   {
     name: 'Mage',
     emoji: ':crystal_ball:',
@@ -11,7 +7,7 @@ const classes = [
   {
     name: 'Fighter',
     emoji: ':muscle:',
-    stances: ['Tank', 'Berserk'],
+    stances: ['Endure', 'Berserk'],
   },
   {
     name: 'Thief',
@@ -21,7 +17,7 @@ const classes = [
   {
     name: 'Acolyte',
     emoji: ':sparkling_heart:',
-    stances: ['Heretic', 'Priest'],
+    stances: ['Martial', 'Buffer'],
   },
   {
     name: 'Ranger',
@@ -31,19 +27,7 @@ const classes = [
   {
     name: 'Merchant',
     emoji: ':moneybag:',
-    stances: ['Efficient', 'Breaker'],
+    stances: ['Support', 'Breaker'],
   },
 ]
 
-function find (name) {
-  return classes.find(clas => toLower(clas.name) === toLower(name))
-}
-
-function all () {
-  return classes
-}
-
-export default {
-  find,
-  all,
-}
