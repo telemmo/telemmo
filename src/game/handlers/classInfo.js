@@ -1,27 +1,37 @@
 import {
   partial,
+  curry,
+  __,
   nth,
+  split,
 } from 'ramda'
 
-import { reject } from './errors'
-import classes from '../models/classes'
+import { rejectUndefined } from './errors'
+import models from '../models'
+
+function view (_, clas) {
+  return _(
+    '%s%s%s\n\n%s',
+    clas.emoji,
+    _(clas.name),
+    clas.emoji,
+    '*Stances* - _You can change them any time_\n\n' + clas.stances
+      .map((name) => {
+        const stance = models.stances.find(name)
+        const e = stance.emoji
+        return `${stance.name} ${e} ${stance.description}\n\n`
+      })
+      .join(''),
+  )
+}
 
 export default function call (dao, provider, _, msg) {
-  const className = nth(1, msg.matches)
-  if (!className) {
-    return reject(_('No class name'))
-  }
-  const clas = classes.find(className)
-  if (!clas) {
-    return reject(_('Invalid class name'))
-  }
-
-  const params = [
-    msg.chat,
-    _('%s information:\n\n%s', _(clas.name), clas.stances.join(' ')),
-  ]
-
-  return Promise.resolve()
-    .then(partial(provider.send, params))
+  return Promise.resolve(nth(1, msg.matches))
+    .then(split(' '))
+    .then(nth(0))
+    .then(models.classes.find)
+    .then(rejectUndefined(msg, _('Invalid class name')))
+    .then(partial(view, [_]))
+    .then(curry(provider.send)(msg.chat, __, { parse_mode: 'markdown' }))
 }
 

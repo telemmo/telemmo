@@ -5,9 +5,9 @@ import {
   pipe,
   toLower,
 } from 'ramda'
-
+import { emojify } from 'node-emoji'
 import { reject } from './errors'
-import classes from '../models/classes'
+import models from '../models'
 
 function createPlayer (dao, _, msg) {
   if (msg.player._id) {
@@ -27,9 +27,14 @@ function createPlayer (dao, _, msg) {
 }
 
 const buildKeyboard = pipe(
-    map(clas => `/info_${toLower(clas.name)}`),
-    splitEvery(2),
-  )
+  map((clas) => {
+    const className = toLower(clas.name)
+    const e = emojify(clas.emoji)
+
+    return `${e} /info_${className} ${e}`
+  }),
+  splitEvery(1),
+)
 
 export default function call (dao, provider, _, msg) {
   const params = [
@@ -37,7 +42,7 @@ export default function call (dao, provider, _, msg) {
     _(':globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:\n\n You will now create your first character. Touch the comands below to see information about a class.'),
     {
       reply_markup: {
-        keyboard: buildKeyboard(classes.all()),
+        keyboard: buildKeyboard(models.classes.all),
       },
     },
   ]
