@@ -54,3 +54,7 @@ msgid "%s%s%s
 msgtr[0] ""
 msgtr[1] ""
 
+#: src/game/handlers/classInfo.js 27:77
+msgid "No match"
+msgtr ""
+

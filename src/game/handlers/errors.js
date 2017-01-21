@@ -1,8 +1,9 @@
 import {
-  equals,
   partial,
   identity,
   ifElse,
+  contains,
+  __,
 } from 'ramda'
 
 export class HandlerError extends Error {
@@ -19,7 +20,7 @@ export function reject (msg, text) {
 
 export function rejectUndefined (msg, error) {
   return ifElse(
-    equals(undefined),
+    contains(__, [null, undefined]),
     partial(reject, [msg, error]),
     identity,
   )

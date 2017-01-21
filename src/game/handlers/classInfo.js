@@ -26,7 +26,9 @@ function view (_, clas) {
 }
 
 export default function call (dao, provider, _, msg) {
-  return Promise.resolve(nth(1, msg.matches))
+  return Promise.resolve(msg.matches)
+    .then(rejectUndefined(msg, _('No match')))
+    .then(nth(1))
     .then(split(' '))
     .then(nth(0))
     .then(models.classes.find)
