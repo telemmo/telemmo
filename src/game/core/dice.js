@@ -42,21 +42,4 @@ export function rollBatch (faces, meanings) {
 
 export const test = () => {
   // testRolls()
-  //
-  // times(() => {
-  //   rollBatch(20, ['team 1 initiative', 'team 2 initiative'])
-  //     .then(console.log)
-  // }, 100)
-  //
-  // Promise.all(
-  //   repeat(
-  //     () => rollBatch(20, ['skill', 'aim', 'hit']),
-  //     100,
-  //   ).map(r => r()),
-  // )
-  //   .then(map(dices => {
-  //     dices.reduce((state, dice, turn) => {
-  //
-  //     })
-  //   }))
 }

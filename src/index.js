@@ -1,7 +1,7 @@
 import engine from './engine'
 import game from './game'
 
-import { test } from './game/core/combat'
+import { test } from './game/core/dice'
 test()
 
 require('source-map-support').install()
