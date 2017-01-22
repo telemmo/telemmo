@@ -13,48 +13,50 @@ KNO . knowledge
 ------------------------------------------------------------
 COMBAT STATS
 
-AIM . aim = ACC and REF
-FLOW . flow = KNO
-
-ATK . attack = STR and ACC
-DEF . defense = STR and REF
-
-SATK . skill attack = INT and ACC
-SDEF . skill defense = INT and REF
-
-HP . health points = CON
 INIT . initiative = STR and CON and INT and KNO
+
+AIM . aim = ACC
+DOD . dodge = REF
+
+ATK . attack = STR/2 + INT/2 + ACC
+DEF . defense = STR/2 + INT/2 + REF
+
+HP . health points = CON*2
+FLOW . flow = KNO*2
+
 ------------------------------------------------------------
-COMBAT DICES
+COMBAT SYSTEM
 
-dices = skill, aim, hit
-+penemy = !
+A . attacker
+D . defender
 
-will cast? skill + FLOW
-aim where? aim + AIM - !REF (higher = more damage)
+WA . Weapon attack
+AD . Armor defense
 
-if attack:
-  hit damage: ATK - !DEF + CON (higher = more damage)
+---- Step 0 . Initiative (only once) . Who goes first?
 
-if skill:
-  cast skill = (find random skill from player)
-    ^skill_hit = skill_power + SATK - !SDEF + INT
+A . INIT + d20 (vs) D . INIT + d20
 
+---- Step 1 . Aiming . Did it hit?
 
+A . ACC + d20 (vs) D . REF + d20
 
+---- Step 2 . Skill . Flowed a skill in ?
 
+A . FLOW + d20 (vs) D . FLOW + d20
+SKILLCAST if flowA >= flowD
+SKILLCAST may have any desired effect
 
+---- Step 3 . Results . Was there damage ?
 
+A . ATK + d20 (vs) D . DEF + d20
+DAMAGE = (ATTACK + WA) - (DEFENSE + AD)
+CRITICAL if ATTACK >= DEFENSE*1.5
+CRITICAL damage = damage*2
 
+------------------------------------------------------------
+LOG SKETCHES
 
-
-
-
-
-
-
-
-
-
-
-
+*attacker* moved (N), aimed (N) and hit (N)!
+*attaker* skillcasted (Name) for (Effect) // optional
+*defender* has (N) HP left
