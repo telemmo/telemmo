@@ -27,6 +27,9 @@ FLOW . flow = KNO*2
 ------------------------------------------------------------
 COMBAT SYSTEM
 
+Team stats = sum of all members
+Team spell cast = every member cast a spell
+
 A . attacker
 D . defender
 
