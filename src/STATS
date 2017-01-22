@@ -57,6 +57,10 @@ CRITICAL damage = damage*2
 ------------------------------------------------------------
 LOG SKETCHES
 
-*attacker* moved (N), aimed (N) and hit (N)!
+*Initiative rolls*
+Team1: X
+Team2: X
+
+*attacker* flowed X, aimed X and hit X!
 *attaker* skillcasted (Name) for (Effect) // optional
-*defender* has (N) HP left
+*defender* has X HP left
