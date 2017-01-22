@@ -15,11 +15,11 @@ COMBAT STATS
 
 INIT . initiative = STR and CON and INT and KNO
 
-AIM . aim = ACC
-DOD . dodge = REF
+AIM . aim = ACC + INT
+DOD . dodge = REF + INT
 
-ATK . attack = STR/2 + INT/2 + ACC
-DEF . defense = STR/2 + INT/2 + REF
+ATK . attack = STR + ACC
+DEF . defense = STR + REF
 
 HP . health points = CON*2
 FLOW . flow = KNO*2
