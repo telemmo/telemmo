@@ -53,7 +53,7 @@ export default [
       exp: 4,
       gold: 2,
       items: ['Web'],
-      equips: ['Spider Web Clothes'],
+      equips: ['Spider Web Clothes', 'Spidy'],
     },
   },
   {
