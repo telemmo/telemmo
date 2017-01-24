@@ -1,7 +1,7 @@
+require('source-map-support').install()
+
 import engine from './engine'
 import game from './game'
-
-require('source-map-support').install()
 
 function handleError (error) {
   console.error('Engine exploded')

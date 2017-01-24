@@ -3,11 +3,18 @@ export default [
     name: 'Arcane',
     emoji: ':stars:',
     description: 'You channel the arcane power and cast spells more often.',
+    skills: [
+      'fireball',
+    ],
   },
   {
     name: 'Debuff',
     emoji: ':hotsprings:',
     description: 'You use dirty magic, your spells can disable or weaken the enemies.',
+    skills: [
+      'poop',
+      'shit',
+    ],
   },
   {
     name: 'Endure',
