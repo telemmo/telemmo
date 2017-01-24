@@ -72,7 +72,7 @@ function runTurn (combat, rolls) {
       const random = randomSkillFromStance(member.stance)
       const afterCast = random.fire(combat)
       combat = afterCast.combat
-      casts = casts.concat([afterCast.skillcast])
+      casts = casts.concat([afterCast.cast])
     })
   }
 
