@@ -1,33 +1,39 @@
 export default [
   {
+    id: 'mage',
     name: 'Mage',
     emoji: ':crystal_ball:',
-    stances: ['Arcane', 'Debuff'],
+    stances: ['arcane', 'debuff'],
   },
   {
+    id: 'fighter',
     name: 'Fighter',
     emoji: ':muscle:',
-    stances: ['Endure', 'Berserk'],
+    stances: ['endure', 'berserk'],
   },
   {
+    id: 'thief',
     name: 'Thief',
     emoji: ':hocho:',
-    stances: ['Loot', 'Stealth'],
+    stances: ['loot', 'stealth'],
   },
   {
+    id: 'acolyte',
     name: 'Acolyte',
     emoji: ':sparkling_heart:',
-    stances: ['Martial', 'Buffer'],
+    stances: ['martial', 'buffer'],
   },
   {
+    id: 'ranger',
     name: 'Ranger',
     emoji: ':trident:',
-    stances: ['Sniper', 'Trapper'],
+    stances: ['sniper', 'trapper'],
   },
   {
+    id: 'merchant',
     name: 'Merchant',
     emoji: ':moneybag:',
-    stances: ['Support', 'Breaker'],
+    stances: ['support', 'breaker'],
   },
 ]
 

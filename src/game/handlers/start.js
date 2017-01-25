@@ -28,10 +28,8 @@ function createPlayer (dao, _, msg) {
 
 const buildKeyboard = pipe(
   map((clas) => {
-    const className = toLower(clas.name)
     const e = emojify(clas.emoji)
-
-    return `${e} /info_${className} ${e}`
+    return `${e} /info_${clas.id} ${e}`
   }),
   splitEvery(1),
 )

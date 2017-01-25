@@ -16,8 +16,8 @@ function view (_, clas) {
   return compose(join(''), flatten)([
     `${clas.emoji} ${_(clas.name)} ${clas.emoji}\n\n`,
     _('*Stances* - _You can change them any time_\n\n'),
-    clas.stances.map((name) => {
-      const stance = models.stances.find(name)
+    clas.stances.map((id) => {
+      const stance = models.stances.find(id)
       const e = stance.emoji
       return `${_(stance.name)} ${e} ${_(stance.description)}\n\n`
     }),

@@ -7,16 +7,24 @@ import {
 import classes from './classes'
 import stances from './stances'
 import skills from './skills'
+import equips from './equips'
 
 const models = {
   classes,
   stances,
   skills,
+  equips,
 }
 
-function find (model, name) {
-  return model
-    .find(item => toLower(item.name) === toLower(name))
+function find (model, id) {
+  const element = model
+    .find(item => toLower(item.id) === toLower(id))
+
+  if (element === undefined) {
+    throw new Error('Cannot find model with id ' + id)
+  }
+
+  return element
 }
 
 function buildModel (model) {

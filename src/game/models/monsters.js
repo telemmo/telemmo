@@ -1,5 +1,6 @@
 export default [
   {
+    id: 'rat',
     name: 'Rat',
     str: 1,
     int: 1,
@@ -14,6 +15,7 @@ export default [
     },
   },
   {
+    id: 'bird',
     name: 'Bird',
     str: 1,
     int: 1,
@@ -28,6 +30,7 @@ export default [
     },
   },
   {
+    id: 'goat',
     name: 'Goat',
     str: 2,
     int: 1,
@@ -42,6 +45,7 @@ export default [
     },
   },
   {
+    id: 'spider',
     name: 'Spider',
     str: 1,
     int: 2,
@@ -53,10 +57,11 @@ export default [
       exp: 4,
       gold: 2,
       items: ['Web'],
-      equips: ['Spider Web Clothes', 'Spidy'],
+      equips: ['spider_web_clothes', 'spidy'],
     },
   },
   {
+    id: 'snake',
     name: 'Snake',
     str: 2,
     int: 2,
@@ -68,7 +73,7 @@ export default [
       exp: 3,
       gold: 4,
       items: ['Snakeskin'],
-      equips: ['Poison Dagger'],
+      equips: ['poison_dagger'],
     },
   },
 ]

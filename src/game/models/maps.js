@@ -3,23 +3,23 @@ export default [
     name: 'Green Fields',
     monsters: [
       {
-        name: 'Rat',
+        id: 'rat',
         spawnInfluence: 18,
       },
       {
-        name: 'Bird',
+        id: 'bird',
         spawnInfluence: 13,
       },
       {
-        name: 'Goat',
+        id: 'goat',
         spawnInfluence: 7,
       },
       {
-        name: 'Spider',
+        id: 'spider',
         spawnInfluence: 4,
       },
       {
-        name: 'Snake',
+        id: 'snake',
         spawnInfluence: 2,
       },
     ],

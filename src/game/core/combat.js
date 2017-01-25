@@ -10,6 +10,7 @@ import {
   merge,
   lensPath,
   lensProp,
+  reverse,
 } from 'ramda'
 
 import Promise from 'bluebird'
@@ -76,9 +77,13 @@ function runTurn (combat, rolls) {
     })
   }
 
+  if (view(defenderHp, combat) <= 0) {
+    combat =  set(lensProp('finishedAt'), new Date(), combat)
+  }
+
   const newTurn = {
-    attacker: teams[0].overall,
-    defender: teams[1].overall,
+    attacker: combat.teams[0],
+    defender: combat.teams[1],
     damage: dmg,
     rolls: {
       skill: rolls.skill,
@@ -88,11 +93,10 @@ function runTurn (combat, rolls) {
     casts,
   }
 
-  combat = merge(combat, { turns: [...combat.turns, newTurn] })
-
-  if (view(defenderHp, combat) <= 0) {
-    combat =  set(lensProp('finishedAt'), new Date(), combat)
-  }
+  combat = merge(combat, {
+    turns: [...combat.turns, newTurn],
+    teams: reverse(combat.teams),
+  })
 
   return combat
 }
@@ -141,8 +145,8 @@ export function create (teams) {
 
 export function test () {
   const teams = [
-    [{ stance: 'Arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10 }],
-    [{ stance: 'Arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10 }],
+    [{ stance: 'arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
+    [{ stance: 'arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
   ]
 
   create(teams).then(console.log.bind(null, 'test:'))

@@ -10,7 +10,8 @@ const attackerAtk = lensPath(['teams', 0, 'overall', 'atk'])
 
 export default [
   {
-    name: 'fireball',
+    id: 'fireball',
+    name: 'Fireball',
     fire: (combat) => {
       const hp = view(defenderHp, combat)
       const damage = view(attackerAtk, combat) - view(defenderDef, combat)/2
