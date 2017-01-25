@@ -8,14 +8,16 @@ import {
 import models from '../models'
 
 export function combatStats ({ str, int, ref, acc, con, kno }) {
+  const statPointRelevance = 7
+  const sr = statPointRelevance
   return map(Math.floor, {
-    atk: (str / 2) + acc,
-    def: (str / 2) + ref,
-    aim: (int / 2) + acc,
-    dod: (int / 2) + ref,
-    initialHp: con,
-    flow: kno,
-    init: str + con + int + kno,
+    atk: ((str / 2) + acc) / sr,
+    def: ((str / 2) + ref) / sr,
+    aim: ((int / 2) + acc) / sr,
+    dod: ((int / 2) + ref) / sr,
+    initialHp: (con) / sr,
+    flow: (kno) / sr,
+    init: (str + con + int + kno) / sr,
   })
 }
 
@@ -27,8 +29,8 @@ function addStanceStats (fighter) {
 function addEquipStats (fighter) {
   return Object.keys(fighter.equips).reduce((acc, equipPosition) => {
     const equip = models.equips.find(fighter.equips[equipPosition])
-    return mergeWith(add, fighter, equip.bonus)
-  }, {})
+    return mergeWith(add, acc, equip.bonus)
+  }, fighter)
 }
 
 

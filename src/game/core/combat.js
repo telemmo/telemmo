@@ -44,13 +44,16 @@ function initiative (teams) {
 function runTurn (combat, rolls) {
   const { teams } = combat
 
-  const skill = (rolls.skill + teams[0].overall.flow) - teams[1].overall.flow
-  const aim = (rolls.aim + teams[0].overall.ref) - teams[1].overall.dod
-  const hit = (rolls.hit + teams[0].overall.atk) - teams[1].overall.def
+  const statPointRelevance = 7
+  const sr = statPointRelevance
+
+  const skill = (rolls.skill + teams[0].overall.flow/sr) - teams[1].overall.flow/sr
+  const aim = (rolls.aim + teams[0].overall.ref/sr) - teams[1].overall.dod/sr
+  const hit = (rolls.hit + teams[0].overall.atk/sr) - teams[1].overall.def/sr
 
   let dmg = Math.max(
     Math.ceil(
-      hit + teams[0].overall.atk - teams[1].overall.def) / 5, 0)
+      hit + (teams[0].overall.atk - teams[1].overall.def)/sr), 1)
 
   if (rolls.aim === 1 || aim < 10) {
     dmg = 0
@@ -138,17 +141,88 @@ function start (combat) {
     .then(Promise.coroutine(generate))
 }
 
-export function test () {
+function testFight (stances, s, s2) {
+  s2 = s2 || s
   const teams = [
-    [{ name: '1', stance: 'arcane', str: 5, int: 5, ref: 5, acc: 5, con: 5, kno: 5, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
-    [{ name: '2', stance: 'arcane', str: 5, int: 5, ref: 5, acc: 5, con: 5, kno: 5, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
+    [{ name: '1', stance: stances[0], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: {} }],
+    [{ name: '2', stance: stances[1], str: s2, int: s2, ref: s2, acc: s2, con: s2, kno: s2, equips: {} }],
   ]
 
-  build(teams)
-    .then(start)
-    .then(console.log)
+
+  Promise.all(Array.from({ length: 1000 })
+    .map(() => build(teams).then(start)))
+    .then(cs => cs.filter(c => c.winner === '1').length)
+    .then(console.log.bind(console,
+      'with stats',
+      s,
+      s2,
+      'testing',
+      stances,
+      ' -- ',
+      stances[0],
+      'for 1000 fights. Won:',
+    ))
 }
 
+export function test () {
+  // // test classes stance balance
+  // testFight(['arcane', 'debuff'], 1)
+  // testFight(['endure', 'berserk'], 1)
+  // testFight(['poison', 'stealth'], 1)
+  // testFight(['martial', 'buffer'], 1)
+  // testFight(['sniper', 'trapper'], 1)
+  // testFight(['support', 'breaker'], 1)
+  //
+  // testFight(['arcane', 'debuff'], 25)
+  // testFight(['endure', 'berserk'], 25)
+  // testFight(['poison', 'stealth'], 25)
+  // testFight(['martial', 'buffer'], 25)
+  // testFight(['sniper', 'trapper'], 25)
+  // testFight(['support', 'breaker'], 25)
+  //
+  // testFight(['arcane', 'debuff'], 50)
+  // testFight(['endure', 'berserk'], 50)
+  // testFight(['poison', 'stealth'], 50)
+  // testFight(['martial', 'buffer'], 50)
+  // testFight(['sniper', 'trapper'], 50)
+  // testFight(['support', 'breaker'], 50)
+  //
+  // testFight(['arcane', 'debuff'], 100)
+  // testFight(['endure', 'berserk'], 100)
+  // testFight(['poison', 'stealth'], 100)
+  // testFight(['martial', 'buffer'], 100)
+  // testFight(['sniper', 'trapper'], 100)
+  // testFight(['support', 'breaker'], 100)
+  //
+  // // test stat discrepance
+  // testFight(['arcane', 'arcane'], 100, 1)
+  // testFight(['arcane', 'arcane'], 90, 10)
+  // testFight(['arcane', 'arcane'], 80, 20)
+  // testFight(['arcane', 'arcane'], 60, 40)
+  // testFight(['arcane', 'arcane'], 50, 50)
+  // testFight(['arcane', 'arcane'], 80, 70)
+  // testFight(['arcane', 'arcane'], 80, 60)
+  // testFight(['arcane', 'arcane'], 80, 50)
+  // testFight(['arcane', 'arcane'], 80, 40)
+  // testFight(['arcane', 'arcane'], 80, 30)
+  // testFight(['arcane', 'arcane'], 90, 70)
+  // testFight(['arcane', 'arcane'], 90, 60)
+  // testFight(['arcane', 'arcane'], 90, 50)
+  // testFight(['arcane', 'arcane'], 90, 40)
+  // testFight(['arcane', 'arcane'], 90, 30)
+  // testFight(['arcane', 'arcane'], 70, 60)
+  // testFight(['arcane', 'arcane'], 70, 50)
+  // testFight(['arcane', 'arcane'], 70, 40)
+  // testFight(['arcane', 'arcane'], 70, 30)
+  // testFight(['arcane', 'arcane'], 30, 10)
+  // testFight(['arcane', 'arcane'], 30, 20)
+  // testFight(['arcane', 'arcane'], 20, 5)
+  // testFight(['arcane', 'arcane'], 30, 5)
+  // testFight(['arcane', 'arcane'], 40, 5)
+  // testFight(['arcane', 'arcane'], 50, 5)
+  // testFight(['arcane', 'arcane'], 60, 5)
+  // testFight(['arcane', 'arcane'], 70, 5)
+}
 
 function mergeFighter (a, b) {
   return ifElse(

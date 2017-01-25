@@ -15,7 +15,7 @@ export default [
     id: 'thief',
     name: 'Thief',
     emoji: ':hocho:',
-    stances: ['loot', 'stealth'],
+    stances: ['poison', 'stealth'],
   },
   {
     id: 'acolyte',

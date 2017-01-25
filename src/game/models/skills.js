@@ -14,7 +14,8 @@ export default [
     name: 'Fireball',
     fire: (combat) => {
       const hp = view(defenderHp, combat)
-      const damage = view(attackerAtk, combat) - view(defenderDef, combat)/2
+      // const damage = view(attackerAtk, combat) - view(defenderDef, combat)/2
+      const damage = 0
       return {
         combat: set(
           defenderHp,
