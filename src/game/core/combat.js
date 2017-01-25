@@ -1,7 +1,7 @@
 import {
   add,
+  always,
   mergeWith,
-  concat,
   ifElse,
   partial,
   isArrayLike,
@@ -30,7 +30,7 @@ function runInitiative (teams, rolls) {
   }
 
   if (team1init > team2init) {
-    return { teams: [teams[0], teams[1]] }
+    return [teams[0], teams[1]]
   }
 
   return [teams[1], teams[0]]
@@ -78,7 +78,9 @@ function runTurn (combat, rolls) {
   }
 
   if (view(defenderHp, combat) <= 0) {
-    combat =  set(lensProp('finishedAt'), new Date(), combat)
+    combat = set(lensProp('finishedAt'), new Date(), combat)
+    // vv test only
+    combat = set(lensProp('winner'), combat.teams[0].members[0].name, combat)
   }
 
   const newTurn = {
@@ -108,11 +110,12 @@ function turn (combat) {
 
 function build (tms) {
   return Promise.resolve(tms)
-    .then(initiative)
-    .then(teams =>
-      Promise.all(teams.map(team =>
-        Promise.all(team.map(buildCombatStats)))))
+    .then(teams => {
+      return Promise.all(teams.map(team =>
+        Promise.all(team.map(buildCombatStats))))
+    })
     .then(teams => teams.map(buildTeam))
+    .then(initiative)
     .then(teams => ({
       teams,
       startedAt: new Date(),
@@ -128,35 +131,29 @@ function start (combat) {
     while (!state.finishedAt) {
       state = yield turn(state)
     }
-    console.log(JSON.stringify(state.turns, null, 2))
+    return state
   }
 
   return Promise.resolve()
     .then(Promise.coroutine(generate))
-    .then(console.log)
-    .catch(console.error)
 }
-
-export function create (teams) {
-  return build(teams)
-    .then(start)
-}
-
 
 export function test () {
   const teams = [
-    [{ stance: 'arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
-    [{ stance: 'arcane', str: 10, int: 10, ref: 10, acc: 10, con: 10, kno: 10, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
+    [{ name: '1', stance: 'arcane', str: 5, int: 5, ref: 5, acc: 5, con: 5, kno: 5, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
+    [{ name: '2', stance: 'arcane', str: 5, int: 5, ref: 5, acc: 5, con: 5, kno: 5, equips: { weapon: 'poison_dagger', token: 'spidy', set: 'spider_web_clothes' } }],
   ]
 
-  create(teams).then(console.log.bind(null, 'test:'))
+  build(teams)
+    .then(start)
+    .then(console.log)
 }
 
 
 function mergeFighter (a, b) {
   return ifElse(
     isArrayLike,
-    concat([b]),
+    always(undefined),
     add(b),
   )(a)
 }
