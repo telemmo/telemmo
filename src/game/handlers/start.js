@@ -4,12 +4,13 @@ import {
   map,
   pipe,
 } from 'ramda'
+
 import { emojify } from 'node-emoji'
 import { reject } from './errors'
 import models from '../models'
 
 function createPlayer (dao, _, msg) {
-  if (msg.player._id) {
+  if (msg.player.id) {
     return reject(msg, _('Player already exists!'))
   }
 

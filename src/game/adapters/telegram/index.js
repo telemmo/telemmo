@@ -10,7 +10,11 @@ import routes from './routes'
 import i18n from '../../i18n'
 
 function handleError (provider, error) {
-  return provider.send(error.msg.chat, error.text)
+  if (error.msg) {
+    return provider.send(error.msg.chat, error.text)
+  }
+
+  console.error('An error returned something not sendable')
 }
 
 function normalizeMessage (dao, provider, route, msg) {

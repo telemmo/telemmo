@@ -1,10 +1,8 @@
 import {
   partial,
-  curry,
-  __,
   nth,
   split,
-  assoc,
+  merge,
   flatten,
   join,
   compose,
@@ -25,6 +23,20 @@ function view (_, clas) {
   ])
 }
 
+function keyboard (_, clas) {
+  return [
+    [`/create_${clas.id}`],
+    [`/start`],
+  ]
+}
+
+function reply (_, clas) {
+  return {
+    text: view(_, clas),
+    options: keyboard(_, clas),
+  }
+}
+
 export default function call (dao, provider, _, msg) {
   const params = {
     to: msg.chat,
@@ -32,11 +44,9 @@ export default function call (dao, provider, _, msg) {
   return Promise.resolve(msg.matches)
     .then(rejectUndefined(msg, _('No match')))
     .then(nth(1))
-    .then(split(' '))
-    .then(nth(0))
     .then(models.classes.find)
     .then(rejectUndefined(msg, _('Invalid class name')))
-    .then(partial(view, [_]))
-    .then(assoc('text', __, params))
+    .then(partial(reply, [_]))
+    .then(merge(params))
 }
 
