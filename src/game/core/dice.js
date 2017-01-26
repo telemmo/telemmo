@@ -14,9 +14,9 @@ import Promise from 'bluebird'
 const randomBytes = Promise.promisify(crypto.randomBytes)
 
 export function roll (faces) {
-  return randomBytes(1)
-    .then(invoker(0, 'readUInt8'))
-    .then(flip(divide)(256 / faces))
+  return randomBytes(2)
+    .then(invoker(0, 'readUInt16LE'))
+    .then(flip(divide)(0xFFFF / faces))
     .then(add(1))
     .then(Math.floor)
 }
