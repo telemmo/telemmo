@@ -33,10 +33,22 @@ function normalizeMessage (dao, provider, route, msg) {
     .then(mergeWith(merge, normal))
 }
 
+function dispatch (provider, reply) {
+  const { to, text, options } = reply
+  const telegramOptions = {
+    parse_mode: 'markdown',
+    reply_markup: {
+      keyboard: options,
+    },
+  }
+  return provider.send(to, text, telegramOptions)
+}
+
 function handle (dao, provider, route, msg) {
   const translate = i18n.singular(msg.player.language)
 
   return route.handler(dao, provider, translate, msg)
+    .then(partial(dispatch, [provider]))
     .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
     .catch(partial(handleError, [provider]))
     .catch(partial(console.error, [`${msg.chat} ERR "${msg.text}":`]))

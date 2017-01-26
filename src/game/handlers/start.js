@@ -1,9 +1,8 @@
 import {
-  partial,
   splitEvery,
+  always,
   map,
   pipe,
-  toLower,
 } from 'ramda'
 import { emojify } from 'node-emoji'
 import { reject } from './errors'
@@ -35,17 +34,13 @@ const buildKeyboard = pipe(
 )
 
 export default function call (dao, provider, _, msg) {
-  const params = [
-    msg.chat,
-    _(':globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:\n\n You will now create your first character. Touch the comands below to see information about a class.'),
-    {
-      reply_markup: {
-        keyboard: buildKeyboard(models.classes.all),
-      },
-    },
-  ]
+  const params = {
+    to: msg.chat,
+    text: _(':globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:\n\n You will now create your first character. Touch the comands below to see information about a class.'),
+    options: buildKeyboard(models.classes.all),
+  }
 
   return createPlayer(dao, _, msg)
-    .then(partial(provider.send, params))
+    .then(always(params))
 }
 

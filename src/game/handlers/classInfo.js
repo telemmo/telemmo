@@ -4,6 +4,7 @@ import {
   __,
   nth,
   split,
+  assoc,
   flatten,
   join,
   compose,
@@ -25,6 +26,9 @@ function view (_, clas) {
 }
 
 export default function call (dao, provider, _, msg) {
+  const params = {
+    to: msg.chat,
+  }
   return Promise.resolve(msg.matches)
     .then(rejectUndefined(msg, _('No match')))
     .then(nth(1))
@@ -33,6 +37,6 @@ export default function call (dao, provider, _, msg) {
     .then(models.classes.find)
     .then(rejectUndefined(msg, _('Invalid class name')))
     .then(partial(view, [_]))
-    .then(curry(provider.send)(msg.chat, __, { parse_mode: 'markdown' }))
+    .then(assoc('text', __, params))
 }
 
