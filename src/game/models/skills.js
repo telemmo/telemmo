@@ -23,7 +23,7 @@ export default [
           combat,
         ),
         cast: {
-          skill: 'fireball',
+          skill: 'Fireball',
           type: 'damage',
           value: damage,
         },

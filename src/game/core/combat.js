@@ -1,11 +1,13 @@
 import {
   add,
+  values,
   always,
   mergeWith,
   ifElse,
   partial,
   isArrayLike,
   view,
+  pipe,
   set,
   merge,
   lensPath,
@@ -18,6 +20,7 @@ import Promise from 'bluebird'
 import { buildCombatStats } from './combatStats'
 import randomSkillFromStance from './randomSkillFromStance'
 import { rollBatch } from './dice'
+import models from '../models'
 
 const overallInit = lensPath(['overall', 'init'])
 
@@ -41,10 +44,82 @@ function initiative (teams) {
     .then(partial(runInitiative, [teams]))
 }
 
+function attachPrizes (combat, rolls) {
+  const { teams } = combat
+
+  const allPrizes = teams[0].members.reduce((loot, player) => {
+    return [...loot, ...teams[1].members.reduce((prizes, enemy) => {
+      if (!enemy.prizes) {
+        return prizes
+      }
+
+      prizes = [ ...prizes ,{
+        owner: player.name,
+        exp: enemy.prizes.exp,
+      }]
+
+      if (rolls.itemLuck < 2000 && enemy.prizes.items) {
+        const items = enemy.prizes.items
+        const index = Math.floor((rolls.item / 10000) * items.length)
+
+        prizes = [ ...prizes, {
+          owner: player.name,
+          item: enemy.prizes.items[index],
+        }]
+      }
+
+      if (rolls.equipLuck < 50 && enemy.prizes.equips) {
+        const equips = enemy.prizes.equips
+        const index = Math.floor((rolls.equip / 10000) * equips.length)
+
+        prizes = [ ...prizes, {
+          owner: player.name,
+          equip: enemy.prizes.equips[index],
+        }]
+      }
+
+      if (rolls.tokenLuck <= 1 && enemy.prizes.tokens) {
+        const tokens = enemy.prizes.equips
+        const index = Math.floor((rolls.token / 10000) * tokens.length)
+
+        prizes = [ ...prizes, {
+          owner: player.name,
+          equip: enemy.prizes.tokens[index],
+        }]
+      }
+
+      return prizes
+    }, [])]
+  }, [])
+
+  return set(lensProp('prizes'), allPrizes, combat)
+}
+
+
+function markFinished (combat) {
+  return pipe(
+    set(lensProp('finishedAt'), new Date()),
+    set(lensProp('winner'), combat.teams[0].members[0].name),
+  )(combat)
+}
+
+
+const prizesRolls = [
+  'itemLuck', 'item',
+  'equipLuck', 'equip',
+  'tokenLuck', 'token',
+]
+
+function finish (combat) {
+  return rollBatch(10000, prizesRolls)
+    .then(partial(attachPrizes, [combat]))
+    .then(markFinished)
+}
+
 function runTurn (combat, rolls) {
   const { teams } = combat
 
-  const statPointRelevance = 7
+  const statPointRelevance = 5
   const sr = statPointRelevance
 
   const skill = (rolls.skill + teams[0].overall.flow/sr) - teams[1].overall.flow/sr
@@ -73,6 +148,7 @@ function runTurn (combat, rolls) {
 
   if (skill > 10) {
     teams[0].members.forEach((member) => {
+      if (!member.stance) { return }
       const random = randomSkillFromStance(member.stance)
       const afterCast = random.fire(combat)
       combat = afterCast.combat
@@ -80,10 +156,21 @@ function runTurn (combat, rolls) {
     })
   }
 
+  teams[0].members.forEach((member) => {
+    values(member.equips).forEach((name) => {
+      const equip = models.equips.find(name)
+      if (!equip.fire) {
+        return
+      }
+      const afterCast = equip.fire(combat, rolls)
+      if (!afterCast) { return }
+      combat = afterCast.combat
+      casts = casts.concat([afterCast.cast])
+    })
+  })
+
   if (view(defenderHp, combat) <= 0) {
-    combat = set(lensProp('finishedAt'), new Date(), combat)
-    // vv test only
-    combat = set(lensProp('winner'), combat.teams[0].members[0].name, combat)
+    return finish(combat)
   }
 
   const newTurn = {
@@ -144,13 +231,15 @@ function start (combat) {
 function testFight (stances, s, s2) {
   s2 = s2 || s
   const teams = [
-    [{ name: '1', stance: stances[0], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: {} }],
-    [{ name: '2', stance: stances[1], str: s2, int: s2, ref: s2, acc: s2, con: s2, kno: s2, equips: {} }],
+    [{ name: '1', stance: stances[0], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: { weapon: 'poison_dagger'} }],
+    // [{ name: '2', stance: stances[1], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: {} }],
+    [models.monsters.find(stances[1])],
   ]
 
 
   Promise.all(Array.from({ length: 1000 })
     .map(() => build(teams).then(start)))
+    // .then(combats => combats.map((c) => { console.log(JSON.stringify(c, null, 2)); return c }))
     .then(cs => cs.filter(c => c.winner === '1').length)
     .then(console.log.bind(console,
       'with stats',
@@ -165,6 +254,31 @@ function testFight (stances, s, s2) {
 }
 
 export function test () {
+  // testFight(['arcane', 'rat'], 5)
+  // testFight(['arcane', 'bird'], 5)
+  // testFight(['arcane', 'goat'], 5)
+  // testFight(['arcane', 'snake'], 5)
+  // testFight(['arcane', 'spider'], 5)
+  //
+  // testFight(['arcane', 'rat'], 10)
+  // testFight(['arcane', 'bird'], 10)
+  // testFight(['arcane', 'goat'], 10)
+  // testFight(['arcane', 'snake'], 10)
+  // testFight(['arcane', 'spider'], 10)
+  //
+  //
+  // testFight(['arcane', 'rat'], 15)
+  // testFight(['arcane', 'bird'], 15)
+  // testFight(['arcane', 'goat'], 15)
+  // testFight(['arcane', 'snake'], 15)
+  // testFight(['arcane', 'spider'], 15)
+  //
+  //
+  // testFight(['arcane', 'rat'], 20)
+  // testFight(['arcane', 'bird'], 20)
+  // testFight(['arcane', 'goat'], 20)
+  // testFight(['arcane', 'snake'], 20)
+  // testFight(['arcane', 'spider'], 20)
   // // test classes stance balance
   // testFight(['arcane', 'debuff'], 1)
   // testFight(['endure', 'berserk'], 1)

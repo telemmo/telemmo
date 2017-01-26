@@ -1,3 +1,11 @@
+import {
+  lensPath,
+  view,
+  set,
+} from 'ramda'
+
+const defenderAim = lensPath(['teams', 1, 'overall', 'aim'])
+
 export default [
   {
     id: 'spider_web_clothes',
@@ -21,14 +29,27 @@ export default [
   {
     id: 'poison_dagger',
     name: 'Poison Dagger',
-    description: 'A dagger poisoned with snake venom. Poisons the enemy if you roll 19 or higher in AIM d20',
+    description: 'A dagger poisoned with snake venom. Deals more damage if you roll 19 or higher in AIM d20',
     type: 'weapon',
     bonus: {
       atk: 5,
     },
-    skill: (combat) => {
-      if (combat.rolls.aim >= 19) {
-        combat.teams[1].poisoned = true
+    
+    fire: (combat) => {
+      const aim = view(defenderAim, combat)
+      const newAim = aim/8
+      const damage = 0
+      return {
+        combat: set(
+          defenderAim,
+          newAim,
+          combat,
+        ),
+        cast: {
+          skill: 'Poison Dagger',
+          type: 'aim debuff',
+          value: newAim,
+        },
       }
     },
   },

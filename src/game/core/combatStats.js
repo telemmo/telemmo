@@ -8,25 +8,27 @@ import {
 import models from '../models'
 
 export function combatStats ({ str, int, ref, acc, con, kno }) {
-  const statPointRelevance = 7
+  const statPointRelevance = 5
   const sr = statPointRelevance
   return map(Math.floor, {
     atk: ((str / 2) + acc) / sr,
     def: ((str / 2) + ref) / sr,
     aim: ((int / 2) + acc) / sr,
     dod: ((int / 2) + ref) / sr,
-    initialHp: (con) / sr,
-    flow: (kno) / sr,
+    initialHp: 20 + (con / sr),
+    flow: kno / sr,
     init: (str + con + int + kno) / sr,
   })
 }
 
 function addStanceStats (fighter) {
+  if (!fighter.stance) { return fighter }
   const stance = models.stances.find(fighter.stance)
   return mergeWith(add, fighter, stance.bonus)
 }
 
 function addEquipStats (fighter) {
+  if (!fighter.equips) { return fighter }
   return Object.keys(fighter.equips).reduce((acc, equipPosition) => {
     const equip = models.equips.find(fighter.equips[equipPosition])
     return mergeWith(add, acc, equip.bonus)

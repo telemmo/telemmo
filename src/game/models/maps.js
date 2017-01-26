@@ -4,23 +4,23 @@ export default [
     monsters: [
       {
         id: 'rat',
-        spawnInfluence: 18,
+        influence: 18,
       },
       {
         id: 'bird',
-        spawnInfluence: 13,
+        influence: 13,
       },
       {
         id: 'goat',
-        spawnInfluence: 7,
+        influence: 7,
       },
       {
         id: 'spider',
-        spawnInfluence: 4,
+        influence: 4,
       },
       {
         id: 'snake',
-        spawnInfluence: 2,
+        influence: 2,
       },
     ],
   },

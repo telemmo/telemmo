@@ -8,10 +8,11 @@ export default [
     acc: 1,
     con: 1,
     kno: 1,
-    prize: {
+    prizes: {
       exp: 2,
-      gold: 1,
       items: ['Fang'],
+      equips: ['spider_web_clothes', 'spidy'],
+      tokens: ['spidy'],
     },
   },
   {
@@ -23,9 +24,8 @@ export default [
     acc: 2,
     con: 1,
     kno: 1,
-    prize: {
+    prizes: {
       exp: 2,
-      gold: 2,
       items: ['Feather'],
     },
   },
@@ -38,9 +38,8 @@ export default [
     acc: 2,
     con: 2,
     kno: 1,
-    prize: {
+    prizes: {
       exp: 3,
-      gold: 2,
       items: ['Leather'],
     },
   },
@@ -53,11 +52,11 @@ export default [
     acc: 2,
     con: 2,
     kno: 2,
-    prize: {
+    prizes: {
       exp: 4,
-      gold: 2,
       items: ['Web'],
       equips: ['spider_web_clothes', 'spidy'],
+      tokens: ['spidy'],
     },
   },
   {
@@ -69,11 +68,9 @@ export default [
     acc: 3,
     con: 2,
     kno: 1,
-    prize: {
+    prizes: {
       exp: 3,
-      gold: 4,
       items: ['Snakeskin'],
-      equips: ['poison_dagger'],
     },
   },
 ]

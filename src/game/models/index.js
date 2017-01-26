@@ -8,12 +8,14 @@ import classes from './classes'
 import stances from './stances'
 import skills from './skills'
 import equips from './equips'
+import monsters from './monsters'
 
 const models = {
   classes,
   stances,
   skills,
   equips,
+  monsters,
 }
 
 function find (model, id) {
