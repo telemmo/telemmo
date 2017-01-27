@@ -22,6 +22,7 @@ import randomSkillFromStance from './randomSkillFromStance'
 import { rollBatch } from './dice'
 import models from '../models'
 import { viewCombat } from './combatView'
+import castSkill from './castSkill'
 
 const overallInit = lensPath(['overall', 'init'])
 
@@ -161,8 +162,8 @@ function runTurn (combat, rolls) {
   if (skill > 10) {
     teams[0].members.forEach((member) => {
       if (!member.stance) { return }
-      const random = randomSkillFromStance(member.stance)
-      const afterCast = random.fire(combat)
+      const randomSkill = randomSkillFromStance(member.stance)
+      const afterCast = castSkill(randomSkill, combat, rolls)
       if (!afterCast) { return }
       combat = afterCast.combat
       casts = casts.concat([afterCast.cast])
@@ -175,7 +176,7 @@ function runTurn (combat, rolls) {
       if (!equip.fire) {
         return
       }
-      const afterCast = equip.fire(combat, rolls)
+      const afterCast = castSkill(equip, combat, rolls)
       if (!afterCast) { return }
       combat = afterCast.combat
       casts = casts.concat([afterCast.cast])
@@ -222,6 +223,7 @@ function build (tms) {
     .then(initiative)
     .then(initTurn => ({
       teams: initTurn.order,
+      initialTeams: initTurn.order,
       startedAt: new Date(),
       turns: [
         { winner: initTurn.order[0].overall.name, rolls: initTurn.rolls },

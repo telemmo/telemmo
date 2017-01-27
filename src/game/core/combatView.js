@@ -21,7 +21,7 @@ export function viewCombat (c, id) {
   const turns = tail(c.turns)
   const prizes = c.prizes.filter(prize => prize.owner === id)
   const getTeamInit = name =>
-    c.teams.find(team => team.members.find(member => member.name === name)).overall.init
+    c.initialTeams.find(team => team.members.find(member => member.name === name)).overall.init
 
   const header = _(`%s vs. %s\n\n`, c.teams[0].overall.name, c.teams[1].overall.name)
 

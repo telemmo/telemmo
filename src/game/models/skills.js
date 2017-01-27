@@ -12,24 +12,14 @@ export default [
   {
     id: 'fireball',
     name: 'Fireball',
-    fire: (combat) => {
-      const hp = view(defenderHp, combat)
-      const atk = view(attackerAtk, combat)
-      const def = view(defenderDef, combat)
-      // const damage = view(attackerAtk, combat) - view(defenderDef, combat)/2
-      const damage = atk - (def / 2)
-      return {
-        combat: set(
-          defenderHp,
-          hp - damage,
-          combat,
-        ),
-        cast: {
-          skill: 'Fireball',
-          type: 'damage',
-          value: damage,
-        },
+    fire: (attacker, defender, rolls) => ({
+      defender: {
+        hp: attacker.atk - (defender.def / 2)
+      },
+      log: {
+        type: 'damage',
+        value: attacker.atk - (defender.def / 2)
       }
-    },
+    })
   },
 ]
