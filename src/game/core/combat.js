@@ -25,22 +25,30 @@ import models from '../models'
 const overallInit = lensPath(['overall', 'init'])
 
 function runInitiative (teams, rolls) {
-  const team1init = rolls.team1 + view(overallInit, teams[0])
-  const team2init = rolls.team2 + view(overallInit, teams[1])
+  const teamsInit = mergeWith(add, rolls, {
+    [teams[0].overall.name]: view(overallInit, teams[0]),
+    [teams[1].overall.name]: view(overallInit, teams[1]),
+  })
 
-  if (team1init === team2init) {
+  if (teamsInit[0] === teamsInit[1]) {
     return initiative(teams)
   }
 
-  if (team1init > team2init) {
-    return [teams[0], teams[1]]
+  if (teamsInit[0] > teamsInit[1]) {
+    return {
+      order: [teams[0], teams[1]],
+      rolls
+    }
   }
 
-  return [teams[1], teams[0]]
+  return {
+    order: [teams[1], teams[0]],
+    rolls
+  }
 }
 
 function initiative (teams) {
-  return rollBatch(20, ['team1', 'team2'])
+  return rollBatch(20, [teams[0].overall.name, teams[1].overall.name])
     .then(partial(runInitiative, [teams]))
 }
 
@@ -174,8 +182,8 @@ function runTurn (combat, rolls) {
   }
 
   const newTurn = {
-    attacker: combat.teams[0],
-    defender: combat.teams[1],
+    attacker: combat.teams[0].overall.name,
+    defender: combat.teams[1].overall.name,
     damage: dmg,
     rolls: {
       skill: rolls.skill,
@@ -206,11 +214,11 @@ function build (tms) {
     })
     .then(teams => teams.map(buildTeam))
     .then(initiative)
-    .then(teams => ({
-      teams,
+    .then(initTurn => ({
+      teams: initTurn.order,
       startedAt: new Date(),
       turns: [
-        { initiative: teams[0] },
+        { initiative: initTurn.order[0].overall.name, rolls: initTurn.rolls },
       ],
     }))
 }
@@ -237,9 +245,9 @@ function testFight (stances, s, s2) {
   ]
 
 
-  Promise.all(Array.from({ length: 1000 })
+  Promise.all(Array.from({ length: 1 })
     .map(() => build(teams).then(start)))
-    // .then(combats => combats.map((c) => { console.log(JSON.stringify(c, null, 2)); return c }))
+    .then(combats => combats.map((c) => { console.log(JSON.stringify(c, null, 2)); return c }))
     .then(cs => cs.filter(c => c.winner === '1').length)
     .then(console.log.bind(console,
       'with stats',
@@ -254,7 +262,7 @@ function testFight (stances, s, s2) {
 }
 
 export function test () {
-  // testFight(['arcane', 'rat'], 5)
+  testFight(['arcane', 'rat'], 5)
   // testFight(['arcane', 'bird'], 5)
   // testFight(['arcane', 'goat'], 5)
   // testFight(['arcane', 'snake'], 5)
