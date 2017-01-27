@@ -25,16 +25,19 @@ import models from '../models'
 const overallInit = lensPath(['overall', 'init'])
 
 function runInitiative (teams, rolls) {
+  const team0name = teams[0].overall.name
+  const team1name = teams[1].overall.name
+
   const teamsInit = mergeWith(add, rolls, {
-    [teams[0].overall.name]: view(overallInit, teams[0]),
-    [teams[1].overall.name]: view(overallInit, teams[1]),
+    [team0name]: view(overallInit, teams[0]),
+    [team1name]: view(overallInit, teams[1]),
   })
 
-  if (teamsInit[0] === teamsInit[1]) {
+  if (teamsInit[team0name] === teamsInit[team1name]) {
     return initiative(teams)
   }
 
-  if (teamsInit[0] > teamsInit[1]) {
+  if (teamsInit[team0name] > teamsInit[team1name]) {
     return {
       order: [teams[0], teams[1]],
       rolls
@@ -127,7 +130,7 @@ function finish (combat) {
 function runTurn (combat, rolls) {
   const { teams } = combat
 
-  const statPointRelevance = 5
+  const statPointRelevance = 7
   const sr = statPointRelevance
 
   const skill = (rolls.skill + teams[0].overall.flow/sr) - teams[1].overall.flow/sr
@@ -177,24 +180,25 @@ function runTurn (combat, rolls) {
     })
   })
 
-  if (view(defenderHp, combat) <= 0) {
-    return finish(combat)
-  }
-
   const newTurn = {
     attacker: combat.teams[0].overall.name,
     defender: combat.teams[1].overall.name,
     damage: dmg,
-    rolls: {
-      skill: rolls.skill,
-      aim: rolls.aim,
-      hit: rolls.hit,
-    },
+    defenderHp: combat.teams[1].overall.hp,
+    rolls,
     casts,
   }
 
   combat = merge(combat, {
     turns: [...combat.turns, newTurn],
+  })
+
+  if (view(defenderHp, combat) <= 0) {
+    return finish(combat)
+  }
+
+
+  combat = merge(combat, {
     teams: reverse(combat.teams),
   })
 
@@ -218,7 +222,7 @@ function build (tms) {
       teams: initTurn.order,
       startedAt: new Date(),
       turns: [
-        { initiative: initTurn.order[0].overall.name, rolls: initTurn.rolls },
+        { winner: initTurn.order[0].overall.name, rolls: initTurn.rolls },
       ],
     }))
 }
@@ -239,7 +243,7 @@ function start (combat) {
 function testFight (stances, s, s2) {
   s2 = s2 || s
   const teams = [
-    [{ name: '1', stance: stances[0], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: { weapon: 'poison_dagger'} }],
+    [{ name: 'Worms', stance: stances[0], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: { weapon: 'poison_dagger'} }],
     // [{ name: '2', stance: stances[1], str: s, int: s, ref: s, acc: s, con: s, kno: s, equips: {} }],
     [models.monsters.find(stances[1])],
   ]
@@ -248,7 +252,7 @@ function testFight (stances, s, s2) {
   Promise.all(Array.from({ length: 1 })
     .map(() => build(teams).then(start)))
     .then(combats => combats.map((c) => { console.log(JSON.stringify(c, null, 2)); return c }))
-    .then(cs => cs.filter(c => c.winner === '1').length)
+    .then(cs => cs.filter(c => c.winner === 'Worms').length)
     .then(console.log.bind(console,
       'with stats',
       s,
@@ -262,7 +266,7 @@ function testFight (stances, s, s2) {
 }
 
 export function test () {
-  testFight(['arcane', 'rat'], 5)
+  testFight(['arcane', 'rat'], 8)
   // testFight(['arcane', 'bird'], 5)
   // testFight(['arcane', 'goat'], 5)
   // testFight(['arcane', 'snake'], 5)
@@ -355,10 +359,12 @@ function mergeFighter (a, b) {
 }
 
 function buildTeam (members) {
-  return {
-    overall: members.reduce((acc, fighter) =>
-      mergeWith(mergeFighter, acc, fighter),
+  const obj =  {
+    overall: members.reduce((acc, fighter) => {
+      return mergeWith(mergeFighter, acc, fighter)
+    },
       { stance: [] }),
     members,
   }
+  return obj
 }
