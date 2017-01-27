@@ -11,8 +11,6 @@ export default [
     prizes: {
       exp: 2,
       items: ['Fang'],
-      equips: ['spider_web_clothes', 'spidy'],
-      tokens: ['spidy'],
     },
   },
   {

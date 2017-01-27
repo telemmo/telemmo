@@ -8,16 +8,16 @@ import {
 import models from '../models'
 
 export function combatStats ({ str, int, ref, acc, con, kno }) {
-  const statPointRelevance = 7
+  const statPointRelevance = 5
   const sr = statPointRelevance
   return map(Math.floor, {
-    atk: ((str / 2) + acc) / sr,
-    def: ((str / 2) + ref) / sr,
-    aim: ((int / 2) + acc) / sr,
-    dod: ((int / 2) + ref) / sr,
-    initialHp: 50 + (con / sr),
-    flow: kno / sr,
-    init: (str + con + int + kno) / sr,
+    atk: 10 + ((str / 2) + acc) / sr,
+    def: 10 + ((str / 2) + ref) / sr,
+    aim: 10 + ((int / 2) + acc) / sr,
+    dod: 10 + ((int / 2) + ref) / sr,
+    initialHp: 100 + (con / sr),
+    flow: 10 + kno / sr,
+    init: 10 + (str + con + int + kno) / sr,
   })
 }
 

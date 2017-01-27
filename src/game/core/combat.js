@@ -21,6 +21,7 @@ import { buildCombatStats } from './combatStats'
 import randomSkillFromStance from './randomSkillFromStance'
 import { rollBatch } from './dice'
 import models from '../models'
+import { viewCombat } from './combatView'
 
 const overallInit = lensPath(['overall', 'init'])
 
@@ -130,7 +131,7 @@ function finish (combat) {
 function runTurn (combat, rolls) {
   const { teams } = combat
 
-  const statPointRelevance = 7
+  const statPointRelevance = 10
   const sr = statPointRelevance
 
   const skill = (rolls.skill + teams[0].overall.flow/sr) - teams[1].overall.flow/sr
@@ -162,6 +163,7 @@ function runTurn (combat, rolls) {
       if (!member.stance) { return }
       const random = randomSkillFromStance(member.stance)
       const afterCast = random.fire(combat)
+      if (!afterCast) { return }
       combat = afterCast.combat
       casts = casts.concat([afterCast.cast])
     })
@@ -251,7 +253,7 @@ function testFight (stances, s, s2) {
 
   Promise.all(Array.from({ length: 1 })
     .map(() => build(teams).then(start)))
-    .then(combats => combats.map((c) => { console.log(JSON.stringify(c, null, 2)); return c }))
+    .then(combats => combats.map((c) => { console.log(viewCombat(c, 'Worms')); return c }))
     .then(cs => cs.filter(c => c.winner === 'Worms').length)
     .then(console.log.bind(console,
       'with stats',
@@ -266,7 +268,7 @@ function testFight (stances, s, s2) {
 }
 
 export function test () {
-  testFight(['arcane', 'rat'], 8)
+  testFight(['arcane', 'snake'], 8)
   // testFight(['arcane', 'bird'], 5)
   // testFight(['arcane', 'goat'], 5)
   // testFight(['arcane', 'snake'], 5)

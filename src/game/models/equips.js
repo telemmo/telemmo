@@ -34,21 +34,20 @@ export default [
     bonus: {
       atk: 5,
     },
-    
-    fire: (combat) => {
+    fire: (combat, rolls) => {
+      if (rolls.aim < 19) { return }
       const aim = view(defenderAim, combat)
-      const newAim = aim/8
-      const damage = 0
+      const newDefenderAim = Math.floor(aim * 0.8)
       return {
         combat: set(
           defenderAim,
-          newAim,
+          newDefenderAim,
           combat,
         ),
         cast: {
           skill: 'Poison Dagger',
           type: 'aim debuff',
-          value: newAim,
+          value: newDefenderAim,
         },
       }
     },
