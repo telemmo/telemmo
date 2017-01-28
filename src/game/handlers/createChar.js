@@ -3,6 +3,7 @@ import {
   __,
   nth,
   assoc,
+  always,
 } from 'ramda'
 
 import { reject, rejectUndefined } from './errors'
@@ -26,6 +27,15 @@ function renderError (_, msg, err) {
   }
 }
 
+function addCharToPlayer (dao, player, char) {
+  return dao.character.create(char)
+    .then(newChar => dao.player.update(
+      { _id: player.id },
+      { $set: { currentCharId: newChar._id } },
+    ))
+    .then(always(char))
+}
+
 export default function call (dao, provider, _, msg) {
   if (!msg.player.id) {
     return reject(msg, _('Funny, you should have a player first!'))
@@ -40,7 +50,7 @@ export default function call (dao, provider, _, msg) {
     .then(nth(1))
     .then(rejectUndefined(msg, _('Invalid class name')))
     .then(partial(factories.character.create, [msg.player.id]))
-    .then(dao.character.create)
+    .then(partial(addCharToPlayer, [dao, msg.player]))
     .then(partial(renderSuccess, [_]))
     .then(assoc('text', __, params))
     .catch(partial(renderError, [_, msg]))
