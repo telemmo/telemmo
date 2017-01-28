@@ -8,7 +8,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: 50
+        value: 0
       }
     })
   },

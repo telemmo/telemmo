@@ -1,10 +1,7 @@
 import {
   head,
   tail,
-  dropLast,
-  last,
   map,
-  mapObjIndexed,
   toPairs,
 } from 'ramda'
 
@@ -37,12 +34,33 @@ export function viewCombat (c, id) {
     turns.map(turn =>
       `*${
         turn.attacker
-      }* rolled: ${map(
-      (pair) => `${pair[0]} ${pair[1]}, `,
-      toPairs(turn.rolls)
-    ).join('')}${
-        turn.casts ? turn.casts.map(cast => `\n+ casted ${cast.skill} for ${cast.value} ${cast.type}`).join('') : ''
-      }\nattacked for ${turn.damage} damage. *${turn.defender}'s hp: ${turn.defenderHp}*`
+      }* | aim ${
+        turn.rolls.aim
+      } | hit ${
+        turn.rolls.hit
+      } | skill ${
+        turn.rolls.skill
+      } |${
+        turn.casts
+          ? turn.casts.map(cast =>
+            `\n! casted ${
+              cast.skill
+            } for ${
+              cast.value
+            } ${
+              cast.type
+            }`
+          ).join('')
+          : ''
+      }\nattacked for ${
+        turn.damage
+      } damage. *${
+        turn.defender
+      }'s hp: ${
+        turn.defenderHp.current
+      }/${
+        turn.defenderHp.init
+      }*`
     ).join('\n\n')
   )
 

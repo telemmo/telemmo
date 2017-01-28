@@ -178,7 +178,10 @@ function runTurn (combat, rolls) {
     attacker: combat.teams[0].overall.name,
     defender: combat.teams[1].overall.name,
     damage: dmg,
-    defenderHp: combat.teams[1].overall.hp,
+    defenderHp: {
+      current: combat.teams[1].overall.hp,
+      init: combat.teams[1].overall.initialHp
+    },
     rolls,
     casts,
   }
@@ -244,9 +247,9 @@ function testFight (stances, s, s2) {
   ]
 
 
-  Promise.all(Array.from({ length: 100 })
+  Promise.all(Array.from({ length: 1 })
     .map(() => build(teams).then(start)))
-    // .then(combats => combats.map((c) => { console.log(viewCombat(c, fighterName)); return c }))
+    .then(combats => combats.map((c) => { console.log(viewCombat(c, fighterName)); return c }))
     .then(cs => cs.filter(c => c.winner === fighterName).length)
     .then(console.log.bind(console,
       'with stats',
@@ -286,15 +289,15 @@ export function test () {
   testFight(['arcane', 'snake'], 100)
   testFight(['arcane', 'snake'], 90)
   testFight(['arcane', 'snake'], 80)
-  // testFight(['arcane', 'snake'], 70)
+  testFight(['arcane', 'snake'], 70)
   testFight(['arcane', 'snake'], 60)
-  // testFight(['arcane', 'snake'], 40)
+  testFight(['arcane', 'snake'], 40)
   // testFight(['arcane', 'snake'], 20)
 //   testFight(['arcane', 'spider'], 6)
 //   testFight(['arcane', 'spider'], 7)
 //   testFight(['arcane', 'spider'], 8)
 //   testFight(['arcane', 'spider'], 9)
-//   testFight(['arcane', 'spider'], 10)
+  testFight(['arcane', 'spider'], 10)
 //   testFight(['arcane', 'spider'], 15)
 //   testFight(['arcane', 'spider'], 20)
 //   testFight(['arcane', 'spider'], 25)

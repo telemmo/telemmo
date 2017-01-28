@@ -25,7 +25,10 @@ function addEquipStats (fighter) {
 export function buildCombatStats (fighter) {
   return Promise.resolve(fighter)
     .then(addEquipStats)
-    .then(f => merge(f, { hp: 10 + (f.str + f.con + f.acc + f.ref)/4 }))
+    .then(f => {
+      const initialHp = 10 + (f.str + f.con + f.acc + f.ref)/4
+      return merge(f, { initialHp, hp: initialHp })
+    })
 }
 
 function testBuild (s) {

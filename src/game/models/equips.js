@@ -12,7 +12,8 @@ export default [
     name: 'Spider Web Clothes',
     type: 'set',
     bonus: {
-      con: 5,
+      ref: 5,
+      acc: 3,
     },
   },
   {
@@ -20,8 +21,8 @@ export default [
     name: 'Spidy',
     type: 'token',
     bonus: {
-      str: 5,
-      con: 5,
+      acc: 10,
+      ref: 10,
     },
   },
   {
@@ -29,16 +30,17 @@ export default [
     name: 'Poison Dagger',
     type: 'weapon',
     bonus: {
-      str: 5,
+      str: 8,
+      acc: 4,
     },
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aim < 19,
-      // defender: {
-      //   // aim: -defender.aim * 0.2,
-      // },
+      defender: {
+        ref: -defender.ref * 0.2,
+      },
       log: {
-        type: 'aim debuff',
-        value: -defender.aim * 0.2
+        type: 'reflex debuff',
+        value: -defender.ref * 0.2
       }
     }),
   },
