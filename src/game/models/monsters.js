@@ -66,4 +66,18 @@ export default [
       items: ['Snakeskin'],
     },
   },
+  {
+    id: 'death',
+    name: 'Death',
+    stance: 'death',
+    str: 100,
+    ref: 100,
+    acc: 100,
+    con: 100,
+    flow: 100,
+    prizes: {
+      exp: 100,
+      items: ['Death orb'],
+    },
+  },
 ]

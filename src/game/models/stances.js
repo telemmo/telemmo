@@ -143,4 +143,13 @@ export default [
       },
     ],
   },
+  {
+    id: 'death',
+    skills: [
+      {
+        id: 'fireball',
+        influence: 20,
+      },
+    ],
+  },
 ]
