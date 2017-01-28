@@ -3,6 +3,7 @@ import classInfo from './classInfo'
 import createChar from './createChar'
 import overworld from './overworld'
 import welcome from './welcome'
+import maps from './maps'
 
 export default {
   start,
@@ -10,5 +11,6 @@ export default {
   createChar,
   overworld,
   welcome,
+  maps,
 }
 

@@ -14,5 +14,9 @@ export default [
     handler: handlers.createChar,
     next: handlers.start,
   },
+  {
+    match: /\/maps/,
+    handler: handlers.maps,
+  },
 ]
 

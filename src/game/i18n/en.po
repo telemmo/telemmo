@@ -67,3 +67,9 @@ msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:
 "
 msgstr ""
 
+#: src/game/handlers/maps.js 19:10
+msgid ":world_map: Explore :world_map:
+
+*Choose a map to explore*"
+msgstr ""
+
