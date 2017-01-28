@@ -126,7 +126,7 @@ function runTurn (combat, rolls) {
   const attacker = teams[0].overall
   const defender = teams[1].overall
 
-  const statIrrelevance = 10
+  const statIrrelevance = 6
   const si = statIrrelevance
 
   const skill = (rolls.aSkill * (attacker.flow / si))
@@ -135,15 +135,15 @@ function runTurn (combat, rolls) {
   const aim = (rolls.aAim * (attacker.acc / (si * 6)))
             - (rolls.dAim * (defender.ref / (si * 6)))
 
-  const hit = ((rolls.aHit / 2) * (attacker.str / si))
-            - ((rolls.dHit / 2) * (defender.con / si))
+  const hit = ((rolls.aHit / 4) * (attacker.str / si)) + 10
+            - ((rolls.dHit / 4) * (defender.con / si))
 
   let dmg = Math.max(
     Math.ceil(hit),
-    1,
+    5,
   )
 
-  if (rolls.aAim === 1 || aim < -5) {
+  if (rolls.aAim === 1 || aim < -100) {
     dmg = 0
   }
 
