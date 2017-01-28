@@ -37,6 +37,6 @@ This repo is under GPL3 license as of now. You can do whatever you want with it 
 
 * [@AtillaGallio](https://github.com/atillagallio) - Contributor: code
 * [@furiaz](https://github.com/furiaz) - Contributor: game design
-* [@flipog](https://github.com/flipog) - Contributor: game design
-* [@DerekStavis](https://github.com/derekstavis/) - Author: server man, code, code mentor
+* [@flipog](https://github.com/flipog) - Contributor: NaN
+* [@DerekStavis](https://github.com/derekstavis/) - Author: server person, code, code mentor
 * [@MarcoWorms](https://github.com/MarcoWorms/) - Creator: game design, code
