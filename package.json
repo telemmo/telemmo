@@ -35,6 +35,6 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
-    "gettext-loader": "0.2.2"
+    "gettext-loader": "derekstavis/gettext-loader"
   }
 }

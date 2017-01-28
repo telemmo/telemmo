@@ -10,25 +10,54 @@
 
 #: src/game/handlers/start.js 24:36
 msgid "Player already exists!"
-msgtr ""
+msgstr ""
 
-#: src/game/handlers/start.js 45:26
+#: src/game/handlers/start.js 45:10
 msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
 
  You will now create your first character. Touch the comands below to see information about a class."
-msgtr ""
+msgstr ""
 
 #: src/game/handlers/classInfo.js 19:129
 msgid "*Stances* - _You can change them any time_
 
 "
-msgtr ""
+msgstr ""
 
-#: src/game/handlers/classInfo.js 27:77
+#: src/game/handlers/classInfo.js 41:77
 msgid "No match"
-msgtr ""
+msgstr ""
 
-#: src/game/handlers/classInfo.js 27:247
+#: src/game/handlers/classInfo.js 41:193
 msgid "Invalid class name"
-msgtr ""
+msgstr ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! Now using it!
+
+%s
+
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:65
+msgid "_You can change character using /changename New Name_"
+msgstr ""
+
+#: src/game/handlers/createChar.js 19:125
+msgid "To change character, use /changechar"
+msgstr ""
+
+#: src/game/handlers/createChar.js 26:10
+msgid "Failed creating character!"
+msgstr ""
+
+#: src/game/handlers/createChar.js 34:36
+msgid "Funny, you should have a player first!"
+msgstr ""
+
+#: src/game/handlers/createChar.js 41:77
+msgid "You need to choose a class"
+msgstr ""
 

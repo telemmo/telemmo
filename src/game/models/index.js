@@ -23,7 +23,7 @@ function find (model, id) {
     .find(item => toLower(item.id) === toLower(id))
 
   if (element === undefined) {
-    throw new Error('Cannot find model with id ' + id)
+    throw new Error(`Cannot find model with id ${id}`)
   }
 
   return element
