@@ -15,7 +15,7 @@ import {
 
 import Promise from 'bluebird'
 
-import { rejectUndefined } from './errors'
+import { reject, rejectUndefined } from './errors'
 import { randomMonster } from '../core/explore'
 import { run } from '../core/combat'
 
@@ -138,5 +138,6 @@ export default function call (dao, provider, _, msg) {
     .then(partial(start, [dao, msg.player]))
     .then(partial(render, [_, msg.player]))
     .then(partial(reply, [msg]))
+    .catch(partial(reject, [msg, _('Invalid map name')]))
 }
 
