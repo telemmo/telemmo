@@ -1,5 +1,6 @@
 export default [
   {
+    id: 'green_fields',
     name: 'Green Fields',
     monsters: [
       {
