@@ -15,6 +15,7 @@ function handleError (provider, error) {
   }
 
   console.error('An error returned something not sendable')
+  console.error(error)
 }
 
 function normalizeMessage (dao, provider, route, msg) {
@@ -54,6 +55,12 @@ function handle (dao, provider, route, msg) {
   return route.handler(dao, provider, translate, msg)
     .then(partial(dispatch, [provider]))
     .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
+    .then(() => {
+      if (typeof route.next === 'function') {
+        return route.next(dao, provider, translate, msg)
+          .then(partial(dispatch, [provider]))
+      }
+    })
     .catch(partial(handleError, [provider]))
     .catch(partial(console.error, [`${msg.chat} ERR "${msg.text}":`]))
 }

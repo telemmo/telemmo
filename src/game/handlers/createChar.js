@@ -7,6 +7,7 @@ import {
 
 import { reject, rejectUndefined } from './errors'
 import factories from '../factories'
+import handlers from './index'
 
 function renderSuccess (_, char) {
   return _('*%s* created! Now using it!\n\n%s\n\n%s',
@@ -17,6 +18,8 @@ function renderSuccess (_, char) {
 }
 
 function renderError (_, msg, err) {
+  console.log('Failed creating char:', err)
+
   return {
     to: msg.chat,
     text: _('Failed creating character!'),

@@ -1,19 +1,16 @@
 import {
+  ifElse,
   splitEvery,
+  partial,
+  length,
+  equals,
   always,
-  map,
   pipe,
 } from 'ramda'
 
-import { emojify } from 'node-emoji'
-import { reject } from './errors'
-import models from '../models'
+import handlers from './index'
 
 function createPlayer (dao, _, msg) {
-  if (msg.player.id) {
-    return reject(msg, _('Player already exists!'))
-  }
-
   const player = {
     language: 'en',
     providers: {
@@ -26,22 +23,17 @@ function createPlayer (dao, _, msg) {
   return dao.player.create(player)
 }
 
-const buildKeyboard = pipe(
-  map((clas) => {
-    const e = emojify(clas.emoji)
-    return `${e} /info_${clas.id} ${e}`
-  }),
-  splitEvery(1),
-)
-
 export default function call (dao, provider, _, msg) {
-  const params = {
-    to: msg.chat,
-    text: _(':globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:\n\n You will now create your first character. Touch the comands below to see information about a class.'),
-    options: buildKeyboard(models.classes.all),
+  if (msg.player.id) {
+    return dao.character.find({ playerId: msg.player.id })
+      .then(ifElse(
+        pipe(length, equals(0)),
+        partial(handlers.welcome, [dao, provider, _, msg]),
+        partial(handlers.overworld, [dao, provider, _, msg]),
+      ))
   }
 
   return createPlayer(dao, _, msg)
-    .then(always(params))
+    .then(partial(handlers.welcome, [dao, provider, _, msg]))
 }
 

@@ -12,6 +12,7 @@ export default [
   {
     match: /create_(\w+)/,
     handler: handlers.createChar,
+    next: handlers.start,
   },
 ]
 
