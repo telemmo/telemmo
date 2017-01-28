@@ -238,7 +238,7 @@ function start (combat) {
     .then(Promise.coroutine(generate))
 }
 
-export function combat (teams) {
+export function run (teams) {
   return build(teams)
     .then(start)
 }
