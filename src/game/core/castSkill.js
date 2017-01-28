@@ -18,7 +18,7 @@ export default function castSkill (obj, combat, rolls) {
   const afterCast = obj.fire(attacker, defender, rolls)
   if (afterCast.noCast) { return }
 
-  if (afterCast.defender.hp > 0) {
+  if (afterCast.defender && afterCast.defender.hp > 0) {
     afterCast.defender.hp = 0
   }
 

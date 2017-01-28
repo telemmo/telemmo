@@ -7,18 +7,6 @@ import {
 
 import models from '../models'
 
-export function combatStats ({ str, int, ref, acc, con, kno }) {
-  return map(Math.floor, {
-    atk: ((str * 2) + acc)/10,
-    def: ((str * 2) + ref)/10,
-    aim: ((int * 2) + acc)/10,
-    dod: ((int * 2) + ref)/10,
-    initialHp: 50 + con,
-    flow: kno/10,
-    init: (str + con + int + kno)/10,
-  })
-}
-
 function addStanceStats (fighter) {
   if (!fighter.stance) { return fighter }
   const stance = models.stances.find(fighter.stance)
@@ -36,10 +24,8 @@ function addEquipStats (fighter) {
 
 export function buildCombatStats (fighter) {
   return Promise.resolve(fighter)
-    .then(addStanceStats)
-    .then(merge(combatStats(fighter)))
     .then(addEquipStats)
-    .then(f => merge(f, { hp: f.initialHp }))
+    .then(f => merge(f, { hp: 10 + (f.str + f.con + f.acc + f.ref)/4 }))
 }
 
 function testBuild (s) {

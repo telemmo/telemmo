@@ -20,8 +20,6 @@ export function viewCombat (c, id) {
   const initiative = head(c.turns)
   const turns = tail(c.turns)
   const prizes = c.prizes.filter(prize => prize.owner === id)
-  const getTeamInit = name =>
-    c.initialTeams.find(team => team.members.find(member => member.name === name)).overall.init
 
   const header = _(`%s vs. %s\n\n`, c.teams[0].overall.name, c.teams[1].overall.name)
 
@@ -29,7 +27,7 @@ export function viewCombat (c, id) {
     '*%s* won the initiative!\n%s\n',
     initiative.winner,
     map(
-      (pair) => `${pair[0]}: ${pair[1]} (+${getTeamInit(pair[0])})\n`,
+      (pair) => `${pair[0]}: ${pair[1]}\n`,
       toPairs(initiative.rolls)
     ).join('')
   )
