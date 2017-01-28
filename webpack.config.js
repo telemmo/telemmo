@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const webpack = require('webpack')
 const { merge, objOf } = require('ramda')
 
 const externals = fs.readdirSync('node_modules')
@@ -32,6 +33,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.BannerPlugin(
+      'require("source-map-support").install();',
+      { raw: true, entryOnly: false }),
   ],
 }
 

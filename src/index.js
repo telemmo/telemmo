@@ -1,5 +1,3 @@
-require('source-map-support').install()
-
 import engine from './engine'
 import game from './game'
 
