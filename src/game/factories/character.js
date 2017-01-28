@@ -1,5 +1,6 @@
 import {
   assoc,
+  head,
   pipe,
   nth,
   __,
@@ -14,6 +15,7 @@ const template = {
   stance: 'stance unset',
   classId: 'classId unset',
   equips: {},
+  flow: 5,
   exp: 0,
   acc: 5,
   ref: 5,
@@ -30,6 +32,7 @@ function create (playerId, classId) {
       assoc('name', __, template),
       assoc('classId', clas.id),
       assoc('playerId', playerId),
+      assoc('stance', head(clas.stances)),
     )))
   })
 }

@@ -16,6 +16,7 @@ export default function castSkill (obj, combat, rolls) {
   const defender = view(defenderLens, combat)
   const skillName = obj.name
   const afterCast = obj.fire(attacker, defender, rolls)
+
   if (afterCast.noCast) { return }
 
   if (afterCast.defender && afterCast.defender.hp > 0) {
@@ -43,6 +44,7 @@ export default function castSkill (obj, combat, rolls) {
       skill: skillName,
       type: afterCast.log.type,
       value: afterCast.log.value.toFixed(2),
-    }
+      stance: attacker.stance,
+    },
   }
 }

@@ -207,7 +207,7 @@ function runTurn (combat, rolls) {
   return combat
 }
 
-const turnRolls = ['aSkill', 'aAim', 'aHit', 'dSkill', 'sAim', 'dHit']
+const turnRolls = ['aSkill', 'aAim', 'aHit', 'dSkill', 'dAim', 'dHit']
 
 function turn (combat) {
   return rollBatch(20, turnRolls)
