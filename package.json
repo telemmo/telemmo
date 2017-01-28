@@ -23,9 +23,8 @@
   },
   "scripts": {
     "prestart": "webpack --progress --colors --config webpack.config.prod.js",
-    "predev": "webpack --progress --colors --config webpack.config.dev.js",
     "start": "node dist/telemmo.js",
-    "dev": "node dist/telemmo.dev.js",
+    "dev": "webpack --progress --colors --watch --config webpack.config.dev.js",
     "lint": "eslint src/"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
-    "gettext-loader": "derekstavis/gettext-loader"
+    "gettext-loader": "derekstavis/gettext-loader",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }
