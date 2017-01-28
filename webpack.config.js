@@ -26,7 +26,7 @@ module.exports = {
         test: /\.js$/,
         loaders: [
           'gettext',
-          'babel?presets=es2015-native-generators',
+          'babel',
         ],
       },
     ],
