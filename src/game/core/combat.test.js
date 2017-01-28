@@ -19,10 +19,10 @@ function exploreMock (allStats, stance, monster) {
 }
 
 test('combat', () => {
-  const { combat } = require('./combat')
+  const { run } = require('./combat')
 
   const teams = (exploreMock(100, 'arcane', 'death'))
-  return combat(teams)
+  return run(teams)
     .tap(({ finishedAt, winner }) => {
       expect(finishedAt).toBeTruthy()
       expect(winner).toBeTruthy()
