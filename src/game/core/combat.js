@@ -21,7 +21,6 @@ import { buildCombatStats } from './combatStats'
 import randomSkillFromStance from './randomSkillFromStance'
 import { rollBatch } from './dice'
 import models from '../models'
-import { viewCombat } from './combatView'
 import castSkill from './castSkill'
 
 function runInitiative (teams, rolls) {
@@ -52,14 +51,14 @@ function initiative (teams) {
 function attachPrizes (combat, rolls) {
   const { teams } = combat
 
-  const allPrizes = teams[0].members.reduce((loot, player) => {
+  const allPrizes = teams[0].members.reduce((loot, char) => {
     return [...loot, ...teams[1].members.reduce((prizes, enemy) => {
       if (!enemy.prizes) {
         return prizes
       }
 
       prizes = [ ...prizes ,{
-        owner: player.name,
+        charId: char.id,
         exp: enemy.prizes.exp,
       }]
 
@@ -68,7 +67,7 @@ function attachPrizes (combat, rolls) {
         const index = Math.floor((rolls.item / 10000) * items.length)
 
         prizes = [ ...prizes, {
-          owner: player.name,
+          charId: char.id,
           item: enemy.prizes.items[index],
         }]
       }
@@ -78,7 +77,7 @@ function attachPrizes (combat, rolls) {
         const index = Math.floor((rolls.equip / 10000) * equips.length)
 
         prizes = [ ...prizes, {
-          owner: player.name,
+          charId: char.id,
           equip: enemy.prizes.equips[index],
         }]
       }
@@ -88,7 +87,7 @@ function attachPrizes (combat, rolls) {
         const index = Math.floor((rolls.token / 10000) * tokens.length)
 
         prizes = [ ...prizes, {
-          owner: player.name,
+          charId: char.id,
           equip: enemy.prizes.tokens[index],
         }]
       }
@@ -104,7 +103,7 @@ function attachPrizes (combat, rolls) {
 function markFinished (combat) {
   return pipe(
     set(lensProp('finishedAt'), new Date()),
-    set(lensProp('winner'), combat.teams[0].members[0].name),
+    set(lensProp('winner'), combat.teams[0].members[0].id),
   )(combat)
 }
 
@@ -245,9 +244,11 @@ function start (combat) {
     .then(Promise.coroutine(generate))
 }
 
-export function run (teams) {
+export function run (dao, teams) {
   return build(teams)
     .then(start)
+    .then(dao.combat.create)
+    .then((x) => { console.log(x); return x })
 }
 
 function mergeFighter (a, b) {

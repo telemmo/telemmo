@@ -18,5 +18,9 @@ export default [
     match: /\/maps/,
     handler: handlers.maps,
   },
+  {
+    match: /\/explore_(\w+)/,
+    handler: handlers.explore,
+  },
 ]
 

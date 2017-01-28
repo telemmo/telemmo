@@ -6,6 +6,7 @@ function build (db) {
   return {
     player: dao.build(db.collection('player')),
     character: dao.build(db.collection('character')),
+    combat: dao.build(db.collection('combat')),
   }
 }
 

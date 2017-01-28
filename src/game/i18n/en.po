@@ -73,3 +73,283 @@ msgid ":world_map: Explore :world_map:
 *Choose a map to explore*"
 msgstr ""
 
+#: src/game/handlers/explore.js 35:15
+msgid "%s vs. %s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 37:23
+msgid "*%s* won the initiative!
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 41:18
+msgid "%s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 57:19
+msgid "Experience: %s
+Itens: %s
+Equips: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 57:80
+msgid "none :("
+msgstr ""
+
+#: src/game/handlers/explore.js 57:80
+msgid "none :("
+msgstr ""
+
+#: src/game/handlers/explore.js 57:80
+msgid "none :("
+msgstr ""
+
+#: src/game/handlers/explore.js 71:168
+msgid "Invalid map name"
+msgstr ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s | aim %s | hit %s |"skill" %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 41:13
+msgid "casted %s for %s %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:8
+msgid "attacked for %s damage."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:51
+msgid "%s's hp: %s/%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s | :heavy_large_circle: %s | :anger_symbol: %s |:sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:15
+msgid "%s vs. %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:8
+msgid "Attacked for %s damage."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s - :heavy_large_circle: %s - :anger_symbol: %s - :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s |:heavy_large_circle: %s |:anger_symbol: %s |:sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :heavy_large_circle: %s :anger_symbol: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :heavy_large_circle: %s :anger: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :red_circle: %s :anger: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :white_circle: %s :anger: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :black_circle_for_record: %s :anger: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:35
+msgid "%s :o: %s :anger: %s :sparkles: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 35:23
+msgid ":small_orange_diamond: *%s* won the initiative!
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 35:23
+msgid ":small_orange_diamond: *%s* won the initiative!
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:51
+msgid "%s's hp: %s/%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 35:23
+msgid ":small_orange_diamond: *%s* won the initiative!%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:33
+msgid "%s :o: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 41:13
+msgid "casted %s for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:15
+msgid "%s vs. %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:51
+msgid "%s's hp: %s/%s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 40:33
+msgid "
+%s :o: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:8
+msgid "Attacked for %s damage.
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 42:8
+msgid "Attacked for %s damage. "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:68
+msgid ":heavy_check_mark: "
+msgstr ""
+
+#: src/game/handlers/explore.js 33:95
+msgid ""
+msgstr ""
+
+#: src/game/handlers/explore.js 33:96
+msgid ":x:"
+msgstr ""
+
+#: src/game/handlers/explore.js 33:69
+msgid ":heavy_check_mark: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:70
+msgid ":heavy_check_mark: %s won"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:70
+msgid ":heavy_check_mark: *%s* won"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:70
+msgid ":heavy_check_mark: *%s* won!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 33:121
+msgid ":x: *%s* won!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 44:33
+msgid "%s :dart: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 45:13
+msgid "Casted %s for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 37:79
+msgid ":heavy_check_mark:"
+msgstr ""
+
+#: src/game/handlers/explore.js 44:33
+msgid ":dart: %s :anger: %s :sparkles: %s *%s*
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 44:33
+msgid "`:dart: %s :anger: %s :sparkles: %s `*%s*
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 44:33
+msgid "`:dart: %s :anger: %s :sparkles: %s` *%s*
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 44:33
+msgid "*%s* `:dart: %s :anger: %s :sparkles: %s`
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 45:13
+msgid "Casted %s for %s %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 44:102
+msgid "`:dart: %s :anger: %s :sparkles: %s`
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 52:8
+msgid "Attacked for %s damage"
+msgstr[0] ""
+msgstr[1] ""
+

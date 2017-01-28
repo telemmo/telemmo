@@ -14,6 +14,7 @@ function buildFilter (stream, regex) {
 }
 
 function sendMessage (bot, chat, message, options) {
+  console.log(emoji.emojify(message))
   bot.sendMessage(chat, emoji.emojify(message), options)
   return Observable.of(false)
 }
