@@ -248,7 +248,6 @@ export function run (dao, teams) {
   return build(teams)
     .then(start)
     .then(dao.combat.create)
-    .then((x) => { console.log(x); return x })
 }
 
 function mergeFighter (a, b) {
