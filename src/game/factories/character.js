@@ -13,6 +13,12 @@ const template = {
   name: 'name unset',
   stance: 'stance unset',
   classId: 'classId unset',
+  equips: {},
+  exp: 0,
+  acc: 5,
+  ref: 5,
+  str: 5,
+  con: 5,
 }
 
 function create (playerId, classId) {
