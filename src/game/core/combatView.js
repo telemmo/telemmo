@@ -24,9 +24,9 @@ export function viewCombat (c, id) {
     '*%s* won the initiative!\n%s\n',
     initiative.winner,
     map(
-      (pair) => `${pair[0]}: ${pair[1]}\n`,
-      toPairs(initiative.rolls)
-    ).join('')
+      pair => `${pair[0]}: ${pair[1]}\n`,
+      toPairs(initiative.rolls),
+    ).join(''),
   )
 
   const turnsView = _(
@@ -35,11 +35,11 @@ export function viewCombat (c, id) {
       `*${
         turn.attacker
       }* | aim ${
-        turn.rolls.aim
+        turn.rolls.aAim
       } | hit ${
-        turn.rolls.hit
+        turn.rolls.aHit
       } | skill ${
-        turn.rolls.skill
+        turn.rolls.aSkill
       } |${
         turn.casts
           ? turn.casts.map(cast =>

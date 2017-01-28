@@ -129,16 +129,21 @@ function runTurn (combat, rolls) {
   const statIrrelevance = 10
   const si = statIrrelevance
 
-  const skill = rolls.skill * (attacker.flow / si) - rolls.skillD * (defender.flow / si)
-  const aim = rolls.aim * (attacker.acc / (si*6)) - rolls.aimD * (defender.ref /(si*6))
-  const hit = rolls.hit/2 * (attacker.str / si) - rolls.hitD/2 * (defender.con / si)
+  const skill = (rolls.aSkill * (attacker.flow / si))
+              - (rolls.dSkill * (defender.flow / si))
+
+  const aim = (rolls.aAim * (attacker.acc / (si * 6)))
+            - (rolls.dAim * (defender.ref / (si * 6)))
+
+  const hit = ((rolls.aHit / 2) * (attacker.str / si))
+            - ((rolls.dHit / 2) * (defender.con / si))
 
   let dmg = Math.max(
     Math.ceil(hit),
-    1
+    1,
   )
 
-  if (rolls.aim === 1 || aim < -5) {
+  if (rolls.aAim === 1 || aim < -5) {
     dmg = 0
   }
 
@@ -180,7 +185,7 @@ function runTurn (combat, rolls) {
     damage: dmg,
     defenderHp: {
       current: combat.teams[1].overall.hp,
-      init: combat.teams[1].overall.initialHp
+      init: combat.teams[1].overall.initialHp,
     },
     rolls,
     casts,
@@ -202,8 +207,10 @@ function runTurn (combat, rolls) {
   return combat
 }
 
+const turnRolls = ['aSkill', 'aAim', 'aHit', 'dSkill', 'sAim', 'dHit']
+
 function turn (combat) {
-  return rollBatch(20, ['skill', 'aim', 'hit', 'skillD', 'aimD', 'hitD'])
+  return rollBatch(20, turnRolls)
     .then(partial(runTurn, [combat]))
 }
 

@@ -34,14 +34,14 @@ export default [
       acc: 4,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: rolls.aim < 19,
+      noCast: rolls.aAim < 19,
       defender: {
         ref: -defender.ref * 0.2,
       },
       log: {
         type: 'reflex debuff',
-        value: -defender.ref * 0.2
-      }
+        value: -defender.ref * 0.2,
+      },
     }),
   },
 ]
