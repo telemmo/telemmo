@@ -10,7 +10,6 @@ export default [
   {
     id: 'spider_web_clothes',
     name: 'Spider Web Clothes',
-    description: 'A set of clothes made from spider web.',
     type: 'set',
     bonus: {
       def: 5,
@@ -19,7 +18,6 @@ export default [
   {
     id: 'spidy',
     name: 'Spidy',
-    description: 'A small spider companion',
     type: 'token',
     bonus: {
       atk: 5,
@@ -29,7 +27,6 @@ export default [
   {
     id: 'poison_dagger',
     name: 'Poison Dagger',
-    description: 'A dagger poisoned with snake venom. Deals more damage if you roll 19 or higher in AIM d20',
     type: 'weapon',
     bonus: {
       atk: 5,
@@ -37,7 +34,8 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aim < 19,
       defender: {
-        aim: -defender.aim * 0.2,
+        // aim: -defender.aim * 0.2,
+        aim: 0,
       },
       log: {
         type: 'aim debuff',

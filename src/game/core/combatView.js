@@ -44,7 +44,7 @@ export function viewCombat (c, id) {
       toPairs(turn.rolls)
     ).join('')}${
         turn.casts ? turn.casts.map(cast => `\n+ casted ${cast.skill} for ${cast.value} ${cast.type}`).join('') : ''
-      }\nattacked ${turn.damage} damage. *${turn.defender}'s hp: ${turn.defenderHp}*`
+      }\nattacked for ${turn.damage} damage. *${turn.defender}'s hp: ${turn.defenderHp}*`
     ).join('\n\n')
   )
 

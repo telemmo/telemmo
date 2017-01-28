@@ -131,35 +131,31 @@ function finish (combat) {
 
 function runTurn (combat, rolls) {
   const { teams } = combat
+  const attacker = teams[0].overall
+  const defender = teams[1].overall
 
-  const statPointRelevance = 10
-  const sr = statPointRelevance
-
-  const skill = (rolls.skill + teams[0].overall.flow/sr) - teams[1].overall.flow/sr
-  const aim = (rolls.aim + teams[0].overall.ref/sr) - teams[1].overall.dod/sr
-  const hit = (rolls.hit + teams[0].overall.atk/sr) - teams[1].overall.def/sr
+  const skill = rolls.skill + (attacker.flow - defender.flow/2)/10
+  const aim = rolls.aim + (attacker.ref - defender.dod/2)/10
+  const hit = rolls.hit + (attacker.atk - defender.def/2)/10
 
   let dmg = Math.max(
-    Math.ceil(
-      hit + (teams[0].overall.atk - teams[1].overall.def)/sr), 1)
+    Math.ceil(hit),
+    1
+  )
 
-  if (rolls.aim === 1 || aim < 10) {
+  if (rolls.aim === 1 || aim < 0) {
     dmg = 0
-  }
-
-  if (rolls.aim === 10) {
-    dmg *= 2
   }
 
   const defenderHp = lensPath(['teams', 1, 'overall', 'hp'])
 
-  if (hit > 10) {
+  if (hit > 0) {
     combat = set(defenderHp, view(defenderHp, combat) - dmg, combat)
   }
 
   let casts = []
 
-  if (skill > 10) {
+  if (skill > 0) {
     teams[0].members.forEach((member) => {
       if (!member.stance) { return }
       const randomSkill = randomSkillFromStance(member.stance)
@@ -253,14 +249,13 @@ function testFight (stances, s, s2) {
   ]
 
 
-  Promise.all(Array.from({ length: 1 })
+  Promise.all(Array.from({ length: 1000 })
     .map(() => build(teams).then(start)))
-    .then(combats => combats.map((c) => { console.log(viewCombat(c, 'Worms')); return c }))
+    // .then(combats => combats.map((c) => { console.log(viewCombat(c, 'Worms')); return c }))
     .then(cs => cs.filter(c => c.winner === 'Worms').length)
     .then(console.log.bind(console,
       'with stats',
       s,
-      s2,
       'testing',
       stances,
       ' -- ',
@@ -270,7 +265,27 @@ function testFight (stances, s, s2) {
 }
 
 export function test () {
-  testFight(['arcane', 'snake'], 8)
+  testFight(['arcane', 'snake'], 100)
+  testFight(['arcane', 'snake'], 95)
+  testFight(['arcane', 'snake'], 90)
+  testFight(['arcane', 'snake'], 85)
+  testFight(['arcane', 'snake'], 80)
+  testFight(['arcane', 'spider'], 1)
+  testFight(['arcane', 'spider'], 2)
+  testFight(['arcane', 'spider'], 3)
+  testFight(['arcane', 'spider'], 4)
+  testFight(['arcane', 'spider'], 5)
+  testFight(['arcane', 'spider'], 6)
+  testFight(['arcane', 'spider'], 7)
+  testFight(['arcane', 'spider'], 8)
+  testFight(['arcane', 'spider'], 9)
+  testFight(['arcane', 'spider'], 10)
+  testFight(['arcane', 'spider'], 15)
+  testFight(['arcane', 'spider'], 20)
+  testFight(['arcane', 'spider'], 25)
+  // testFight(['arcane', 'rat'], 1)
+  // testFight(['arcane', 'rat'], 5)
+  // testFight(['arcane', 'rat'], 10)
   // testFight(['arcane', 'bird'], 5)
   // testFight(['arcane', 'goat'], 5)
   // testFight(['arcane', 'snake'], 5)
