@@ -10,7 +10,7 @@ export default [
     handler: handlers.classInfo,
   },
   {
-    match: /create_(\w+)/,
+    match: /\/create_(\w+)/,
     handler: handlers.createChar,
     next: handlers.start,
   },
