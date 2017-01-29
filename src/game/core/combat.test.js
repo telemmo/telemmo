@@ -13,6 +13,7 @@ function exploreMock (allStats, stance, monster) {
   return [
     [{
       name: 'Worms',
+      level: 1,
       stance: 'arcane',
       flow: allStats,
       str: allStats,
@@ -40,27 +41,42 @@ test('combat', () => {
     // .tap(c => console.log(JSON.stringify(c, null, 2)))
 });
 
-function runCombatBatch (teams, amount, allStats) {
+function runCombatBatch (teams, amount, log) {
   return Promise.all(times(partial(runCombat, [teams]), amount))
     .tap((combats) => {
       expect(combats.length).toBe(amount)
     })
     .then(filter((result) => result.winner === 'Worms'))
     .then(length)
-    .tap(console.log.bind(console, allStats))
+    .tap(console.log.bind(console, log))
 }
-//
+
 // test('combatBalance', () => {
 //   return Promise.all([
-//     runCombatBatch(exploreMock(100, 'arcane', 'death'), 100, 100),
-//     runCombatBatch(exploreMock(90, 'arcane', 'death'), 100, 90),
-//     runCombatBatch(exploreMock(80, 'arcane', 'death'), 100, 80),
-//     runCombatBatch(exploreMock(70, 'arcane', 'death'), 100, 70),
-//     runCombatBatch(exploreMock(1, 'arcane', 'rat'), 100, 1),
-//     runCombatBatch(exploreMock(5, 'arcane', 'rat'), 100, 5),
-//     runCombatBatch(exploreMock(10, 'arcane', 'rat'), 100, 10),
-//     runCombatBatch(exploreMock(20, 'arcane', 'rat'), 100, 20),
-//     runCombatBatch(exploreMock(30, 'arcane', 'rat'), 100, 30),
+//     // runCombatBatch(exploreMock(100, 'arcane', 'death'), 100, 'arcane'),
+//     // runCombatBatch(exploreMock(100, 'debuff', 'death'), 100, 'debuff'),
+//     // runCombatBatch(exploreMock(100, 'endure', 'death'), 100, 'endure'),
+//     // runCombatBatch(exploreMock(100, 'berserk', 'death'), 100, 'berserk'),
+//     // runCombatBatch(exploreMock(100, 'poison', 'death'), 100, 'poison'),
+//     // runCombatBatch(exploreMock(100, 'stealth', 'death'), 100, 'stealth'),
+//     // runCombatBatch(exploreMock(100, 'martial', 'death'), 100, 'martial'),
+//     // runCombatBatch(exploreMock(100, 'buffer', 'death'), 100, 'buffer'),
+//     // runCombatBatch(exploreMock(100, 'sniper', 'death'), 100, 'sniper'),
+//     // runCombatBatch(exploreMock(100, 'trapper', 'death'), 100, 'trapper'),
+//     // runCombatBatch(exploreMock(100, 'support', 'death'), 100, 'support'),
+//     // runCombatBatch(exploreMock(100, 'breaker', 'death'), 100, 'breaker'),
+//     // runCombatBatch(exploreMock(5, 'arcane', 'snake'), 100, 'arcane'),
+//     // runCombatBatch(exploreMock(5, 'debuff', 'snake'), 100, 'debuff'),
+//     // runCombatBatch(exploreMock(5, 'endure', 'snake'), 100, 'endure'),
+//     // runCombatBatch(exploreMock(5, 'berserk', 'snake'), 100, 'berserk'),
+//     // runCombatBatch(exploreMock(5, 'poison', 'snake'), 100, 'poison'),
+//     // runCombatBatch(exploreMock(5, 'stealth', 'snake'), 100, 'stealth'),
+//     // runCombatBatch(exploreMock(5, 'martial', 'snake'), 100, 'martial'),
+//     // runCombatBatch(exploreMock(5, 'buffer', 'snake'), 100, 'buffer'),
+//     // runCombatBatch(exploreMock(5, 'sniper', 'snake'), 100, 'sniper'),
+//     // runCombatBatch(exploreMock(5, 'trapper', 'snake'), 100, 'trapper'),
+//     // runCombatBatch(exploreMock(5, 'support', 'snake'), 100, 'support'),
+//     // runCombatBatch(exploreMock(5, 'breaker', 'snake'), 100, 'breaker'),
 //   ])
 // })
 
