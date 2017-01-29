@@ -8,9 +8,9 @@ function view (_) {
 
 function keyboard () {
   return [
-    ['/maps'],
-    ['/stats', '/equips'],
-    ['/arena', '/market'],
+    [':earth_asia: /maps :earth_asia:'],
+    [':bar_chart: /stats :bar_chart:', ':ring: /equips :ring:'],
+    [':no_entry_sign: /arena :space_invader:', ':no_entry_sign: /market :european_post_office:'],
   ]
 }
 
