@@ -8,39 +8,46 @@ const defenderAim = lensPath(['teams', 1, 'overall', 'aim'])
 
 export default [
   {
-    id: 'spider_web_clothes',
-    name: 'Spider Web Clothes',
-    type: 'set',
-    bonus: {
-      ref: 5,
-      acc: 3,
-    },
-  },
-  {
-    id: 'spidy',
-    name: 'Spidy',
-    type: 'token',
-    bonus: {
-      acc: 10,
-      ref: 10,
-    },
-  },
-  {
-    id: 'poison_dagger',
-    name: 'Poison Dagger',
+    id: 'leaf_blade',
+    name: 'Leaf Blade',
     type: 'weapon',
     bonus: {
-      str: 8,
-      acc: 4,
+      str: 5,
     },
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 19,
       defender: {
-        ref: -defender.ref * 0.2,
+        hp: - ( 5 + attacker.lvl/10),
       },
       log: {
-        type: 'reflex debuff',
-        value: -defender.ref * 0.2,
+        type: 'damage',
+        value: 5 + attacker.lvl/10,
+      },
+    }),
+  },
+  {
+    id: 'foliage',
+    name: 'Foliage',
+    type: 'set',
+    bonus: {
+      con: 10,
+    },
+  },
+  {
+    id: 'golden_beetle',
+    name: 'Golden Beetle',
+    type: 'token',
+    bonus: {
+      flow: 5,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 19,
+      attacker: {
+        hp: 5 + attacker.lvl/10,
+      },
+      log: {
+        type: 'heal',
+        value: 5 + attacker.lvl/10,
       },
     }),
   },

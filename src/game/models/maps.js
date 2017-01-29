@@ -4,24 +4,24 @@ export default [
     name: 'Green Fields',
     monsters: [
       {
-        id: 'rat',
-        influence: 18,
-      },
-      {
-        id: 'bird',
-        influence: 13,
-      },
-      {
         id: 'goat',
-        influence: 7,
+        influence: 20,
       },
       {
-        id: 'spider',
-        influence: 4,
+        id: 'wolf',
+        influence: 15,
       },
       {
-        id: 'snake',
-        influence: 2,
+        id: 'faun_warrior',
+        influence: 10,
+      },
+      {
+        id: 'elf',
+        influence: 3,
+      },
+      {
+        id: 'centaur',
+        influence: 1,
       },
     ],
   },
