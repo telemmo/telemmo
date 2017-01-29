@@ -1,9 +1,11 @@
 import {
+  append,
   propEq,
   toPairs,
   addIndex,
   partial,
   flatten,
+  flip,
   split,
   pipe,
   join,
@@ -15,32 +17,41 @@ import {
 
 import Promise from 'bluebird'
 
-import { reject, rejectUndefined } from './errors'
+import { rejectUndefined } from './errors'
 import { randomMonster } from '../core/explore'
-import { run } from '../core/combat'
+import { run, AlreadyOnCombat } from '../core/combat'
+
+function InvalidMap (mapId) {
+  this.message = `Invalid map id "${mapId}"`
+  this.name = 'InvalidMap'
+  this.mapIp = mapId
+  Error.captureStackTrace(this, InvalidMap)
+}
+InvalidMap.prototype = Object.create(Error.prototype)
+InvalidMap.prototype.constructor = InvalidMap
 
 const flatHead = pipe(map(head), flatten)
 
 function start (dao, player, mapId) {
-  return Promise.all([
-    dao.character.find({ _id: player.currentCharId }),
-    [randomMonster(mapId)],
-  ])
+  let monster
+
+  try {
+    monster = randomMonster(mapId)
+  } catch (e) {
+    return Promise.reject(new InvalidMap(mapId))
+  }
+
+  return dao.character.find({ _id: player.currentCharId })
+    .then(flip(append)([[monster]]))
     .then(partial(run, [dao]))
 }
 
-function render (_, player, result) {
-  console.log(result)
-
+export function render (_, player, result) {
   const initiative = head(result.turns)
   const turns = tail(result.turns)
   const prizes = result.prizes.filter(
     propEq('charId', player.currentCharId),
   )
-
-  console.log('prizes:', prizes)
-
-  console.log('result.winner', result.winner, 'player.currentCharId', player.currentCharId)
 
   const header = join(' ', [
     `${result.winner}` === `${player.currentCharId}`
@@ -134,10 +145,11 @@ export default function call (dao, provider, _, msg) {
   return Promise.resolve(msg.matches)
     .then(rejectUndefined(msg, _('No match')))
     .then(nth(1))
-    .then(rejectUndefined(msg, _('Invalid map name')))
+    .then(rejectUndefined(msg, _('No match')))
     .then(partial(start, [dao, msg.player]))
     .then(partial(render, [_, msg.player]))
+    .catch(AlreadyOnCombat, () => _('Already exploring a map!'))
+    .catch(InvalidMap, () => _('The desired map does not exist!'))
     .then(partial(reply, [msg]))
-    .catch(partial(reject, [msg, _('Invalid map name')]))
 }
 

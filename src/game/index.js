@@ -1,4 +1,5 @@
 import {
+  always,
   partial,
   map,
 } from 'ramda'
@@ -16,6 +17,7 @@ function start () {
   return database
     .connect()
     .then(build)
+    .catch(err => console.error(err))
 }
 
 export default {

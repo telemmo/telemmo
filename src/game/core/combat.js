@@ -2,6 +2,10 @@ import {
   add,
   values,
   always,
+  length,
+  equals,
+  prop,
+  flatten,
   mergeWith,
   ifElse,
   partial,
@@ -9,6 +13,7 @@ import {
   view,
   pipe,
   set,
+  map,
   merge,
   lensPath,
   lensProp,
@@ -134,7 +139,7 @@ function runTurn (combat, rolls) {
   const aim = (rolls.aAim * (attacker.acc / (si * 6)))
             - (rolls.dAim * (defender.ref / (si * 6)))
 
-  const hit = ((rolls.aHit / 4) * (attacker.str / si)) + 10
+  const hit = (((rolls.aHit / 4) * (attacker.str / si)) + 10)
             - ((rolls.dHit / 4) * (defender.con / si))
 
   let dmg = Math.max(
@@ -213,30 +218,72 @@ function turn (combat) {
     .then(partial(runTurn, [combat]))
 }
 
-function build (tms) {
+function findPendingCombats (dao, teams) {
+  return dao.combat.find({
+    'teams.members': {
+      $elemMatch: {
+        id: { $in: map(prop('id'), flatten(teams)) },
+      },
+    },
+    finishedAt: {
+      $exists: false,
+    },
+  })
+}
+
+function wait (combat) {
+  return Promise.delay(10000)
+    .then(always(combat))
+}
+
+function build (dao, tms) {
   return Promise.resolve(tms)
-    .then(teams => {
+    .then((teams) => {
       return Promise.all(teams.map(team =>
         Promise.all(team.map(buildCombatStats))))
     })
-    .then(teams => teams.map(buildTeam))
+    .then(map(buildTeam))
     .then(initiative)
     .then(initTurn => ({
       teams: initTurn.order,
       initialTeams: initTurn.order,
       startedAt: new Date(),
       turns: [
-        { winner: initTurn.order[0].overall.name, rolls: initTurn.rolls },
+        {
+          winner: initTurn.order[0].overall.name,
+          rolls: initTurn.rolls,
+        },
       ],
     }))
+    .then(dao.combat.create)
+    .then(wait)
 }
 
-function start (combat) {
+export function AlreadyOnCombat (combats) {
+  this.message = `${combats.length} combats pending`
+  this.name = 'AlreadyOnCombat'
+  this.combats = combats
+  Error.captureStackTrace(this, AlreadyOnCombat)
+}
+AlreadyOnCombat.prototype = Object.create(Error.prototype)
+AlreadyOnCombat.prototype.constructor = AlreadyOnCombat
+
+function buildCombat (dao, tms) {
+  return findPendingCombats(dao, tms)
+    .then(ifElse(
+      pipe(length, equals(0)),
+      partial(build, [dao, tms]),
+      combats => Promise.reject(new AlreadyOnCombat(combats)),
+    ))
+}
+
+export function start (combat) {
   function* generate () {
     let state = combat
     while (!state.finishedAt) {
       state = yield turn(state)
     }
+
     return state
   }
 
@@ -245,9 +292,9 @@ function start (combat) {
 }
 
 export function run (dao, teams) {
-  return build(teams)
+  return buildCombat(dao, teams)
     .then(start)
-    .then(dao.combat.create)
+    .then(combat => dao.combat.update({ _id: combat.id }, combat))
 }
 
 function mergeFighter (a, b) {
@@ -259,12 +306,10 @@ function mergeFighter (a, b) {
 }
 
 function buildTeam (members) {
-  const obj =  {
-    overall: members.reduce((acc, fighter) => {
-      return mergeWith(mergeFighter, acc, fighter)
-    },
+  return {
+    overall: members.reduce((acc, fighter) =>
+      mergeWith(mergeFighter, acc, fighter),
       { stance: [] }),
     members,
   }
-  return obj
 }

@@ -1,5 +1,14 @@
+import Promise from 'bluebird'
+
 import engine from './engine'
 import game from './game'
+
+Promise.config({
+  warnings: true,
+  longStackTraces: true,
+  cancellation: true,
+  monitoring: true,
+})
 
 function handleError (error) {
   console.error('Engine exploded')

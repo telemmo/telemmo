@@ -8,31 +8,87 @@
 "Content-Type : text/plain; charset=UTF-8"
 "Content-Transfer-Encoding : 8bit"
 
-#: src/game/handlers/start.js 24:36
-msgid "Player already exists!"
+#: src/game/handlers/explore.js 51:89
+msgid ":heavy_check_mark:"
 msgstr ""
 
-#: src/game/handlers/start.js 45:10
-msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
-
- You will now create your first character. Touch the comands below to see information about a class."
+#: src/game/handlers/explore.js 51:115
+msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/classInfo.js 19:129
-msgid "*Stances* - _You can change them any time_
+#: src/game/handlers/explore.js 51:125
+msgid "%s vs. %s
 
 "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 57:23
+msgid "*%s* won the initiative!
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 62:163
+msgid "`:dart: %s :anger: %s :sparkles: %s`
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 63:13
+msgid "Casted %s for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 64:8
+msgid "Attacked for %s damage"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 64:56
+msgid "%s's hp: %s/%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 77:19
+msgid "Experience: %s
+Itens: %s
+Equips: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 77:80
+msgid "none :("
 msgstr ""
 
-#: src/game/handlers/classInfo.js 41:77
+#: src/game/handlers/explore.js 77:80
+msgid "none :("
+msgstr ""
+
+#: src/game/handlers/explore.js 77:80
+msgid "none :("
+msgstr ""
+
+#: src/game/handlers/explore.js 92:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/classInfo.js 41:193
-msgid "Invalid class name"
+#: src/game/handlers/explore.js 92:88
+msgid "No match"
 msgstr ""
 
-#: src/game/handlers/createChar.js 19:9
+#: src/game/handlers/explore.js 93:11
+msgid "Already exploring a map!"
+msgstr ""
+
+#: src/game/handlers/explore.js 95:11
+msgid "The desired map does not exist!"
+msgstr ""
+
+#: src/game/handlers/createChar.js 23:9
 msgid "*%s* created! Now using it!
 
 %s
@@ -41,24 +97,34 @@ msgid "*%s* created! Now using it!
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/createChar.js 19:65
+#: src/game/handlers/createChar.js 23:65
 msgid "_You can change character using /changename New Name_"
 msgstr ""
 
-#: src/game/handlers/createChar.js 19:125
+#: src/game/handlers/createChar.js 23:125
 msgid "To change character, use /changechar"
 msgstr ""
 
-#: src/game/handlers/createChar.js 26:10
+#: src/game/handlers/createChar.js 31:10
 msgid "Failed creating character!"
 msgstr ""
 
-#: src/game/handlers/createChar.js 34:36
+#: src/game/handlers/createChar.js 43:36
 msgid "Funny, you should have a player first!"
 msgstr ""
 
-#: src/game/handlers/createChar.js 41:77
+#: src/game/handlers/createChar.js 50:77
 msgid "You need to choose a class"
+msgstr ""
+
+#: src/game/handlers/createChar.js 50:175
+msgid "Invalid class name"
+msgstr ""
+
+#: src/game/handlers/classInfo.js 19:129
+msgid "*Stances* - _You can change them any time_
+
+"
 msgstr ""
 
 #: src/game/handlers/overworld.js 11:9
@@ -67,289 +133,15 @@ msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:
 "
 msgstr ""
 
-#: src/game/handlers/maps.js 19:10
+#: src/game/handlers/welcome.js 26:10
+msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
+
+ You will now create your first character. Touch the comands below to see information about a class."
+msgstr ""
+
+#: src/game/handlers/maps.js 25:10
 msgid ":world_map: Explore :world_map:
 
 *Choose a map to explore*"
 msgstr ""
-
-#: src/game/handlers/explore.js 35:15
-msgid "%s vs. %s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 37:23
-msgid "*%s* won the initiative!
-%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 41:18
-msgid "%s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 57:19
-msgid "Experience: %s
-Itens: %s
-Equips: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 57:80
-msgid "none :("
-msgstr ""
-
-#: src/game/handlers/explore.js 57:80
-msgid "none :("
-msgstr ""
-
-#: src/game/handlers/explore.js 57:80
-msgid "none :("
-msgstr ""
-
-#: src/game/handlers/explore.js 71:168
-msgid "Invalid map name"
-msgstr ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s | aim %s | hit %s |"skill" %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 41:13
-msgid "casted %s for %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:8
-msgid "attacked for %s damage."
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:51
-msgid "%s's hp: %s/%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s | :heavy_large_circle: %s | :anger_symbol: %s |:sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:15
-msgid "%s vs. %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:8
-msgid "Attacked for %s damage."
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s - :heavy_large_circle: %s - :anger_symbol: %s - :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s |:heavy_large_circle: %s |:anger_symbol: %s |:sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :heavy_large_circle: %s :anger_symbol: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :heavy_large_circle: %s :anger: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :red_circle: %s :anger: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :white_circle: %s :anger: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :black_circle_for_record: %s :anger: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:35
-msgid "%s :o: %s :anger: %s :sparkles: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 35:23
-msgid ":small_orange_diamond: *%s* won the initiative!
-%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 35:23
-msgid ":small_orange_diamond: *%s* won the initiative!
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:51
-msgid "%s's hp: %s/%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 35:23
-msgid ":small_orange_diamond: *%s* won the initiative!%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:33
-msgid "%s :o: %s :anger: %s :sparkles: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 41:13
-msgid "casted %s for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:15
-msgid "%s vs. %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:51
-msgid "%s's hp: %s/%s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 40:33
-msgid "
-%s :o: %s :anger: %s :sparkles: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:8
-msgid "Attacked for %s damage.
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 42:8
-msgid "Attacked for %s damage. "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:68
-msgid ":heavy_check_mark: "
-msgstr ""
-
-#: src/game/handlers/explore.js 33:95
-msgid ""
-msgstr ""
-
-#: src/game/handlers/explore.js 33:96
-msgid ":x:"
-msgstr ""
-
-#: src/game/handlers/explore.js 33:69
-msgid ":heavy_check_mark: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:70
-msgid ":heavy_check_mark: %s won"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:70
-msgid ":heavy_check_mark: *%s* won"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:70
-msgid ":heavy_check_mark: *%s* won!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 33:121
-msgid ":x: *%s* won!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 44:33
-msgid "%s :dart: %s :anger: %s :sparkles: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 45:13
-msgid "Casted %s for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 37:79
-msgid ":heavy_check_mark:"
-msgstr ""
-
-#: src/game/handlers/explore.js 44:33
-msgid ":dart: %s :anger: %s :sparkles: %s *%s*
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 44:33
-msgid "`:dart: %s :anger: %s :sparkles: %s `*%s*
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 44:33
-msgid "`:dart: %s :anger: %s :sparkles: %s` *%s*
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 44:33
-msgid "*%s* `:dart: %s :anger: %s :sparkles: %s`
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 45:13
-msgid "Casted %s for %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 44:102
-msgid "`:dart: %s :anger: %s :sparkles: %s`
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 52:8
-msgid "Attacked for %s damage"
-msgstr[0] ""
-msgstr[1] ""
 

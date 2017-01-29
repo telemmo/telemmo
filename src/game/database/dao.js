@@ -5,6 +5,7 @@ const {
   merge,
   assoc,
   prop,
+  pipe,
   omit,
   map,
 } = require('ramda')
@@ -16,7 +17,7 @@ const queries = {
 }
 
 const renameId = obj =>
-  assoc('id', prop('_id', obj), omit('id', obj))
+  assoc('id', prop('_id', obj), omit('_id', obj))
 
 function find (collection, query) {
   return collection.find(merge(queries.notDeleted, query)).toArray()
@@ -24,12 +25,10 @@ function find (collection, query) {
 }
 
 function update (collection, query, document) {
-  const now = new Date()
-  const timestamps = {
-    $set: { updatedAt: now },
-  }
+  const sealed = merge({}, document)
 
-  return collection.update(query, mergeMerging(timestamps, document))
+  return collection.update(query, sealed)
+    .then(always(sealed))
 }
 
 function create (collection, document) {
@@ -39,10 +38,10 @@ function create (collection, document) {
     updatedAt: now,
   }
 
-  const sealed = merge(timestamps, document)
+  const sealed = merge(document, timestamps)
 
   return collection.insertOne(sealed)
-    .then(always(sealed))
+    .then(pipe(always(sealed), renameId))
 }
 
 function destroy (collection, query) {

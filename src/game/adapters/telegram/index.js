@@ -8,6 +8,7 @@ import {
 
 import emoji from 'node-emoji'
 import routes from './routes'
+import tasks from '../../tasks'
 import i18n from '../../i18n'
 
 function handleError (provider, error) {
@@ -66,12 +67,16 @@ function handle (dao, provider, route, msg) {
     .catch(partial(console.error, [`${msg.chat} ERR "${msg.text}":`]))
 }
 
+
 export default function start (dao, provider) {
-  return routes.map(route =>
-    provider
+  return Promise.all([
+    ...tasks.map(task =>
+      task(dao, partial(dispatch, [provider]))),
+    ...routes.map(route => provider
       .subscribe(route.match)
       .flatMap(partial(normalizeMessage, [dao, provider, route]))
       .subscribe(partial(handle, [dao, provider, route])),
-  )
+    ),
+  ])
 }
 
