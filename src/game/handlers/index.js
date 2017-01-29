@@ -5,6 +5,7 @@ import overworld from './overworld'
 import welcome from './welcome'
 import explore from './explore'
 import maps from './maps'
+import stats from './stats'
 
 export default {
   start,
@@ -14,5 +15,6 @@ export default {
   welcome,
   explore,
   maps,
+  stats,
 }
 
