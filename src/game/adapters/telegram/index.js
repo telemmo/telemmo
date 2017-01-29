@@ -42,12 +42,18 @@ function normalizeMessage (dao, provider, route, msg) {
 
 function dispatch (provider, reply) {
   const { to, text, options } = reply
-  const telegramOptions = {
+  let telegramOptions = {
     parse_mode: 'markdown',
-    reply_markup: {
-      keyboard: options.map(row => row.map(emoji.emojify)),
-    },
   }
+
+  if (options) {
+    telegramOptions = merge({
+      reply_markup: {
+        keyboard: options.map(row => row.map(emoji.emojify)),
+      },
+    }, options)
+  }
+
   return provider.send(to, text, telegramOptions)
 }
 
