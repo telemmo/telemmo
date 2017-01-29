@@ -26,11 +26,39 @@ export default [
     }),
   },
   {
+    id: 'sharded_club',
+    name: 'Sharded Club',
+    type: 'weapon',
+    bonus: {
+      str: 10,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aHit < 18,
+      defender: {
+        hp: - ( 10 + attacker.lvl/10),
+      },
+      log: {
+        type: 'damage',
+        value: 10 + attacker.lvl/10,
+      },
+    }),
+  },
+  {
     id: 'foliage',
     name: 'Foliage',
     type: 'set',
     bonus: {
-      con: 10,
+      con: 5,
+      ref: 5,
+    },
+  },
+  {
+    id: 'granite',
+    name: 'Granite',
+    type: 'set',
+    bonus: {
+      str: 5,
+      con: 15,
     },
   },
   {
@@ -48,6 +76,25 @@ export default [
       log: {
         type: 'heal',
         value: 5 + attacker.lvl/10,
+      },
+    }),
+  },
+  {
+    id: 'precious_ore',
+    name: 'Precious Ore',
+    type: 'token',
+    bonus: {
+      flow: 8,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 18,
+      attacker: {
+        hp: 3 + attacker.lvl/10,
+        flow: attacker.flow * 0.1,
+      },
+      log: {
+        type: 'heal (+FLOW)',
+        value: 3 + attacker.lvl/10,
       },
     }),
   },

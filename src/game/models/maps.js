@@ -13,7 +13,7 @@ export default [
       },
       {
         id: 'faun_warrior',
-        influence: 10,
+        influence: 7,
       },
       {
         id: 'elf',
@@ -21,6 +21,32 @@ export default [
       },
       {
         id: 'centaur',
+        influence: 1,
+      },
+    ],
+  },
+  {
+    id: 'cave',
+    name: 'Cave',
+    monsters: [
+      {
+        id: 'giant_bat',
+        influence: 20,
+      },
+      {
+        id: 'earthworm',
+        influence: 15,
+      },
+      {
+        id: 'angered_bear',
+        influence: 7,
+      },
+      {
+        id: 'troll',
+        influence: 3,
+      },
+      {
+        id: 'beholder',
         influence: 1,
       },
     ],
