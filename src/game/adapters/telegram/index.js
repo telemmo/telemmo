@@ -6,6 +6,7 @@ import {
   objOf,
 } from 'ramda'
 
+import emoji from 'node-emoji'
 import routes from './routes'
 import i18n from '../../i18n'
 
@@ -43,7 +44,7 @@ function dispatch (provider, reply) {
   const telegramOptions = {
     parse_mode: 'markdown',
     reply_markup: {
-      keyboard: options,
+      keyboard: options.map(row => row.map(emoji.emojify)),
     },
   }
   return provider.send(to, text, telegramOptions)
