@@ -35,11 +35,11 @@ function runCombat (teams) {
     })
 }
 
-test('combat', () => {
-  const teams = (exploreMock(100, 'arcane', 'death'))
-  return runCombat(teams)
-    // .tap(c => console.log(JSON.stringify(c, null, 2)))
-});
+// test('combat', () => {
+//   const teams = (exploreMock(100, 'arcane', 'death'))
+//   return runCombat(teams)
+//     // .tap(c => console.log(JSON.stringify(c, null, 2)))
+// });
 
 function runCombatBatch (teams, amount, log) {
   return Promise.all(times(partial(runCombat, [teams]), amount))

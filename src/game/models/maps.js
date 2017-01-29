@@ -51,4 +51,82 @@ export default [
       },
     ],
   },
+  {
+    id: 'dark_swamp',
+    name: 'Dark Swamp',
+    monsters: [
+      {
+        id: 'bold_wasp',
+        influence: 20,
+      },
+      {
+        id: 'snake',
+        influence: 15,
+      },
+      {
+        id: 'lizardrill',
+        influence: 7,
+      },
+      {
+        id: 'gorgon',
+        influence: 3,
+      },
+      {
+        id: 'hydra',
+        influence: 1,
+      },
+    ],
+  },
+  {
+    id: 'demonic_forest',
+    name: 'Demonic Forest',
+    monsters: [
+      {
+        id: 'bold_wasp',
+        influence: 20,
+      },
+      {
+        id: 'snake',
+        influence: 15,
+      },
+      {
+        id: 'lizardrill',
+        influence: 7,
+      },
+      {
+        id: 'gorgon',
+        influence: 3,
+      },
+      {
+        id: 'hydra',
+        influence: 1,
+      },
+    ],
+  },
+  {
+    id: 'snowy_peak',
+    name: 'Snowy Peak',
+    monsters: [
+      {
+        id: 'jackalope',
+        influence: 20,
+      },
+      {
+        id: 'frost_undead',
+        influence: 15,
+      },
+      {
+        id: 'snow_chimera',
+        influence: 7,
+      },
+      {
+        id: 'dark_fanged_pine',
+        influence: 3,
+      },
+      {
+        id: 'yeti_lord',
+        influence: 1,
+      },
+    ],
+  },
 ]
