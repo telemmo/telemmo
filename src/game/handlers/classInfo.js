@@ -25,8 +25,8 @@ function view (_, clas) {
 
 function keyboard (_, clas) {
   return [
-    [`/create_${clas.id}`],
-    [`/start`],
+    [`/create_${clas.id} ${clas.emoji}`],
+    [`:arrow_left: /start`],
   ]
 }
 

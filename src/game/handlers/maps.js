@@ -7,6 +7,7 @@ import models from '../models'
 
 function options () {
   return models.maps.all.map(map => `/explore_${map.id}`)
+    .concat(':arrow_left: /start')
 }
 
 export default function call (dao, provider, _, msg) {

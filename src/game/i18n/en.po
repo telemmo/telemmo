@@ -145,3 +145,26 @@ msgid ":world_map: Explore :world_map:
 *Choose a map to explore*"
 msgstr ""
 
+#: src/game/handlers/maps.js 25:10
+msgid ":earth_asia: Explore :earth_asia:
+
+*Choose a map to explore*"
+msgstr ""
+
+#: src/game/handlers/createChar.js 23:9
+msgid "*%s* created! This is your current character now.!
+
+%s
+
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 23:88
+msgid "You can change your name using :no_entry_sign: /changename"
+msgstr ""
+
+#: src/game/handlers/createChar.js 23:153
+msgid "To change character, use :no_entry_sign: /changechar"
+msgstr ""
+

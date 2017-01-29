@@ -11,10 +11,10 @@ import factories from '../factories'
 import handlers from './index'
 
 function renderSuccess (_, char) {
-  return _('*%s* created! Now using it!\n\n%s\n\n%s',
+  return _('*%s* created! This is your current character now.!\n\n%s\n\n%s',
   char.name,
-    _('_You can change character using /changename New Name_'),
-    _('To change character, use /changechar'),
+    _('You can change your name using :no_entry_sign: /changename'),
+    _('To change character, use :no_entry_sign: /changechar'),
   )
 }
 

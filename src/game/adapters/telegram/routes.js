@@ -19,7 +19,7 @@ export default [
     handler: handlers.maps,
   },
   {
-    match: /\/stats/,
+    match: /\/improve_stats/,
     handler: handlers.stats,
   },
   {
