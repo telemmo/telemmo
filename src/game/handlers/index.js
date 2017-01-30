@@ -7,6 +7,8 @@ import explore from './explore'
 import maps from './maps'
 import stats from './stats'
 import changeName from './changeName'
+import changeChar from './changeChar'
+import useChar from './useChar'
 
 export default {
   start,
@@ -18,5 +20,7 @@ export default {
   maps,
   stats,
   changeName,
+  changeChar,
+  useChar,
 }
 

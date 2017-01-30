@@ -349,3 +349,21 @@ msgstr[1] ""
 msgid "That name is too long!"
 msgstr ""
 
+#: src/game/handlers/useChar.js 18:109
+msgid "Invalid char Id"
+msgstr ""
+
+#: src/game/handlers/useChar.js 27:12
+msgid "You are now using <b>%s</b>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "<b>%s</b> created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use :no_entry_sign: /change_char "
+msgstr[0] ""
+msgstr[1] ""
+

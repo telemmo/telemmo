@@ -27,6 +27,18 @@ export default [
     handler: handlers.changeName,
   },
   {
+    match: /\/change_char/,
+    handler: handlers.changeChar,
+  },
+  {
+    match: /\/use_char_(.*)/,
+    handler: handlers.useChar,
+  },
+  {
+    match: /\/change_name (.*)/,
+    handler: handlers.changeName,
+  },
+  {
     match: /\/explore_(\w+)/,
     handler: handlers.explore,
   },

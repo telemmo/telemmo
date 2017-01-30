@@ -7,7 +7,7 @@ import { reject } from './errors'
 export default function call (dao, provider, _, msg) {
   const newName = msg.matches[1]
 
-  if (newName.length > 25) {
+  if (newName.length > 20) {
     return reject(msg, _('That name is too long!'))
   }
 
