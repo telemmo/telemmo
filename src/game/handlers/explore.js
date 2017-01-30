@@ -75,7 +75,7 @@ export function render (_, player, result) {
   const initiativeRolls = toPairs(initiative.rolls)
 
   const initiativeView = _(
-    '*%s* won the initiative!\n%s\n',
+    '<b>%s</b> won the initiative!\n%s\n',
     initiative.winner,
     addIndex(map)(
       (pair, idx) => `${bullets[idx]} ${pair[0]} rolled ${pair[1]}\n`,
@@ -86,14 +86,14 @@ export function render (_, player, result) {
   const turnsView =
     join('', turns.map(turn => join('', [
       bullets[flatHead(initiativeRolls).indexOf(turn.attacker)],
-      `*${head(split(' ', turn.attacker))}*\n`,
-      _('`:dart: %s :anger: %s :sparkles: %s`\n',
+      `<b>${turn.attacker}</b>\n`,
+      _('<pre>:dart: %s :anger: %s :sparkles: %s</pre>\n',
         turn.rolls.aAim,
         turn.rolls.aHit,
         turn.rolls.aSkill,
       ),
       (turn.casts || []).map(cast =>
-        _('%s _%s_ for %s %s\n',
+        _('%s <i>%s</i> for %s %s\n',
           cast.emoji,
           cast.skill,
           cast.value,

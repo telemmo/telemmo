@@ -23,6 +23,10 @@ export default [
     handler: handlers.stats,
   },
   {
+    match: /\/change_name (.*)/,
+    handler: handlers.changeName,
+  },
+  {
     match: /\/explore_(\w+)/,
     handler: handlers.explore,
   },

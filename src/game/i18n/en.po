@@ -180,3 +180,172 @@ msgid "%s _%s_ for %s %s
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/createChar.js 23:88
+msgid "You can change your name using /change_name"
+msgstr ""
+
+#: src/game/handlers/createChar.js 23:88
+msgid "You can change your name using :no_entry_sign: /change_name"
+msgstr ""
+
+#: src/game/handlers/changeName.js 19:10
+msgid "You are now *%s*"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 20:9
+msgid "*%s* created! This is your current character now.!
+
+You can change your name using /change_name
+
+To change character, use :no_entry_sign: /changechar"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change_name"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change__name 
+
+To change character, use :no_entry_sign: /changechar"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change__name 
+
+To change character, use :no_entry_sign: /change_char"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change__name 
+
+To change character, use :no_entry_sign: /change_char "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use :no_entry_sign: /changechar "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /changename 
+
+To change character, use :no_entry_sign: /changechar "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use :no_entry_sign: /change_char "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using _/change_name_ 
+
+To change character, use :no_entry_sign: _/change_name_ "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "*%s* created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use :no_entry_sign: /change_name "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "<b>%s</b> created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use :no_entry_sign: /change_name "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 57:23
+msgid "<b>%s</b> won the initiative!
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 62:126
+msgid "<pre>:dart: %s :anger: %s :sparkles: %s</pre>
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 63:13
+msgid "%s <i>%s</i> for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/classInfo.js 19:129
+msgid "<b>Stances</b> - <i>You can change them any time</i>
+
+"
+msgstr ""
+
+#: src/game/handlers/maps.js 25:10
+msgid ":earth_asia: Explore :earth_asia:
+
+Choose a map to explore"
+msgstr ""
+
+#: src/game/handlers/changeName.js 20:10
+msgid "You are now <b>%s</b>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeName.js 23:36
+msgid "That name is too long!"
+msgstr ""
+

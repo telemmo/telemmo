@@ -8,13 +8,11 @@ import {
 
 import { reject, rejectUndefined } from './errors'
 import factories from '../factories'
-import handlers from './index'
 
 function renderSuccess (_, char) {
-  return _('*%s* created! This is your current character now.!\n\n%s\n\n%s',
-  char.name,
-    _('You can change your name using :no_entry_sign: /changename'),
-    _('To change character, use :no_entry_sign: /changechar'),
+  return _(
+    '<b>%s</b> created! This is your current character now.\n\nYou can change your name using /change_name \n\nTo change character, use :no_entry_sign: /change_name ',
+    char.name,
   )
 }
 

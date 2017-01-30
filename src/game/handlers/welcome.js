@@ -4,14 +4,10 @@ import {
   pipe,
 } from 'ramda'
 
-import { emojify } from 'node-emoji'
 import models from '../models'
 
 const buildKeyboard = pipe(
-  map((clas) => {
-    const e = emojify(clas.emoji)
-    return `${e} /info_${clas.id} ${e}`
-  }),
+  map(clas => `${clas.emoji} /info_${clas.id}`),
   splitEvery(1),
 )
 

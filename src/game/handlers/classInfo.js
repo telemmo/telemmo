@@ -14,7 +14,7 @@ import models from '../models'
 function view (_, clas) {
   return compose(join(''), flatten)([
     `${clas.emoji} ${_(clas.name)} ${clas.emoji}\n\n`,
-    _('*Stances* - _You can change them any time_\n\n'),
+    _('<b>Stances</b> - <i>You can change them any time</i>\n\n'),
     clas.stances.map((id) => {
       const stance = models.stances.find(id)
       const e = stance.emoji

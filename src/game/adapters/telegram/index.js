@@ -43,7 +43,7 @@ function normalizeMessage (dao, provider, route, msg) {
 function dispatch (provider, reply) {
   const { to, text, options } = reply
   let telegramOptions = {
-    parse_mode: 'markdown',
+    parse_mode: 'HTML',
   }
 
   if (options) {
@@ -51,7 +51,7 @@ function dispatch (provider, reply) {
       reply_markup: {
         keyboard: options.map(row => row.map(emoji.emojify)),
       },
-    }, options)
+    }, telegramOptions)
   }
 
   return provider.send(to, text, telegramOptions)
