@@ -10,12 +10,10 @@
     "babel-loader": "6.2.10",
     "babel-polyfill": "^6.22.0",
     "bluebird": "3.4.7",
-    "es6-promise-pool": "^2.4.4",
     "eslint": "3.13.1",
     "jest": "^18.1.0",
     "json-loader": "0.5.4",
     "mongodb": "2.2.21",
-    "mongojs": "2.4.0",
     "node-emoji": "^1.5.0",
     "node-gettext": "^1.1.0",
     "node-telegram-bot-api": "0.25.0",
@@ -28,7 +26,8 @@
   "scripts": {
     "prestart": "webpack --progress --colors --config webpack.config.prod.js",
     "start": "node dist/telemmo.js",
-    "dev": "webpack --progress --colors --watch --config webpack.config.dev.js",
+    "predev": "webpack --progress --colors --config webpack.config.dev.js",
+    "dev": "node dist/telemmo.dev.js",
     "test": "jest",
     "lint": "eslint src/"
   },
@@ -39,7 +38,6 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
-    "gettext-loader": "derekstavis/gettext-loader",
-    "webpack-shell-plugin": "^0.5.0"
+    "gettext-loader": "derekstavis/gettext-loader"
   }
 }
