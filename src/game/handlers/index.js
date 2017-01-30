@@ -6,6 +6,7 @@ import welcome from './welcome'
 import explore from './explore'
 import maps from './maps'
 import stats from './stats'
+import changeName from './changeName'
 
 export default {
   start,
@@ -16,5 +17,6 @@ export default {
   explore,
   maps,
   stats,
+  changeName,
 }
 
