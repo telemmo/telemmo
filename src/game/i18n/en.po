@@ -168,3 +168,15 @@ msgstr ""
 msgid "To change character, use :no_entry_sign: /changechar"
 msgstr ""
 
+#: src/game/handlers/explore.js 63:13
+msgid "%s casted %s for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 63:13
+msgid "%s _%s_ for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+

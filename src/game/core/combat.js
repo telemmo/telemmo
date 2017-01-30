@@ -150,7 +150,7 @@ function runTurn (combat, rolls) {
 
   let dmg = Math.max(
     Math.ceil(hit),
-    5,
+    2,
   )
 
   if (rolls.aAim === 1 || aim < -100) {
@@ -159,9 +159,7 @@ function runTurn (combat, rolls) {
 
   const defenderHp = lensPath(['teams', 1, 'overall', 'hp'])
 
-  if (hit > 0) {
-    combat = set(defenderHp, view(defenderHp, combat) - dmg, combat)
-  }
+  combat = set(defenderHp, view(defenderHp, combat) - dmg, combat)
 
   let casts = []
 
@@ -169,7 +167,7 @@ function runTurn (combat, rolls) {
     teams[0].members.forEach((member) => {
       if (!member.stance) { return }
       const randomSkill = randomSkillFromStance(member.stance)
-      const afterCast = castSkill(randomSkill, combat, rolls)
+      const afterCast = castSkill(randomSkill, combat, rolls, member)
       if (!afterCast) { return }
       combat = afterCast.combat
       casts = casts.concat([afterCast.cast])
@@ -182,7 +180,7 @@ function runTurn (combat, rolls) {
       if (!equip.fire) {
         return
       }
-      const afterCast = castSkill(equip, combat, rolls)
+      const afterCast = castSkill(equip, combat, rolls, member)
       if (!afterCast) { return }
       combat = afterCast.combat
       casts = casts.concat([afterCast.cast])
@@ -194,7 +192,7 @@ function runTurn (combat, rolls) {
     defender: combat.teams[1].overall.name,
     damage: dmg,
     defenderHp: {
-      current: combat.teams[1].overall.hp,
+      current: view(defenderHp, combat),
       init: combat.teams[1].overall.initialHp,
     },
     rolls,
@@ -251,6 +249,7 @@ const memberIds = pipe(
 function mergeLevel (teams, computedExps) {
   return teams.map(team =>
     team.map(char => {
+      if (char.prizes) { return char }
       const charExp = pipe(find(propEq('_id', char.id)), propOr('exp', 0))
       const exp = charExp(computedExps)
 
@@ -273,11 +272,11 @@ function addLevel (dao, teams) {
 
 function build (dao, tms) {
   return Promise.resolve(tms)
+    .then(partial(addLevel, [dao]))
     .then((teams) => {
       return Promise.all(teams.map(team =>
         Promise.all(team.map(buildCombatStats))))
     })
-    .then(partial(addLevel, [dao]))
     .then(map(buildTeam))
     .then(initiative)
     .then(initTurn => ({

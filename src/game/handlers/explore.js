@@ -93,7 +93,8 @@ export function render (_, player, result) {
         turn.rolls.aSkill,
       ),
       (turn.casts || []).map(cast =>
-        _('Casted %s for %s %s\n',
+        _('%s _%s_ for %s %s\n',
+          cast.emoji,
           cast.skill,
           cast.value,
           cast.type,

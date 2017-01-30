@@ -7,11 +7,12 @@ import {
   view,
 } from 'ramda'
 
+import models from '../models'
 
 const attackerLens = lensPath(['teams', 0, 'overall'])
 const defenderLens = lensPath(['teams', 1, 'overall'])
 
-export default function castSkill (obj, combat, rolls) {
+export default function castSkill (obj, combat, rolls, member) {
   const attacker = view(attackerLens, combat)
   const defender = view(defenderLens, combat)
   const skillName = obj.name
@@ -37,14 +38,13 @@ export default function castSkill (obj, combat, rolls) {
       combat,
     )
   }
-
   return {
     combat,
     cast: {
       skill: skillName,
       type: afterCast.log.type,
       value: afterCast.log.value.toFixed(2),
-      stance: attacker.stance,
+      emoji: models.stances.find(member.stance).emoji,
     },
   }
 }
