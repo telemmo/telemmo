@@ -48,12 +48,17 @@ function destroy (collection, query) {
   return collection.update(query, { $set: { deletedAt: new Date() } })
 }
 
+function aggregate (collection, pipeline) {
+  return collection.aggregate(pipeline).toArray()
+}
+
 function build (collection) {
   return {
     find: partial(find, [collection]),
     update: partial(update, [collection]),
     create: partial(create, [collection]),
     destroy: partial(destroy, [collection]),
+    aggregate: partial(aggregate, [collection]),
   }
 }
 

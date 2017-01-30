@@ -6,10 +6,14 @@ import {
   equals,
   prop,
   flatten,
+  find,
+  filter,
   mergeWith,
   ifElse,
   partial,
   isArrayLike,
+  propEq,
+  propOr,
   view,
   pipe,
   set,
@@ -21,10 +25,12 @@ import {
 } from 'ramda'
 
 import Promise from 'bluebird'
+import { ObjectId } from 'mongodb'
 
 import { buildCombatStats } from './combatStats'
 import randomSkillFromStance from './randomSkillFromStance'
 import { rollBatch } from './dice'
+import { level } from './level'
 import models from '../models'
 import castSkill from './castSkill'
 
@@ -236,12 +242,42 @@ function wait (combat) {
     .then(always(combat))
 }
 
+const memberIds = pipe(
+  flatten,
+  filter(pipe(prop('id'), ObjectId.isValid)),
+  map(prop('id')),
+)
+
+function mergeLevel (teams, computedExps) {
+  return teams.map(team =>
+    team.map(char => {
+      const charExp = pipe(find(propEq('_id', char.id)), propOr('exp', 0))
+      const exp = charExp(computedExps)
+
+      return merge(char, { exp, level: level(exp) })
+    }))
+}
+
+function addLevel (dao, teams) {
+  const members = memberIds(teams)
+
+  return dao.combat.aggregate([
+    { $match: { winner: { $in: members } } },
+    { $project: { prizes: 1 } },
+    { $unwind: '$prizes' },
+    { $project: { exp: '$prizes.exp' } },
+    { $group: { _id: '$charIdId', exp: { $sum: '$exp' } } },
+  ])
+    .then(partial(mergeLevel, [teams]))
+}
+
 function build (dao, tms) {
   return Promise.resolve(tms)
     .then((teams) => {
       return Promise.all(teams.map(team =>
         Promise.all(team.map(buildCombatStats))))
     })
+    .then(partial(addLevel, [dao]))
     .then(map(buildTeam))
     .then(initiative)
     .then(initTurn => ({
