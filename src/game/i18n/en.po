@@ -496,3 +496,31 @@ msgid "You are now using <b>%s</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/createChar.js 19:9
+msgid "<b>%s</b> created! This is your current character now.
+
+You can change your name using /change_name 
+
+You can create another character with /create_char. To change chars, use /change_char "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/createChar.js 19:9
+msgid "<b>%s</b> created! This is your current character now.
+
+You can change your name using /change_name 
+
+You can create another character with /new_char. To change chars, use /change_char "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:12
+msgid "<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Stance:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+"
+msgstr[0] ""
+msgstr[1] ""
+

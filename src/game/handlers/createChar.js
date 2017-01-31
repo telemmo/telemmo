@@ -11,7 +11,7 @@ import factories from '../factories'
 
 function renderSuccess (_, char) {
   return _(
-    '<b>%s</b> created! This is your current character now.\n\nYou can change your name using /change_name \n\nTo change character, use /change_char ',
+    '<b>%s</b> created! This is your current character now.\n\nYou can change your name using /change_name \n\nYou can create another character with /new_char. To change chars, use /change_char ',
     char.name,
   )
 }

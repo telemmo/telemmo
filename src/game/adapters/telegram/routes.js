@@ -6,6 +6,14 @@ export default [
     handler: handlers.start,
   },
   {
+    match: /\/overworld/,
+    handler: handlers.start,
+  },
+  {
+    match: /\/new_char/,
+    handler: handlers.welcome,
+  },
+  {
     match: /\/info_(\w+)/,
     handler: handlers.classInfo,
   },
@@ -19,7 +27,7 @@ export default [
     handler: handlers.maps,
   },
   {
-    match: /\/info/,
+    match: /\/char_info/,
     handler: handlers.charInfo,
   },
   {
@@ -29,10 +37,6 @@ export default [
   {
     match: /\/stance_(\w+)/,
     handler: handlers.changeStance,
-  },
-  {
-    match: /\/change_name (.*)/,
-    handler: handlers.changeName,
   },
   {
     match: /\/change_char/,

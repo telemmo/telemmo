@@ -8,7 +8,7 @@ function view (_) {
 
 function keyboard () {
   return [
-    [':information_source: /info', ':earth_asia: /maps'],
+    [':information_source: /char_info', ':earth_asia: /maps'],
     [':bar_chart: /improve_stats', ':card_file_box: /inventory'],
     [':no_entry_sign: /arena :space_invader:', ':no_entry_sign: /market :european_post_office:'],
   ]

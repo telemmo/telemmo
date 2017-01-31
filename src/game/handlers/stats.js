@@ -11,7 +11,7 @@ function keyboard () {
     [':heavy_plus_sign: /up_strength', ':heavy_plus_sign: /up_constitution'],
     [':heavy_plus_sign: /up_reflex', ':heavy_plus_sign: /up_accuracy'],
     [':heavy_plus_sign: /up_flow'],
-    [':arrows_counterclockwise: /reset_stats', ':arrow_left: /start'],
+    [':arrows_counterclockwise: /reset_stats', ':arrow_left: /overworld'],
   ]
 }
 
