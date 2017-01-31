@@ -40,7 +40,17 @@ export default [
   },
   {
     match: /\/improve_stats/,
-    handler: handlers.stats,
+    handler: handlers.improveStats,
+  },
+  {
+    match: /\/up_(\w+)/,
+    handler: handlers.upStat,
+    next: handlers.improveStats,
+  },
+  {
+    match: /\/reset_stats/,
+    handler: handlers.resetStats,
+    next: handlers.improveStats,
   },
   {
     match: /\/stance_(\w+)/,

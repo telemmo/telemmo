@@ -5,7 +5,7 @@ import overworld from './overworld'
 import welcome from './welcome'
 import explore from './explore'
 import maps from './maps'
-import stats from './stats'
+import improveStats from './improveStats'
 import changeName from './changeName'
 import changeChar from './changeChar'
 import useChar from './useChar'
@@ -13,6 +13,8 @@ import charInfo from './charInfo'
 import changeStance from './changeStance'
 import inventory from './inventory'
 import useEquip from './useEquip'
+import upStat from './upStat'
+import resetStats from './resetStats'
 
 export default {
   start,
@@ -22,7 +24,7 @@ export default {
   welcome,
   explore,
   maps,
-  stats,
+  improveStats,
   changeName,
   changeChar,
   useChar,
@@ -30,5 +32,7 @@ export default {
   changeStance,
   inventory,
   useEquip,
+  upStat,
+  resetStats,
 }
 

@@ -1,4 +1,5 @@
 import {
+  splitEvery,
   merge,
   head,
 } from 'ramda'
@@ -6,14 +7,26 @@ import { ObjectId } from 'mongodb'
 
 import membersExp from '../core/membersExp'
 import { level } from '../core/level'
+import { getStatCost, getCurrentStatPoints } from './statHelpers'
 
-function keyboard () {
-  return [
-    [':heavy_plus_sign: /up_strength', ':heavy_plus_sign: /up_constitution'],
-    [':heavy_plus_sign: /up_reflex', ':heavy_plus_sign: /up_accuracy'],
-    [':heavy_plus_sign: /up_flow'],
-    [':arrows_counterclockwise: /reset_stats', ':arrow_left: /overworld'],
-  ]
+function buttons (char, statNames) {
+  return statNames.map(statName =>
+    `:heavy_plus_sign: /up_${statName} (${getStatCost(char, statName)})`
+  )
+}
+
+function keyboard (char) {
+  return splitEvery(2,
+    buttons(char, [
+      'strength',
+      'constitution',
+      'reflex',
+      'accuracy',
+      'flow',
+    ]).concat([
+      ':arrow_left: /overworld',
+    ]),
+  )
 }
 
 export default function call (dao, provider, _, msg) {
@@ -33,10 +46,11 @@ export default function call (dao, provider, _, msg) {
     .then(char => {
       return {
         to: msg.chat,
-        options: keyboard(),
+        options: keyboard(char),
         text: [
-          _('Improve your character.\n'),
-          _('Level: %s\n', char.level),
+          _('Improve your character. you can reset your stats for free with /reset_stats\n'),
+          _('Level: %s', char.level),
+          _('StatPoints: %s\n', getCurrentStatPoints(char)),
           _('Strength: %s', char.str),
           _('Constitution: %s', char.con),
           _('Reflex: %s', char.ref),
