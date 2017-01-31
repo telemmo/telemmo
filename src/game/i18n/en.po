@@ -479,3 +479,20 @@ msgid ":arrow_up: Experience: %s
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/explore.js 81:19
+msgid ":arrow_up: Experience: %s
+:shell: Itens: %s
+:tophat: Equips: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeStance.js 33:38
+msgid "Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 47:12
+msgid "You are now using <b>%s</b> %s"
+msgstr[0] ""
+msgstr[1] ""
+

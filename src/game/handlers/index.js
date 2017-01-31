@@ -9,7 +9,8 @@ import stats from './stats'
 import changeName from './changeName'
 import changeChar from './changeChar'
 import useChar from './useChar'
-import playerInfo from './playerInfo'
+import charInfo from './charInfo'
+import changeStance from './changeStance'
 
 export default {
   start,
@@ -23,6 +24,7 @@ export default {
   changeName,
   changeChar,
   useChar,
-  playerInfo,
+  charInfo,
+  changeStance,
 }
 

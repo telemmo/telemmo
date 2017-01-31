@@ -20,11 +20,15 @@ export default [
   },
   {
     match: /\/info/,
-    handler: handlers.playerInfo,
+    handler: handlers.charInfo,
   },
   {
     match: /\/improve_stats/,
     handler: handlers.stats,
+  },
+  {
+    match: /\/stance_(\w+)/,
+    handler: handlers.changeStance,
   },
   {
     match: /\/change_name (.*)/,
