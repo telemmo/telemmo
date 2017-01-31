@@ -524,3 +524,73 @@ msgid "<b>Name:</b> %s
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/stats.js 21:13
+msgid "Improve your character."
+msgstr ""
+
+#: src/game/handlers/charInfo.js 40:12
+msgid "<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Stance:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:221
+msgid "Strength: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:250
+msgid "Constitution: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:283
+msgid "Reflex: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:310
+msgid "Accuracy: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:339
+msgid "Flow: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/stats.js 37:13
+msgid "Improve your character./n"
+msgstr ""
+
+#: src/game/handlers/stats.js 37:45
+msgid "Level: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:12
+msgid "<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Stance:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/stats.js 41:13
+msgid "Improve your character.
+"
+msgstr ""
+
+#: src/game/handlers/stats.js 41:45
+msgid "Level: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
