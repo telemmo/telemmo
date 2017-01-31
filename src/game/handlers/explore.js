@@ -67,45 +67,50 @@ export function render (_, player, result) {
   const bullets = [
     ':small_orange_diamond:',
     ':small_blue_diamond:',
-    ':black_small_square:',
-    ':white_small_square:',
-    ':small_red_triangle:',
+  ]
+
+  const largeBullets = [
+    ':large_orange_diamond:',
+    ':large_blue_diamond:',
   ]
 
   const initiativeRolls = toPairs(initiative.rolls)
 
   const initiativeView = _(
-    '<b>%s</b> won the initiative!\n%s\n',
-    initiative.winner,
+    '%s\n<b>%s</b> won the initiative!\n\n',
     addIndex(map)(
-      (pair, idx) => `${bullets[idx]} ${pair[0]} rolled ${pair[1]}\n`,
+      (pair, idx) =>
+        `${largeBullets[idx]} ${pair[0]} rolled ${pair[1]}\n`,
       initiativeRolls,
     ).join(''),
+    initiative.winner,
   )
 
   const turnsView =
     join('', turns.map(turn => join('', [
       bullets[flatHead(initiativeRolls).indexOf(turn.attacker)],
-      `<b>${turn.attacker}</b>\n`,
-      _('<pre>:dart: %s :anger: %s :sparkles: %s</pre>\n',
+      // `<b>${head(split(' ', turn.attacker))}</b> `,
+      _(':dart: %s :anger: %s :sparkles: %s\n',
         turn.rolls.aAim,
         turn.rolls.aHit,
         turn.rolls.aSkill,
       ),
+      _('<b>%s</b> dealt <b>%s damage</b>\n',
+        head(split(' ', turn.attacker)),
+        turn.damage.toFixed(0),
+      ),
       (turn.casts || []).map(cast =>
-        _('%s <i>%s</i> for %s %s\n',
+        _('%s <b>%s</b> casted for <b>%s %s</b>\n',
           cast.emoji,
           cast.skill,
           cast.value,
           cast.type,
         ),
       ),
-      _('Attacked for %s damage', turn.damage),
-      '\n',
-      _("%s's hp: %s/%s",
+      _("<b>%s</b>'s hp: <b>%s</b> / %s",
         head(split(' ', turn.defender)),
-        turn.defenderHp.current,
-        turn.defenderHp.init,
+        turn.defenderHp.current.toFixed(0),
+        turn.defenderHp.init.toFixed(0),
       ),
       '\n',
       '\n',
@@ -119,10 +124,10 @@ export function render (_, player, result) {
     .find(prize => prize.equip)
 
   const prizesView = _(
-    'Experience: %s\nItens: %s\nEquips: %s\n',
-    exp ? exp.exp : _('none :('),
-    item ? item.item : _('none :('),
-    equip ? equip.equip : _('none :('),
+    ':arrow_up: Experience: %s\n:shell: Itens: %s\n:tophat: Equips: %s\n',
+    exp ? exp.exp : _(':x:'),
+    item ? item.item : _(':x:'),
+    equip ? equip.equip : _(':x:'),
   )
 
   const text = join('', [

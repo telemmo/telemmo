@@ -43,7 +43,7 @@ export default function castSkill (obj, combat, rolls, member) {
     cast: {
       skill: skillName,
       type: afterCast.log.type,
-      value: afterCast.log.value.toFixed(2),
+      value: afterCast.log.value.toFixed(0),
       emoji: models.stances.find(member.stance).emoji,
     },
   }
