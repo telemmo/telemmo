@@ -367,3 +367,115 @@ To change character, use :no_entry_sign: /change_char "
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/createChar.js 19:9
+msgid "<b>%s</b> created! This is your current character now.
+
+You can change your name using /change_name 
+
+To change character, use /change_char "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/playerInfo.js 34:12
+msgid "Name: %s
+Class: %s
+Level: %s
+Exp: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/playerInfo.js 38:12
+msgid "<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 62:167
+msgid ":dart: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 66:100
+msgid "Dealt %s damage"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 67:13
+msgid "%s <i>%s</i> casted for %s %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 68:14
+msgid "<b>%s's hp %s</b> / %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 66:100
+msgid "Dealt %s damage
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 68:8
+msgid "<b>%s</b>'s hp: <b>%s</b> / %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 59:23
+msgid "%s
+<b>%s</b> won the initiative!
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 66:100
+msgid "%s dealt %s damage
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 59:23
+msgid "%s
+<b>%s</b> won the initiative!
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 66:100
+msgid "<i>%s</i> dealt <b>%s damage</b>
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 67:13
+msgid "%s <b>%s</b> casted for <b>%s %s</b>
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 68:8
+msgid "<i>%s</i>'s hp: <b>%s</b> / %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 66:100
+msgid "<b>%s</b> dealt <b>%s damage</b>
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 81:19
+msgid ":arrow_up: Experience: %s
+:ring: Itens: %s
+:tophat: Equips: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
