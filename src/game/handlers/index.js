@@ -11,6 +11,8 @@ import changeChar from './changeChar'
 import useChar from './useChar'
 import charInfo from './charInfo'
 import changeStance from './changeStance'
+import inventory from './inventory'
+import useEquip from './useEquip'
 
 export default {
   start,
@@ -26,5 +28,7 @@ export default {
   useChar,
   charInfo,
   changeStance,
+  inventory,
+  useEquip,
 }
 

@@ -27,6 +27,14 @@ export default [
     handler: handlers.maps,
   },
   {
+    match: /\/inventory/,
+    handler: handlers.inventory,
+  },
+  {
+    match: /\/use_equip_(\w+)/,
+    handler: handlers.useEquip,
+  },
+  {
     match: /\/char_info/,
     handler: handlers.charInfo,
   },
