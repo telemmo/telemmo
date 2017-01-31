@@ -594,3 +594,24 @@ msgid "Level: %s
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/charInfo.js 40:12
+msgid "<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Stance:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+
+<i>Raw Stats</i>
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/useEquip.js 41:232
+msgid "Invalid equip"
+msgstr ""
+
+#: src/game/handlers/useEquip.js 43:10
+msgid "%s equiped!"
+msgstr[0] ""
+msgstr[1] ""
+
