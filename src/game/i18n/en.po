@@ -615,3 +615,22 @@ msgid "%s equiped!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/stats.js 49:13
+msgid "Improve your character. you can reset your stats for free with /reset_stats
+"
+msgstr ""
+
+#: src/game/handlers/stats.js 49:97
+msgid "
+StatPoints: %s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/stats.js 49:125
+msgid "StatPoints: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
