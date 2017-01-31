@@ -19,6 +19,10 @@ export default [
     handler: handlers.maps,
   },
   {
+    match: /\/info/,
+    handler: handlers.playerInfo,
+  },
+  {
     match: /\/improve_stats/,
     handler: handlers.stats,
   },
