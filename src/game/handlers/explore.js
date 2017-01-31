@@ -107,7 +107,7 @@ export function render (_, player, result) {
           cast.value,
           cast.type,
         ),
-      ),
+      ).join(''),
       _("<b>%s</b>'s hp: <b>%s</b> / %s",
         head(split(' ', turn.defender)),
         turn.defenderHp.current.toFixed(0),
