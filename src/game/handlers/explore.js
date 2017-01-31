@@ -20,6 +20,7 @@ import Promise from 'bluebird'
 import { rejectUndefined } from './errors'
 import { randomMonster } from '../core/explore'
 import { run, AlreadyOnCombat } from '../core/combat'
+import models from '../models'
 
 function InvalidMap (mapId) {
   this.message = `Invalid map id "${mapId}"`
@@ -120,14 +121,16 @@ export function render (_, player, result) {
     .find(prize => prize.exp)
   const item = prizes
     .find(prize => prize.item)
-  const equip = prizes
-    .find(prize => prize.equip)
+  const equips = prizes
+    .filter(prize => prize.equip)
 
   const prizesView = _(
     ':arrow_up: Experience: %s\n:shell: Itens: %s\n:tophat: Equips: %s\n',
     exp ? exp.exp : _(':x:'),
     item ? item.item : _(':x:'),
-    equip ? equip.equip : _(':x:'),
+    equips.length > 0
+      ? equips.map(o => models.equips.find(o.equip).name).join(', ')
+      : _(':x:'),
   )
 
   const text = join('', [
