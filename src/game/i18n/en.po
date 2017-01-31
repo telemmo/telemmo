@@ -634,3 +634,20 @@ msgid "StatPoints: %s
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/upStat.js 38:29
+msgid "Invalid stat."
+msgstr ""
+
+#: src/game/handlers/upStat.js 55:38
+msgid "You cant have more than 100 points."
+msgstr ""
+
+#: src/game/handlers/upStat.js 60:36
+msgid "You dont have points for that."
+msgstr ""
+
+#: src/game/handlers/upStat.js 63:10
+msgid "%s increased by 1!"
+msgstr[0] ""
+msgstr[1] ""
+

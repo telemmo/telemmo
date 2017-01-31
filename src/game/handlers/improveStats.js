@@ -11,7 +11,7 @@ import { getStatCost, getCurrentStatPoints } from './statHelpers'
 
 function buttons (char, statNames) {
   return statNames.map(statName =>
-    `:heavy_plus_sign: /up_${statName} (${getStatCost(char, statName)})`
+    `:heavy_plus_sign: /up_${statName} (-${getStatCost(char, statName)})`
   )
 }
 

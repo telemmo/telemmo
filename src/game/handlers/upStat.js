@@ -14,13 +14,18 @@ import { getStatCost, getCurrentStatPoints, statIds } from './statHelpers'
 
 function increaseStat (dao, char, statId) {
   const amount = char[statId]
-  return dao.character.update({ _id: char.id}, { $set: { [statId]: amount + 1} })
+  return dao.character.update({ _id: char.id }, { $set:
+    { [statId]: amount + 1 } },
+  )
 }
 
 export default function call (dao, provider, _, msg) {
-
   const statName = msg.matches[1]
   const statId = statIds[statName]
+
+  if (statId === undefined) {
+    reject(msg, _('Invalid stat.'))
+  }
 
   return dao.character.find({
     _id: msg.player.currentCharId,
@@ -37,17 +42,16 @@ export default function call (dao, provider, _, msg) {
     )
     .then((char) => {
       if (char[statId] === 100) {
-        return reject(msg, 'You cant have more than 100 points.')
+        return reject(msg, _('You cant have more than 100 points.'))
       }
       if (getStatCost(char, statName) <= getCurrentStatPoints(char)) {
         return increaseStat(dao, char, statId)
       }
-      return reject(msg, 'You dont have points for that.')
+      return reject(msg, _('You dont have points for that.'))
     })
     .then(always({
       to: msg.chat,
-      text: `${capitalize(statName)} increased by 1!`,
+      text: _('%s increased by 1!', capitalize(statName)),
     }))
 }
-
 
