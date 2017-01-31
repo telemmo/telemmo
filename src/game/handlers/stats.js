@@ -1,10 +1,11 @@
 import {
   merge,
+  head,
 } from 'ramda'
+import { ObjectId } from 'mongodb'
 
-function view (_) {
-  return _(':globe_with_meridians: Welcome to the overworld! :globe_with_meridians:\n\n')
-}
+import membersExp from '../core/membersExp'
+import { level } from '../core/level'
 
 function keyboard () {
   return [
@@ -15,17 +16,34 @@ function keyboard () {
   ]
 }
 
-function reply (_) {
-  return {
-    text: view(_),
-    options: keyboard(_),
-  }
-}
-
 export default function call (dao, provider, _, msg) {
-  const params = {
-    to: msg.chat,
-  }
-  return Promise.resolve(merge(params, reply(_)))
+  return dao.character.find({
+      _id: msg.player.currentCharId
+    })
+    .then(head)
+    .then(char => membersExp(dao, [ObjectId(char.id)])
+      .then(head)
+      .then(expObj => merge(char, {
+        exp: expObj ? expObj.exp : 0,
+      }))
+      .then(charWithoutLevel => merge(charWithoutLevel, {
+        level: level(charWithoutLevel),
+      })),
+    )
+    .then(char => {
+      return {
+        to: msg.chat,
+        options: keyboard(),
+        text: [
+          _('Improve your character.\n'),
+          _('Level: %s\n', char.level),
+          _('Strength: %s', char.str),
+          _('Constitution: %s', char.con),
+          _('Reflex: %s', char.ref),
+          _('Accuracy: %s', char.acc),
+          _('Flow: %s', char.flow),
+        ].join('\n')
+      }
+    })
 }
 
