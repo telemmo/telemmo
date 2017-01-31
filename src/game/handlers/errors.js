@@ -3,6 +3,7 @@ import {
   identity,
   ifElse,
   contains,
+  isEmpty,
   __,
 } from 'ramda'
 
@@ -26,3 +27,10 @@ export function rejectUndefined (msg, error) {
   )
 }
 
+export function rejectEmpty (msg, error) {
+  return ifElse(
+    isEmpty,
+    partial(reject, [msg, error]),
+    identity,
+  )
+}
