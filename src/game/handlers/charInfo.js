@@ -30,7 +30,8 @@ export default function call (dao, provider, _, msg) {
     .then(char => ({
       to: msg.chat,
       text: _(
-        '<b>Name:</b> %s\n<b>Class:</b> %s\n<b>Stance:</b> %s\n<b>Level:</b> %s\n<b>Exp:</b> %s\n\n<i>Raw Stats</i>\n%s',
+        '<b>Titles</b>: %s\n<b>Name:</b> %s\n<b>Class:</b> %s\n<b>Stance:</b> %s\n<b>Level:</b> %s\n<b>Exp:</b> %s\n\n<i>Raw Stats</i>\n%s',
+        msg.player.titles.join(', '),
         char.name,
         capitalize(char.classId),
         capitalize(char.stance),
