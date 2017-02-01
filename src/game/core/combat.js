@@ -240,7 +240,7 @@ const combatMemberIds = pipe(
 )
 
 function wait (combat) {
-  return Promise.delay(10000)
+  return Promise.delay(40000 + Math.random() * 30000)
     .then(always(combat))
 }
 
