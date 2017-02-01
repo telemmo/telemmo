@@ -10,15 +10,18 @@ import {
 
 import { ObjectId } from 'mongodb'
 import { capitalize } from './helpers'
+import { rejectUndefined } from './errors'
 import membersEquips from './membersEquips'
 import models from '../models'
 
 export default function call (dao, provider, _, msg) {
+  console.log(msg)
   return dao.character
     .find({ playerId: msg.player.id })
     .then(map(pipe(prop('id'), ObjectId)))
     .then(partial(membersEquips, [dao]))
     .then(head)
+    .then(rejectUndefined(msg, _('You don\'t have any equips yet.')))
     .then(prop('equips'))
     .then(map(models.equips.find))
     .then(equips => dao.character

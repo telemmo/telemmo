@@ -18,6 +18,7 @@ function createPlayer (dao, _, msg) {
         id: msg.user,
       },
     },
+    titles: [],
   }
 
   return dao.player.create(player)
