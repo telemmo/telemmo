@@ -142,15 +142,16 @@ function sendCombatResult (dispatch, _, msg, combat) {
 }
 
 function sendExplorationStart (dispatch, _, msg, gameMap, char) {
-  const stances = models.classes.find(char.classId).stances
+  const stancesIds = models.classes.find(char.classId).stances
+  const stances = stancesIds.map(models.stances.find)
 
   dispatch({
     to: msg.chat,
     text: _('You started exploring %s!', gameMap.name),
     options: [
       [`/explore_${gameMap.id}`],
-      stances.map(id => `/stance_${id}`),
-      ['/overworld', '/maps'],
+      stances.map(stance => `${stance.emoji} /stance_${stance.id}`),
+      [':arrow_left: /overworld', ':earth_asia: /maps'],
     ],
   })
 }

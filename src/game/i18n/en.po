@@ -271,3 +271,7 @@ msgid "Nothing.
 "
 msgstr ""
 
+#: src/game/handlers/inventory.js 28:255
+msgid "You don't have any equips yet."
+msgstr ""
+
