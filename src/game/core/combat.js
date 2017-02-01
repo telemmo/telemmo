@@ -2,8 +2,6 @@ import {
   add,
   values,
   always,
-  length,
-  equals,
   prop,
   flatten,
   find,
@@ -24,6 +22,7 @@ import {
   reverse,
 } from 'ramda'
 
+import cuid from 'cuid'
 import Promise from 'bluebird'
 import { ObjectId } from 'mongodb'
 
@@ -212,6 +211,10 @@ function runTurn (combat, rolls) {
     teams: reverse(combat.teams),
   })
 
+  if (combat === null) {
+    debugger
+  }
+
   return combat
 }
 
@@ -222,29 +225,23 @@ function turn (combat) {
     .then(partial(runTurn, [combat]))
 }
 
-function findPendingCombats (dao, teams) {
-  return dao.combat.find({
-    'teams.members': {
-      $elemMatch: {
-        id: { $in: map(prop('id'), flatten(teams)) },
-      },
-    },
-    finishedAt: {
-      $exists: false,
-    },
-  })
-}
+const teamsMemberIds = pipe(
+  flatten,
+  map(prop('id')),
+  filter(ObjectId.isValid),
+  map(ObjectId),
+)
+
+const combatMemberIds = pipe(
+  prop('teams'),
+  map(prop('members')),
+  teamsMemberIds,
+)
 
 function wait (combat) {
   return Promise.delay(10000)
     .then(always(combat))
 }
-
-const memberIds = pipe(
-  flatten,
-  filter(pipe(prop('id'), ObjectId.isValid)),
-  map(prop('id')),
-)
 
 function mergeLevel (teams, computedExps) {
   return teams.map(team =>
@@ -258,16 +255,46 @@ function mergeLevel (teams, computedExps) {
 }
 
 function addLevel (dao, teams) {
-  const members = memberIds(teams)
+  const members = teamsMemberIds(teams)
 
   return dao.combat.aggregate([
     { $match: { winner: { $in: members } } },
     { $project: { prizes: 1 } },
     { $unwind: '$prizes' },
     { $project: { exp: '$prizes.exp' } },
-    { $group: { _id: '$charIdId', exp: { $sum: '$exp' } } },
+    { $group: { _id: '$charId', exp: { $sum: '$exp' } } },
   ])
     .then(partial(mergeLevel, [teams]))
+}
+
+function updateCombat (dao, combat) {
+  const query = {
+    token: combat.token,
+  }
+
+  return dao.combat.update(query, combat)
+}
+
+function upsertCombat (dao, combat) {
+  let query = {
+    'teams.members': {
+      $elemMatch: {
+        id: { $in: combatMemberIds(combat) },
+      },
+    },
+  }
+
+  if (combat.id) {
+    query = merge(query, { _id: combat.id })
+  }
+
+  if (!combat.finishedAt) {
+    query = merge(query, {
+      finishedAt: { $exists: false },
+    })
+  }
+
+  return dao.combat.update(query, combat, { upsert: true })
 }
 
 function build (dao, tms) {
@@ -281,6 +308,7 @@ function build (dao, tms) {
     .then(initiative)
     .then(initTurn => ({
       teams: initTurn.order,
+      token: cuid(),
       initialTeams: initTurn.order,
       startedAt: new Date(),
       turns: [
@@ -290,26 +318,8 @@ function build (dao, tms) {
         },
       ],
     }))
-    .then(dao.combat.create)
+    .then(partial(upsertCombat, [dao]))
     .then(wait)
-}
-
-export function AlreadyOnCombat (combats) {
-  this.message = `${combats.length} combats pending`
-  this.name = 'AlreadyOnCombat'
-  this.combats = combats
-  Error.captureStackTrace(this, AlreadyOnCombat)
-}
-AlreadyOnCombat.prototype = Object.create(Error.prototype)
-AlreadyOnCombat.prototype.constructor = AlreadyOnCombat
-
-function buildCombat (dao, tms) {
-  return findPendingCombats(dao, tms)
-    .then(ifElse(
-      pipe(length, equals(0)),
-      partial(build, [dao, tms]),
-      combats => Promise.reject(new AlreadyOnCombat(combats)),
-    ))
 }
 
 export function start (combat) {
@@ -327,9 +337,9 @@ export function start (combat) {
 }
 
 export function run (dao, teams) {
-  return buildCombat(dao, teams)
+  return build(dao, teams)
     .then(start)
-    .then(combat => dao.combat.update({ _id: combat.id }, combat))
+    .then(partial(updateCombat, [dao]))
 }
 
 function mergeFighter (a, b) {

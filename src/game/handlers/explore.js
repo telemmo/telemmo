@@ -1,26 +1,30 @@
 import {
-  append,
   propEq,
+  always,
   toPairs,
   addIndex,
+  identity,
   partial,
   flatten,
-  flip,
+  ifElse,
+  isNil,
   split,
   pipe,
   join,
   head,
   tail,
+  tap,
   map,
   nth,
 } from 'ramda'
 
 import Promise from 'bluebird'
+import { Observable } from 'rx'
 
+import models from '../models'
 import { rejectUndefined } from './errors'
 import { randomMonster } from '../core/explore'
-import { run, AlreadyOnCombat } from '../core/combat'
-import models from '../models'
+import { run } from '../core/combat'
 
 function InvalidMap (mapId) {
   this.message = `Invalid map id "${mapId}"`
@@ -33,18 +37,28 @@ InvalidMap.prototype.constructor = InvalidMap
 
 const flatHead = pipe(map(head), flatten)
 
-function start (dao, player, mapId) {
-  let monster
+function fightUntilDead (dao, player, gameMap, char) {
+  return Observable.create((subscriber) => {
+    function fight () {
+      const monster = randomMonster(gameMap.id)
 
-  try {
-    monster = randomMonster(mapId)
-  } catch (e) {
-    return Promise.reject(new InvalidMap(mapId))
-  }
+      return run(dao, [[monster], [char]])
+        .then(ifElse(
+          isNil,
+          () => Promise.reject(new Error()),
+          identity,
+        ))
+        .then(tap(subscriber.next.bind(subscriber)))
+        .then(ifElse(
+          propEq('winner', player.currentCharId),
+          fight,
+          identity,
+        ))
+        .catch(() => console.log('Invalid combat token, refusing to save'))
+    }
 
-  return dao.character.find({ _id: player.currentCharId })
-    .then(flip(append)([[monster]]))
-    .then(partial(run, [dao]))
+    fight()
+  })
 }
 
 export function render (_, player, result) {
@@ -150,14 +164,55 @@ function reply (msg, text) {
   }
 }
 
-export default function call (dao, provider, _, msg) {
+function sendCombatResult (dispatch, _, msg, combat) {
+  const text = render(_, msg.player, combat)
+  dispatch(reply(msg, text))
+}
+
+function sendExplorationStart (dispatch, _, msg, gameMap, char) {
+  const stances = models.classes.find(char.classId).stances
+
+  dispatch({
+    to: msg.chat,
+    text: _('You started exploring %s!', gameMap.name),
+    options: [
+      [`/explore_${gameMap.id}`],
+      stances.map(id => `/stance_${id}`),
+      ['/overworld', '/maps'],
+    ],
+  })
+}
+
+function startFight (dao, dispatch, _, msg, gameMap, char) {
+  const exploration = fightUntilDead(dao, msg.player, gameMap, char)
+
+  exploration.subscribe(
+    partial(sendCombatResult, [dispatch, _, msg]))
+
+  return sendExplorationStart(dispatch, _, msg, gameMap, char)
+}
+
+function startExploring (dao, dispatch, _, msg, mapId) {
+  let gameMap
+
+  try {
+    gameMap = models.maps.find(mapId)
+  } catch (e) {
+    throw new InvalidMap(mapId)
+  }
+
+  return dao.character.find({ _id: msg.player.currentCharId })
+    .then(head)
+    .then(partial(startFight, [dao, dispatch, _, msg, gameMap]))
+    .then(always(_('You will only stop if you lose a battle. If that happens, just start exploring again.')))
+}
+
+export default function call (dao, dispatch, _, msg) {
   return Promise.resolve(msg.matches)
     .then(rejectUndefined(msg, _('No match')))
     .then(nth(1))
     .then(rejectUndefined(msg, _('No match')))
-    .then(partial(start, [dao, msg.player]))
-    .then(partial(render, [_, msg.player]))
-    .catch(AlreadyOnCombat, () => _('Already exploring a map!'))
+    .then(partial(startExploring, [dao, dispatch, _, msg]))
     .catch(InvalidMap, () => _('The desired map does not exist!'))
     .then(partial(reply, [msg]))
 }

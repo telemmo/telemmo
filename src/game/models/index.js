@@ -21,8 +21,8 @@ const models = {
 }
 
 function find (model, id) {
-  const element = model
-    .find(item => toLower(item.id) === toLower(id))
+  const element = model.find(item =>
+      toLower(`${item.id}`) === toLower(`${id}`))
 
   if (element === undefined) {
     throw new Error(`Cannot find model with id ${id}`)

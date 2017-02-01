@@ -8,328 +8,105 @@
 "Content-Type : text/plain; charset=UTF-8"
 "Content-Transfer-Encoding : 8bit"
 
-#: src/game/handlers/explore.js 51:89
+#: src/game/handlers/explore.js 61:89
 msgid ":heavy_check_mark:"
 msgstr ""
 
-#: src/game/handlers/explore.js 51:115
+#: src/game/handlers/explore.js 61:115
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 51:125
+#: src/game/handlers/explore.js 61:125
 msgid "%s vs. %s
 
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 57:23
-msgid "*%s* won the initiative!
-%s
+#: src/game/handlers/explore.js 69:23
+msgid "%s
+<b>%s</b> won the initiative!
+
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 62:163
-msgid "`:dart: %s :anger: %s :sparkles: %s`
+#: src/game/handlers/explore.js 76:4
+msgid ":dart: %s :anger: %s :sparkles: %s
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 63:13
-msgid "Casted %s for %s %s
+#: src/game/handlers/explore.js 76:100
+msgid "<b>%s</b> dealt <b>%s damage</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 64:8
-msgid "Attacked for %s damage"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 64:56
-msgid "%s's hp: %s/%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 77:19
-msgid "Experience: %s
-Itens: %s
-Equips: %s
+#: src/game/handlers/explore.js 77:13
+msgid "%s <b>%s</b> casted for <b>%s %s</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 77:80
-msgid "none :("
+#: src/game/handlers/explore.js 78:17
+msgid "<b>%s</b>'s hp: <b>%s</b> / %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 91:19
+msgid ":arrow_up: Experience: %s
+:shell: Itens: %s
+:tophat: Equips: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 61:115
+msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 77:80
-msgid "none :("
+#: src/game/handlers/explore.js 61:115
+msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 77:80
-msgid "none :("
+#: src/game/handlers/explore.js 61:115
+msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 92:88
+#: src/game/handlers/explore.js 117:10
+msgid "You started exploring %s!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 141:177
+msgid "You will only stop if you lose a battle. If that happens, just start exploring again."
+msgstr ""
+
+#: src/game/handlers/explore.js 145:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 92:88
+#: src/game/handlers/explore.js 145:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 93:11
-msgid "Already exploring a map!"
-msgstr ""
-
-#: src/game/handlers/explore.js 95:11
+#: src/game/handlers/explore.js 146:11
 msgid "The desired map does not exist!"
 msgstr ""
 
-#: src/game/handlers/createChar.js 23:9
-msgid "*%s* created! Now using it!
-
-%s
-
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 23:65
-msgid "_You can change character using /changename New Name_"
-msgstr ""
-
-#: src/game/handlers/createChar.js 23:125
-msgid "To change character, use /changechar"
-msgstr ""
-
-#: src/game/handlers/createChar.js 31:10
-msgid "Failed creating character!"
-msgstr ""
-
-#: src/game/handlers/createChar.js 43:36
-msgid "Funny, you should have a player first!"
-msgstr ""
-
-#: src/game/handlers/createChar.js 50:77
-msgid "You need to choose a class"
-msgstr ""
-
-#: src/game/handlers/createChar.js 50:175
-msgid "Invalid class name"
-msgstr ""
-
 #: src/game/handlers/classInfo.js 19:129
-msgid "*Stances* - _You can change them any time_
+msgid "<b>Stances</b> - <i>You can change them any time</i>
 
 "
+msgstr ""
+
+#: src/game/handlers/classInfo.js 41:193
+msgid "Invalid class name"
 msgstr ""
 
 #: src/game/handlers/overworld.js 11:9
 msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:
-
-"
-msgstr ""
-
-#: src/game/handlers/welcome.js 26:10
-msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
-
- You will now create your first character. Touch the comands below to see information about a class."
-msgstr ""
-
-#: src/game/handlers/maps.js 25:10
-msgid ":world_map: Explore :world_map:
-
-*Choose a map to explore*"
-msgstr ""
-
-#: src/game/handlers/maps.js 25:10
-msgid ":earth_asia: Explore :earth_asia:
-
-*Choose a map to explore*"
-msgstr ""
-
-#: src/game/handlers/createChar.js 23:9
-msgid "*%s* created! This is your current character now.!
-
-%s
-
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 23:88
-msgid "You can change your name using :no_entry_sign: /changename"
-msgstr ""
-
-#: src/game/handlers/createChar.js 23:153
-msgid "To change character, use :no_entry_sign: /changechar"
-msgstr ""
-
-#: src/game/handlers/explore.js 63:13
-msgid "%s casted %s for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 63:13
-msgid "%s _%s_ for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 23:88
-msgid "You can change your name using /change_name"
-msgstr ""
-
-#: src/game/handlers/createChar.js 23:88
-msgid "You can change your name using :no_entry_sign: /change_name"
-msgstr ""
-
-#: src/game/handlers/changeName.js 19:10
-msgid "You are now *%s*"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 20:9
-msgid "*%s* created! This is your current character now.!
-
-You can change your name using /change_name
-
-To change character, use :no_entry_sign: /changechar"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now."
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change_name"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change__name 
-
-To change character, use :no_entry_sign: /changechar"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change__name 
-
-To change character, use :no_entry_sign: /change_char"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change__name 
-
-To change character, use :no_entry_sign: /change_char "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use :no_entry_sign: /changechar "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /changename 
-
-To change character, use :no_entry_sign: /changechar "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use :no_entry_sign: /change_char "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using _/change_name_ 
-
-To change character, use :no_entry_sign: _/change_name_ "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "*%s* created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use :no_entry_sign: /change_name "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "<b>%s</b> created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use :no_entry_sign: /change_name "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 57:23
-msgid "<b>%s</b> won the initiative!
-%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 62:126
-msgid "<pre>:dart: %s :anger: %s :sparkles: %s</pre>
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 63:13
-msgid "%s <i>%s</i> for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/classInfo.js 19:129
-msgid "<b>Stances</b> - <i>You can change them any time</i>
 
 "
 msgstr ""
@@ -340,171 +117,6 @@ msgid ":earth_asia: Explore :earth_asia:
 Choose a map to explore"
 msgstr ""
 
-#: src/game/handlers/changeName.js 20:10
-msgid "You are now <b>%s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/changeName.js 23:36
-msgid "That name is too long!"
-msgstr ""
-
-#: src/game/handlers/useChar.js 18:109
-msgid "Invalid char Id"
-msgstr ""
-
-#: src/game/handlers/useChar.js 27:12
-msgid "You are now using <b>%s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "<b>%s</b> created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use :no_entry_sign: /change_char "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "<b>%s</b> created! This is your current character now.
-
-You can change your name using /change_name 
-
-To change character, use /change_char "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/playerInfo.js 34:12
-msgid "Name: %s
-Class: %s
-Level: %s
-Exp: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/playerInfo.js 38:12
-msgid "<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 62:167
-msgid ":dart: %s :anger: %s :sparkles: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 66:100
-msgid "Dealt %s damage"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 67:13
-msgid "%s <i>%s</i> casted for %s %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 68:14
-msgid "<b>%s's hp %s</b> / %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 66:100
-msgid "Dealt %s damage
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 68:8
-msgid "<b>%s</b>'s hp: <b>%s</b> / %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 59:23
-msgid "%s
-<b>%s</b> won the initiative!
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 66:100
-msgid "%s dealt %s damage
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 59:23
-msgid "%s
-<b>%s</b> won the initiative!
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 66:100
-msgid "<i>%s</i> dealt <b>%s damage</b>
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 67:13
-msgid "%s <b>%s</b> casted for <b>%s %s</b>
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 68:8
-msgid "<i>%s</i>'s hp: <b>%s</b> / %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 66:100
-msgid "<b>%s</b> dealt <b>%s damage</b>
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 81:19
-msgid ":arrow_up: Experience: %s
-:ring: Itens: %s
-:tophat: Equips: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/explore.js 81:19
-msgid ":arrow_up: Experience: %s
-:shell: Itens: %s
-:tophat: Equips: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/changeStance.js 33:38
-msgid "Invalid stance"
-msgstr ""
-
-#: src/game/handlers/changeStance.js 47:12
-msgid "You are now using <b>%s</b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/createChar.js 19:9
-msgid "<b>%s</b> created! This is your current character now.
-
-You can change your name using /change_name 
-
-You can create another character with /create_char. To change chars, use /change_char "
-msgstr[0] ""
-msgstr[1] ""
-
 #: src/game/handlers/createChar.js 19:9
 msgid "<b>%s</b> created! This is your current character now.
 
@@ -514,83 +126,80 @@ You can create another character with /new_char. To change chars, use /change_ch
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:12
-msgid "<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Stance:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
+#: src/game/handlers/createChar.js 27:10
+msgid "Failed creating character!"
+msgstr ""
+
+#: src/game/handlers/createChar.js 39:36
+msgid "Funny, you should have a player first!"
+msgstr ""
+
+#: src/game/handlers/createChar.js 46:77
+msgid "You need to choose a class"
+msgstr ""
+
+#: src/game/handlers/welcome.js 23:10
+msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
+
+ You will now create your first character. Touch the comands below to see information about a class."
+msgstr ""
+
+#: src/game/handlers/improveStats.js 49:13
+msgid "Improve your character. you can reset your stats for free with /reset_stats
 "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/stats.js 21:13
-msgid "Improve your character."
 msgstr ""
 
-#: src/game/handlers/charInfo.js 40:12
-msgid "<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Stance:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:221
-msgid "Strength: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:250
-msgid "Constitution: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:283
-msgid "Reflex: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:310
-msgid "Accuracy: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:339
-msgid "Flow: %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/stats.js 37:13
-msgid "Improve your character./n"
-msgstr ""
-
-#: src/game/handlers/stats.js 37:45
+#: src/game/handlers/improveStats.js 49:97
 msgid "Level: %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:12
-msgid "<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Stance:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
-
-%s"
+#: src/game/handlers/improveStats.js 49:125
+msgid "StatPoints: %s
+"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/stats.js 41:13
-msgid "Improve your character.
-"
+#: src/game/handlers/improveStats.js 49:194
+msgid "Strength: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/improveStats.js 49:223
+msgid "Constitution: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/improveStats.js 49:256
+msgid "Reflex: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/improveStats.js 49:283
+msgid "Accuracy: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/improveStats.js 49:312
+msgid "Flow: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeName.js 16:36
+msgid "That name is too long!"
 msgstr ""
 
-#: src/game/handlers/stats.js 41:45
-msgid "Level: %s
-"
+#: src/game/handlers/changeName.js 21:10
+msgid "You are now <b>%s</b>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/useChar.js 24:69
+msgid "Invalid char Id"
+msgstr ""
+
+#: src/game/handlers/useChar.js 27:12
+msgid "You are now using <b>%s</b>"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -606,31 +215,37 @@ msgid "<b>Name:</b> %s
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/useEquip.js 41:232
+#: src/game/handlers/changeStance.js 30:36
+msgid "Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 47:12
+msgid "You are now using <b>%s</b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 37:13
+msgid "Equiped:
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 39:21
+msgid "Nothing."
+msgstr ""
+
+#: src/game/handlers/inventory.js 39:37
+msgid "Inventory:
+"
+msgstr ""
+
+#: src/game/handlers/useEquip.js 41:252
 msgid "Invalid equip"
 msgstr ""
 
 #: src/game/handlers/useEquip.js 43:10
 msgid "%s equiped!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/stats.js 49:13
-msgid "Improve your character. you can reset your stats for free with /reset_stats
-"
-msgstr ""
-
-#: src/game/handlers/stats.js 49:97
-msgid "
-StatPoints: %s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/stats.js 49:125
-msgid "StatPoints: %s
-"
 msgstr[0] ""
 msgstr[1] ""
 

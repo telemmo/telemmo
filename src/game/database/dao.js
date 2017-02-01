@@ -1,7 +1,9 @@
 const {
   partial,
   always,
-  mergeWith,
+  identity,
+  ifElse,
+  isNil,
   merge,
   assoc,
   prop,
@@ -9,8 +11,6 @@ const {
   omit,
   map,
 } = require('ramda')
-
-const mergeMerging = mergeWith(merge)
 
 const queries = {
   notDeleted: { deletedAt: { $exists: false } },
@@ -24,11 +24,17 @@ function find (collection, query) {
     .then(map(renameId))
 }
 
-function update (collection, query, document) {
+function update (collection, query, document, options) {
   const sealed = merge({}, document)
+  const opts = merge({ returnOriginal: false }, options || {})
 
-  return collection.update(query, sealed)
-    .then(always(sealed))
+  return collection.findOneAndUpdate(query, sealed, opts)
+    .then(prop('value'))
+    .then(ifElse(
+      isNil,
+      identity,
+      renameId,
+    ))
 }
 
 function create (collection, document) {
@@ -45,7 +51,8 @@ function create (collection, document) {
 }
 
 function destroy (collection, query) {
-  return collection.update(query, { $set: { deletedAt: new Date() } })
+  return collection.findOneAndUpdate(
+    query, { $set: { deletedAt: new Date() } })
 }
 
 function aggregate (collection, pipeline) {

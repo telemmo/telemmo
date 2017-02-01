@@ -41,6 +41,8 @@ function normalizeMessage (dao, provider, route, msg) {
 }
 
 function dispatch (provider, reply) {
+  console.log(reply)
+
   const { to, text, options } = reply
   let telegramOptions = {
     parse_mode: 'HTML',
@@ -59,14 +61,15 @@ function dispatch (provider, reply) {
 
 function handle (dao, provider, route, msg) {
   const translate = i18n.singular(msg.player.language)
+  const disp = partial(dispatch, [provider])
 
-  return route.handler(dao, provider, translate, msg)
-    .then(partial(dispatch, [provider]))
+  return route.handler(dao, disp, translate, msg)
+    .then(disp)
     .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
     .then(() => {
       if (typeof route.next === 'function') {
-        return route.next(dao, provider, translate, msg)
-          .then(partial(dispatch, [provider]))
+        return route.next(dao, disp, translate, msg)
+          .then(disp)
       }
     })
     .catch(partial(handleError, [provider]))
