@@ -114,7 +114,7 @@ function attachPrizes (combat, rolls) {
 function markFinished (combat) {
   return pipe(
     set(lensProp('finishedAt'), new Date()),
-    set(lensProp('winner'), combat.teams[0].members[0].id),
+    set(lensProp('winners'), combat.teams[0].members.map(prop('id'))),
   )(combat)
 }
 
@@ -259,7 +259,7 @@ function addLevel (dao, teams) {
   const members = teamsMemberIds(teams)
 
   return dao.combat.aggregate([
-    { $match: { winner: { $in: members } } },
+    { $match: { winners: { $in: members } } },
     { $project: { prizes: 1 } },
     { $unwind: '$prizes' },
     { $project: { exp: '$prizes.exp' } },

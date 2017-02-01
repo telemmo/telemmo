@@ -2,6 +2,7 @@ import {
   propEq,
   always,
   toPairs,
+  contains,
   addIndex,
   partial,
   flatten,
@@ -30,7 +31,7 @@ export function render (_, player, result) {
   )
 
   const header = join(' ', [
-    `${result.winner}` === `${player.currentCharId}`
+    contains(player.currentCharId, result.winners)
     ? _(':heavy_check_mark:')
     : _(':x:'),
     _(

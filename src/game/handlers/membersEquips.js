@@ -1,7 +1,7 @@
 export default function membersEquips (dao, members) {
   return dao.combat
     .aggregate([
-      { $match: { winner: { $in: members } } },
+      { $match: { winners: { $in: members } } },
       { $project: { prizes: 1 } },
       { $unwind: '$prizes' },
       { $project: { equip: '$prizes.equip' } },

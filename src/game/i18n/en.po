@@ -8,22 +8,22 @@
 "Content-Type : text/plain; charset=UTF-8"
 "Content-Transfer-Encoding : 8bit"
 
-#: src/game/handlers/explore.js 61:89
+#: src/game/handlers/explore.js 32:99
 msgid ":heavy_check_mark:"
 msgstr ""
 
-#: src/game/handlers/explore.js 61:115
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 61:125
+#: src/game/handlers/explore.js 32:135
 msgid "%s vs. %s
 
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 69:23
+#: src/game/handlers/explore.js 40:23
 msgid "%s
 <b>%s</b> won the initiative!
 
@@ -31,30 +31,30 @@ msgid "%s
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 76:4
+#: src/game/handlers/explore.js 47:4
 msgid ":dart: %s :anger: %s :sparkles: %s
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 76:100
+#: src/game/handlers/explore.js 47:100
 msgid "<b>%s</b> dealt <b>%s damage</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 77:13
+#: src/game/handlers/explore.js 48:13
 msgid "%s <b>%s</b> casted for <b>%s %s</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 78:17
+#: src/game/handlers/explore.js 49:17
 msgid "<b>%s</b>'s hp: <b>%s</b> / %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 91:19
+#: src/game/handlers/explore.js 62:19
 msgid ":arrow_up: Experience: %s
 :shell: Itens: %s
 :tophat: Equips: %s
@@ -62,36 +62,36 @@ msgid ":arrow_up: Experience: %s
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 61:115
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 61:115
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 61:115
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 117:10
+#: src/game/handlers/explore.js 98:10
 msgid "You started exploring %s!"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 141:177
+#: src/game/handlers/explore.js 122:177
 msgid "You will only stop if you lose a battle. If that happens, just start exploring again."
 msgstr ""
 
-#: src/game/handlers/explore.js 145:88
+#: src/game/handlers/explore.js 126:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 145:88
+#: src/game/handlers/explore.js 126:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 146:11
+#: src/game/handlers/explore.js 127:11
 msgid "The desired map does not exist!"
 msgstr ""
 
@@ -103,18 +103,6 @@ msgstr ""
 
 #: src/game/handlers/classInfo.js 41:193
 msgid "Invalid class name"
-msgstr ""
-
-#: src/game/handlers/overworld.js 11:9
-msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:
-
-"
-msgstr ""
-
-#: src/game/handlers/maps.js 25:10
-msgid ":earth_asia: Explore :earth_asia:
-
-Choose a map to explore"
 msgstr ""
 
 #: src/game/handlers/createChar.js 19:9
@@ -138,10 +126,22 @@ msgstr ""
 msgid "You need to choose a class"
 msgstr ""
 
+#: src/game/handlers/overworld.js 11:9
+msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:
+
+"
+msgstr ""
+
 #: src/game/handlers/welcome.js 23:10
 msgid ":globe_with_meridians: Welcome to TeleMMO! :globe_with_meridians:
 
  You will now create your first character. Touch the comands below to see information about a class."
+msgstr ""
+
+#: src/game/handlers/maps.js 25:10
+msgid ":earth_asia: Explore :earth_asia:
+
+Choose a map to explore"
 msgstr ""
 
 #: src/game/handlers/improveStats.js 49:13
@@ -204,7 +204,8 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/game/handlers/charInfo.js 40:12
-msgid "<b>Name:</b> %s
+msgid "<b>Titles</b>: %s
+<b>Name:</b> %s
 <b>Class:</b> %s
 <b>Stance:</b> %s
 <b>Level:</b> %s
@@ -224,18 +225,23 @@ msgid "You are now using <b>%s</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/inventory.js 37:13
+#: src/game/handlers/inventory.js 28:255
+msgid "You don't have any equips yet."
+msgstr ""
+
+#: src/game/handlers/inventory.js 40:13
 msgid "Equiped:
 %s
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/inventory.js 39:21
-msgid "Nothing."
+#: src/game/handlers/inventory.js 42:21
+msgid "Nothing.
+"
 msgstr ""
 
-#: src/game/handlers/inventory.js 39:37
+#: src/game/handlers/inventory.js 42:39
 msgid "Inventory:
 "
 msgstr ""
@@ -263,28 +269,6 @@ msgstr ""
 
 #: src/game/handlers/upStat.js 63:10
 msgid "%s increased by 1!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 39:21
-msgid "Nothing.
-"
-msgstr ""
-
-#: src/game/handlers/inventory.js 28:255
-msgid "You don't have any equips yet."
-msgstr ""
-
-#: src/game/handlers/charInfo.js 40:12
-msgid "<b>Titles</b>: %s
-<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Stance:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
-
-<i>Raw Stats</i>
-%s"
 msgstr[0] ""
 msgstr[1] ""
 

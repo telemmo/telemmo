@@ -1,9 +1,10 @@
 import {
-  propEq,
+  prop,
+  pipe,
   always,
   identity,
+  contains,
   ifElse,
-  assoc,
   isNil,
   tap,
 } from 'ramda'
@@ -38,7 +39,7 @@ export function exploreUntilDead (dao, player, gameMap, char) {
         ))
         .then(tap(subscriber.next.bind(subscriber)))
         .then(ifElse(
-          propEq('winner', player.currentCharId),
+          pipe(prop('winners'), contains(player.currentCharId)),
           fight,
           identity,
         ))

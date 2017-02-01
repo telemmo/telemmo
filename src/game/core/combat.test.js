@@ -28,9 +28,9 @@ function exploreMock (allStats, stance, monster) {
 function runCombat (teams) {
   const { run } = require('./combat')
   return run(teams)
-    .tap(({ turns, finishedAt, winner }) => {
+    .tap(({ turns, finishedAt, winners }) => {
       expect(finishedAt).toBeTruthy()
-      expect(winner).toBeTruthy()
+      expect(winners).toBeTruthy()
       // expect(turns.length).toBeLessThan(30)
     })
 }
@@ -40,7 +40,7 @@ function runCombatBatch (teams, amount, log) {
     .tap((combats) => {
       expect(combats.length).toBe(amount)
     })
-    .then(filter((result) => result.winner === 'Worms'))
+    .then(filter((result) => result.winners.includes('Worms')))
     .then(length)
     .tap(console.log.bind(console, log))
 }
