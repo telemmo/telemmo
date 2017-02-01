@@ -3,7 +3,9 @@ export default [
   {
     id: 'leaf_blade',
     name: 'Leaf Blade',
+    description: 'A blade. Made of leaf.',
     type: 'weapon',
+    tier: 0,
     bonus: {
       str: 5,
     },
@@ -21,7 +23,9 @@ export default [
   {
     id: 'sharded_club',
     name: 'Sharded Club',
+    description: 'A really spiky club.',
     type: 'weapon',
+    tier: 1,
     bonus: {
       str: 10,
     },
@@ -39,7 +43,9 @@ export default [
   {
     id: 'whip_of_vines',
     name: 'Whip of Vines',
+    description: 'It was supposed to be "Vine Whip" but maybe Nintendo would sue us.',
     type: 'weapon',
+    tier: 2,
     bonus: {
       str: 15,
     },
@@ -57,7 +63,9 @@ export default [
   {
     id: 'psycho_scythe',
     name: 'Psycho Scythe',
+    description: 'A scythe once used by a psycho.',
     type: 'weapon',
+    tier: 3,
     bonus: {
       str: 10,
     },
@@ -75,7 +83,9 @@ export default [
   {
     id: 'lancicle',
     name: 'Lancicle',
+    description: 'It\'s shinny and it\'s pointy.',
     type: 'weapon',
+    tier: 4,
     bonus: {
       str: 17,
       con: 7,
@@ -93,11 +103,13 @@ export default [
       },
     }),
   },
-  // Sets
+  //s
   {
     id: 'foliage',
-    name: 'Foliage Set',
+    name: 'Foliage',
+    description: 'A set. Made of leaf.',
     type: 'set',
+    tier: 0,
     bonus: {
       con: 5,
       ref: 5,
@@ -105,8 +117,10 @@ export default [
   },
   {
     id: 'granite',
-    name: 'Granite Set',
+    name: 'Granite',
+    description: 'You can now kill stuff inside a rock.',
     type: 'set',
+    tier: 1,
     bonus: {
       str: 5,
       con: 10,
@@ -114,8 +128,10 @@ export default [
   },
   {
     id: 'porcelain',
-    name: 'Porcelain Set',
+    name: 'Porcelain',
+    description: 'Porcelain is actually quite resistent.',
     type: 'set',
+    tier: 2,
     bonus: {
       con: 20,
     },
@@ -123,7 +139,9 @@ export default [
   {
     id: 'miasma',
     name: 'Miasma',
+    description: 'Google it, it\'s easier.',
     type: 'set',
+    tier: 3,
     bonus: {
       con: 20,
       str: 5,
@@ -133,7 +151,9 @@ export default [
   {
     id: 'glacier',
     name: 'Glacier',
+    description: 'Kinda cold but you can manage it.',
     type: 'set',
+    tier: 4,
     bonus: {
       con: 25,
       str: 10,
@@ -144,7 +164,9 @@ export default [
   {
     id: 'golden_beetle',
     name: 'Golden Beetle',
+    description: 'A shiny beetle that helps you.',
     type: 'token',
+    tier: 0,
     bonus: {
       flow: 5,
     },
@@ -162,7 +184,9 @@ export default [
   {
     id: 'precious_ore',
     name: 'Precious Ore',
+    description: 'A rare magical ore with mistery powers.',
     type: 'token',
+    tier: 1,
     bonus: {
       flow: 8,
     },
@@ -181,7 +205,9 @@ export default [
   {
     id: 'old_soul',
     name: 'Old Soul',
+    description: 'You found this lonely soul and now it\'s by your side.',
     type: 'token',
+    tier: 2,
     bonus: {
       flow: 12,
     },
@@ -200,7 +226,9 @@ export default [
   {
     id: 'demons_pick' ,
     name: 'Demon\'s Pick',
+    description: 'Jack Black would be prowd of you.',
     type: 'token',
+    tier: 3,
     bonus: {
       flow: 15,
       ref: 5,
@@ -220,7 +248,9 @@ export default [
   {
     id: 'ice_ring' ,
     name: 'Ice Ring',
+    description: 'It looks as powerfull as it shines.',
     type: 'token',
+    tier: 4,
     bonus: {
       flow: 17,
       ref: 10,

@@ -35,11 +35,11 @@ export default function call (dao, provider, _, msg) {
         _('Equiped:\n%s\n',
           toPairs(tap(console.log, char.equips)).map(pair =>
             `<b>${capitalize(pair[0])}:</b> ${models.equips.find(pair[1]).name}\n`,
-          ).join('') || _('Nothing.'),
+          ).join('') || _('Nothing.\n'),
         ),
         _('Inventory:\n'),
         equips.map(equip =>
-          `${equip.name} - <i>${capitalize(equip.type)}</i>\n /use_equip_${equip.id}\n`,
+          `<b>${equip.name}</b> - ${capitalize(equip.type)} tier ${equip.tier}\n<i>${equip.description}</i>\n /use_equip_${equip.id}\n`,
         ).join('\n'),
       ].join(''),
     }))
