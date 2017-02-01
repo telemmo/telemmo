@@ -63,6 +63,14 @@ function handle (dao, provider, route, msg) {
   const translate = i18n.singular(msg.player.language)
   const disp = partial(dispatch, [provider])
 
+  if (route.condition && !route.condition(msg)) {
+    return route.error(dao, disp, translate, msg)
+      .then(disp)
+      .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
+      .catch(partial(handleError, [provider]))
+      .catch(partial(console.error, [`${msg.chat} ERR "${msg.text}":`]))
+  }
+
   return route.handler(dao, disp, translate, msg)
     .then(disp)
     .then(() => console.log(`${msg.chat} OK  "${msg.text}"`))
