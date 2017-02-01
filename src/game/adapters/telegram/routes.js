@@ -33,6 +33,7 @@ export default [
   {
     match: /\/use_equip_(\w+)/,
     handler: handlers.useEquip,
+    next: handlers.inventory,
   },
   {
     match: /\/char_info/,
