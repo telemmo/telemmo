@@ -275,3 +275,16 @@ msgstr ""
 msgid "You don't have any equips yet."
 msgstr ""
 
+#: src/game/handlers/charInfo.js 40:12
+msgid "<b>Titles</b>: %s
+<b>Name:</b> %s
+<b>Class:</b> %s
+<b>Stance:</b> %s
+<b>Level:</b> %s
+<b>Exp:</b> %s
+
+<i>Raw Stats</i>
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
