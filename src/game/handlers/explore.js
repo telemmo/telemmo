@@ -3,63 +3,24 @@ import {
   always,
   toPairs,
   addIndex,
-  identity,
   partial,
   flatten,
-  ifElse,
-  isNil,
   split,
   pipe,
   join,
   head,
   tail,
-  tap,
   map,
   nth,
 } from 'ramda'
 
 import Promise from 'bluebird'
-import { Observable } from 'rx'
 
 import models from '../models'
 import { rejectUndefined } from './errors'
-import { randomMonster } from '../core/explore'
-import { run } from '../core/combat'
-
-function InvalidMap (mapId) {
-  this.message = `Invalid map id "${mapId}"`
-  this.name = 'InvalidMap'
-  this.mapIp = mapId
-  Error.captureStackTrace(this, InvalidMap)
-}
-InvalidMap.prototype = Object.create(Error.prototype)
-InvalidMap.prototype.constructor = InvalidMap
+import { exploreUntilDead } from '../core/explore'
 
 const flatHead = pipe(map(head), flatten)
-
-function fightUntilDead (dao, player, gameMap, char) {
-  return Observable.create((subscriber) => {
-    function fight () {
-      const monster = randomMonster(gameMap.id)
-
-      return run(dao, [[monster], [char]])
-        .then(ifElse(
-          isNil,
-          () => Promise.reject(new Error()),
-          identity,
-        ))
-        .then(tap(subscriber.next.bind(subscriber)))
-        .then(ifElse(
-          propEq('winner', player.currentCharId),
-          fight,
-          identity,
-        ))
-        .catch(() => console.log('Invalid combat token, refusing to save'))
-    }
-
-    fight()
-  })
-}
 
 export function render (_, player, result) {
   const initiative = head(result.turns)
@@ -157,6 +118,17 @@ export function render (_, player, result) {
   return text
 }
 
+
+function InvalidMap (mapId) {
+  this.message = `Invalid map id "${mapId}"`
+  this.name = 'InvalidMap'
+  this.mapIp = mapId
+  Error.captureStackTrace(this, InvalidMap)
+}
+InvalidMap.prototype = Object.create(Error.prototype)
+InvalidMap.prototype.constructor = InvalidMap
+
+
 function reply (msg, text) {
   return {
     to: msg.chat,
@@ -183,8 +155,9 @@ function sendExplorationStart (dispatch, _, msg, gameMap, char) {
   })
 }
 
+
 function startFight (dao, dispatch, _, msg, gameMap, char) {
-  const exploration = fightUntilDead(dao, msg.player, gameMap, char)
+  const exploration = exploreUntilDead(dao, msg.player, gameMap, char)
 
   exploration.subscribe(
     partial(sendCombatResult, [dispatch, _, msg]))

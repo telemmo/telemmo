@@ -4,6 +4,7 @@ import {
   always,
   prop,
   flatten,
+  assoc,
   find,
   filter,
   mergeWith,
@@ -297,18 +298,34 @@ function upsertCombat (dao, combat) {
   return dao.combat.update(query, combat, { upsert: true })
 }
 
-function build (dao, tms) {
+function mergeFighter (a, b) {
+  return ifElse(
+    isArrayLike,
+    always(undefined),
+    add(b),
+  )(a)
+}
+
+function buildTeam (members) {
+  return {
+    overall: members.reduce((acc, fighter) =>
+      mergeWith(mergeFighter, acc, fighter),
+      { stance: [] }),
+    members,
+  }
+}
+
+function build (dao, source, tms) {
   return Promise.resolve(tms)
     .then(partial(addLevel, [dao]))
-    .then((teams) => {
-      return Promise.all(teams.map(team =>
-        Promise.all(team.map(buildCombatStats))))
-    })
+    .then(teams =>
+      Promise.all(teams.map(team =>
+        Promise.all(team.map(buildCombatStats)))),
+    )
     .then(map(buildTeam))
     .then(initiative)
     .then(initTurn => ({
       teams: initTurn.order,
-      token: cuid(),
       initialTeams: initTurn.order,
       startedAt: new Date(),
       turns: [
@@ -318,6 +335,8 @@ function build (dao, tms) {
         },
       ],
     }))
+    .then(assoc('token', cuid()))
+    .then(assoc('source', source))
     .then(partial(upsertCombat, [dao]))
     .then(wait)
 }
@@ -336,25 +355,9 @@ export function start (combat) {
     .then(Promise.coroutine(generate))
 }
 
-export function run (dao, teams) {
-  return build(dao, teams)
+export function run (dao, source, teams) {
+  return build(dao, source, teams)
     .then(start)
     .then(partial(updateCombat, [dao]))
 }
 
-function mergeFighter (a, b) {
-  return ifElse(
-    isArrayLike,
-    always(undefined),
-    add(b),
-  )(a)
-}
-
-function buildTeam (members) {
-  return {
-    overall: members.reduce((acc, fighter) =>
-      mergeWith(mergeFighter, acc, fighter),
-      { stance: [] }),
-    members,
-  }
-}

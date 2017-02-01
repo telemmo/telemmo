@@ -1,8 +1,17 @@
 import {
+  propEq,
   always,
+  identity,
+  ifElse,
+  assoc,
+  isNil,
+  tap,
 } from 'ramda'
 
+import { Observable } from 'rx'
+
 import models from '../models'
+import { run } from './combat'
 
 export function randomMonster (mapId) {
   const mapObj = models.maps.find(mapId)
@@ -13,5 +22,30 @@ export function randomMonster (mapId) {
   const monsterId = monsterPool[Math.floor(Math.random() * monsterPool.length)]
   const monster = models.monsters.find(monsterId)
   return monster
+}
+
+export function exploreUntilDead (dao, player, gameMap, char) {
+  return Observable.create((subscriber) => {
+    function fight () {
+      const monster = randomMonster(gameMap.id)
+      const source = { name: 'map', id: gameMap.id }
+
+      return run(dao, source, [[monster], [char]])
+        .then(ifElse(
+          isNil,
+          () => Promise.reject(new Error()),
+          identity,
+        ))
+        .then(tap(subscriber.next.bind(subscriber)))
+        .then(ifElse(
+          propEq('winner', player.currentCharId),
+          fight,
+          identity,
+        ))
+        .catch(() => console.log('Invalid combat token, refusing to save'))
+    }
+
+    fight()
+  })
 }
 

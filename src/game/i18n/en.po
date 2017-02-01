@@ -266,3 +266,8 @@ msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/inventory.js 39:21
+msgid "Nothing.
+"
+msgstr ""
+
