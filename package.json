@@ -16,8 +16,7 @@
     "printf": "^0.2.5",
     "ramda": "0.23.0",
     "rx": "4.1.0",
-    "source-map-support": "0.4.9",
-    "webpack": "1.14.0"
+    "source-map-support": "0.4.9"
   },
   "scripts": {
     "dist": "webpack --progress --colors --config webpack.config.prod.js",
@@ -40,6 +39,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
-    "gettext-loader": "derekstavis/gettext-loader"
+    "gettext-loader": "derekstavis/gettext-loader",
+    "webpack": "^2.2.1"
   }
 }
