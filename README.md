@@ -18,7 +18,7 @@ Today we have a telegram bot only but our code architecture allows for using as 
 
 ### Translations
 
-We've added internacionalization to the game. If you want to help us translate to a language we don't have yet just go to this spreadsheet [Spreadsheet Link (TO BE DONE)](#)
+We've added internationalization to the game. If you want to help us translate to a language we are preparing a Transifex project.
 
 ### Bug report
 
@@ -27,6 +27,12 @@ If you found a bug, please open an issue here describing it as much as you can. 
 ### Contribute
 
 If you want to help with the code feel free to send a pull request. Please, check the [Contributor Guidelines (TO BE DONE)](#) before doing it so. We are very open to any change that makes sense, we are also normally avaiable on telegram to talk about coding, new features, and current features maintance.
+
+You can also contribute with server hosting costs and/or buy us a beer by donating to the following Bitcoin address:
+
+```
+1EZBdBfezXfBama7AELpwyDShrEqDAazC8
+```
 
 ### License
 
