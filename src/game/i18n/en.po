@@ -56,7 +56,7 @@ msgstr[1] ""
 
 #: src/game/handlers/explore.js 62:19
 msgid ":arrow_up: Experience: %s
-:shell: Itens: %s
+:shell: Items: %s
 :tophat: Equips: %s
 "
 msgstr[0] ""
