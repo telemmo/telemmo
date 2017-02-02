@@ -10,7 +10,7 @@ import {
 } from 'ramda'
 
 import { ObjectId } from 'mongodb'
-import { rejectUndefined } from './errors'
+import { reject, rejectUndefined } from './errors'
 import membersEquips from './membersEquips'
 import models from '../models'
 
@@ -27,14 +27,19 @@ export default function call (dao, provider, _, msg) {
 
   const equipId = msg.matches[1]
 
+  if (!models.equips.all.find(equip => equip.id === equipId)) {
+    return reject(msg, _('This equips doesn\'t exist.'))
+  }
+
   return dao.character
     .find({ playerId: msg.player.id })
     .then(chars => chars.map(char => ObjectId(char.id)))
     .then(partial(membersEquips, [dao]))
     .then(head)
+    .then(rejectUndefined(msg, _('You don\'t have this equip.')))
     .then(prop('equips'))
     .then(ifElse(contains(equipId), identity, always(null)))
-    .then(rejectUndefined(msg, _('Invalid equip')))
+    .then(rejectUndefined(msg, _('You don\'t have this equip.')))
     .then(always(equipChar(dao, equipId, msg.player.currentCharId)))
     .then(always({
       to: msg.chat,

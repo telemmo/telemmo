@@ -272,3 +272,11 @@ msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/useEquip.js 40:16
+msgid "This equips doesn't exist."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 47:252
+msgid "You don't have this equip."
+msgstr ""
+
