@@ -280,3 +280,11 @@ msgstr ""
 msgid "You don't have this equip."
 msgstr ""
 
+#: src/game/handlers/useChar.js 22:36
+msgid "Character ID is not a valid key ID"
+msgstr ""
+
+#: src/game/handlers/useChar.js 28:69
+msgid "This character for this player was not found."
+msgstr ""
+
