@@ -25,7 +25,8 @@
     "webpack": "1.14.0"
   },
   "scripts": {
-    "prestart": "webpack --progress --colors --config webpack.config.prod.js",
+    "dist": "webpack --progress --colors --config webpack.config.prod.js",
+    "prestart": "dist",
     "start": "node dist/telemmo.js",
     "predev": "webpack --progress --colors --config webpack.config.dev.js",
     "dev": "node dist/telemmo.dev.js",
