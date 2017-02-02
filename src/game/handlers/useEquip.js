@@ -40,7 +40,7 @@ export default function call (dao, provider, _, msg) {
     .then(prop('equips'))
     .then(ifElse(contains(equipId), identity, always(null)))
     .then(rejectUndefined(msg, _('You don\'t have this equip.')))
-    .then(always(equipChar(dao, equipId, msg.player.currentCharId)))
+    .then(() => equipChar(dao, equipId, msg.player.currentCharId))
     .then(always({
       to: msg.chat,
       text: _('%s equiped!', equipId),
