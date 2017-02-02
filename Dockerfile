@@ -1,10 +1,19 @@
 FROM node:alpine
 
+RUN apk add --no-cache git
+
+WORKDIR /build
+
+COPY . /build
+RUN npm install
+RUN npm run dist
+
 WORKDIR /app
 
-COPY . /app
+RUN mv /build/dist/telemmo* /app \
+    && mv /build/node_modules /app \
+    && rm -rf /build \
+    && rm -rf \
+    && apk del git
 
-RUN npm install
-
-CMD ["npm", "run", "dev"]
-
+CMD node /app/telemmo.js
