@@ -10,7 +10,7 @@ export default [
       str: 5,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: rolls.aAim < 19,
+      noCast: rolls.aAim < 17,
       defender: {
         hp: - ( 5 + attacker.level/10),
       },
@@ -30,7 +30,7 @@ export default [
       str: 10,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: rolls.aHit < 18,
+      noCast: rolls.aHit < 17,
       defender: {
         hp: - ( 10 + attacker.level/10),
       },
@@ -70,7 +70,7 @@ export default [
       str: 10,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aHit < 10),
+      noCast: (rolls.aHit < 13),
       defender: {
         hp: - ( 10 + attacker.level/5),
       },
@@ -93,7 +93,7 @@ export default [
       acc: 7,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aAim < 19),
+      noCast: (rolls.aAim < 18),
       defender: {
         hp: - ( 30 + attacker.level/4),
       },
