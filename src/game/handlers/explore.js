@@ -101,7 +101,7 @@ export function render (_, player, result) {
     .filter(prize => prize.equip)
 
   const prizesView = _(
-    ':arrow_up: Experience: %s\n:shell: Itens: %s\n:tophat: Equips: %s\n',
+    ':arrow_up: Experience: %s\n:shell: Items: %s\n:tophat: Equips: %s\n',
     exp ? exp.exp : _(':x:'),
     item ? item.item : _(':x:'),
     equips.length > 0
