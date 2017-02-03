@@ -1,5 +1,4 @@
 import {
-  always,
   partial,
   map,
 } from 'ramda'
