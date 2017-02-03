@@ -1,4 +1,4 @@
-import { level } from './level'
+import { level, percentageToNextLevel } from './level'
 
 test('levels', () => {
   expect(level({ exp: 0 })).toBe(0)
@@ -14,5 +14,16 @@ test('levels', () => {
   expect(level({ exp: 10000000 })).toBe(75)
   expect(level({ exp: 50000000 })).toBe(100)
   expect(level({ exp: 100000000 })).toBe(100)
+})
+
+test('percentage to next level', () => {
+  expect(percentageToNextLevel({ exp: 0 })).toBe(0)
+  expect(percentageToNextLevel({ exp: 23 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 23 * Math.pow(4, 3) - 1 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 23 * Math.pow(8, 3) - 1 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 23 * Math.pow(20, 3) - 1 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 23 * Math.pow(50, 3) - 1 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 23 * Math.pow(99, 3) - 1 })).toBeGreaterThan(0.9)
+  expect(percentageToNextLevel({ exp: 99999999999999 })).toBe(NaN)
 })
 
