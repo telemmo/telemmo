@@ -1,0 +1,39 @@
+const mobStances = [
+
+{
+    name: 'Quick Maneuvering',
+    classes: ['flight'],
+    description: 'increased attack speed and dodge chance',
+    buffs: Monsters => ({dex: Monsters.dex*2}),
+},
+{
+    name: 'Aggressive Dives',
+    classes: ['flight'],
+    description: 'increased damage, reduced attack speed',
+    buffs: Monsters => ({dex: Math.floor(Monsters.dex/2), str: Monsters.str*2}),
+},
+{
+    name: 'Diseased Claws',
+    classes: ['melee'],
+    description: 'increased damage, if possible add a poison debuff to player',
+    buffs: Monsters => ({str: Monsters.str*1.5}),
+},
+{
+    name: 'Infuriated',
+    classes: ['melee'],
+    description: 'highly increased attack speed, decresed dodge chance, slight increase in damage',
+    buffs: Monsters => ({dex: Monsters.dex*2, str: Math.floor(Monsters.str*1.25)}),
+},
+{
+    name: 'Tough Skin',
+    classes: ['tank'],
+    description: 'increased def and maxHP',
+    buffs: Monsters => ({vit: Monsters.vit*2}),
+},
+{
+    name: 'Unnatural Regeneration',
+    classes: ['tank'],
+    description: 'chance to regain a small amount of health',
+    buffs: Monsters => ({}),
+}
+]
