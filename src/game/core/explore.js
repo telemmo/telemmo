@@ -1,7 +1,6 @@
 import {
   prop,
   pipe,
-  always,
   identity,
   contains,
   ifElse,
@@ -11,17 +10,21 @@ import {
 
 import { Observable } from 'rx'
 
-import models from '../models'
+import { maps, monsters } from '../models'
+
 import { run } from './combat'
 
-export function randomMonster (mapId) {
-  const mapObj = models.maps.find(mapId)
+
+const píckMapFromDB =  (mapId)=> maps.find(mapId)
+
+
+export function randomMonster (mapObj, pickMonsterFn=monsters.find) {
   const monsterPool = mapObj.monsters.reduce((acc, monster) => [
     ...acc,
-    ...Array.from({ length: monster.influence }).map(always(monster.id)),
+    ...Array.from({ length: monster.influence }, ()=> monster.id ),
   ], [])
   const monsterId = monsterPool[Math.floor(Math.random() * monsterPool.length)]
-  const monster = models.monsters.find(monsterId)
+  const monster = pickMonsterFn(monsterId)
   return monster
 }
 
