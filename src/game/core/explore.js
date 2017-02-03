@@ -10,13 +10,12 @@ import {
 
 import { Observable } from 'rx'
 
-import { maps, monsters } from '../models'
+import {
+  maps,
+  monsters,
+} from '../models'
 
 import { run } from './combat'
-
-
-const píckMapFromDB =  (mapId)=> maps.find(mapId)
-
 
 export function randomMonster (monsters, pickMonsterFn=monsters.find) {
   const monsterPool = monsters.reduce((acc, monster) => [
@@ -31,7 +30,7 @@ export function randomMonster (monsters, pickMonsterFn=monsters.find) {
 export function exploreUntilDead (dao, player, gameMap, char) {
   return Observable.create((subscriber) => {
     function fight () {
-      const monster = randomMonster(gameMap.id)
+      const monster = randomMonster(gameMap.monsters)
       const source = { name: 'map', id: gameMap.id }
 
       return run(dao, source, [[monster], [char]])
