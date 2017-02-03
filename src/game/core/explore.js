@@ -18,8 +18,8 @@ import { run } from './combat'
 const píckMapFromDB =  (mapId)=> maps.find(mapId)
 
 
-export function randomMonster (mapObj, pickMonsterFn=monsters.find) {
-  const monsterPool = mapObj.monsters.reduce((acc, monster) => [
+export function randomMonster (monsters, pickMonsterFn=monsters.find) {
+  const monsterPool = monsters.reduce((acc, monster) => [
     ...acc,
     ...Array.from({ length: monster.influence }, ()=> monster.id ),
   ], [])
