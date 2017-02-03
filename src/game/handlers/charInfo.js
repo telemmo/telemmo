@@ -5,7 +5,7 @@ import {
 
 import { ObjectId } from 'mongodb'
 
-import { level } from '../core/level'
+import { level, percentageToNextLevel } from '../core/level'
 import membersExp from '../core/membersExp'
 
 import { rejectUndefined } from './errors'
@@ -30,6 +30,7 @@ export default function call (dao, provider, _, msg) {
     .then(char => ({
       to: msg.chat,
       text: _(
+        //add percentage on this string
         '<b>Titles</b>: %s\n<b>Name:</b> %s\n<b>Class:</b> %s\n<b>Stance:</b> %s\n<b>Level:</b> %s\n<b>Exp:</b> %s\n\n<i>Raw Stats</i>\n%s',
         msg.player.titles.join(', '),
         char.name,
@@ -37,6 +38,7 @@ export default function call (dao, provider, _, msg) {
         capitalize(char.stance),
         char.level,
         char.exp,
+        percentageToNextLevel(char.exp,
         [ _('Strength: %s', char.str),
           _('Constitution: %s', char.con),
           _('Reflex: %s', char.ref),
