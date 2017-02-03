@@ -44,13 +44,13 @@ function runInitiative (teams, rolls) {
   if (rolls[names[0]] > rolls[names[1]]) {
     return {
       order: [teams[0], teams[1]],
-      rolls
+      rolls,
     }
   }
 
   return {
     order: [teams[1], teams[0]],
-    rolls
+    rolls,
   }
 }
 
@@ -62,50 +62,48 @@ function initiative (teams) {
 function attachPrizes (combat, rolls) {
   const { teams } = combat
 
-  const allPrizes = teams[0].members.reduce((loot, char) => {
-    return [...loot, ...teams[1].members.reduce((prizes, enemy) => {
-      if (!enemy.prizes) {
-        return prizes
-      }
-
-      prizes = [ ...prizes ,{
-        charId: char.id,
-        exp: enemy.prizes.exp,
-      }]
-
-      if (rolls.itemLuck < 2000 && enemy.prizes.items) {
-        const items = enemy.prizes.items
-        const index = Math.floor((rolls.item / 10000) * items.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          item: enemy.prizes.items[index],
-        }]
-      }
-
-      if (rolls.equipLuck < 100 && enemy.prizes.equips) {
-        const equips = enemy.prizes.equips
-        const index = Math.floor((rolls.equip / 10000) * equips.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          equip: enemy.prizes.equips[index],
-        }]
-      }
-
-      if (rolls.tokenLuck <= 5 && enemy.prizes.tokens) {
-        const tokens = enemy.prizes.equips
-        const index = Math.floor((rolls.token / 10000) * tokens.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          equip: enemy.prizes.tokens[index],
-        }]
-      }
-
+  const allPrizes = teams[0].members.reduce((loot, char) => [...loot, ...teams[1].members.reduce((prizes, enemy) => {
+    if (!enemy.prizes) {
       return prizes
-    }, [])]
-  }, [])
+    }
+
+    prizes = [...prizes, {
+      charId: char.id,
+      exp: enemy.prizes.exp,
+    }]
+
+    if (rolls.itemLuck < 2000 && enemy.prizes.items) {
+      const items = enemy.prizes.items
+      const index = Math.floor((rolls.item / 10000) * items.length)
+
+      prizes = [...prizes, {
+        charId: char.id,
+        item: enemy.prizes.items[index],
+      }]
+    }
+
+    if (rolls.equipLuck < 100 && enemy.prizes.equips) {
+      const equips = enemy.prizes.equips
+      const index = Math.floor((rolls.equip / 10000) * equips.length)
+
+      prizes = [...prizes, {
+        charId: char.id,
+        equip: enemy.prizes.equips[index],
+      }]
+    }
+
+    if (rolls.tokenLuck <= 5 && enemy.prizes.tokens) {
+      const tokens = enemy.prizes.equips
+      const index = Math.floor((rolls.token / 10000) * tokens.length)
+
+      prizes = [...prizes, {
+        charId: char.id,
+        equip: enemy.prizes.tokens[index],
+      }]
+    }
+
+    return prizes
+  }, [])], [])
 
   return set(lensProp('prizes'), allPrizes, combat)
 }
@@ -250,7 +248,7 @@ function wait (combat) {
 
 function mergeLevel (teams, computedExps) {
   return teams.map(team =>
-    team.map(char => {
+    team.map((char) => {
       if (char.prizes) { return char }
       const charExp = pipe(find(propEq('_id', char.id)), propOr('exp', 0))
       const exp = charExp(computedExps)

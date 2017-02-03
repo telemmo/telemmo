@@ -22,7 +22,7 @@ export function getStatSpent (char, statName) {
   let totalCost = 0
   let currentAmount = char[statId]
   while (currentAmount > 5) {
-    totalCost += (cost(currentAmount -1))
+    totalCost += (cost(currentAmount - 1))
     currentAmount -= 1
   }
 
@@ -32,13 +32,13 @@ export function getStatSpent (char, statName) {
 export function getTotalStats (
   char,
   currentLevel = char.level,
-  points = 0
+  points = 0,
 ) {
   if (currentLevel === 0) { return points }
   return getTotalStats(
     char,
-    currentLevel -1,
-    points + currentLevel + 10
+    currentLevel - 1,
+    points + currentLevel + 10,
   )
 }
 export function getSpent (char) {

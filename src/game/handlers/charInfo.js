@@ -37,12 +37,12 @@ export default function call (dao, provider, _, msg) {
         capitalize(char.stance),
         char.level,
         char.exp,
-        [ _('Strength: %s', char.str),
+        [_('Strength: %s', char.str),
           _('Constitution: %s', char.con),
           _('Reflex: %s', char.ref),
           _('Accuracy: %s', char.acc),
           _('Flow: %s', char.flow),
-        ].join('\n')
+        ].join('\n'),
       ),
     }))
 }
