@@ -5,7 +5,7 @@ import {
 
 import { ObjectId } from 'mongodb'
 
-import { level, percentageToNextLevel } from '../core/level'
+import { level, nextLevelBar } from '../core/level'
 import membersExp from '../core/membersExp'
 
 import { rejectUndefined } from './errors'
@@ -29,23 +29,24 @@ export default function call (dao, provider, _, msg) {
     )
     .then(char => ({
       to: msg.chat,
-      text: _(
-        //add percentage on this string
-        '<b>Titles</b>: %s\n<b>Name:</b> %s\n<b>Class:</b> %s\n<b>Stance:</b> %s\n<b>Level:</b> %s\n<b>Exp:</b> %s\n\n<i>Raw Stats</i>\n%s',
-        msg.player.titles.join(', '),
-        char.name,
-        capitalize(char.classId),
-        capitalize(char.stance),
-        char.level,
-        char.exp,
-        percentageToNextLevel(char.exp,
-        [ _('Strength: %s', char.str),
-          _('Constitution: %s', char.con),
-          _('Reflex: %s', char.ref),
-          _('Accuracy: %s', char.acc),
-          _('Flow: %s', char.flow),
-        ].join('\n')
-      ),
+      text: [
+        _('<b>Titles:</b> %s', msg.player.titles.join(', ')),
+        _('<b>Name:</b> %s', char.name),
+        _('<b>Class:</b> %s', capitalize(char.classId)),
+        _('<b>Stance:</b> %s', capitalize(char.stance)),
+        _('<b>Level:</b> %s', char.level),
+        _('<b>Exp:</b> %s', char.exp),
+        _('\n<b>Level Progress :</b>\n<pre>%s</pre>', nextLevelBar(char)),
+        _('\nStats\n%s',
+          [
+            _('<b>Strength: </b> %s', char.str),
+            _('<b>Constitution: </b> %s', char.con),
+            _('<b>Reflex: </b> %s', char.ref),
+            _('<b>Accuracy: </b> %s', char.acc),
+            _('<b>Flow: </b> %s', char.flow),
+          ].join('\n'),
+        ),
+      ].join('\n'),
     }))
 }
 
