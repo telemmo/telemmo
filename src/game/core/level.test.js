@@ -28,9 +28,9 @@ test('percentage to next level', () => {
 })
 
 test('buildExpBar', () => {
-  expect(buildExpBar(0.9, 10)).toBe('90.00% <||||||||| >')
-  expect(buildExpBar(0.5, 10)).toBe('50.00% <|||||     >')
-  expect(buildExpBar(0.5)).toBe('50.00% <|||||     >')
-  expect(buildExpBar(0)).toBe('0.00% <          >')
+  expect(buildExpBar(0.9, 10)).toBe('90.00% [||||||||| ]')
+  expect(buildExpBar(0.5, 10)).toBe('50.00% [|||||     ]')
+  expect(buildExpBar(0.5)).toBe('50.00% [|||||     ]')
+  expect(buildExpBar(0)).toBe('0.00% [          ]')
 })
 
