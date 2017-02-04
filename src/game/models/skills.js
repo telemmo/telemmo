@@ -49,7 +49,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: - (40 + attacker.level/2),
+        value: (40 + attacker.level/2),
       },
     }),
   },
