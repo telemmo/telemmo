@@ -8,22 +8,22 @@
 "Content-Type : text/plain; charset=UTF-8"
 "Content-Transfer-Encoding : 8bit"
 
-#: src/game/handlers/explore.js 34:99
+#: src/game/handlers/explore.js 32:99
 msgid ":heavy_check_mark:"
 msgstr ""
 
-#: src/game/handlers/explore.js 34:125
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 34:135
+#: src/game/handlers/explore.js 32:135
 msgid "%s vs. %s
 
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 42:23
+#: src/game/handlers/explore.js 40:23
 msgid "%s
 <b>%s</b> won the initiative!
 
@@ -31,24 +31,30 @@ msgid "%s
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 51:11
+#: src/game/handlers/explore.js 47:4
+msgid ":dart: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 47:100
 msgid "<b>%s</b> dealt <b>%s damage</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 52:13
+#: src/game/handlers/explore.js 48:13
 msgid "%s <b>%s</b> cast for <b>%s %s</b>
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 53:17
+#: src/game/handlers/explore.js 49:17
 msgid "<b>%s</b>'s hp: <b>%s</b> / %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 66:19
+#: src/game/handlers/explore.js 62:19
 msgid ":arrow_up: Experience: %s
 :shell: Items: %s
 :tophat: Equips: %s
@@ -56,37 +62,58 @@ msgid ":arrow_up: Experience: %s
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 34:125
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 34:125
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 34:125
+#: src/game/handlers/explore.js 32:125
 msgid ":x:"
 msgstr ""
 
-#: src/game/handlers/explore.js 102:10
+#: src/game/handlers/explore.js 98:10
 msgid "You started exploring %s!"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/explore.js 126:177
+#: src/game/handlers/explore.js 122:177
 msgid "You will only stop if you lose a battle. If that happens, just start exploring again."
 msgstr ""
 
-#: src/game/handlers/explore.js 130:88
+#: src/game/handlers/explore.js 126:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 130:88
+#: src/game/handlers/explore.js 126:88
 msgid "No match"
 msgstr ""
 
-#: src/game/handlers/explore.js 131:11
+#: src/game/handlers/explore.js 127:11
 msgid "The desired map does not exist!"
+msgstr ""
+
+#: src/game/handlers/about.js 10:13
+msgid ":globe_with_meridians: TeleMMO version %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/about.js 10:74
+msgid "Github: http://github.com/telemmo/telemmo"
+msgstr ""
+
+#: src/game/handlers/about.js 10:122
+msgid "Reddit: http://reddit.com/r/telemmo"
+msgstr ""
+
+#: src/game/handlers/about.js 10:164
+msgid "Telegram: @telemmo"
+msgstr ""
+
+#: src/game/handlers/about.js 11:15
+msgid "/overworld"
 msgstr ""
 
 #: src/game/handlers/classInfo.js 19:129
@@ -127,6 +154,10 @@ msgstr ""
 #: src/game/handlers/overworld.js 11:88
 msgid "
 Our telegram group is @telemmo, join and chat with us!"
+msgstr ""
+
+#: src/game/handlers/overworld.js 11:151
+msgid "To know more about this bot, send /about"
 msgstr ""
 
 #: src/game/handlers/welcome.js 23:10
@@ -209,80 +240,90 @@ msgid "This character is currently exploring a map.
 Wait it come back before changing char."
 msgstr ""
 
-#: src/game/handlers/charInfo.js 27:62
+#: src/game/handlers/charInfo.js 29:62
 msgid "Invalid char Id"
 msgstr ""
 
-#: src/game/handlers/charInfo.js 40:13
+#: src/game/handlers/charInfo.js 42:13
 msgid "<b>Titles:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:67
+#: src/game/handlers/charInfo.js 42:67
 msgid "<b>Name:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:100
+#: src/game/handlers/charInfo.js 42:100
 msgid "<b>Class:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:163
+#: src/game/handlers/charInfo.js 42:163
 msgid "<b>Stance:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:226
+#: src/game/handlers/charInfo.js 42:226
 msgid "<b>Level:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:261
+#: src/game/handlers/charInfo.js 42:261
 msgid "<b>Exp:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:292
+#: src/game/handlers/charInfo.js 42:292
 msgid "
 <b>Level Progress :</b>
 <pre>%s</pre>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:371
+#: src/game/handlers/charInfo.js 42:371
 msgid "
 Stats
 %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:389
+#: src/game/handlers/charInfo.js 42:389
 msgid "<b>Strength: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:426
+#: src/game/handlers/charInfo.js 42:426
 msgid "<b>Constitution: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:467
+#: src/game/handlers/charInfo.js 42:467
 msgid "<b>Reflex: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:502
+#: src/game/handlers/charInfo.js 42:502
 msgid "<b>Accuracy: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:539
+#: src/game/handlers/charInfo.js 42:539
 msgid "<b>Flow: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:586
+#: src/game/handlers/charInfo.js 42:573
+msgid "<b>StatPoints: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 42:661
+msgid "
+see /improve_stats to spend your StatPoints"
+msgstr ""
+
+#: src/game/handlers/charInfo.js 42:713
 msgid "
 see /inventory for items and equips"
 msgstr ""
@@ -312,20 +353,20 @@ msgstr ""
 msgid "You don't have any equips yet."
 msgstr ""
 
-#: src/game/handlers/inventory.js 40:13
-msgid "Equiped:
+#: src/game/handlers/inventory.js 42:13
+msgid "<pre>Equipped:</pre>
 %s
+
 "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/inventory.js 42:21
-msgid "Nothing.
-"
+#: src/game/handlers/inventory.js 44:23
+msgid "Nothing."
 msgstr ""
 
-#: src/game/handlers/inventory.js 42:39
-msgid "Inventory:
+#: src/game/handlers/inventory.js 44:39
+msgid "<pre>Inventory:</pre>
 "
 msgstr ""
 
@@ -342,82 +383,24 @@ msgid "You don't have this equip."
 msgstr ""
 
 #: src/game/handlers/useEquip.js 51:10
-msgid "%s equiped!"
+msgid "%s equipped!"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/upStat.js 38:29
+#: src/game/handlers/upStat.js 41:29
 msgid "Invalid stat."
 msgstr ""
 
-#: src/game/handlers/upStat.js 55:38
+#: src/game/handlers/upStat.js 58:38
 msgid "You cant have more than 100 points."
 msgstr ""
 
-#: src/game/handlers/upStat.js 60:36
+#: src/game/handlers/upStat.js 63:36
 msgid "You dont have points for that."
 msgstr ""
 
-#: src/game/handlers/upStat.js 63:10
+#: src/game/handlers/upStat.js 66:10
 msgid "%s increased by 1!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/upStat.js 69:10
-msgid "Race condition detected"
-msgstr ""
-
-#: src/game/handlers/explore.js 47:4
-msgid ":dart: %s :anger: %s :sparkles: %s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 42:13
-msgid "Equiped:
-%s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 44:23
-msgid "Nothing."
-msgstr ""
-
-#: src/game/handlers/inventory.js 42:13
-msgid "<pre>Equiped:</pre>
-%s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 44:39
-msgid "<pre>Inventory:</pre>
-"
-msgstr ""
-
-#: src/game/handlers/charInfo.js 42:573
-msgid "<b>StatPoints: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 42:661
-msgid "
-see /improve_stats to spend your StatPoints"
-msgstr ""
-
-#: src/game/handlers/inventory.js 42:13
-msgid "<pre>Equipped:</pre>
-%s
-
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/useEquip.js 51:10
-msgid "%s equipped!"
 msgstr[0] ""
 msgstr[1] ""
 

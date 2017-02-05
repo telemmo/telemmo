@@ -1,4 +1,5 @@
 import start from './start'
+import about from './about'
 import classInfo from './classInfo'
 import createChar from './createChar'
 import overworld from './overworld'
@@ -18,6 +19,7 @@ import resetStats from './resetStats'
 
 export default {
   start,
+  about,
   classInfo,
   createChar,
   overworld,
