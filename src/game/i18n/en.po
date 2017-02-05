@@ -194,92 +194,6 @@ msgid "You are now <b>%s</b>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/useChar.js 24:69
-msgid "Invalid char Id"
-msgstr ""
-
-#: src/game/handlers/useChar.js 27:12
-msgid "You are now using <b>%s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:12
-msgid "<b>Titles</b>: %s
-<b>Name:</b> %s
-<b>Class:</b> %s
-<b>Stance:</b> %s
-<b>Level:</b> %s
-<b>Exp:</b> %s
-
-<i>Raw Stats</i>
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/changeStance.js 30:36
-msgid "Invalid stance"
-msgstr ""
-
-#: src/game/handlers/changeStance.js 47:12
-msgid "You are now using <b>%s</b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 28:255
-msgid "You don't have any equips yet."
-msgstr ""
-
-#: src/game/handlers/inventory.js 40:13
-msgid "Equiped:
-%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 42:21
-msgid "Nothing.
-"
-msgstr ""
-
-#: src/game/handlers/inventory.js 42:39
-msgid "Inventory:
-"
-msgstr ""
-
-#: src/game/handlers/useEquip.js 41:252
-msgid "Invalid equip"
-msgstr ""
-
-#: src/game/handlers/useEquip.js 43:10
-msgid "%s equiped!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/upStat.js 38:29
-msgid "Invalid stat."
-msgstr ""
-
-#: src/game/handlers/upStat.js 55:38
-msgid "You cant have more than 100 points."
-msgstr ""
-
-#: src/game/handlers/upStat.js 60:36
-msgid "You dont have points for that."
-msgstr ""
-
-#: src/game/handlers/upStat.js 63:10
-msgid "%s increased by 1!"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/useEquip.js 40:16
-msgid "This equips doesn't exist."
-msgstr ""
-
-#: src/game/handlers/useEquip.js 47:252
-msgid "You don't have this equip."
-msgstr ""
-
 #: src/game/handlers/useChar.js 22:36
 msgid "Character ID is not a valid key ID"
 msgstr ""
@@ -288,76 +202,14 @@ msgstr ""
 msgid "This character for this player was not found."
 msgstr ""
 
-#: src/game/handlers/charInfo.js 40:13
-msgid "<b>Titles: %s</b>"
+#: src/game/handlers/useChar.js 31:12
+msgid "You are now using <b>%s</b>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:67
-msgid "<b>Name: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:100
-msgid "<b>Class: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:163
-msgid "<b>Stance: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:226
-msgid "<b>Level: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:261
-msgid "<b>Exp: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:292
-msgid "<b>Next Level: %s %s</b>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:355
-msgid "
-<i>Raw Stats: %s</i>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:384
-msgid "<b>Strength: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:421
-msgid "<b>Constitution: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:462
-msgid "<b>Reflex: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:497
-msgid "<b>Accuracy: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:534
-msgid "<b>Flow: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:292
-msgid "<b>Next Level: %s</b>"
-msgstr[0] ""
-msgstr[1] ""
+#: src/game/handlers/charInfo.js 27:62
+msgid "Invalid char Id"
+msgstr ""
 
 #: src/game/handlers/charInfo.js 40:13
 msgid "<b>Titles:</b> %s"
@@ -390,16 +242,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/game/handlers/charInfo.js 40:292
-msgid "<b>Next Level:</b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 40:352
-msgid "
-<i>Raw Stats:</i>"
-msgstr ""
-
-#: src/game/handlers/charInfo.js 40:292
 msgid "
 <b>Level Progress :</b>
 <pre>%s</pre>"
@@ -408,15 +250,109 @@ msgstr[1] ""
 
 #: src/game/handlers/charInfo.js 40:371
 msgid "
-<i>Raw Stats:</i>
+Stats
 %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 40:371
-msgid "
-Stats
-%s"
+#: src/game/handlers/charInfo.js 40:389
+msgid "<b>Strength: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:426
+msgid "<b>Constitution: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:467
+msgid "<b>Reflex: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:502
+msgid "<b>Accuracy: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 40:539
+msgid "<b>Flow: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeStance.js 34:38
+msgid "Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 34:38
+msgid "Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 53:75
+msgid "Invalid char"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 58:18
+msgid "You are now using <b>%s</b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeStance.js 53:75
+msgid "Invalid char"
+msgstr ""
+
+#: src/game/handlers/inventory.js 28:255
+msgid "You don't have any equips yet."
+msgstr ""
+
+#: src/game/handlers/inventory.js 40:13
+msgid "Equiped:
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 42:21
+msgid "Nothing.
+"
+msgstr ""
+
+#: src/game/handlers/inventory.js 42:39
+msgid "Inventory:
+"
+msgstr ""
+
+#: src/game/handlers/useEquip.js 40:36
+msgid "This equips doesn't exist."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 47:120
+msgid "You don't have this equip."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 47:120
+msgid "You don't have this equip."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 51:10
+msgid "%s equiped!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 38:29
+msgid "Invalid stat."
+msgstr ""
+
+#: src/game/handlers/upStat.js 55:38
+msgid "You cant have more than 100 points."
+msgstr ""
+
+#: src/game/handlers/upStat.js 60:36
+msgid "You dont have points for that."
+msgstr ""
+
+#: src/game/handlers/upStat.js 63:10
+msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
