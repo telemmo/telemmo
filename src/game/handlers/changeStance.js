@@ -19,12 +19,12 @@ function checkStance (_, msg, char, stanceId) {
     const currentClass = models.classes.find(char.classId)
 
     if (!currentClass.stances.find(sId => sId === stanceId)) {
-      return reject(msg, _('Invalid stance'))
+      return reject(msg, _(':x: Invalid stance'))
     }
 
     return char
   } catch (e) {
-    return reject(msg, _('Invalid stance'))
+    return reject(msg, _(':x: Invalid stance'))
   }
 }
 
@@ -39,15 +39,15 @@ export default function call (dao, provider, _, msg) {
         _id: ObjectId(charId),
       })
       .then(nth(0))
-      .then(rejectUndefined(msg, _('Invalid char')))
+      .then(rejectUndefined(msg, _(':x: Invalid stance')))
       .then(char => checkStance(_, msg, char, stance.id))
       .then(partial(changeStance, [dao, msg.player.id, stance.id]))
       .then(() => ({
         to: msg.chat,
-        text: _('You are now using <b>%s</b> %s', stance.name, stance.emoji),
+        text: _(':ok: You are now using <b>%s</b> %s', stance.name, stance.emoji),
       }))
   } catch (e) {
-    return reject(msg, _('Invalid char'))
+    return reject(msg, _(':x: Invalid stance'))
   }
 }
 

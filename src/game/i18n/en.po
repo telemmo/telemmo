@@ -207,6 +207,65 @@ msgid "You are now using <b>%s</b>"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/changeStance.js 34:38
+msgid ":x: Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 34:38
+msgid ":x: Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 34:38
+msgid ":x: Invalid stance"
+msgstr ""
+
+#: src/game/handlers/changeStance.js 58:18
+msgid ":ok: You are now using <b>%s</b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/changeStance.js 34:38
+msgid ":x: Invalid stance"
+msgstr ""
+
+#: src/game/handlers/inventory.js 28:255
+msgid "You don't have any equips yet."
+msgstr ""
+
+#: src/game/handlers/inventory.js 40:13
+msgid "Equiped:
+%s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 42:21
+msgid "Nothing.
+"
+msgstr ""
+
+#: src/game/handlers/inventory.js 42:39
+msgid "Inventory:
+"
+msgstr ""
+
+#: src/game/handlers/useEquip.js 40:36
+msgid "This equips doesn't exist."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 47:120
+msgid "You don't have this equip."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 47:120
+msgid "You don't have this equip."
+msgstr ""
+
+#: src/game/handlers/useEquip.js 51:10
+msgid "%s equiped!"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/game/handlers/charInfo.js 27:62
 msgid "Invalid char Id"
 msgstr ""
@@ -277,65 +336,6 @@ msgstr[1] ""
 
 #: src/game/handlers/charInfo.js 40:539
 msgid "<b>Flow: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/changeStance.js 34:38
-msgid "Invalid stance"
-msgstr ""
-
-#: src/game/handlers/changeStance.js 34:38
-msgid "Invalid stance"
-msgstr ""
-
-#: src/game/handlers/changeStance.js 53:75
-msgid "Invalid char"
-msgstr ""
-
-#: src/game/handlers/changeStance.js 58:18
-msgid "You are now using <b>%s</b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/changeStance.js 53:75
-msgid "Invalid char"
-msgstr ""
-
-#: src/game/handlers/inventory.js 28:255
-msgid "You don't have any equips yet."
-msgstr ""
-
-#: src/game/handlers/inventory.js 40:13
-msgid "Equiped:
-%s
-"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/inventory.js 42:21
-msgid "Nothing.
-"
-msgstr ""
-
-#: src/game/handlers/inventory.js 42:39
-msgid "Inventory:
-"
-msgstr ""
-
-#: src/game/handlers/useEquip.js 40:36
-msgid "This equips doesn't exist."
-msgstr ""
-
-#: src/game/handlers/useEquip.js 47:120
-msgid "You don't have this equip."
-msgstr ""
-
-#: src/game/handlers/useEquip.js 47:120
-msgid "You don't have this equip."
-msgstr ""
-
-#: src/game/handlers/useEquip.js 51:10
-msgid "%s equiped!"
 msgstr[0] ""
 msgstr[1] ""
 
