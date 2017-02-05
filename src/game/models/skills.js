@@ -687,7 +687,7 @@ export default [
   },
   {
     id: 'hammer_down',
-    name: 'Mirage',
+    name: 'Hammer Down',
     fire: (attacker, defender, rolls) => ({
       defender: {
         hp: - (20 + attacker.level/10),
