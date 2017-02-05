@@ -3,6 +3,8 @@ const path = require('path')
 const webpack = require('webpack')
 const { merge, objOf } = require('ramda')
 
+const package = require('./package.json')
+
 const externals = fs.readdirSync('node_modules')
   .filter(module => module !== '.bin')
   .reduce((modules, module) =>
@@ -36,6 +38,9 @@ module.exports = {
     new webpack.BannerPlugin(
       'require("source-map-support").install();',
       { raw: true, entryOnly: false }),
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(package.version),
+    }),
   ],
 }
 
