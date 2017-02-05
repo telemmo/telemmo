@@ -43,7 +43,7 @@ export default function call (dao, provider, _, msg) {
     .then(() => equipChar(dao, equipId, msg.player.currentCharId))
     .then(always({
       to: msg.chat,
-      text: _('%s equiped!', equipId),
+      text: _('%s equiped!', models.equips.find(equipId).name),
     }))
 }
 
