@@ -46,6 +46,7 @@ export default function call (dao, provider, _, msg) {
             _('<b>Flow: </b> %s', char.flow),
           ].join('\n'),
         ),
+        _('\nsee /inventory for items and equips'),
       ].join('\n'),
     }))
 }
