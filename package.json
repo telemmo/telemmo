@@ -22,7 +22,8 @@
     "predev": "webpack --progress --colors --config webpack.config.dev.js",
     "dev": "node dist/telemmo.dev.js",
     "test": "jest",
-    "lint": "eslint src/"
+    "lint": "xo",
+    "fix-lint": "xo --fix"
   },
   "devDependencies": {
     "babel": "6.5.2",
@@ -31,14 +32,22 @@
     "babel-loader": "6.2.10",
     "babel-polyfill": "6.22.0",
     "babel-preset-es2015-native-generators": "6.6.0",
-    "eslint": "3.14.1",
     "eslint-config-airbnb": "14.0.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "3.0.2",
-    "eslint-plugin-react": "6.9.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "gettext-loader": "derekstavis/gettext-loader",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "ignore": "**/*.test.js",
+    "extends": "airbnb",
+    "rules": {
+      "semi": [2, "never"],
+      "space-before-function-paren": [2, "always"],
+      "no-mixed-operators": ["off"]
+    }
   }
 }

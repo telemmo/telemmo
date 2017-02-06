@@ -22,7 +22,7 @@ export default function call (dao, provider, _, msg) {
     .then(char => resetStats(dao, char))
     .then(always({
       to: msg.chat,
-      text: `Stats reseted!`,
+      text: 'Stats reseted!',
     }))
 }
 

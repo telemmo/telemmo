@@ -50,4 +50,3 @@ export default function call (dao, provider, _, msg) {
       ].join('\n'),
     }))
 }
-

@@ -24,7 +24,6 @@ function equipChar (dao, equipId, charId) {
 }
 
 export default function call (dao, provider, _, msg) {
-
   const equipId = msg.matches[1]
 
   if (!models.equips.all.find(equip => equip.id === equipId)) {

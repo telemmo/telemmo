@@ -12,11 +12,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 17,
       defender: {
-        hp: - ( 5 + attacker.level/10),
+        hp: -(5 + attacker.level / 10),
       },
       log: {
         type: 'damage',
-        value: 5 + attacker.level/10,
+        value: 5 + attacker.level / 10,
       },
     }),
   },
@@ -32,11 +32,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aHit < 17,
       defender: {
-        hp: - ( 10 + attacker.level/10),
+        hp: -(10 + attacker.level / 10),
       },
       log: {
         type: 'damage',
-        value: 10 + attacker.level/10,
+        value: 10 + attacker.level / 10,
       },
     }),
   },
@@ -52,11 +52,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 15 || rolls.aAim < 15),
       defender: {
-        hp: - ( 20 + attacker.level/5),
+        hp: -(20 + attacker.level / 5),
       },
       log: {
         type: 'damage',
-        value: 20 + attacker.level/5,
+        value: 20 + attacker.level / 5,
       },
     }),
   },
@@ -72,11 +72,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 13),
       defender: {
-        hp: - ( 10 + attacker.level/5),
+        hp: -(10 + attacker.level / 5),
       },
       log: {
         type: 'damage',
-        value: 10 + attacker.level/5,
+        value: 10 + attacker.level / 5,
       },
     }),
   },
@@ -95,15 +95,15 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aAim < 18),
       defender: {
-        hp: - ( 30 + attacker.level/4),
+        hp: -(30 + attacker.level / 4),
       },
       log: {
         type: 'damage',
-        value: 30 + attacker.level/4,
+        value: 30 + attacker.level / 4,
       },
     }),
   },
-  //s
+  // s
   {
     id: 'foliage',
     name: 'Foliage',
@@ -173,11 +173,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 19,
       attacker: {
-        hp: 5 + attacker.level/10,
+        hp: 5 + attacker.level / 10,
       },
       log: {
         type: 'heal',
-        value: 5 + attacker.level/10,
+        value: 5 + attacker.level / 10,
       },
     }),
   },
@@ -193,12 +193,12 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 18,
       attacker: {
-        hp: 10 + attacker.level/10,
+        hp: 10 + attacker.level / 10,
         flow: attacker.flow * 0.1,
       },
       log: {
         type: 'heal (+FLOW)',
-        value: 10 + attacker.level/10,
+        value: 10 + attacker.level / 10,
       },
     }),
   },
@@ -214,17 +214,17 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 10 + attacker.level/5,
+        hp: 10 + attacker.level / 5,
         con: attacker.con * 0.2,
       },
       log: {
         type: 'heal (+CON)',
-        value: 10 + attacker.level/5,
+        value: 10 + attacker.level / 5,
       },
     }),
   },
   {
-    id: 'demons_pick' ,
+    id: 'demons_pick',
     name: 'Demon\'s Pick',
     description: 'Jack Black would be prowd of you.',
     type: 'token',
@@ -236,17 +236,17 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 15 + attacker.level/5,
+        hp: 15 + attacker.level / 5,
         ref: attacker.ref * 0.2,
       },
       log: {
         type: 'heal (+REF)',
-        value: 15 + attacker.level/5,
+        value: 15 + attacker.level / 5,
       },
     }),
   },
   {
-    id: 'ice_ring' ,
+    id: 'ice_ring',
     name: 'Ice Ring',
     description: 'It looks as powerfull as it shines.',
     type: 'token',
@@ -260,11 +260,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 15 + attacker.level/5,
+        hp: 15 + attacker.level / 5,
       },
       log: {
         type: 'heal',
-        value: 15 + attacker.level/5,
+        value: 15 + attacker.level / 5,
       },
     }),
   },
