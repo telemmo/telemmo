@@ -3,7 +3,10 @@ import {
 } from 'ramda'
 
 function view (_) {
-  return _(':globe_with_meridians: Welcome to the overworld! :globe_with_meridians:\n\n')
+  return [
+    _(':globe_with_meridians: Welcome to the overworld! :globe_with_meridians:'),
+    _('\nOur telegram group is @telemmo, join and chat with us!'),
+  ].join('\n')
 }
 
 function keyboard () {

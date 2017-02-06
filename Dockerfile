@@ -5,7 +5,7 @@ RUN apk add --no-cache git
 WORKDIR /build
 
 COPY . /build
-RUN npm install
+RUN env NODE_ENV="development" npm install
 RUN npm run dist
 
 WORKDIR /app

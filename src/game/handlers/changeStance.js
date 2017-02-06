@@ -15,30 +15,39 @@ function changeStance (dao, playerId, stance, char) {
 }
 
 function checkStance (_, msg, char, stanceId) {
-  const currentClass = models.classes.find(char.classId)
+  try {
+    const currentClass = models.classes.find(char.classId)
 
-  if (!currentClass.stances.find(sId => sId === stanceId)) {
-    return reject(msg, _('Invalid stance'))
+    if (!currentClass.stances.find(sId => sId === stanceId)) {
+      return reject(msg, _(':x: Invalid stance'))
+    }
+
+    return char
+  } catch (e) {
+    return reject(msg, _(':x: Invalid stance'))
   }
-  return char
 }
 
 export default function call (dao, provider, _, msg) {
-  const stanceId = msg.matches[1]
-  const stance = models.stances.find(stanceId)
-  const charId = msg.player.currentCharId
+  try {
+    const stanceId = msg.matches[1]
+    const stance = models.stances.find(stanceId)
+    const charId = msg.player.currentCharId
 
-  return dao.character
-    .find({
-      _id: ObjectId(charId),
-    })
-    .then(nth(0))
-    .then(rejectUndefined(msg, _('Invalid char Id')))
-    .then(char => checkStance(_, msg, char, stanceId))
-    .then(partial(changeStance, [dao, msg.player.id, stanceId]))
-    .then(() => ({
-      to: msg.chat,
-      text: _('You are now using <b>%s</b> %s', stance.name, stance.emoji),
-    }))
+    return dao.character
+      .find({
+        _id: ObjectId(charId),
+      })
+      .then(nth(0))
+      .then(rejectUndefined(msg, _(':x: Invalid stance')))
+      .then(char => checkStance(_, msg, char, stance.id))
+      .then(partial(changeStance, [dao, msg.player.id, stance.id]))
+      .then(() => ({
+        to: msg.chat,
+        text: _(':ok: You are now using <b>%s</b> %s', stance.name, stance.emoji),
+      }))
+  } catch (e) {
+    return reject(msg, _(':x: Invalid stance'))
+  }
 }
 

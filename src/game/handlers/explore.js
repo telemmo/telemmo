@@ -150,7 +150,7 @@ function sendExplorationStart (dispatch, _, msg, gameMap, char) {
     to: msg.chat,
     text: _('You started exploring %s!', gameMap.name),
     options: [
-      [`/explore_${gameMap.id}`],
+      [`/explore_${gameMap.id}`, ':information_source: /char_info'],
       stances.map(stance => `${stance.emoji} /stance_${stance.id}`),
       [':arrow_left: /overworld', ':earth_asia: /maps'],
     ],

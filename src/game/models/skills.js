@@ -49,7 +49,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: -(40 + attacker.level / 2),
+        value: 40 + attacker.level / 2,
       },
     }),
   },
@@ -687,7 +687,7 @@ export default [
   },
   {
     id: 'hammer_down',
-    name: 'Mirage',
+    name: 'Hammer Down',
     fire: (attacker, defender, rolls) => ({
       defender: {
         hp: -(20 + attacker.level / 10),
