@@ -20,6 +20,7 @@ t . Golden Beetle
     prizes: {
       exp: 2,
       items: ['Hide'],
+      equips: ['bronze_armor'],
     },
   },
   {
@@ -34,6 +35,7 @@ t . Golden Beetle
     prizes: {
       exp: 3,
       items: ['Fang'],
+      equips: ['bronze_blade'],
     },
   },
   {
@@ -101,6 +103,7 @@ t . Precious Ore
     prizes: {
       exp: 8,
       items: ['Bat Wing'],
+      equips: ['silver_armor'],
     },
   },
   {
@@ -115,6 +118,7 @@ t . Precious Ore
     prizes: {
       exp: 10,
       items: ['Dirt'],
+      equips: ['silver_dagger'],
     },
   },
   {

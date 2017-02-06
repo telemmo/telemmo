@@ -1,6 +1,26 @@
 export default [
   // Weapons
   {
+    id: 'bronze_blade',
+    name: 'Bronze Blade',
+    description: 'The worst weapon in the game, but it\'s a weapon.',
+    type: 'weapon',
+    tier: 0,
+    bonus: {
+      str: 3,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aAim < 19,
+      defender: {
+        hp: - ( 2 + attacker.level/10),
+      },
+      log: {
+        type: 'damage',
+        value: 2 + attacker.level/10,
+      },
+    }),
+  },
+  {
     id: 'leaf_blade',
     name: 'Leaf Blade',
     description: 'A blade. Made of leaf.',
@@ -17,6 +37,26 @@ export default [
       log: {
         type: 'damage',
         value: 5 + attacker.level/10,
+      },
+    }),
+  },
+  {
+    id: 'silver_dagger',
+    name: 'Silver Dagger',
+    description: 'A silver dagger.',
+    type: 'weapon',
+    tier: 0,
+    bonus: {
+      str: 5,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aAim < 19,
+      defender: {
+        hp: - ( 3 + attacker.level/10),
+      },
+      log: {
+        type: 'damage',
+        value: 3 + attacker.level/10,
       },
     }),
   },
@@ -105,6 +145,17 @@ export default [
   },
   //s
   {
+    id: 'bronze_armor',
+    name: 'Bronze Armor',
+    description: 'Not quite good but brings in some defense.',
+    type: 'set',
+    tier: 0,
+    bonus: {
+      con: 2,
+      ref: 2,
+    },
+  },
+  {
     id: 'foliage',
     name: 'Foliage',
     description: 'A set. Made of leaf.',
@@ -113,6 +164,17 @@ export default [
     bonus: {
       con: 5,
       ref: 5,
+    },
+  },
+  {
+    id: 'silver_armor',
+    name: 'Silver Armor',
+    description: 'A silver armor.',
+    type: 'set',
+    tier: 1,
+    bonus: {
+      con: 4,
+      ref: 4,
     },
   },
   {
