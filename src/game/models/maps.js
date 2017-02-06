@@ -82,23 +82,23 @@ export default [
     name: 'Demonic Forest',
     monsters: [
       {
-        id: 'bold_wasp',
+        id: 'tooth_fairy',
         influence: 20,
       },
       {
-        id: 'snake',
+        id: 'ghost',
         influence: 15,
       },
       {
-        id: 'lizardrill',
+        id: 'imp',
         influence: 7,
       },
       {
-        id: 'gorgon',
+        id: 'vampire',
         influence: 3,
       },
       {
-        id: 'hydra',
+        id: 'werewolf',
         influence: 1,
       },
     ],
