@@ -699,7 +699,7 @@ export default [
       },
       log: {
         type: 'damage (-ALL STATS)',
-        value: (1 + attacker.level/10),
+        value: (20 + attacker.level/10),
       },
     }),
   },
