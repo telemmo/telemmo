@@ -356,3 +356,22 @@ msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/overworld.js 11:10
+msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:"
+msgstr ""
+
+#: src/game/handlers/overworld.js 11:88
+msgid "
+Our telegram group is @telemmo, join and chat with us!"
+msgstr ""
+
+#: src/game/handlers/charInfo.js 40:586
+msgid "
+see /inventory for items and equips"
+msgstr ""
+
+#: src/game/handlers/useChar.js 37:10
+msgid "This character is currently exploring a map.
+Wait it come back before changing char."
+msgstr ""
+
