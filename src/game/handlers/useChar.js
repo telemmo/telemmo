@@ -5,6 +5,8 @@ import {
   length,
   equals,
   ifElse,
+  prop,
+  map,
   nth,
 } from 'ramda'
 
@@ -13,10 +15,11 @@ import { ObjectId } from 'mongodb'
 import { reject, rejectUndefined } from './errors'
 
 function useChar (dao, playerId, char) {
-  return dao.combat.find({
-    'teams.members.id': { $in: [char.id] },
-    finishedAt: { $exists: false },
-  })
+  return dao.character.find({ playerId })
+    .then(chars => dao.combat.find({
+      'teams.members.id': { $in: map(prop('id'), chars) },
+      finishedAt: { $exists: false },
+    }))
     .then(ifElse(
       pipe(length, equals(0)),
       always(undefined),
