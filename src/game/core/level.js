@@ -1,5 +1,6 @@
 import {
   pipe,
+  reduce,
   concat,
   always,
 } from 'ramda'
@@ -33,18 +34,19 @@ export function buildExpBar (percentage, size = 10) {
     return 'Max level.'
   }
   const nFilled = Math.floor(percentage * size)
-  const nEmpty = size - nFilled
-  const begin = '['
-  const end = ']'
+  const nEmpty = size - nFilled - 1
+  const smallBars = Array.from(' ▏▎▍▌▋▊▉')
+  const delimiter = '|'
   return [
     `${(percentage * 100).toFixed(2)}%`,
     [
-      begin,
-      concat(
-        Array.from({ length: nFilled }, always('|')),
-        Array.from({ length: nEmpty }, always(' ')),
-      ).join(''),
-      end,
+      delimiter,
+      reduce(concat, [], [
+        Array.from({ length: nFilled }, always('█')),
+        [smallBars[Math.floor((percentage*size - nFilled)*8)]],
+        Array.from({ length: nEmpty },  always(' ')),
+      ]).join(''),
+      delimiter,
     ].join(''),
   ].join(' ')
 }
