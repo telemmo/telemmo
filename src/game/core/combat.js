@@ -83,7 +83,7 @@ function attachPrizes (combat, rolls) {
         }]
       }
 
-      if (rolls.equipLuck < 100 && enemy.prizes.equips) {
+      if (rolls.equipLuck < 200 && enemy.prizes.equips) {
         const equips = enemy.prizes.equips
         const index = Math.floor((rolls.equip / 10000) * equips.length)
 

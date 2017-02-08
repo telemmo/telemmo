@@ -45,7 +45,7 @@ export default [
     name: 'Silver Dagger',
     description: 'A silver dagger.',
     type: 'weapon',
-    tier: 0,
+    tier: 1,
     bonus: {
       str: 5,
     },

@@ -21,6 +21,7 @@ t . Golden Beetle
       exp: 2,
       items: ['Hide'],
       equips: ['bronze_armor'],
+      tokens: ['golden_beetle'],
     },
   },
   {
@@ -36,6 +37,7 @@ t . Golden Beetle
       exp: 3,
       items: ['Fang'],
       equips: ['bronze_blade'],
+      tokens: ['golden_beetle'],
     },
   },
   {
@@ -51,6 +53,7 @@ t . Golden Beetle
       exp: 4,
       items: ['Horn'],
       equips: ['leaf_blade'],
+      tokens: ['golden_beetle'],
     },
   },
   {
@@ -65,6 +68,7 @@ t . Golden Beetle
     prizes: {
       exp: 5,
       equips: ['leaf_blade', 'foliage'],
+      tokens: ['golden_beetle'],
     },
   },
   {
@@ -104,6 +108,7 @@ t . Precious Ore
       exp: 8,
       items: ['Bat Wing'],
       equips: ['silver_armor'],
+      tokens: ['precious_ore'],
     },
   },
   {
@@ -119,6 +124,7 @@ t . Precious Ore
       exp: 10,
       items: ['Dirt'],
       equips: ['silver_dagger'],
+      tokens: ['precious_ore'],
     },
   },
   {
@@ -134,6 +140,7 @@ t . Precious Ore
       exp: 15,
       items: ['Bear Paw'],
       equips: ['granite'],
+      tokens: ['precious_ore'],
     },
   },
   {
@@ -149,6 +156,7 @@ t . Precious Ore
       exp: 17,
       items: ['Big Bone'],
       equips: ['granite', 'sharded_club'],
+      tokens: ['precious_ore'],
     },
   },
   {
@@ -187,6 +195,7 @@ t . Old soul
     prizes: {
       exp: 23,
       items: ['Sting'],
+      tokens: ['old_soul'],
     },
   },
   {
@@ -201,6 +210,7 @@ t . Old soul
     prizes: {
       exp: 25,
       items: ['Snakeskin'],
+      tokens: ['old_soul'],
     },
   },
   {
@@ -216,6 +226,7 @@ t . Old soul
       exp: 29,
       items: ['Lizard Tail'],
       equips: ['whip_of_vines'],
+      tokens: ['old_soul'],
     },
   },
   {
@@ -231,6 +242,7 @@ t . Old soul
       exp: 33,
       items: ['Block'],
       equips: ['whip_of_vines', 'porcelain'],
+      tokens: ['old_soul'],
     },
   },
   {
@@ -269,6 +281,7 @@ t . Demon's Pick
     prizes: {
       exp: 41,
       items: ['Tooth'],
+      tokens: ['demons_pick'],
     },
   },
   {
@@ -283,6 +296,7 @@ t . Demon's Pick
     prizes: {
       exp: 44,
       items: ['Blanket'],
+      tokens: ['demons_pick'],
     },
   },
   {
@@ -298,6 +312,7 @@ t . Demon's Pick
       exp: 46,
       items: ['Ashes'],
       equips: ['miasma'],
+      tokens: ['demons_pick'],
     },
   },
   {
@@ -313,6 +328,7 @@ t . Demon's Pick
       exp: 49,
       items: ['Blood'],
       equips: ['psycho_scythe', 'miasma'],
+      tokens: ['demons_pick'],
     },
   },
   {
@@ -351,6 +367,7 @@ t . Ice Ring
     prizes: {
       exp: 55,
       items: ['Ice Block'],
+      tokens: ['ice_ring'],
     },
   },
   {
@@ -365,6 +382,7 @@ t . Ice Ring
     prizes: {
       exp: 57,
       items: ['Frost Bones'],
+      tokens: ['ice_ring'],
     },
   },
   {
@@ -380,6 +398,7 @@ t . Ice Ring
       exp: 61,
       items: ['Refined Ice'],
       equips: ['lancicle'],
+      tokens: ['ice_ring'],
     },
   },
   {
@@ -395,6 +414,7 @@ t . Ice Ring
       exp: 63,
       items: ['Dark Fang'],
       equips: ['glacier', 'lancicle'],
+      tokens: ['ice_ring'],
     },
   },
   {
