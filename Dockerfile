@@ -5,15 +5,16 @@ RUN apk add --no-cache git
 WORKDIR /build
 
 COPY . /build
-RUN env NODE_ENV="development" npm install
-RUN npm run dist
+
+RUN env NODE_ENV="development" npm install --quiet \
+    && npm run dist \
+    && npm prune --production --quiet \
+    && mkdir -p /app \
+    && mv dist/telemmo* /app \
+    && mv node_modules /app \
+    && rm -rf /build \
+    && apk del git
 
 WORKDIR /app
-
-RUN mv /build/dist/telemmo* /app \
-    && mv /build/node_modules /app \
-    && rm -rf /build \
-    && rm -rf \
-    && apk del git
 
 CMD node /app/telemmo.js
