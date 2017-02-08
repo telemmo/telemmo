@@ -375,3 +375,9 @@ msgid "This character is currently exploring a map.
 Wait it come back before changing char."
 msgstr ""
 
+#: src/game/handlers/explore.js 52:13
+msgid "%s <b>%s</b> cast for <b>%s %s</b>
+"
+msgstr[0] ""
+msgstr[1] ""
+
