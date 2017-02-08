@@ -252,10 +252,9 @@ function mergeLevel (teams, computedExps) {
   return teams.map(team =>
     team.map(char => {
       if (char.prizes) { return char }
-      const charExp = pipe(find(propEq('_id', char.id)), propOr('exp', 0))
+      const charExp = pipe(find(propEq('_id', char.id)), propOr(0, 'exp'))
       const exp = charExp(computedExps)
-
-      return merge(char, { exp, level: level(exp) })
+      return merge(char, { exp, level: level({ exp }) })
     }))
 }
 
@@ -266,7 +265,7 @@ function addLevel (dao, teams) {
     { $match: { winners: { $in: members } } },
     { $project: { prizes: 1 } },
     { $unwind: '$prizes' },
-    { $project: { exp: '$prizes.exp' } },
+    { $project: { exp: '$prizes.exp', charId: '$prizes.charId' } },
     { $group: { _id: '$charId', exp: { $sum: '$exp' } } },
   ])
     .then(partial(mergeLevel, [teams]))
