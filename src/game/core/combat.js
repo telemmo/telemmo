@@ -153,7 +153,7 @@ function runTurn (combat, rolls) {
     2,
   )
 
-  if (rolls.aAim === 1 || aim < -100) {
+  if (aim < -100) {
     dmg = 0
   }
 
