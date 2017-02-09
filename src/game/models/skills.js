@@ -5,7 +5,7 @@ export default [
     name: 'Pulse',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (15 + attacker.level)/4,
+        hp: - (15 + attacker.level/4),
       },
       log: {
         type: 'damage',
