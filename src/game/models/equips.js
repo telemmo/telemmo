@@ -3,7 +3,7 @@ export default [
   {
     id: 'bronze_blade',
     name: 'Bronze Blade',
-    description: 'The worst weapon in the game, but it\'s a weapon.',
+    description: 'The worst weapon, but a weapon, amirite?',
     type: 'weapon',
     tier: 0,
     bonus: {
@@ -23,7 +23,7 @@ export default [
   {
     id: 'leaf_blade',
     name: 'Leaf Blade',
-    description: 'A blade. Made of leaf.',
+    description: 'A blade definitely not for smoking',
     type: 'weapon',
     tier: 0,
     bonus: {
@@ -43,7 +43,7 @@ export default [
   {
     id: 'silver_dagger',
     name: 'Silver Dagger',
-    description: 'A silver dagger.',
+    description: 'You just threw the fork away and called it dagger',
     type: 'weapon',
     tier: 1,
     bonus: {
@@ -63,7 +63,7 @@ export default [
   {
     id: 'sharded_club',
     name: 'Sharded Club',
-    description: 'A really spiky club.',
+    description: 'A piece of rock as cool as it\'s impractical',
     type: 'weapon',
     tier: 1,
     bonus: {
@@ -83,7 +83,7 @@ export default [
   {
     id: 'whip_of_vines',
     name: 'Whip of Vines',
-    description: 'It was supposed to be "Vine Whip" but maybe Nintendo would sue us.',
+    description: 'NOT "Vine Whip", we swear ;)',
     type: 'weapon',
     tier: 2,
     bonus: {
@@ -103,7 +103,7 @@ export default [
   {
     id: 'psycho_scythe',
     name: 'Psycho Scythe',
-    description: 'A scythe once used by a psycho.',
+    description: 'Better a psycho in your hands than a psycho in your city',
     type: 'weapon',
     tier: 3,
     bonus: {
@@ -123,7 +123,7 @@ export default [
   {
     id: 'lancicle',
     name: 'Lancicle',
-    description: 'It\'s shinny and it\'s pointy.',
+    description: 'IRL you would lick it... You also would regret it',
     type: 'weapon',
     tier: 4,
     bonus: {
@@ -147,7 +147,7 @@ export default [
   {
     id: 'bronze_armor',
     name: 'Bronze Armor',
-    description: 'Not quite good but brings in some defense.',
+    description: 'Not quite good... You know... Are you? Don\'t judge',
     type: 'set',
     tier: 0,
     bonus: {
@@ -158,7 +158,7 @@ export default [
   {
     id: 'foliage',
     name: 'Foliage',
-    description: 'A set. Made of leaf.',
+    description: 'I\'m not repeating the Leaf Dagger joke... No, dammit, get one :|',
     type: 'set',
     tier: 0,
     bonus: {
@@ -169,7 +169,7 @@ export default [
   {
     id: 'silver_armor',
     name: 'Silver Armor',
-    description: 'A silver armor.',
+    description: 'You\'re so totally showing it to them, girlfriend!',
     type: 'set',
     tier: 1,
     bonus: {
@@ -180,7 +180,7 @@ export default [
   {
     id: 'granite',
     name: 'Granite',
-    description: 'You can now kill stuff inside a rock.',
+    description: 'You can now kill stuff inside a rock, not The Rock unfortunately',
     type: 'set',
     tier: 1,
     bonus: {
@@ -191,7 +191,7 @@ export default [
   {
     id: 'porcelain',
     name: 'Porcelain',
-    description: 'Porcelain is actually quite resistent.',
+    description: 'Porcelain is actually quite resistent, google it ;)',
     type: 'set',
     tier: 2,
     bonus: {
@@ -201,7 +201,7 @@ export default [
   {
     id: 'miasma',
     name: 'Miasma',
-    description: 'Google it, it\'s easier.',
+    description: 'You shouldn\'t wear to a party, but... Is it a party without killing?',
     type: 'set',
     tier: 3,
     bonus: {
@@ -213,7 +213,7 @@ export default [
   {
     id: 'glacier',
     name: 'Glacier',
-    description: 'Kinda cold but you can manage it.',
+    description: 'You look chill AF MOFO!1!! dayum',
     type: 'set',
     tier: 4,
     bonus: {
@@ -226,7 +226,7 @@ export default [
   {
     id: 'golden_beetle',
     name: 'Golden Beetle',
-    description: 'A shiny beetle that helps you.',
+    description: 'A shiny cute helper very much not a pokedigimedabotmon',
     type: 'token',
     tier: 0,
     bonus: {
@@ -246,7 +246,7 @@ export default [
   {
     id: 'precious_ore',
     name: 'Precious Ore',
-    description: 'A rare magical ore with mistery powers.',
+    description: 'It\'s misterious powers won\'t really improve your math skills',
     type: 'token',
     tier: 1,
     bonus: {
@@ -267,7 +267,7 @@ export default [
   {
     id: 'old_soul',
     name: 'Old Soul',
-    description: 'You found this lonely soul and now it\'s by your side.',
+    description: 'A lonely soul now walks by your side bcz u kno, 7@$% privacy, right?',
     type: 'token',
     tier: 2,
     bonus: {
@@ -288,7 +288,7 @@ export default [
   {
     id: 'demons_pick' ,
     name: 'Demon\'s Pick',
-    description: 'Jack Black would be prowd of you.',
+    description: 'Jack Black would be prowd of you!',
     type: 'token',
     tier: 3,
     bonus: {
@@ -310,7 +310,7 @@ export default [
   {
     id: 'ice_ring' ,
     name: 'Ice Ring',
-    description: 'It looks as powerfull as it shines.',
+    description: 'Ice rink?! Imagine how cray, da &^@#ing szie fo dose s#!%!!!1!',
     type: 'token',
     tier: 4,
     bonus: {
