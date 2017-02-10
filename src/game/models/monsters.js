@@ -81,7 +81,7 @@ t . Golden Beetle
     flow: 10,
     level: 6,
     prizes: {
-      exp: 7,
+      exp: 30,
       equips: ['leaf_blade', 'foliage'],
       tokens: ['golden_beetle'],
     },
@@ -169,7 +169,7 @@ t . Precious Ore
     flow: 25,
     level: 22,
     prizes: {
-      exp: 25,
+      exp: 100,
       equips: ['granite', 'sharded_club'],
       tokens: ['precious_ore'],
     },
@@ -255,7 +255,7 @@ t . Old soul
     flow: 24,
     level: 38,
     prizes: {
-      exp: 38,
+      exp: 200,
       equips: ['whip_of_vines', 'porcelain'],
       tokens: ['old_soul'],
     },
@@ -341,7 +341,7 @@ t . Demon's Pick
     flow: 32,
     level: 52,
     prizes: {
-      exp: 52,
+      exp: 350,
       equips: ['psycho_scythe', 'miasma'],
       tokens: ['demons_pick'],
     },
@@ -427,7 +427,7 @@ t . Ice Ring
     flow: 44,
     level: 67,
     prizes: {
-      exp: 70,
+      exp: 500,
       equips: ['glacier', 'lancicle'],
       tokens: ['ice_ring'],
     },
