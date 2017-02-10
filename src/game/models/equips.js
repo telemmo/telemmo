@@ -246,7 +246,7 @@ export default [
   {
     id: 'precious_ore',
     name: 'Precious Ore',
-    description: 'It\'s misterious powers won\'t really improve your math skills',
+    description: 'It\'s mysterious powers won\'t really improve your math skills',
     type: 'token',
     tier: 1,
     bonus: {
