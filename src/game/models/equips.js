@@ -110,13 +110,13 @@ export default [
       str: 10,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aHit < 13),
+      noCast: (rolls.aHit < 10),
       defender: {
-        hp: - ( 10 + attacker.level/5),
+        hp: - ( 13 + attacker.level/4),
       },
       log: {
         type: 'damage',
-        value: 10 + attacker.level/5,
+        value: 13 + attacker.level/4,
       },
     }),
   },
