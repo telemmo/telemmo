@@ -191,7 +191,7 @@ export default [
   {
     id: 'porcelain',
     name: 'Porcelain',
-    description: 'Porcelain is actually quite resistent, google it ;)',
+    description: 'Porcelain is actually quite resistant, google it ;)',
     type: 'set',
     tier: 2,
     bonus: {
