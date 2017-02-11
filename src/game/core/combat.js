@@ -239,7 +239,7 @@ const combatMemberIds = pipe(
 function wait (combat) {
   const amount = process.env.NODE_ENV === 'production'
     ? 40000 + (Math.random() * 30000)
-    : 1000
+    : 3141 + (Math.random() * 2000)
 
   return Promise.delay(amount)
     .then(always(combat))
