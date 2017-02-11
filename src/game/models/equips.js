@@ -156,7 +156,7 @@ export default [
     },
   },
   {
-    id: 'foliage_camouflage',
+    id: 'foliage',
     name: 'Foliage Camouflage',
     description: 'A set. Made of leaf.',
     type: 'set',
@@ -178,7 +178,7 @@ export default [
     },
   },
   {
-    id: 'granite_armor',
+    id: 'granite',
     name: 'Granite Armor',
     description: 'You can now kill stuff inside a rock.',
     type: 'set',
@@ -189,7 +189,7 @@ export default [
     },
   },
   {
-    id: 'porcelain_armor',
+    id: 'porcelain',
     name: 'Porcelain Armor',
     description: 'Porcelain is actually quite resistent.',
     type: 'set',
@@ -199,7 +199,7 @@ export default [
     },
   },
   {
-    id: 'miasma_shroud',
+    id: 'miasma',
     name: 'Miasma Shroud',
     description: 'Google it, it\'s easier.',
     type: 'set',
@@ -211,7 +211,7 @@ export default [
     },
   },
   {
-    id: 'glacier_armor',
+    id: 'glacier',
     name: 'Glacier Armor',
     description: 'Kinda cold but you can manage it.',
     type: 'set',
