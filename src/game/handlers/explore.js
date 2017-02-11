@@ -70,9 +70,9 @@ export function render (_, player, result) {
       // `<b>${head(split(' ', turn.attacker))}</b> `,
       _(':dart: %s :anger: %s :sparkles: %s\n',
         ...[
-          (turn.rolls.aAim - turn.rolls.dAim),
-          (turn.rolls.aHit - turn.rolls.dHit),
-          (turn.rolls.aSkill - turn.rolls.dHit),
+          turn.rolls.aAim,
+          turn.rolls.aHit,
+          turn.rolls.aSkill,
         ].map(roll => Math.ceil((roll + 20) / 2)),
       ),
       _('<b>%s</b> dealt <b>%s damage</b>\n',
