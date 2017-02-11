@@ -266,7 +266,7 @@ export default [
   {
     id: 'old_soul',
     name: 'Old Soul',
-    description: 'A lonely soul now walks by your side bcz u kno, 7@$% privacy, right?',
+    description: 'A lonely soul now walks by your side because you know, fuck privacy.',
     type: 'token',
     tier: 2,
     bonus: {
