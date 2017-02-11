@@ -309,7 +309,7 @@ export default [
   {
     id: 'ice_ring' ,
     name: 'Ice Ring',
-    description: 'Ice rink?! Imagine how cray, da &^@#ing szie fo dose s#!%!!!1!',
+    description: 'It looks as powerfull as it shines.',
     type: 'token',
     tier: 4,
     bonus: {
