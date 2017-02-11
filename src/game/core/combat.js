@@ -83,7 +83,7 @@ function attachPrizes (combat, rolls) {
         }]
       }
 
-      if (rolls.equipLuck < 200 && enemy.prizes.equips) {
+      if (rolls.equipLuck < 150 && enemy.prizes.equips) {
         const equips = enemy.prizes.equips
         const index = Math.floor(((rolls.equip - 1 ) / 10000) * equips.length)
 
@@ -142,8 +142,8 @@ function runTurn (combat, rolls) {
   const skill = (rolls.aSkill * (attacker.flow / si))
               - (rolls.dSkill * (defender.flow / si))
 
-  const aim = (rolls.aAim * (attacker.acc / (si * 6)))
-            - (rolls.dAim * (defender.ref / (si * 6)))
+  const aim = (rolls.aAim * (attacker.acc / si))
+            - (rolls.dAim * (defender.ref / si))
 
   const hit = (((rolls.aHit / 4) * (attacker.str / si)) + 10)
             - ((rolls.dHit / 4) * (defender.con / si))
@@ -153,7 +153,7 @@ function runTurn (combat, rolls) {
     2,
   )
 
-  if (aim < -100) {
+  if (aim < -20) {
     dmg = 0
   }
 
