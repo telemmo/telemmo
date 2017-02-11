@@ -110,13 +110,13 @@ export default [
       str: 10,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aHit < 13),
+      noCast: (rolls.aHit < 10),
       defender: {
-        hp: - ( 10 + attacker.level/5),
+        hp: - ( 13 + attacker.level/4),
       },
       log: {
         type: 'damage',
-        value: 10 + attacker.level/5,
+        value: 13 + attacker.level/4,
       },
     }),
   },
@@ -143,7 +143,7 @@ export default [
       },
     }),
   },
-  //s
+  // Sets
   {
     id: 'bronze_armor',
     name: 'Bronze Armor',
@@ -157,7 +157,7 @@ export default [
   },
   {
     id: 'foliage',
-    name: 'Foliage',
+    name: 'Foliage Camouflage',
     description: 'I\'m not repeating the Leaf Dagger joke... No, dammit, get one :|',
     type: 'set',
     tier: 0,
@@ -179,8 +179,8 @@ export default [
   },
   {
     id: 'granite',
-    name: 'Granite',
-    description: 'You can now kill stuff inside a rock, not The Rock unfortunately',
+    name: 'Granite Armor',
+    description: 'You can now kill stuff inside a rock, not The Rock unfortunately.',
     type: 'set',
     tier: 1,
     bonus: {
@@ -190,8 +190,8 @@ export default [
   },
   {
     id: 'porcelain',
-    name: 'Porcelain',
-    description: 'Porcelain is actually quite resistant, google it ;)',
+    name: 'Porcelain Armor',
+    description: 'Porcelain is actually quite resistant. Google it ;)',
     type: 'set',
     tier: 2,
     bonus: {
@@ -199,8 +199,7 @@ export default [
     },
   },
   {
-    id: 'miasma',
-    name: 'Miasma',
+    name: 'Miasma Shroud',
     description: 'You shouldn\'t wear to a party, but... Is it a party without killing?',
     type: 'set',
     tier: 3,
@@ -212,8 +211,8 @@ export default [
   },
   {
     id: 'glacier',
-    name: 'Glacier',
-    description: 'You look chill AF MOFO!1!! dayum',
+    name: 'Glacier Armor',
+    description: 'Kinda cold but you can manage it.',
     type: 'set',
     tier: 4,
     bonus: {
