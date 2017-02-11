@@ -23,8 +23,7 @@ test('get cost', () => {
 })
 
 test('get total statPoints', () => {
-  expect(getTotalStats({ level: 6 })).toBe(81)
-  expect(getTotalStats(charMock)).toBe(6050)
+  expect(getTotalStats({ level: 6 })).toBe(111)
 })
 
 test('get total spent for all stats', () => {
@@ -38,3 +37,4 @@ test('get total spent for one stat', () => {
   expect(getStatSpent(charMock, 'strength')).toBe(0)
   expect(getStatSpent(charMock, 'constitution')).toBe(25)
 })
+
