@@ -55,9 +55,5 @@ export default function call (dao, provider, _, msg) {
       to: msg.chat,
       text: _('%s increased by 1!', capitalize(statName)),
     }))
-    .catch(always({
-      to: msg.chat,
-      text: _('Race condition detected')
-    }))
 }
 
