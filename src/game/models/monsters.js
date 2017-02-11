@@ -413,7 +413,7 @@ t . Ice Ring
     prizes: {
       exp: 63,
       items: ['Dark Fang'],
-      equips: ['glacier', 'lancicle'],
+      equips: ['glacier',],
       tokens: ['ice_ring'],
     },
   },

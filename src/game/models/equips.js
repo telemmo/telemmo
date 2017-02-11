@@ -25,7 +25,7 @@ export default [
     name: 'Leaf Blade',
     description: 'A blade definitely not for smoking',
     type: 'weapon',
-    tier: 0,
+    tier: 2,
     bonus: {
       str: 5,
     },
@@ -65,7 +65,7 @@ export default [
     name: 'Sharded Club',
     description: 'A piece of rock as cool as it\'s impractical',
     type: 'weapon',
-    tier: 1,
+    tier: 3,
     bonus: {
       str: 10,
     },
@@ -81,11 +81,32 @@ export default [
     }),
   },
   {
+    id: 'swift_dagger',
+    name: 'Silver Dagger',
+    description: 'It\'s really light.',
+    type: 'weapon',
+    tier: 2,
+    bonus: {
+      str: 3,
+      ref: 5,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aAim < 17,
+      defender: {
+        hp: - ( 4 + attacker.level/10),
+      },
+      log: {
+        type: 'damage',
+        value: 4 + attacker.level/10,
+      },
+    }),
+  },
+  {
     id: 'whip_of_vines',
     name: 'Whip of Vines',
     description: 'NOT "Vine Whip", we swear ;)',
     type: 'weapon',
-    tier: 2,
+    tier: 4,
     bonus: {
       str: 15,
     },
@@ -105,7 +126,7 @@ export default [
     name: 'Psycho Scythe',
     description: 'Better a psycho in your hands than a psycho in your city',
     type: 'weapon',
-    tier: 3,
+    tier: 5,
     bonus: {
       str: 10,
     },
@@ -125,7 +146,7 @@ export default [
     name: 'Lancicle',
     description: 'IRL you would lick it... You also would regret it',
     type: 'weapon',
-    tier: 4,
+    tier: 6,
     bonus: {
       str: 17,
       con: 7,
@@ -133,7 +154,7 @@ export default [
       acc: 7,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aAim < 18),
+      noCast: (rolls.aAim < 15),
       defender: {
         hp: - ( 30 + attacker.level/4),
       },
@@ -160,7 +181,7 @@ export default [
     name: 'Foliage Camouflage',
     description: 'I\'m not repeating the Leaf Dagger joke... No, dammit, get one :|',
     type: 'set',
-    tier: 0,
+    tier: 2,
     bonus: {
       con: 5,
       ref: 5,
@@ -182,9 +203,20 @@ export default [
     name: 'Granite Armor',
     description: 'You can now kill stuff inside a rock, not The Rock unfortunately.',
     type: 'set',
-    tier: 1,
+    tier: 3,
     bonus: {
       str: 5,
+      con: 10,
+    },
+  },
+  {
+    id: 'Feather',
+    name: 'Feather',
+    description: 'A lightweight set.',
+    type: 'set',
+    tier: 3,
+    bonus: {
+      ref: 10,
       con: 10,
     },
   },
@@ -193,7 +225,7 @@ export default [
     name: 'Porcelain Armor',
     description: 'Porcelain is actually quite resistant. Google it ;)',
     type: 'set',
-    tier: 2,
+    tier: 4,
     bonus: {
       con: 20,
     },
@@ -202,7 +234,7 @@ export default [
     name: 'Miasma Shroud',
     description: 'You shouldn\'t wear to a party, but... Is it a party without killing?',
     type: 'set',
-    tier: 3,
+    tier: 5,
     bonus: {
       con: 20,
       str: 5,
@@ -214,7 +246,7 @@ export default [
     name: 'Glacier Armor',
     description: 'Kinda cold but you can manage it.',
     type: 'set',
-    tier: 4,
+    tier: 6,
     bonus: {
       con: 25,
       str: 10,
