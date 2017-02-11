@@ -129,4 +129,30 @@ export default [
       },
     ],
   },
+  {
+    id: 'volcanic_oasis',
+    name: 'Volcanic Oasis',
+    monsters: [
+      {
+        id: 'lavabug',
+        influence: 20,
+      },
+      {
+        id: 'fire_cactus',
+        influence: 15,
+      },
+      {
+        id: 'snow_chimera',
+        influence: 7,
+      },
+      {
+        id: 'phoenix',
+        influence: 3,
+      },
+      {
+        id: 'dragon',
+        influence: 1,
+      },
+    ],
+  },
 ]
