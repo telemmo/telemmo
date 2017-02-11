@@ -143,7 +143,7 @@ export default [
       },
     }),
   },
-  //s
+  // Sets
   {
     id: 'bronze_armor',
     name: 'Bronze Armor',
@@ -156,8 +156,8 @@ export default [
     },
   },
   {
-    id: 'foliage',
-    name: 'Foliage',
+    id: 'foliage_camouflage',
+    name: 'Foliage Camouflage',
     description: 'A set. Made of leaf.',
     type: 'set',
     tier: 0,
@@ -178,8 +178,8 @@ export default [
     },
   },
   {
-    id: 'granite',
-    name: 'Granite',
+    id: 'granite_armor',
+    name: 'Granite Armor',
     description: 'You can now kill stuff inside a rock.',
     type: 'set',
     tier: 1,
@@ -189,8 +189,8 @@ export default [
     },
   },
   {
-    id: 'porcelain',
-    name: 'Porcelain',
+    id: 'porcelain_armor',
+    name: 'Porcelain Armor',
     description: 'Porcelain is actually quite resistent.',
     type: 'set',
     tier: 2,
@@ -199,8 +199,8 @@ export default [
     },
   },
   {
-    id: 'miasma',
-    name: 'Miasma',
+    id: 'miasma_shroud',
+    name: 'Miasma Shroud',
     description: 'Google it, it\'s easier.',
     type: 'set',
     tier: 3,
@@ -211,8 +211,8 @@ export default [
     },
   },
   {
-    id: 'glacier',
-    name: 'Glacier',
+    id: 'glacier_armor',
+    name: 'Glacier Armor',
     description: 'Kinda cold but you can manage it.',
     type: 'set',
     tier: 4,
