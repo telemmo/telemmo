@@ -38,7 +38,7 @@ export function getTotalStats (
   return getTotalStats(
     char,
     currentLevel -1,
-    points + currentLevel + 10
+    points + currentLevel + 15
   )
 }
 export function getSpent (char) {
