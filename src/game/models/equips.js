@@ -164,6 +164,29 @@ export default [
       },
     }),
   },
+  {
+    id: 'molten_gauntlets',
+    name: 'Molten Gauntlets',
+    description: 'How do you wear them?',
+    type: 'weapon',
+    tier: 7,
+    bonus: {
+      str: 22,
+      con: 12,
+      ref: 12,
+      acc: 12,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aAim < 15),
+      defender: {
+        hp: - ( 35 + attacker.level/4),
+      },
+      log: {
+        type: 'damage',
+        value: 35 + attacker.level/4,
+      },
+    }),
+  },
   // Sets
   {
     id: 'bronze_armor',
@@ -210,8 +233,8 @@ export default [
     },
   },
   {
-    id: 'Feather',
-    name: 'Feather',
+    id: 'feather',
+    name: 'Feather Clothes',
     description: 'A lightweight set.',
     type: 'set',
     tier: 3,
@@ -251,6 +274,18 @@ export default [
       con: 25,
       str: 10,
       ref: 10,
+    },
+  },
+  {
+    id: 'lava',
+    name: 'Lava Coat',
+    description: 'Ironically it doesn\'t melt itself.',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 30,
+      str: 15,
+      ref: 15,
     },
   },
   // Tokens
@@ -358,6 +393,27 @@ export default [
       log: {
         type: 'heal',
         value: 15 + attacker.level/5,
+      },
+    }),
+  },
+  {
+    id: 'fire_emblem' ,
+    name: 'Fire Emblem',
+    description: 'An emblem carrying an eternal fire.',
+    type: 'token',
+    tier: 4,
+    bonus: {
+      flow: 25,
+      str: 25,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 14,
+      attacker: {
+        hp: 20 + attacker.level/5,
+      },
+      log: {
+        type: 'heal',
+        value: 20 + attacker.level/5,
       },
     }),
   },
