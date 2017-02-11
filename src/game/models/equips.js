@@ -254,6 +254,7 @@ export default [
     },
   },
   {
+    id: 'miasma',
     name: 'Miasma Shroud',
     description: 'You shouldn\'t wear to a party, but... Is it a party without killing?',
     type: 'set',
