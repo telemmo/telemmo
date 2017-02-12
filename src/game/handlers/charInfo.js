@@ -8,6 +8,8 @@ import { ObjectId } from 'mongodb'
 import { level, nextLevelBar } from '../core/level'
 import membersExp from '../core/membersExp'
 
+import { getCurrentStatPoints } from './statHelpers'
+
 import { rejectUndefined } from './errors'
 import { capitalize } from './helpers'
 
@@ -44,8 +46,10 @@ export default function call (dao, provider, _, msg) {
             _('<b>Reflex: </b> %s', char.ref),
             _('<b>Accuracy: </b> %s', char.acc),
             _('<b>Flow: </b> %s', char.flow),
+            _('<b>StatPoints: </b> %s', getCurrentStatPoints(char)),
           ].join('\n'),
         ),
+        _('\nsee /improve_stats to spend your StatPoints'),
         _('\nsee /inventory for items and equips'),
       ].join('\n'),
     }))
