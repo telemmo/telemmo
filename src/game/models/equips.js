@@ -82,7 +82,7 @@ export default [
   },
   {
     id: 'swift_dagger',
-    name: 'Silver Dagger',
+    name: 'Swift Dagger',
     description: 'It\'s really light.',
     type: 'weapon',
     tier: 2,
