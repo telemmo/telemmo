@@ -313,7 +313,7 @@ msgid "You don't have any equips yet."
 msgstr ""
 
 #: src/game/handlers/inventory.js 40:13
-msgid "Equiped:
+msgid "Equipped:
 %s
 "
 msgstr[0] ""
@@ -342,7 +342,7 @@ msgid "You don't have this equip."
 msgstr ""
 
 #: src/game/handlers/useEquip.js 51:10
-msgid "%s equiped!"
+msgid "%s equipped!"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -374,7 +374,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/game/handlers/inventory.js 42:13
-msgid "Equiped:
+msgid "Equipped:
 %s
 
 "
@@ -386,7 +386,7 @@ msgid "Nothing."
 msgstr ""
 
 #: src/game/handlers/inventory.js 42:13
-msgid "<pre>Equiped:</pre>
+msgid "<pre>Equipped:</pre>
 %s
 
 "
