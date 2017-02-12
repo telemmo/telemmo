@@ -3,6 +3,7 @@ import {
   prop,
   head,
   map,
+  filter,
   pipe,
   toPairs,
   tap,
@@ -23,6 +24,7 @@ export default function call (dao, provider, _, msg) {
     .then(head)
     .then(rejectUndefined(msg, _('You don\'t have any equips yet.')))
     .then(prop('equips'))
+    .then(filter(equip => equip !== null))
     .then(map(models.equips.find))
     .then(equips => dao.character
       .find({ _id: msg.player.currentCharId })
@@ -35,14 +37,19 @@ export default function call (dao, provider, _, msg) {
     .then(({ equips, char }) => ({
       to: msg.chat,
       text: [
-        _('Equipped:\n%s\n',
-          toPairs(tap(console.log, char.equips)).map(pair =>
-            `<b>${capitalize(pair[0])}:</b> ${models.equips.find(pair[1]).name}\n`,
-          ).join('') || _('Nothing.\n'),
+        _('<pre>Equipped:</pre>\n%s\n\n',
+          toPairs(char.equips)
+            .map(pair =>
+              `<b>${capitalize(pair[0])}:</b> ${models.equips.find(pair[1]).name}`,
+            ).join('\n') || _('Nothing.'),
         ),
-        _('Inventory:\n'),
+        _('<pre>Inventory:</pre>\n'),
         equips.map(equip =>
-          `<b>${equip.name}</b> - ${capitalize(equip.type)} tier ${equip.tier}\n<i>${equip.description}</i>\n /use_equip_${equip.id}\n`,
+          [
+            `<b>${equip.name}</b> - ${capitalize(equip.type)} tier ${equip.tier}`,
+            // `<i>${equip.description}</i>`,
+            `/use_equip_${equip.id}\n`,
+          ].join('\n')
         ).join('\n'),
       ].join(''),
     }))

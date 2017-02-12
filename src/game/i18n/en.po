@@ -367,3 +367,34 @@ msgstr[1] ""
 msgid "Race condition detected"
 msgstr ""
 
+#: src/game/handlers/explore.js 47:4
+msgid ":dart: %s :anger: %s :sparkles: %s
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 42:13
+msgid "Equiped:
+%s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 44:23
+msgid "Nothing."
+msgstr ""
+
+#: src/game/handlers/inventory.js 42:13
+msgid "<pre>Equiped:</pre>
+%s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/inventory.js 44:39
+msgid "<pre>Inventory:</pre>
+"
+msgstr ""
+
