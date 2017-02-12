@@ -35,7 +35,7 @@ export default function call (dao, provider, _, msg) {
     .then(({ equips, char }) => ({
       to: msg.chat,
       text: [
-        _('Equiped:\n%s\n',
+        _('Equipped:\n%s\n',
           toPairs(tap(console.log, char.equips)).map(pair =>
             `<b>${capitalize(pair[0])}:</b> ${models.equips.find(pair[1]).name}\n`,
           ).join('') || _('Nothing.\n'),
