@@ -398,3 +398,21 @@ msgid "<pre>Inventory:</pre>
 "
 msgstr ""
 
+#: src/game/handlers/charInfo.js 42:573
+msgid "<b>StatPoints: </b> %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 42:661
+msgid "
+see /improve_stats to spend your StatPoints"
+msgstr ""
+
+#: src/game/handlers/inventory.js 42:13
+msgid "<pre>Equipped:</pre>
+%s
+
+"
+msgstr[0] ""
+msgstr[1] ""
+
