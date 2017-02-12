@@ -116,7 +116,7 @@ export default [
         influence: 15,
       },
       {
-        id: 'snow_chimera',
+        id: 'ash_spirit',
         influence: 7,
       },
       {
