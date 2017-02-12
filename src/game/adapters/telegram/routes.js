@@ -2,6 +2,10 @@ import handlers from '../../handlers'
 
 export default [
   {
+    match: /\/version/,
+    handler: handlers.version,
+  },
+  {
     match: /\/start/,
     handler: handlers.start,
   },
