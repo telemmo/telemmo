@@ -41,7 +41,10 @@ This repo is under GPL3 license as of now. You can do whatever you want with it 
 ### Contributors
 
 
-* [@AtillaGallio](https://github.com/atillagallio) - Contributor: code
+* [@bladespell](https://github.com/bladespell) - Contributor: game design
+* [@PlatypusKing](https://github.com/PlatypusKing) - Contributor: community
+* [@Croebh](https://github.com/Croebh) - Contributor: code
+* [@AtillaGallio](https://github.com/atillagallio) - Contributor: game design, code
 * [@furiaz](https://github.com/furiaz) - Contributor: game design
 * [@flipog](https://github.com/flipog) - Contributor: NaN
 * [@DerekStavis](https://github.com/derekstavis/) - Author: server person, code, code mentor
