@@ -3,7 +3,7 @@ export default [
   {
     id: 'bronze_blade',
     name: 'Bronze Blade',
-    description: 'The worst weapon in the game, but it\'s a weapon.',
+    description: 'The worst weapon, but a weapon, amirite?',
     type: 'weapon',
     tier: 0,
     bonus: {
@@ -23,9 +23,9 @@ export default [
   {
     id: 'leaf_blade',
     name: 'Leaf Blade',
-    description: 'A blade. Made of leaf.',
+    description: 'A blade definitely not for smoking',
     type: 'weapon',
-    tier: 0,
+    tier: 2,
     bonus: {
       str: 5,
     },
@@ -43,7 +43,7 @@ export default [
   {
     id: 'silver_dagger',
     name: 'Silver Dagger',
-    description: 'A silver dagger.',
+    description: 'You just threw the fork away and called it dagger',
     type: 'weapon',
     tier: 1,
     bonus: {
@@ -63,9 +63,9 @@ export default [
   {
     id: 'sharded_club',
     name: 'Sharded Club',
-    description: 'A really spiky club.',
+    description: 'A piece of rock as cool as it\'s impractical',
     type: 'weapon',
-    tier: 1,
+    tier: 3,
     bonus: {
       str: 10,
     },
@@ -81,11 +81,32 @@ export default [
     }),
   },
   {
-    id: 'whip_of_vines',
-    name: 'Whip of Vines',
-    description: 'It was supposed to be "Vine Whip" but maybe Nintendo would sue us.',
+    id: 'swift_dagger',
+    name: 'Silver Dagger',
+    description: 'It\'s really light.',
     type: 'weapon',
     tier: 2,
+    bonus: {
+      str: 3,
+      ref: 5,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aAim < 17,
+      defender: {
+        hp: - ( 4 + attacker.level/10),
+      },
+      log: {
+        type: 'damage',
+        value: 4 + attacker.level/10,
+      },
+    }),
+  },
+  {
+    id: 'whip_of_vines',
+    name: 'Whip of Vines',
+    description: 'NOT "Vine Whip", we swear ;)',
+    type: 'weapon',
+    tier: 4,
     bonus: {
       str: 15,
     },
@@ -103,9 +124,9 @@ export default [
   {
     id: 'psycho_scythe',
     name: 'Psycho Scythe',
-    description: 'A scythe once used by a psycho.',
+    description: 'Better a psycho in your hands than a psycho in your city',
     type: 'weapon',
-    tier: 3,
+    tier: 5,
     bonus: {
       str: 10,
     },
@@ -123,9 +144,9 @@ export default [
   {
     id: 'lancicle',
     name: 'Lancicle',
-    description: 'It\'s shinny and it\'s pointy.',
+    description: 'IRL you would lick it... You also would regret it',
     type: 'weapon',
-    tier: 4,
+    tier: 6,
     bonus: {
       str: 17,
       con: 7,
@@ -133,7 +154,7 @@ export default [
       acc: 7,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aAim < 18),
+      noCast: (rolls.aAim < 15),
       defender: {
         hp: - ( 30 + attacker.level/4),
       },
@@ -143,11 +164,34 @@ export default [
       },
     }),
   },
-  //s
+  {
+    id: 'molten_gauntlets',
+    name: 'Molten Gauntlets',
+    description: 'How do you wear them?',
+    type: 'weapon',
+    tier: 7,
+    bonus: {
+      str: 22,
+      con: 12,
+      ref: 12,
+      acc: 12,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aAim < 15),
+      defender: {
+        hp: - ( 35 + attacker.level/4),
+      },
+      log: {
+        type: 'damage',
+        value: 35 + attacker.level/4,
+      },
+    }),
+  },
+  // Sets
   {
     id: 'bronze_armor',
     name: 'Bronze Armor',
-    description: 'Not quite good but brings in some defense.',
+    description: 'Not quite good... You know... Are you? Don\'t judge',
     type: 'set',
     tier: 0,
     bonus: {
@@ -157,10 +201,10 @@ export default [
   },
   {
     id: 'foliage',
-    name: 'Foliage',
-    description: 'A set. Made of leaf.',
+    name: 'Foliage Camouflage',
+    description: 'I\'m not repeating the Leaf Dagger joke... No, dammit, get one :|',
     type: 'set',
-    tier: 0,
+    tier: 2,
     bonus: {
       con: 5,
       ref: 5,
@@ -169,7 +213,7 @@ export default [
   {
     id: 'silver_armor',
     name: 'Silver Armor',
-    description: 'A silver armor.',
+    description: 'You\'re so totally showing it to them, girlfriend!',
     type: 'set',
     tier: 1,
     bonus: {
@@ -179,31 +223,42 @@ export default [
   },
   {
     id: 'granite',
-    name: 'Granite',
-    description: 'You can now kill stuff inside a rock.',
+    name: 'Granite Armor',
+    description: 'You can now kill stuff inside a rock, not The Rock unfortunately.',
     type: 'set',
-    tier: 1,
+    tier: 3,
     bonus: {
       str: 5,
       con: 10,
     },
   },
   {
-    id: 'porcelain',
-    name: 'Porcelain',
-    description: 'Porcelain is actually quite resistent.',
+    id: 'feather',
+    name: 'Feather Clothes',
+    description: 'A lightweight set.',
     type: 'set',
-    tier: 2,
+    tier: 3,
+    bonus: {
+      ref: 10,
+      con: 10,
+    },
+  },
+  {
+    id: 'porcelain',
+    name: 'Porcelain Armor',
+    description: 'Porcelain is actually quite resistant. Google it ;)',
+    type: 'set',
+    tier: 4,
     bonus: {
       con: 20,
     },
   },
   {
     id: 'miasma',
-    name: 'Miasma',
-    description: 'Google it, it\'s easier.',
+    name: 'Miasma Shroud',
+    description: 'You shouldn\'t wear to a party, but... Is it a party without killing?',
     type: 'set',
-    tier: 3,
+    tier: 5,
     bonus: {
       con: 20,
       str: 5,
@@ -212,21 +267,33 @@ export default [
   },
   {
     id: 'glacier',
-    name: 'Glacier',
+    name: 'Glacier Armor',
     description: 'Kinda cold but you can manage it.',
     type: 'set',
-    tier: 4,
+    tier: 6,
     bonus: {
       con: 25,
       str: 10,
       ref: 10,
     },
   },
+  {
+    id: 'lava',
+    name: 'Lava Coat',
+    description: 'Ironically it doesn\'t melt itself.',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 30,
+      str: 15,
+      ref: 15,
+    },
+  },
   // Tokens
   {
     id: 'golden_beetle',
     name: 'Golden Beetle',
-    description: 'A shiny beetle that helps you.',
+    description: 'A shiny cute helper very much not a pokedigimedabotmon',
     type: 'token',
     tier: 0,
     bonus: {
@@ -246,7 +313,7 @@ export default [
   {
     id: 'precious_ore',
     name: 'Precious Ore',
-    description: 'A rare magical ore with mistery powers.',
+    description: 'It\'s mysterious powers won\'t really improve your math skills',
     type: 'token',
     tier: 1,
     bonus: {
@@ -267,7 +334,7 @@ export default [
   {
     id: 'old_soul',
     name: 'Old Soul',
-    description: 'You found this lonely soul and now it\'s by your side.',
+    description: 'A lonely soul now walks by your side because you know, fuck privacy.',
     type: 'token',
     tier: 2,
     bonus: {
@@ -288,7 +355,7 @@ export default [
   {
     id: 'demons_pick' ,
     name: 'Demon\'s Pick',
-    description: 'Jack Black would be prowd of you.',
+    description: 'Jack Black would be prowd of you!',
     type: 'token',
     tier: 3,
     bonus: {
@@ -327,6 +394,27 @@ export default [
       log: {
         type: 'heal',
         value: 15 + attacker.level/5,
+      },
+    }),
+  },
+  {
+    id: 'fire_emblem' ,
+    name: 'Fire Emblem',
+    description: 'An emblem carrying an eternal fire.',
+    type: 'token',
+    tier: 4,
+    bonus: {
+      flow: 25,
+      str: 25,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 14,
+      attacker: {
+        hp: 20 + attacker.level/5,
+      },
+      log: {
+        type: 'heal',
+        value: 20 + attacker.level/5,
       },
     }),
   },

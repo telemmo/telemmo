@@ -2,6 +2,7 @@ import {
   always,
   merge,
   head,
+  pick,
 } from 'ramda'
 import { ObjectId } from 'mongodb'
 
@@ -14,9 +15,10 @@ import { getStatCost, getCurrentStatPoints, statIds } from './statHelpers'
 
 function increaseStat (dao, char, statId) {
   const amount = char[statId]
-  return dao.character.update({ _id: char.id }, { $set:
-    { [statId]: amount + 1 } },
-  )
+  const query = pick(['_id', 'updatedAt'], char)
+  return dao.character.update(query, {
+    $set: { [statId]: amount + 1 },
+  })
 }
 
 export default function call (dao, provider, _, msg) {

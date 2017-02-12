@@ -83,7 +83,7 @@ function attachPrizes (combat, rolls) {
         }]
       }
 
-      if (rolls.equipLuck < 200 && enemy.prizes.equips) {
+      if (rolls.equipLuck < 150 && enemy.prizes.equips) {
         const equips = enemy.prizes.equips
         const index = Math.floor(((rolls.equip - 1 ) / 10000) * equips.length)
 
@@ -136,24 +136,21 @@ function runTurn (combat, rolls) {
   const attacker = teams[0].overall
   const defender = teams[1].overall
 
-  const statIrrelevance = 6
-  const si = statIrrelevance
+  const skill = (rolls.aSkill * (attacker.flow / 4))
+              - (rolls.dSkill * (defender.flow / 6))
 
-  const skill = (rolls.aSkill * (attacker.flow / si))
-              - (rolls.dSkill * (defender.flow / si))
+  const aim = (rolls.aAim * (attacker.acc / 4))
+            - (rolls.dAim * (defender.ref / 6))
 
-  const aim = (rolls.aAim * (attacker.acc / (si * 6)))
-            - (rolls.dAim * (defender.ref / (si * 6)))
-
-  const hit = (((rolls.aHit / 4) * (attacker.str / si)) + 10)
-            - ((rolls.dHit / 4) * (defender.con / si))
+  const hit = (((rolls.aHit / 4) * (attacker.str / 4)) + 5)
+            - ((rolls.dHit / 4) * (defender.con / 6))
 
   let dmg = Math.max(
     Math.ceil(hit),
     2,
   )
 
-  if (aim < -100) {
+  if (aim < -20) {
     dmg = 0
   }
 
@@ -242,7 +239,7 @@ const combatMemberIds = pipe(
 function wait (combat) {
   const amount = process.env.NODE_ENV === 'production'
     ? 40000 + (Math.random() * 30000)
-    : 1000
+    : 3141 + (Math.random() * 2000)
 
   return Promise.delay(amount)
     .then(always(combat))

@@ -195,6 +195,7 @@ t . Old soul
     prizes: {
       exp: 23,
       items: ['Sting'],
+      equips: ['swift_dagger'],
       tokens: ['old_soul'],
     },
   },
@@ -210,6 +211,7 @@ t . Old soul
     prizes: {
       exp: 25,
       items: ['Snakeskin'],
+      equips: ['feather'],
       tokens: ['old_soul'],
     },
   },
@@ -413,7 +415,7 @@ t . Ice Ring
     prizes: {
       exp: 63,
       items: ['Dark Fang'],
-      equips: ['glacier', 'lancicle'],
+      equips: ['glacier',],
       tokens: ['ice_ring'],
     },
   },
@@ -432,106 +434,93 @@ t . Ice Ring
       tokens: ['ice_ring'],
     },
   },
+/*//////////////////////////////////////////////////////////////////////////////
+Volcanic Oasis
+
+w . Molten Gauntlets
+s . Lava
+t . Fire Emblem
+
+*/
+  {
+    id: 'lavabug',
+    name: 'Lavabug',
+    str: 50,
+    ref: 50,
+    acc: 50,
+    con: 50,
+    flow: 50,
+    level: 75,
+    prizes: {
+      exp: 75,
+      items: ['Lava Carcass'],
+      tokens: ['fire_emblem'],
+    },
+  },
+  {
+    id: 'fire_cactus',
+    name: 'Fire Cactus',
+    str: 55,
+    ref: 55,
+    acc: 55,
+    con: 55,
+    flow: 55,
+    level: 80,
+    prizes: {
+      exp: 80,
+      items: ['Fire Spike'],
+      tokens: ['fire_emblem'],
+    },
+  },
+  {
+    id: 'ash_spirit',
+    name: 'Ash Spirit',
+    str: 63,
+    ref: 63,
+    acc: 63,
+    con: 63,
+    flow: 63,
+    level: 88,
+    prizes: {
+      exp: 100,
+      items: ['Glowing Ashes'],
+      equips: ['lava'],
+      tokens: ['fire_emblem'],
+    },
+  },
+  {
+    id: 'phoenix',
+    name: 'Phoenix',
+    str: 70,
+    ref: 70,
+    acc: 70,
+    con: 70,
+    flow: 70,
+    level: 95,
+    prizes: {
+      exp: 120,
+      items: ['Molten Feather'],
+      equips: ['molten_gauntlets'],
+      tokens: ['fire_emblem'],
+    },
+  },
+  {
+    id: 'dragon',
+    name: 'Dragon',
+    str: 80,
+    ref: 80,
+    acc: 80,
+    con: 80,
+    flow: 80,
+    level: 115,
+    prizes: {
+      exp: 750,
+      equips: ['molten_gauntlets', 'lava'],
+      tokens: ['fire_emblem'],
+    },
+  },
 ]
 
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-// #<{(|//////////////////////////////////////////////////////////////////////////////
-// Volcanic Oasis
-//
-// w . Molten Gauntlets
-// s . Lava
-// t . Fire Emblem
-//
-// |)}>#
-//   {
-//     id: 'lavabug',
-//     name: 'Lavabug',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'fire_cactus',
-//     name: 'Fire Cactus',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'ash_spirit',
-//     name: 'Ash Spirit',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'phoenix',
-//     name: 'Phoenix',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'dragon',
-//     name: 'Dragon',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//
 // #<{(|//////////////////////////////////////////////////////////////////////////////
 // Robot City
 //
