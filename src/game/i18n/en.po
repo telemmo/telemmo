@@ -416,3 +416,8 @@ msgid "<pre>Equipped:</pre>
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/useEquip.js 51:10
+msgid "%s equipped!"
+msgstr[0] ""
+msgstr[1] ""
+
