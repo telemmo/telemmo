@@ -1,51 +1,31 @@
 import {
   merge,
-  map,
   mergeWith,
   add,
+  keys,
+  pipe,
 } from 'ramda'
 
 import models from '../models'
 
-function addStanceStats (fighter) {
-  if (!fighter.stance) { return fighter }
-  const stance = models.stances.find(fighter.stance)
-  return mergeWith(add, fighter, stance.bonus)
-}
-
 function addEquipStats (fighter) {
   if (!fighter.equips) { return fighter }
-  return Object.keys(fighter.equips).reduce((acc, equipPosition) => {
-    const equip = models.equips.find(fighter.equips[equipPosition])
-    return mergeWith(add, acc, equip.bonus)
-  }, fighter)
+  return keys(fighter.equips)
+    .reduce((acc, equipPosition) => {
+      const equip = models.equips.find(fighter.equips[equipPosition])
+      return mergeWith(add, acc, equip.bonus)
+    }, fighter)
 }
 
-
-export function buildCombatStats (fighter) {
-  return Promise.resolve(fighter)
-    .then(addEquipStats)
-    .then(f => {
-      const initialHp = 50 + (f.str + f.con + f.acc + f.ref)/4 + f.level
-      return merge(f, { initialHp, hp: initialHp })
-    })
+function addHp (fighter) {
+  const { str, con, acc, ref, level } = fighter
+  const initialHp = ((str + con + acc + ref) / 4) + level + 50
+  console.log(fighter, initialHp)
+  return merge(fighter, { initialHp, hp: initialHp })
 }
 
-function testBuild (s) {
-  console.log(
-    s,
-    ':',
-    combatStats({ str: s, int: s, ref: s, acc: s, con: s, kno: s }),
-    '\n-----',
-  )
-}
-
-export function test () {
-  testBuild(1)
-  testBuild(10)
-  testBuild(25)
-  testBuild(50)
-  testBuild(75)
-  testBuild(100)
-}
+export const buildCombatStats = pipe(
+  addEquipStats,
+  addHp,
+)
 
