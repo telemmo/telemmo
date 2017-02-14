@@ -190,7 +190,7 @@ t . Old soul
     ref: 17,
     acc: 17,
     con: 17,
-    flow: 17,
+    flow: 30,
     level: 23,
     prizes: {
       exp: 23,
@@ -206,7 +206,7 @@ t . Old soul
     ref: 18,
     acc: 18,
     con: 18,
-    flow: 18,
+    flow: 32,
     level: 25,
     prizes: {
       exp: 25,
@@ -222,7 +222,7 @@ t . Old soul
     ref: 19,
     acc: 19,
     con: 19,
-    flow: 19,
+    flow: 34,
     level: 29,
     prizes: {
       exp: 29,
@@ -238,7 +238,7 @@ t . Old soul
     ref: 21,
     acc: 21,
     con: 21,
-    flow: 21,
+    flow: 36,
     level: 33,
     prizes: {
       exp: 33,
@@ -254,7 +254,7 @@ t . Old soul
     ref: 24,
     acc: 24,
     con: 24,
-    flow: 24,
+    flow: 40,
     level: 38,
     prizes: {
       exp: 200,
@@ -278,7 +278,7 @@ t . Demon's Pick
     ref: 24,
     acc: 24,
     con: 24,
-    flow: 24,
+    flow: 40,
     level: 41,
     prizes: {
       exp: 41,
@@ -293,7 +293,7 @@ t . Demon's Pick
     ref: 26,
     acc: 26,
     con: 26,
-    flow: 26,
+    flow: 40,
     level: 44,
     prizes: {
       exp: 44,
@@ -308,7 +308,7 @@ t . Demon's Pick
     ref: 27,
     acc: 27,
     con: 27,
-    flow: 27,
+    flow: 40,
     level: 46,
     prizes: {
       exp: 46,
@@ -324,7 +324,7 @@ t . Demon's Pick
     ref: 30,
     acc: 30,
     con: 30,
-    flow: 30,
+    flow: 45,
     level: 49,
     prizes: {
       exp: 49,
@@ -340,7 +340,7 @@ t . Demon's Pick
     ref: 32,
     acc: 32,
     con: 32,
-    flow: 32,
+    flow: 50,
     level: 52,
     prizes: {
       exp: 350,
@@ -364,7 +364,7 @@ t . Ice Ring
     ref: 34,
     acc: 34,
     con: 34,
-    flow: 34,
+    flow: 50,
     level: 55,
     prizes: {
       exp: 55,
@@ -379,7 +379,7 @@ t . Ice Ring
     ref: 36,
     acc: 36,
     con: 36,
-    flow: 36,
+    flow: 50,
     level: 57,
     prizes: {
       exp: 57,
@@ -394,7 +394,7 @@ t . Ice Ring
     ref: 38,
     acc: 38,
     con: 38,
-    flow: 38,
+    flow: 50,
     level: 61,
     prizes: {
       exp: 61,
@@ -410,7 +410,7 @@ t . Ice Ring
     ref: 40,
     acc: 40,
     con: 40,
-    flow: 40,
+    flow: 50,
     level: 63,
     prizes: {
       exp: 63,
@@ -426,7 +426,7 @@ t . Ice Ring
     ref: 44,
     acc: 44,
     con: 44,
-    flow: 44,
+    flow: 60,
     level: 67,
     prizes: {
       exp: 500,
@@ -449,7 +449,7 @@ t . Fire Emblem
     ref: 50,
     acc: 50,
     con: 50,
-    flow: 50,
+    flow: 60,
     level: 75,
     prizes: {
       exp: 75,
@@ -464,7 +464,7 @@ t . Fire Emblem
     ref: 55,
     acc: 55,
     con: 55,
-    flow: 55,
+    flow: 65,
     level: 80,
     prizes: {
       exp: 80,
@@ -495,7 +495,7 @@ t . Fire Emblem
     ref: 70,
     acc: 70,
     con: 70,
-    flow: 70,
+    flow: 80,
     level: 95,
     prizes: {
       exp: 120,
@@ -511,7 +511,7 @@ t . Fire Emblem
     ref: 80,
     acc: 80,
     con: 80,
-    flow: 80,
+    flow: 90,
     level: 115,
     prizes: {
       exp: 750,

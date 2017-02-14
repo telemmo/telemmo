@@ -146,7 +146,7 @@ function runTurn (combat, rolls) {
             - ((rolls.dHit / 4) * (defender.con / 6))
 
   let dmg = Math.max(
-    Math.ceil(hit),
+    Math.ceil((3 * hit + (aim / 4)) / 4),
     2,
   )
 
