@@ -39,7 +39,7 @@ export default [
     error: handlers.start
   },
   {
-    match: /\/use_equip_(\w+)/,
+    match: /\/(?:use_equip|equip|wield|wear|empower)_(\w+)/,
     handler: handlers.useEquip,
     next: handlers.inventory,
     condition: msg => msg.player.currentCharId,
