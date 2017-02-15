@@ -3,6 +3,9 @@
 # git add --force dist
 dist
 
+# docker ENVIRONMENT variables (mostly for BOT_KEY)
+telemmo_dev_env.txt
+
 # Vim Stuff
 .tern-port
 *.swp

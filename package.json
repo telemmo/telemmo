@@ -22,7 +22,17 @@
     "predev": "webpack --progress --colors --config webpack.config.dev.js",
     "dev": "node dist/telemmo.dev.js",
     "test": "jest",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "docker-dev-build": "docker build --tag telemmo-dev --file Dockerfile.dev .",
+    "docker-dev-create-mongo": "docker run --detach --name telemmo-mongodb mongo",
+    "docker-dev-create-telemmo": "docker run --detach --rm --name telemmo-dev --link telemmo-mongodb:mongo --env-file telemmo_dev_env.txt telemmo-dev",
+    "docker-dev-start-mongo": "docker start telemmo-mongodb",
+    "docker-dev-start-telemmo": "docker start telemmo-dev",
+    "docker-dev-stop-mongo": "docker stop telemmo-mongo || true",
+    "docker-dev-stop-telemmo": "docker stop telemmo-dev || true",
+    "docker-dev-stop": "run-s docker-dev-stop-telemmo docker-dev-stop-mongo",
+    "docker-dev-create": "run-s docker-dev-build docker-dev-start-mongo docker-dev-stop-telemmo docker-dev-create-telemmo",
+    "docker-dev-start": "run-s docker-dev-start-mongo docker-dev-start-telemmo"
   },
   "devDependencies": {
     "babel": "6.5.2",
@@ -31,6 +41,7 @@
     "babel-loader": "6.2.10",
     "babel-polyfill": "6.22.0",
     "babel-preset-es2015-native-generators": "6.6.0",
+    "cash-true": "0.0.2",
     "eslint": "3.14.1",
     "eslint-config-airbnb": "14.0.0",
     "eslint-plugin-import": "2.2.0",
@@ -39,6 +50,7 @@
     "gettext-loader": "derekstavis/gettext-loader",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
+    "npm-run-all": "^4.0.1",
     "webpack": "1.14.0"
   }
 }
