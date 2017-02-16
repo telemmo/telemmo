@@ -1,4 +1,5 @@
 import {
+  ifElse,
   propEq,
   always,
   toPairs,
@@ -73,10 +74,14 @@ export function render (_, player, result) {
         turn.rolls.aHit,
         turn.rolls.aSkill,
       ),
-      _('<b>%s</b> dealt <b>%s damage</b>\n',
-        last(split(' ', turn.attacker)),
-        turn.damage.toFixed(0),
-      ),
+      ifElse(
+        propEq('damage', 0),
+        t => _('<b>%s missed</b>\n', last(split(' ', t.attacker))),
+        t => _('<b>%s</b> dealt <b>%s damage</b>\n',
+          last(split(' ', t.attacker)),
+          t.damage.toFixed(0),
+        ),
+      )(turn),
       (turn.casts || []).map(cast =>
         _('%s <b>%s</b> cast for <b>%s %s</b>\n',
           cast.emoji,
