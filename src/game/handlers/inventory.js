@@ -63,18 +63,18 @@ export default function call (dao, provider, _, msg) {
           join('\n', [
             _(`<pre>${capitalize(equipType)}:</pre>`),
             ...map(({ id, name, tier, type }) =>
-                _(`<b>%s</b> - Tier %s %s\n/%s_%s`,
+                _('<b>%s</b> - Tier %s %s\n/%s_%s',
                   name, tier, capitalize(type),
                   prop('verb', find(propEq('type', type), equipVerbs)),
-                  id
+                  id,
                 ),
-              sortBy(prop('tier'), equipList)
+              sortBy(prop('tier'), equipList),
             ),
           ]),
           sortBy(
             ({ 0: equipType }) => findIndex(equals(equipType), invSectionOrder),
-            toPairs(groupBy(prop('type'), equips))
-          )
+            toPairs(groupBy(prop('type'), equips)),
+          ),
         )),
 
       ]),
