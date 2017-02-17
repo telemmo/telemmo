@@ -39,7 +39,7 @@ export default function call (dao, provider, _, msg) {
         _('<b>Level:</b> %s', char.level),
         _('<b>Exp:</b> %s', char.exp),
         _('\n<b>Level Progress :</b>\n<pre>%s</pre>', nextLevelBar(char)),
-        _('\nStats\n%s',
+        _('Stats\n%s',
           [
             _('<b>Strength: </b> %s', char.str),
             _('<b>Constitution: </b> %s', char.con),
@@ -50,7 +50,7 @@ export default function call (dao, provider, _, msg) {
           ].join('\n'),
         ),
         _('\nsee /improve_stats to spend your StatPoints'),
-        _('\nsee /inventory for items and equips'),
+        _('see /inventory for items and equips'),
       ].join('\n'),
     }))
 }
