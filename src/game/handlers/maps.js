@@ -14,7 +14,7 @@ export default function call (dao, provider, _, msg) {
   const params = {
     to: msg.chat,
     text: _(':earth_asia: Explore :earth_asia:\n\nChoose a map to explore'),
-    options: splitEvery(2, options()),
+    options: splitEvery(1, options()),
   }
 
   return Promise.resolve(params)
