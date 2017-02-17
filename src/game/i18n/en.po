@@ -404,3 +404,21 @@ msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/inventory.js 59:17
+msgid "<b>%s</b> - Tier %s %s
+/%s_%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 48:13
+msgid "<b>%s missed</b>
+"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/explore.js 48:13
+msgid "<b>%s</b> <i>missed</i>
+"
+msgstr[0] ""
+msgstr[1] ""
+

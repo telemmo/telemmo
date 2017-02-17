@@ -76,7 +76,7 @@ export function render (_, player, result) {
       ),
       ifElse(
         propEq('damage', 0),
-        t => _('<b>%s missed</b>\n', last(split(' ', t.attacker))),
+        t => _('<b>%s</b> <i>missed</i>\n', last(split(' ', t.attacker))),
         t => _('<b>%s</b> dealt <b>%s damage</b>\n',
           last(split(' ', t.attacker)),
           t.damage.toFixed(0),
