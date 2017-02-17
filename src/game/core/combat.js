@@ -70,7 +70,7 @@ function attachPrizes (combat, rolls) {
 
       prizes = [ ...prizes ,{
         charId: char.id,
-        exp: enemy.prizes.exp,
+        exp: enemy.prizes.exp * 2, // double exp weekend \o/
       }]
 
       if (rolls.itemLuck < 2000 && enemy.prizes.items) {
