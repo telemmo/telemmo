@@ -422,3 +422,13 @@ msgid "<b>%s</b> <i>missed</i>
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/charInfo.js 42:371
+msgid "Stats
+%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 42:711
+msgid "see /inventory for items and equips"
+msgstr ""
+
