@@ -187,6 +187,29 @@ export default [
       },
     }),
   },
+  {
+    id: 'blood_chainsaw',
+    name: 'Blood Chainsaw',
+    description: 'No movie references here.',
+    type: 'weapon',
+    tier: 8,
+    bonus: {
+      str: 25,
+      con: 16,
+      ref: 16,
+      acc: 16,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aHit < 10),
+      defender: {
+        hp: - ( 15 + attacker.level/4),
+      },
+      log: {
+        type: 'damage',
+        value: 15 + attacker.level/4,
+      },
+    }),
+  },
   // Sets
   {
     id: 'bronze_armor',
@@ -286,7 +309,31 @@ export default [
     bonus: {
       con: 30,
       str: 15,
-      ref: 15,
+      ref: 10,
+    },
+  },
+  {
+    id: 'mecha',
+    name: 'Mecha Suit',
+    description: 'As overpowered as it can get.',
+    type: 'set',
+    tier: 8,
+    bonus: {
+      con: 35,
+      str: 20,
+      ref: 20,
+    },
+  },
+  {
+    id: 'electric',
+    name: 'Electric Suit',
+    description: 'Buzz Buzz',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 20,
+      str: 10,
+      ref: 25,
     },
   },
   // Tokens
@@ -415,6 +462,28 @@ export default [
       log: {
         type: 'heal',
         value: 20 + attacker.level/5,
+      },
+    }),
+  },
+  {
+    id: 'dynamo' ,
+    name: 'Dynamo',
+    description: 'High end tech.',
+    type: 'token',
+    tier: 5,
+    bonus: {
+      flow: 30,
+      str: 25,
+      con: 10,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 14,
+      attacker: {
+        hp: 30 + attacker.level/4,
+      },
+      log: {
+        type: 'heal',
+        value: 30 + attacker.level/4,
       },
     }),
   },

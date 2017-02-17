@@ -155,4 +155,30 @@ export default [
       },
     ],
   },
+  {
+    id: 'robot_city',
+    name: 'Robot City',
+    monsters: [
+      {
+        id: 'lowly_solder',
+        influence: 20,
+      },
+      {
+        id: 'pysthon',
+        influence: 15,
+      },
+      {
+        id: 'sprocketeer',
+        influence: 8,
+      },
+      {
+        id: 'grate_knight',
+        influence: 4,
+      },
+      {
+        id: 'king_gear',
+        influence: 1,
+      },
+    ],
+  },
 ]
