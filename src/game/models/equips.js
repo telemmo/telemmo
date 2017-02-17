@@ -449,7 +449,7 @@ export default [
     name: 'Fire Emblem',
     description: 'An emblem carrying an eternal fire.',
     type: 'token',
-    tier: 4,
+    tier: 5,
     bonus: {
       flow: 25,
       str: 25,
@@ -470,7 +470,7 @@ export default [
     name: 'Dynamo',
     description: 'High end tech.',
     type: 'token',
-    tier: 5,
+    tier: 6,
     bonus: {
       flow: 30,
       str: 25,
