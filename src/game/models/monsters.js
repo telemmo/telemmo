@@ -519,92 +519,93 @@ t . Fire Emblem
       tokens: ['fire_emblem'],
     },
   },
-]
 
-// #<{(|//////////////////////////////////////////////////////////////////////////////
-// Robot City
-//
-// w . Blood Chainsaw
-// s . Mecha
-// t . Dynamo
-//
-// |)}>#
-//   {
-//     id: 'lowly_solder',
-//     name: 'Lowly Solder',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'pysthon',
-//     name: 'Pysthon',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'sprocketeer',
-//     name: 'Sprocketeer',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'grate_knight',
-//     name: 'Grate Knight',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'king_gear',
-//     name: 'King Gear',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//
+/*//////////////////////////////////////////////////////////////////////////////
+Robot City
+
+w . Blood Chainsaw
+s . Mecha Suit
+t . Dynamo
+
+*/
+  {
+    id: 'lowly_solder',
+    name: 'Lowly Solder',
+    str: 100,
+    ref: 100,
+    acc: 100,
+    con: 100,
+    flow: 120,
+    level: 140,
+    prizes: {
+      exp: 130,
+      items: ['Rifle Piece'],
+      tokens: ['dynamo'],
+    },
+  },
+  {
+    id: 'pysthon',
+    name: 'Pysthon',
+    str: 120,
+    ref: 120,
+    acc: 120,
+    con: 120,
+    flow: 130,
+    level: 165,
+    prizes: {
+      exp: 150,
+      items: ['Dark Oil'],
+      tokens: ['dynamo'],
+    },
+  },
+  {
+    id: 'sprocketeer',
+    name: 'Sprocketeer',
+    str: 130,
+    ref: 130,
+    acc: 130,
+    con: 130,
+    flow: 140,
+    level: 170,
+    prizes: {
+      exp: 170,
+      items: ['Broken rocket'],
+      equips: ['electric'],
+      tokens: ['dynamo'],
+    },
+  },
+  {
+    id: 'grate_knight',
+    name: 'Grate Knight',
+    str: 150,
+    ref: 150,
+    acc: 150,
+    con: 150,
+    flow: 170,
+    level: 180,
+    prizes: {
+      exp: 200,
+      items: ['Grate'],
+      equips: ['mecha'],
+      tokens: ['dynamo'],
+    },
+  },
+  {
+    id: 'king_gear',
+    name: 'King Gear',
+    str: 180,
+    ref: 180,
+    acc: 180,
+    con: 180,
+    flow: 220,
+    level: 220,
+    prizes: {
+      exp: 2000,
+      equips: ['blood_chainsaw'],
+      tokens: ['dynamo'],
+    },
+  },
+]
 // #<{(|//////////////////////////////////////////////////////////////////////////////
 // Deeps Below
 //
