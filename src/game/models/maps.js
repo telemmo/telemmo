@@ -157,7 +157,7 @@ export default [
   },
   {
     id: 'robot_city',
-    name: 'Robot City',
+    name: 'Robot Factory',
     monsters: [
       {
         id: 'lowly_solder',
