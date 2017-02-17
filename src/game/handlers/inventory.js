@@ -1,4 +1,11 @@
 import {
+  propEq,
+  join,
+  equals,
+  find,
+  findIndex,
+  groupBy,
+  sortBy,
   partial,
   prop,
   head,
@@ -6,7 +13,6 @@ import {
   filter,
   pipe,
   toPairs,
-  tap,
 } from 'ramda'
 
 import { ObjectId } from 'mongodb'
@@ -17,6 +23,15 @@ import models from '../models'
 
 export default function call (dao, provider, _, msg) {
   console.log(msg)
+
+  const invSectionOrder = ['weapon', 'set', 'token']
+
+  const equipVerbs = [
+    { type: 'weapon', verb: 'wield' },
+    { type: 'set', verb: 'wear' },
+    { type: 'token', verb: 'empower' },
+  ]
+
   return dao.character
     .find({ playerId: msg.player.id })
     .then(map(pipe(prop('id'), ObjectId)))
@@ -36,22 +51,32 @@ export default function call (dao, provider, _, msg) {
     )
     .then(({ equips, char }) => ({
       to: msg.chat,
-      text: [
+      text: join('', [
         _('<pre>Equipped:</pre>\n%s\n\n',
           toPairs(char.equips)
             .map(pair =>
               `<b>${capitalize(pair[0])}:</b> ${models.equips.find(pair[1]).name}`,
             ).join('\n') || _('Nothing.'),
         ),
-        _('<pre>Inventory:</pre>\n'),
-        equips.map(equip =>
-          [
-            `<b>${equip.name}</b> - ${capitalize(equip.type)} tier ${equip.tier}`,
-            // `<i>${equip.description}</i>`,
-            `/use_equip_${equip.id}\n`,
-          ].join('\n')
-        ).join('\n'),
-      ].join(''),
+
+        join('\n\n', map(({ 0: equipType, 1: equipList }) =>
+          join('\n', [
+            _(`<pre>${capitalize(equipType)}:</pre>`),
+            ...map(({ id, name, tier, type }) =>
+                _('<b>%s</b> - Tier %s %s\n/%s_%s',
+                  name, tier, capitalize(type),
+                  prop('verb', find(propEq('type', type), equipVerbs)),
+                  id,
+                ),
+              sortBy(prop('tier'), equipList),
+            ),
+          ]),
+          sortBy(
+            ({ 0: equipType }) => findIndex(equals(equipType), invSectionOrder),
+            toPairs(groupBy(prop('type'), equips)),
+          ),
+        )),
+
+      ]),
     }))
 }
-
