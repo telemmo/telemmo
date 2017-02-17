@@ -40,7 +40,7 @@ This repo is under GPL3 license as of now. You can do whatever you want with it 
 
 ### Contributors
 
-
+* [@KurzedMetal](https://github.com/KurzedMetal)
 * [@bladespell](https://github.com/bladespell) - Contributor: game design
 * [@PlatypusKing](https://github.com/PlatypusKing) - Contributor: community
 * [@Croebh](https://github.com/Croebh) - Contributor: code
