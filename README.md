@@ -28,6 +28,8 @@ If you found a bug, please open an issue here describing it as much as you can. 
 
 If you want to help with the code, feel free to send a pull request. Please, check the [Contributor Guidelines (TO BE DONE)](#) before doing so. We are very open to any change that makes sense, we are also normally available on Telegram to talk about coding, new features and current features maintenance.
 
+We have issues tagged with "Implement it!" tag, this means that this issue is less complex than other ones that messes up with the game's core. If you are looking foward to help us make the game better, those issueas are a nice place to start!
+
 You can also contribute with server hosting costs and/or buy us a beer by donating to the following Bitcoin address:
 
 ```
