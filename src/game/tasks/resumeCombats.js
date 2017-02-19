@@ -1,7 +1,6 @@
 import { ObjectId } from 'mongodb'
 import {
   assocPath,
-  identity,
   flatten,
   partial,
   filter,
@@ -15,7 +14,6 @@ import {
 
 
 import Promise from 'bluebird'
-import { Observable } from 'rx'
 
 import { start } from '../core/combat'
 import { exploreUntilDead } from '../core/explore'

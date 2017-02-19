@@ -4,10 +4,12 @@ import {
   always,
   identity,
   contains,
+  partial,
+  merge,
+  objOf,
   ifElse,
   isNil,
   tap,
-  partial,
 } from 'ramda'
 
 import { Observable } from 'rx'
@@ -26,13 +28,20 @@ export function randomMonster (mapId) {
   return monster
 }
 
+const playerExplorations = pipe(
+  prop('id'),
+  objOf('teams.members.playerId'),
+  merge({ finishedAt: { $exists: false } })
+)
+
 export function exploreUntilDead (dao, player, gameMap, char) {
   return Observable.create((subscriber) => {
     function fight () {
       const monster = randomMonster(gameMap.id)
       const source = { name: 'map', id: gameMap.id }
 
-      return run(dao, source, [[monster], [char]])
+      return dao.combat.destroy(playerExplorations(player), { hard: true })
+        .then(partial(run, [dao, source, [[monster], [char]]]))
         .then(ifElse(
           isNil,
           () => Promise.reject(new Error()),

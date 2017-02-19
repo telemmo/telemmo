@@ -50,7 +50,11 @@ function create (collection, document) {
     .then(pipe(always(sealed), renameId))
 }
 
-function destroy (collection, query) {
+function destroy (collection, query, options) {
+  if (options.hard) {
+    return collection.remove(query) 
+  }
+
   return collection.findOneAndUpdate(
     query, { $set: { deletedAt: new Date() } })
 }
