@@ -27,12 +27,14 @@ import cuid from 'cuid'
 import Promise from 'bluebird'
 import { ObjectId } from 'mongodb'
 
-import { buildCombatStats } from './combatStats'
-import randomSkillFromStance from './randomSkillFromStance'
-import { rollBatch } from './dice'
-import { level } from './level'
-import models from '../models'
-import castSkill from './castSkill'
+import { buildCombatStats } from '../combatStats'
+import randomSkillFromStance from '../randomSkillFromStance'
+import { rollBatch } from '../dice'
+import { level } from '../level'
+import models from '../../models'
+import castSkill from '../castSkill'
+
+import dropPrizes from './dropPrizes'
 
 function runInitiative (teams, rolls) {
   const names = teams.map(team => team.overall.name)
@@ -59,57 +61,6 @@ function initiative (teams) {
     .then(partial(runInitiative, [teams]))
 }
 
-function attachPrizes (combat, rolls) {
-  const { teams } = combat
-
-  const allPrizes = teams[0].members.reduce((loot, char) => {
-    return [...loot, ...teams[1].members.reduce((prizes, enemy) => {
-      if (!enemy.prizes) {
-        return prizes
-      }
-
-      prizes = [ ...prizes ,{
-        charId: char.id,
-        exp: enemy.prizes.exp * 2, // double exp weekend \o/
-      }]
-
-      if (rolls.itemLuck < 2000 && enemy.prizes.items) {
-        const items = enemy.prizes.items
-        const index = Math.floor(((rolls.item - 1) / 10000) * items.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          item: enemy.prizes.items[index],
-        }]
-      }
-
-      if (rolls.equipLuck < 150 && enemy.prizes.equips) {
-        const equips = enemy.prizes.equips
-        const index = Math.floor(((rolls.equip - 1 ) / 10000) * equips.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          equip: enemy.prizes.equips[index],
-        }]
-      }
-
-      if (rolls.tokenLuck <= 5 && enemy.prizes.tokens) {
-        const tokens = enemy.prizes.equips
-        const index = Math.floor(((rolls.token - 1) / 10000) * tokens.length)
-
-        prizes = [ ...prizes, {
-          charId: char.id,
-          equip: enemy.prizes.tokens[index],
-        }]
-      }
-
-      return prizes
-    }, [])]
-  }, [])
-
-  return set(lensProp('prizes'), allPrizes, combat)
-}
-
 
 function markFinished (combat) {
   return pipe(
@@ -118,16 +69,8 @@ function markFinished (combat) {
   )(combat)
 }
 
-
-const prizesRolls = [
-  'itemLuck', 'item',
-  'equipLuck', 'equip',
-  'tokenLuck', 'token',
-]
-
 function finish (combat) {
-  return rollBatch(10000, prizesRolls)
-    .then(partial(attachPrizes, [combat]))
+  return dropPrizes(combat)
     .then(markFinished)
 }
 

@@ -7,6 +7,7 @@ import {
   ifElse,
   isNil,
   tap,
+  partial,
 } from 'ramda'
 
 import { Observable } from 'rx'
@@ -43,7 +44,7 @@ export function exploreUntilDead (dao, player, gameMap, char) {
           fight,
           identity,
         ))
-        .catch(() => console.log('Invalid combat token, refusing to save'))
+        .catch(partial(console.log, ['Invalid combat token']))
     }
 
     fight()
