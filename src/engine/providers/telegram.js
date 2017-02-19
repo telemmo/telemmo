@@ -14,6 +14,9 @@ function buildFilter (stream, regex) {
 }
 
 function sendMessage (bot, chat, message, options) {
+  if (process.env.TELEMMO_QUIET) {
+    return
+  }
   bot.sendMessage(chat, emoji.emojify(message), options)
   return Observable.of(false)
 }
