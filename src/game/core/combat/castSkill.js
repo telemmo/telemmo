@@ -7,7 +7,7 @@ import {
   view,
 } from 'ramda'
 
-import models from '../models'
+import models from '../../models'
 
 const attackerLens = lensPath(['teams', 0, 'overall'])
 const defenderLens = lensPath(['teams', 1, 'overall'])

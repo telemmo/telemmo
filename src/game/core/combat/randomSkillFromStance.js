@@ -2,7 +2,7 @@ import {
   always,
 } from 'ramda'
 
-import models from '../models'
+import models from '../../models'
 
 export default function randomSkillFromStance (id) {
   const stance = models.stances.find(id)
