@@ -27,11 +27,11 @@ import { capitalize } from './helpers'
 
 import models from '../models'
 
-function getEquippedIds (character) {
+function equippedIds (character) {
   return filter(pipe(isNil, not), values(character.equips))
 }
 
-function getEquipDetails (equipIds) {
+function equipDetails (equipIds) {
   return map(models.equips.find, equipIds)
 }
 
@@ -44,8 +44,9 @@ function formatStatBonus (val) {
 }
 
 function showBonus (equipBonuses, stat) {
-  if (not(has(stat, equipBonuses))) return ''
-  return `(${formatStatBonus(prop(stat, equipBonuses))})`
+  return has(stat, equipBonuses)
+    ? `(${formatStatBonus(prop(stat, equipBonuses))})`
+    : ''
 }
 
 export default function call (dao, provider, _, msg) {
@@ -67,7 +68,7 @@ export default function call (dao, provider, _, msg) {
     .then(char => ({
       char,
       equipBonuses: curry(showBonus)(
-        pipe(getEquippedIds, getEquipDetails, mergeEquipBonuses)(char),
+        pipe(equippedIds, equipDetails, mergeEquipBonuses)(char),
       ),
     }))
     .then(({ char, equipBonuses }) => ({
