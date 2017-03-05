@@ -143,14 +143,18 @@ export default [
       },
       {
         id: 'ash_spirit',
-        influence: 7,
+        influence: 9,
       },
       {
         id: 'phoenix',
-        influence: 3,
+        influence: 5,
       },
       {
         id: 'dragon',
+        influence: 3,
+      },
+      {
+        id: 'shiny_dragon',
         influence: 1,
       },
     ],

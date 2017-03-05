@@ -188,6 +188,29 @@ export default [
     }),
   },
   {
+    id: 'fire_sword',
+    name: 'Fire Sword',
+    description: 'none',
+    type: 'weapon',
+    tier: 8,
+    bonus: {
+      str: 30,
+      con: 17,
+      ref: 17,
+      acc: 17,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aAim < 15),
+      defender: {
+        hp: - ( 35 + attacker.level/4),
+      },
+      log: {
+        type: 'damage',
+        value: 35 + attacker.level/4,
+      },
+    }),
+  },
+  {
     id: 'blood_chainsaw',
     name: 'Blood Chainsaw',
     description: 'No movie references here.',
@@ -313,6 +336,51 @@ export default [
     },
   },
   {
+    id: 'electric',
+    name: 'Electric Suit',
+    description: 'Buzz Buzz',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 20,
+      str: 10,
+      ref: 25,
+    },
+  },
+  {
+    id: 'flame',
+    name: 'Flame Cape',
+    description: 'none',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 5,
+      str: 5,
+      ref: 35,
+    },
+  },
+  {
+    id: 'magma',
+    name: 'Magma Cover',
+    description: 'none',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 45,
+    },
+  },
+  {
+    id: 'dragon',
+    name: 'Dragon Scale',
+    description: 'none',
+    type: 'set',
+    tier: 7,
+    bonus: {
+      con: 10,
+      ref: 45,
+    },
+  },
+  {
     id: 'mecha',
     name: 'Mecha Suit',
     description: 'As overpowered as it can get.',
@@ -325,15 +393,15 @@ export default [
     },
   },
   {
-    id: 'electric',
-    name: 'Electric Suit',
-    description: 'Buzz Buzz',
+    id: 'steel',
+    name: 'Steel Suit',
+    description: 'As overpowered as it can get.',
     type: 'set',
-    tier: 7,
+    tier: 8,
     bonus: {
-      con: 20,
+      con: 50,
       str: 10,
-      ref: 25,
+      ref: 10,
     },
   },
   // Tokens
@@ -462,6 +530,27 @@ export default [
       log: {
         type: 'heal',
         value: 20 + attacker.level/5,
+      },
+    }),
+  },
+  {
+    id: 'fire_ring' ,
+    name: 'Fire Ring',
+    description: 'none',
+    type: 'token',
+    tier: 5,
+    bonus: {
+      flow: 10,
+      str: 45,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aAim < 18),
+      defender: {
+        hp: - ( 35 + attacker.level/4),
+      },
+      log: {
+        type: 'damage',
+        value: 35 + attacker.level/4,
       },
     }),
   },
