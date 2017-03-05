@@ -1,7 +1,6 @@
 import {
   prop,
   pipe,
-  always,
   identity,
   contains,
   partial,
@@ -14,17 +13,20 @@ import {
 
 import { Observable } from 'rx'
 
-import models from '../models'
+import {
+  maps,
+  monsters,
+} from '../models'
+
 import { run } from './combat'
 
-export function randomMonster (mapId) {
-  const mapObj = models.maps.find(mapId)
-  const monsterPool = mapObj.monsters.reduce((acc, monster) => [
+export function randomMonster (monsters, pickMonsterFn=monsters.find) {
+  const monsterPool = monsters.reduce((acc, monster) => [
     ...acc,
-    ...Array.from({ length: monster.influence }).map(always(monster.id)),
+    ...Array.from({ length: monster.influence }, ()=> monster.id ),
   ], [])
   const monsterId = monsterPool[Math.floor(Math.random() * monsterPool.length)]
-  const monster = models.monsters.find(monsterId)
+  const monster = pickMonsterFn(monsterId)
   return monster
 }
 
@@ -37,7 +39,7 @@ const playerExplorations = pipe(
 export function exploreUntilDead (dao, player, gameMap, char) {
   return Observable.create((subscriber) => {
     function fight () {
-      const monster = randomMonster(gameMap.id)
+      const monster = randomMonster(gameMap.monsters)
       const source = { name: 'map', id: gameMap.id }
 
       return dao.combat.destroy(playerExplorations(player), { hard: true })
