@@ -1,4 +1,16 @@
 import {
+  curry,
+  has,
+  values,
+  isNil,
+  not,
+  pipe,
+  filter,
+  map,
+  add,
+  prop,
+  reduce,
+  mergeWith,
   merge,
   head,
 } from 'ramda'
@@ -12,6 +24,30 @@ import { getCurrentStatPoints } from './statHelpers'
 
 import { rejectUndefined } from './errors'
 import { capitalize } from './helpers'
+
+import models from '../models'
+
+function equippedIds (character) {
+  return filter(pipe(isNil, not), values(character.equips))
+}
+
+function equipDetails (equipIds) {
+  return map(models.equips.find, equipIds)
+}
+
+function mergeEquipBonuses (equips) {
+  return reduce(mergeWith(add), {}, values(map(prop('bonus'), equips)))
+}
+
+function formatStatBonus (val) {
+  return `${val < 0 ? '-' : '+'}${Math.abs(val)}`
+}
+
+function showBonus (equipBonuses, stat) {
+  return has(stat, equipBonuses)
+    ? `(${formatStatBonus(prop(stat, equipBonuses))})`
+    : ''
+}
 
 export default function call (dao, provider, _, msg) {
   return dao.character
@@ -30,6 +66,12 @@ export default function call (dao, provider, _, msg) {
       })),
     )
     .then(char => ({
+      char,
+      equipBonuses: curry(showBonus)(
+        pipe(equippedIds, equipDetails, mergeEquipBonuses)(char),
+      ),
+    }))
+    .then(({ char, equipBonuses }) => ({
       to: msg.chat,
       text: [
         _('<b>Titles:</b> %s', msg.player.titles.join(', ')),
@@ -39,13 +81,13 @@ export default function call (dao, provider, _, msg) {
         _('<b>Level:</b> %s', char.level),
         _('<b>Exp:</b> %s', char.exp),
         _('\n<b>Level Progress :</b>\n<pre>%s</pre>', nextLevelBar(char)),
-        _('\nStats\n%s',
+        _('\nBase stats and equipment bonuses\n%s',
           [
-            _('<b>Strength: </b> %s', char.str),
-            _('<b>Constitution: </b> %s', char.con),
-            _('<b>Reflex: </b> %s', char.ref),
-            _('<b>Accuracy: </b> %s', char.acc),
-            _('<b>Flow: </b> %s', char.flow),
+            _('<b>Strength: </b> %s %s', char.str, equipBonuses('str')),
+            _('<b>Constitution: </b> %s %s', char.con, equipBonuses('con')),
+            _('<b>Reflex: </b> %s %s', char.ref, equipBonuses('ref')),
+            _('<b>Accuracy: </b> %s %s', char.acc, equipBonuses('acc')),
+            _('<b>Flow: </b> %s %s', char.flow, equipBonuses('flow')),
             _('<b>StatPoints: </b> %s', getCurrentStatPoints(char)),
           ].join('\n'),
         ),
