@@ -484,7 +484,7 @@ t . Fire Emblem
     prizes: {
       exp: 100,
       items: ['Glowing Ashes'],
-      equips: ['lava', 'magma'],
+      equips: ['flame', 'magma'],
       tokens: ['fire_emblem'],
     },
   },
@@ -500,7 +500,7 @@ t . Fire Emblem
     prizes: {
       exp: 110,
       items: ['Molten Feather'],
-      equips: ['molten_gauntlets', 'flame'],
+      equips: ['molten_gauntlets', 'molten_gauntlets', 'flame', 'magma', 'lava'],
       tokens: ['fire_emblem'],
     },
   },
@@ -515,8 +515,8 @@ t . Fire Emblem
     level: 115,
     prizes: {
       exp: 750,
-      equips: ['molten_gauntlets', 'lava'],
-      tokens: ['fire_emblem'],
+      equips: ['molten_gauntlets', 'molten_gauntlets', 'molten_gauntlets', 'lava', 'lava', 'dragon', 'fire_sword'],
+      tokens: ['fire_emblem', 'fire_emblem', 'fire_ring'],
     },
   },
   {
@@ -531,7 +531,7 @@ t . Fire Emblem
     prizes: {
       exp: 1300,
       equips: ['dragon', 'fire_sword'],
-      tokens: ['fire_emblem'],
+      tokens: ['fire_ring'],
     },
   },
 
