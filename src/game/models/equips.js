@@ -331,7 +331,7 @@ export default [
     tier: 7,
     bonus: {
       con: 30,
-      str: 15,
+      str: 20,
       ref: 10,
     },
   },
