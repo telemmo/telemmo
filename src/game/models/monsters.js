@@ -520,21 +520,6 @@ t . Fire Emblem
     },
   },
   {
-    id: 'dragon',
-    name: 'Dragon',
-    str: 80,
-    ref: 80,
-    acc: 80,
-    con: 80,
-    flow: 90,
-    level: 115,
-    prizes: {
-      exp: 750,
-      equips: ['molten_gauntlets', 'lava'],
-      tokens: ['fire_emblem'],
-    },
-  },
-  {
     id: 'shiny_dragon',
     name: 'Shiny Dragon',
     str: 100,
