@@ -1,4 +1,5 @@
 import {
+  isNil,
   always,
   merge,
   head,
@@ -11,19 +12,22 @@ import { level } from '../core/level'
 import { reject } from './errors'
 
 import { capitalize } from './helpers'
-import { getStatCost, getCurrentStatPoints, statIds } from './statHelpers'
+import { statUpgradeCost, unspentStatPoints, statIds } from './statHelpers'
 
-function increaseStat (dao, char, statId) {
-  const amount = char[statId]
+function updateStat (dao, char, statId, changeAmount = 1) {
+  const currentStatScore = char[statId]
   const query = pick(['_id', 'updatedAt'], char)
+
   return dao.character.update(query, {
-    $set: { [statId]: amount + 1 },
+    $set: { [statId]: currentStatScore + changeAmount },
   })
 }
 
 export default function call (dao, provider, _, msg) {
-  const statName = msg.matches[1]
+  const statName = msg.matches[2]
   const statId = statIds[statName]
+  const changeType = msg.matches[1] === 'up' ? 'upgrade' : msg.matches[1]
+  const changeAmount = isNil(msg.matches[3]) ? 1 : parseInt(msg.matches[3], 10)
 
   if (statId === undefined) {
     reject(msg, _('Invalid stat.'))
@@ -43,17 +47,28 @@ export default function call (dao, provider, _, msg) {
       })),
     )
     .then((char) => {
-      if (char[statId] === 100) {
-        return reject(msg, _('You cant have more than 100 points.'))
+      if (changeType === 'upgrade') {
+        if (char[statId] + changeAmount > 100) {
+          return reject(msg, _('You cant have more than 100 points.'))
+        }
+        if (statUpgradeCost(char[statId], changeAmount) > unspentStatPoints(char)) {
+          return reject(msg, _('You dont have points for that.'))
+        }
+        return updateStat(dao, char, statId, changeAmount)
+      } else if (changeType === 'refund') {
+        if (char[statId] - changeAmount < 5) {
+          return reject(msg, _('You cant have less than 5 points.'))
+        }
+        return updateStat(dao, char, statId, -changeAmount)
       }
-      if (getStatCost(char, statName) <= getCurrentStatPoints(char)) {
-        return increaseStat(dao, char, statId)
-      }
-      return reject(msg, _('You dont have points for that.'))
     })
     .then(always({
       to: msg.chat,
-      text: _('%s increased by 1!', capitalize(statName)),
+      text: _(
+        '%s %s by %s!',
+        capitalize(statName),
+        changeType === 'refund' ? _('reduced') : _('increased'),
+        changeAmount),
     }))
 }
 

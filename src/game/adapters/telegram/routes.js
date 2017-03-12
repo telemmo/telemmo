@@ -58,7 +58,7 @@ export default [
     error: handlers.start
   },
   {
-    match: /\/up_(\w+)/,
+    match: /\/(refund|up|upgrade)_([a-z]+)(?:_(\d+))?/,
     handler: handlers.upStat,
     next: handlers.improveStats,
     condition: msg => msg.player.currentCharId,
