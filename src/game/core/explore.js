@@ -1,7 +1,6 @@
 import {
   prop,
   pipe,
-  always,
   identity,
   contains,
   partial,
@@ -16,7 +15,8 @@ import { Observable } from 'rx'
 
 import models from '../models'
 import { run } from './combat'
-import { weightedPool, pickRandom } from './utils'
+import pickRandom from './pickRandom'
+import weightedPool from './weightedPool'
 
 export function randomMonster (mapId) {
   const mapObj = models.maps.find(mapId)
@@ -27,7 +27,7 @@ export function randomMonster (mapId) {
 const playerExplorations = pipe(
   prop('id'),
   objOf('teams.members.playerId'),
-  merge({ finishedAt: { $exists: false } })
+  merge({ finishedAt: { $exists: false } }),
 )
 
 export function exploreUntilDead (dao, player, gameMap, char) {

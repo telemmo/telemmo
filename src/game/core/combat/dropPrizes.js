@@ -13,7 +13,8 @@ import {
 
 import { rollBatch } from '../dice'
 import { expRatio, dropTypes } from '../../models/drops'
-import { pickRandom, weightedPool } from '../utils'
+import pickRandom from '../pickRandom'
+import weightedPool from '../weightedPool'
 
 const ourMembers = pipe(head, prop('members'))
 const theirMembers = pipe(last, prop('members'))

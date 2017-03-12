@@ -1,5 +1,6 @@
 import models from '../../models'
-import { pickRandom, weightedPool } from '../utils'
+import pickRandom from '../pickRandom'
+import weightedPool from '../weightedPool'
 
 export default function randomSkillFromStance (id) {
   const stance = models.stances.find(id)
