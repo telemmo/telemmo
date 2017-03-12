@@ -20,7 +20,6 @@ function addEquipStats (fighter) {
 function addHp (fighter) {
   const { str, con, acc, ref, level } = fighter
   const initialHp = ((str + con + acc + ref) / 4) + level + 50
-  console.log(fighter, initialHp)
   return merge(fighter, { initialHp, hp: initialHp })
 }
 

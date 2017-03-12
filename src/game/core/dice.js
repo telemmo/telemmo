@@ -16,9 +16,9 @@ const randomBytes = Promise.promisify(crypto.randomBytes)
 export function roll (faces) {
   return randomBytes(2)
     .then(invoker(0, 'readUInt16LE'))
-    .then(flip(divide)(0xFFFF / (faces - 1)))
-    .then(add(1))
+    .then(flip(divide)(0x10000 / faces))
     .then(Math.floor)
+    .then(add(1))
 }
 
 export function rollBatch (faces, meanings) {

@@ -1,3 +1,8 @@
+import {
+  mergeWith,
+  add,
+} from 'ramda'
+
 import { roll, rollMany, rollBatch } from './dice'
 
 test('roll', () => {
@@ -6,9 +11,13 @@ test('roll', () => {
 })
 
 test('rollMany', () => {
-  const amount = 10000
+  const amount = 100000
   return rollMany(20, amount)
     .then((results) => {
+      console.log(results.reduce((total, roll) => {
+        return mergeWith(add, total, { [roll]: 1 })
+      },{}))
+
       expect(results.length).toBe(amount)
 
       results.forEach(result => {
