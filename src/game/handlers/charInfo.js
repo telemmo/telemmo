@@ -1,16 +1,6 @@
 import {
   curry,
-  has,
-  values,
-  isNil,
-  not,
   pipe,
-  filter,
-  map,
-  add,
-  prop,
-  reduce,
-  mergeWith,
   merge,
   head,
 } from 'ramda'
@@ -22,32 +12,15 @@ import membersExp from '../core/membersExp'
 
 import { getCurrentStatPoints } from './statHelpers'
 
+import {
+  showBonus,
+  equippedIds,
+  equipDetails,
+  mergeEquipBonuses,
+} from './equipHelpers'
+
 import { rejectUndefined } from './errors'
 import { capitalize } from './helpers'
-
-import models from '../models'
-
-function equippedIds (character) {
-  return filter(pipe(isNil, not), values(character.equips))
-}
-
-function equipDetails (equipIds) {
-  return map(models.equips.find, equipIds)
-}
-
-function mergeEquipBonuses (equips) {
-  return reduce(mergeWith(add), {}, values(map(prop('bonus'), equips)))
-}
-
-function formatStatBonus (val) {
-  return `${val < 0 ? '-' : '+'}${Math.abs(val)}`
-}
-
-function showBonus (equipBonuses, stat) {
-  return has(stat, equipBonuses)
-    ? `(${formatStatBonus(prop(stat, equipBonuses))})`
-    : ''
-}
 
 export default function call (dao, provider, _, msg) {
   return dao.character
