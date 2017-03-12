@@ -500,7 +500,7 @@ t . Fire Emblem
     prizes: {
       exp: 110,
       items: ['Molten Feather'],
-      equips: ['molten_gauntlets', 'molten_gauntlets', 'flame', 'magma', 'lava'],
+      equips: ['flame', 'magma', 'lava', { id: 'molten_gauntlets', weight: 2 }],
       tokens: ['fire_emblem'],
     },
   },
@@ -515,7 +515,11 @@ t . Fire Emblem
     level: 115,
     prizes: {
       exp: 750,
-      equips: ['molten_gauntlets', 'molten_gauntlets', 'molten_gauntlets', 'lava', 'lava', 'dragon', 'fire_sword'],
+      equips: [
+        'dragon', 'fire_sword',
+        { id: 'molten_gauntlets', weight: 3 },
+        { id: 'lava', weight: 2 },
+      ],
       tokens: ['fire_emblem', 'fire_emblem', 'fire_ring'],
     },
   },
