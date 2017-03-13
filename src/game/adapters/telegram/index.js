@@ -92,7 +92,10 @@ export default function start (dao, provider) {
     ...routes.map(route => provider
       .subscribe(route.match)
       .flatMap(partial(normalizeMessage, [dao, provider, route]))
-      .subscribe(partial(handle, [dao, provider, route])),
+      .subscribe(
+        partial(handle, [dao, provider, route]),
+        (err) => console.error('Unhandled error:', err),
+      ),
     ),
   ])
 }
