@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb'
+import Promise from 'bluebird'
 
 import dao from './dao'
 
@@ -12,7 +13,7 @@ function build (db) {
 
 function connect () {
   return MongoClient
-    .connect(process.env.MONGO_URL)
+    .connect(process.env.MONGO_URL, { promiseLibrary: Promise })
     .then(build)
 }
 
