@@ -1,4 +1,6 @@
 import {
+  pipe,
+  curry,
   splitEvery,
   merge,
   head,
@@ -8,6 +10,12 @@ import { ObjectId } from 'mongodb'
 import membersExp from '../core/membersExp'
 import { level } from '../core/level'
 import { getStatCost, getCurrentStatPoints } from './statHelpers'
+import {
+  showBonus,
+  equippedIds,
+  equipDetails,
+  mergeEquipBonuses,
+} from './equipHelpers'
 
 function buttons (char, statNames) {
   return statNames.map(statName =>
@@ -43,21 +51,29 @@ export default function call (dao, provider, _, msg) {
         level: level(charWithoutLevel),
       })),
     )
-    .then(char => {
-      return {
-        to: msg.chat,
-        options: keyboard(char),
-        text: [
-          _('Improve your character. you can reset your stats for free with /reset_stats\n'),
-          _('Level: %s', char.level),
-          _('StatPoints: %s\n', getCurrentStatPoints(char)),
-          _('Strength: %s', char.str),
-          _('Constitution: %s', char.con),
-          _('Reflex: %s', char.ref),
-          _('Accuracy: %s', char.acc),
-          _('Flow: %s', char.flow),
-        ].join('\n')
-      }
-    })
+    .then(char => ({
+      char,
+      equipBonuses: curry(showBonus)(
+        pipe(equippedIds, equipDetails, mergeEquipBonuses)(char),
+      ),
+    }))
+    .then(({ char, equipBonuses }) => ({
+      to: msg.chat,
+      options: keyboard(char),
+      text: [
+        _('Improve your character!'),
+        '',
+        _('/reset_stats for free anytime!'),
+        '',
+        _('<b>Level:</b> %s', char.level),
+        _('<b>StatPoints: </b> %s', getCurrentStatPoints(char)),
+        '',
+        _('Base stats and equipment bonuses:'),
+        _('<b>Strength: </b> %s %s', char.str, equipBonuses('str')),
+        _('<b>Constitution: </b> %s %s', char.con, equipBonuses('con')),
+        _('<b>Reflex: </b> %s %s', char.ref, equipBonuses('ref')),
+        _('<b>Accuracy: </b> %s %s', char.acc, equipBonuses('acc')),
+        _('<b>Flow: </b> %s %s', char.flow, equipBonuses('flow')),
+      ].join('\n'),
+    }))
 }
-
