@@ -4,8 +4,12 @@ export default function call (dao, provider, _, msg) {
     text: _([
       _(':globe_with_meridians: TeleMMO version %s', VERSION),
       '',
-      _('Github: http://github.com/telemmo/telemmo'),
-      _('Reddit: http://reddit.com/r/telemmo'),
+      _('Github:'),
+      _('github.com/telemmo/telemmo'),
+      '',
+      _('Reddit:'),
+      _('reddit.com/r/telemmo'),
+      '',
       _('Telegram: @telemmo'),
     ].join('\n')),
   }
