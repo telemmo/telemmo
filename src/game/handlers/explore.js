@@ -19,11 +19,19 @@ import {
 
 import Promise from 'bluebird'
 
+import i18n from '../i18n'
 import models from '../models'
 import { rejectUndefined } from './errors'
 import { exploreUntilDead } from '../core/explore'
 
 const flatHead = pipe(map(head), flatten)
+
+export function renderCombat (player, combat) {
+  return {
+    to: player.providers.telegram.id,
+    text: render(i18n.singular(player.language), player, combat),
+  }
+}
 
 export function render (_, player, result) {
   const initiative = head(result.turns)
@@ -125,6 +133,12 @@ export function render (_, player, result) {
   return text
 }
 
+function renderCombat (player, combat) {
+  return {
+    to: player.providers.telegram.id,
+    text: render(_.singular(player.language), player, combat),
+  }
+}
 
 function InvalidMap (mapId) {
   this.message = `Invalid map id "${mapId}"`

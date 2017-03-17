@@ -4,9 +4,13 @@ import {
   prop,
   assoc,
   mergeWith,
+  flatten,
+  flatten,
   ifElse,
   partial,
   isArrayLike,
+  filter,
+  uniq,
   pipe,
   set,
   map,
@@ -16,6 +20,7 @@ import {
 
 import cuid from 'cuid'
 import Promise from 'bluebird'
+import { ObjectId } from 'mongodb'
 
 import { buildCombatStats } from '../combatStats'
 
@@ -119,6 +124,18 @@ function build (dao, source, tms) {
     .then(partial(upsertCombat, [dao]))
     .then(wait)
 }
+
+
+export const buildMembersQuery = pipe(
+  prop('teams'),
+  flatten,
+  map(prop('members')),
+  flatten,
+  map(prop('id')),
+  filter(ObjectId.isValid),
+  uniq,
+  assocPath(['_id', '$in'], __, {}),
+)
 
 export function start (combat) {
   function* generate () {
