@@ -343,7 +343,7 @@ export default [
     tier: 7,
     bonus: {
       con: 20,
-      str: 10,
+      str: 20,
       ref: 25,
     },
   },
@@ -387,8 +387,8 @@ export default [
     type: 'set',
     tier: 8,
     bonus: {
-      con: 35,
-      str: 20,
+      con: 30,
+      str: 15,
       ref: 20,
     },
   },
@@ -399,9 +399,9 @@ export default [
     type: 'set',
     tier: 8,
     bonus: {
-      con: 50,
-      str: 10,
-      ref: 10,
+      con: 40,
+      str: 20,
+      ref: 25,
     },
   },
   // Tokens
