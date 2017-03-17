@@ -601,7 +601,7 @@ t . Dynamo
     prizes: {
       exp: 170,
       items: ['Broken rocket'],
-      equips: ['electric'],
+      equips: ['mecha'],
       tokens: ['dynamo'],
     },
   },
@@ -617,7 +617,7 @@ t . Dynamo
     prizes: {
       exp: 200,
       items: ['Grate'],
-      equips: ['mecha', 'steel'],
+      equips: ['steel'],
       tokens: ['dynamo'],
     },
   },
