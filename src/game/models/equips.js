@@ -217,19 +217,19 @@ export default [
     type: 'weapon',
     tier: 8,
     bonus: {
-      str: 25,
-      con: 16,
-      ref: 16,
-      acc: 16,
+      str: 30,
+      con: 25,
+      ref: 10,
+      acc: 30,
     },
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 10),
       defender: {
-        hp: -15 - (attacker.level / 4),
+        hp: -20 - (attacker.level / 5),
       },
       log: {
         type: 'damage',
-        value: 15 + (attacker.level / 4),
+        value: 20 + (attacker.level / 5),
       },
     }),
   },
