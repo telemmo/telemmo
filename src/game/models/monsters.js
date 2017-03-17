@@ -526,7 +526,10 @@ t . Fire Emblem
         { id: 'dragon', weight: 1 },
         { id: 'fire_sword', weight: 1 },
       ],
-      tokens: ['fire_emblem', 'fire_emblem', 'fire_ring'],
+      tokens: [
+        { id: 'fire_emblem', weight: 2 },
+        { id: 'fire_ring', weight: 1 },
+      ],
     },
   },
   {
