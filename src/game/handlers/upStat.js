@@ -12,7 +12,12 @@ import { level } from '../core/level'
 import { reject } from './errors'
 
 import { capitalize } from './helpers'
-import { statUpgradeCost, unspentStatPoints, statIds } from './statHelpers'
+import {
+  affordableUpgrades,
+  statUpgradeCost,
+  unspentStatPoints,
+  statIds,
+} from './statHelpers'
 
 function updateStat (dao, char, statId, changeAmount = 1) {
   const currentStatScore = char[statId]
@@ -51,8 +56,24 @@ export default function call (dao, provider, _, msg) {
         if (char[statId] + changeAmount > 100) {
           return reject(msg, _('You cant have more than 100 points.'))
         }
-        if (statUpgradeCost(char[statId], changeAmount) > unspentStatPoints(char)) {
-          return reject(msg, _('You dont have points for that.'))
+        const upgradeCost = statUpgradeCost(char[statId], changeAmount)
+        const unspentPoints = unspentStatPoints(char)
+        const affordableStats = affordableUpgrades(char[statId], unspentPoints)
+        if (upgradeCost > unspentPoints) {
+          return reject(
+            msg,
+            [
+              _('Not enough points for that.'),
+              '',
+              _('You need at least %s points.', upgradeCost),
+              _('But you have only %s points.', unspentPoints),
+              ...(
+                changeAmount > 1 && affordableStats > 0
+                  ? ['', _('You can afford only %s upgrades.', affordableStats)]
+                  : []
+              ),
+            ].join('\n'),
+          )
         }
         return updateStat(dao, char, statId, changeAmount)
       } else if (changeType === 'refund') {

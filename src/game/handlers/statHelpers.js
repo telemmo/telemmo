@@ -21,6 +21,16 @@ export function statUpgradeCost (currentStatScore, amountToIncrease = 1) {
   return upgradeCost + statUpgradeCost(currentStatScore + 1, amountToIncrease - 1)
 }
 
+export function affordableUpgrades (currentStatScore, availablePoints) {
+  const upgradeCost = statUpgradeCost(currentStatScore)
+  if (availablePoints < upgradeCost) { return 0 }
+
+  return 1 + affordableUpgrades(
+    currentStatScore + 1,
+    availablePoints - upgradeCost,
+  )
+}
+
 export function statDowngradeRefund (currentStatScore, amountToDecrease = 1) {
   return statUpgradeCost(currentStatScore - amountToDecrease, amountToDecrease)
 }
