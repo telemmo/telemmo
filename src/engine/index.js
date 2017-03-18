@@ -11,16 +11,15 @@ function startAdapter (adapter, name) {
   const provider = prop(name, providers)
 
   if (provider) {
-    return provider.start().then(adapter)
+    return provider.start()
+      .then(adapter)
   }
 
-  return Promise.reject(new Error(`No provider named ${adapter}`))
+  return Promise.reject(new Error(`No provider named ${name}`))
 }
 
 function start (app) {
-  return Promise.props(
-    mapObjIndexed(startAdapter, app.adapters),
-  )
+  return Promise.props(mapObjIndexed(startAdapter, app.adapters))
 }
 
 export default {

@@ -14,6 +14,7 @@ import {
 
 
 import Promise from 'bluebird'
+import cluster from 'cluster'
 
 import { start } from '../core/combat'
 import { exploreUntilDead } from '../core/explore'
@@ -64,10 +65,14 @@ function startCombat (combat) {
 }
 
 export default function resumeCombats (dao, dispatch) {
-  console.log('Resuming combats...')
-  return dao.combat.find({ finishedAt: { $exists: false } })
-    .then(combats => Promise.all(combats.map(startCombat)))
-    .then(combats => Promise.all(combats.map(combat =>
-        dao.combat.update({ _id: combat.id }, combat))))
-    .then(combats => continueExploration(dao, dispatch, combats))
+  if (cluster.isMaster) {
+    console.log('Resuming combats...')
+    return dao.combat.find({ finishedAt: { $exists: false } })
+      .then(combats => Promise.all(combats.map(startCombat)))
+      .then(combats => Promise.all(combats.map(combat =>
+          dao.combat.update({ _id: combat.id }, combat))))
+      .then(combats => continueExploration(dao, dispatch, combats))
+  }
+
+  return Promise.resolve()
 }
