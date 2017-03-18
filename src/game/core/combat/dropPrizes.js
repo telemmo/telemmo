@@ -13,18 +13,11 @@ import {
 
 import { rollBatch } from '../dice'
 import { expRatio, dropTypes } from '../../models/drops'
+import pickRandom from '../pickRandom'
+import weightedPool from '../weightedPool'
 
-const ourMembers = pipe(
-  head,
-  prop('members'),
-)
-
-const theirMembers = pipe(
-  last,
-  prop('members'),
-)
-
-const randomFromArray = arr => arr[Math.floor((Math.random() * arr.length))]
+const ourMembers = pipe(head, prop('members'))
+const theirMembers = pipe(last, prop('members'))
 
 function getDrops (char, enemy, rolls) {
   return dropTypes
@@ -39,7 +32,7 @@ function getDrops (char, enemy, rolls) {
       const prizesPool = enemy.prizes[`${drop.dice}s`]
       return {
         charId: char.id,
-        [drop.type]: randomFromArray(prizesPool),
+        [drop.type]: pickRandom(weightedPool(prizesPool, 'weight')),
       }
     })
 }

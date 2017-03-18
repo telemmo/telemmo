@@ -1,6 +1,6 @@
 export default [
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Green Fields
 
 w . Leaf Blade
@@ -87,7 +87,7 @@ t . Golden Beetle
     },
   },
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Cave
 
 w . Sharded Club
@@ -175,7 +175,7 @@ t . Precious Ore
     },
   },
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Dark Swamp
 
 w . Whip of Vines
@@ -263,7 +263,7 @@ t . Old soul
     },
   },
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Demonic Forest
 
 w . Psycho Scythe
@@ -349,7 +349,7 @@ t . Demon's Pick
     },
   },
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Snowy Peak
 
 w . Lancicle
@@ -415,7 +415,7 @@ t . Ice Ring
     prizes: {
       exp: 63,
       items: ['Dark Fang'],
-      equips: ['glacier',],
+      equips: ['glacier'],
       tokens: ['ice_ring'],
     },
   },
@@ -434,7 +434,7 @@ t . Ice Ring
       tokens: ['ice_ring'],
     },
   },
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Volcanic Oasis
 
 w . Molten Gauntlets
@@ -484,7 +484,7 @@ t . Fire Emblem
     prizes: {
       exp: 100,
       items: ['Glowing Ashes'],
-      equips: ['lava', 'magma'],
+      equips: ['flame', 'magma'],
       tokens: ['fire_emblem'],
     },
   },
@@ -500,7 +500,12 @@ t . Fire Emblem
     prizes: {
       exp: 110,
       items: ['Molten Feather'],
-      equips: ['molten_gauntlets', 'flame'],
+      equips: [
+        { id: 'molten_gauntlets', weight: 2 },
+        { id: 'flame', weight: 1 },
+        { id: 'magma', weight: 1 },
+        { id: 'lava', weight: 1 },
+      ],
       tokens: ['fire_emblem'],
     },
   },
@@ -515,23 +520,16 @@ t . Fire Emblem
     level: 115,
     prizes: {
       exp: 750,
-      equips: ['molten_gauntlets', 'lava'],
-      tokens: ['fire_emblem'],
-    },
-  },
-  {
-    id: 'dragon',
-    name: 'Dragon',
-    str: 80,
-    ref: 80,
-    acc: 80,
-    con: 80,
-    flow: 90,
-    level: 115,
-    prizes: {
-      exp: 750,
-      equips: ['molten_gauntlets', 'lava'],
-      tokens: ['fire_emblem'],
+      equips: [
+        { id: 'molten_gauntlets', weight: 3 },
+        { id: 'lava', weight: 2 },
+        { id: 'dragon', weight: 1 },
+        { id: 'fire_sword', weight: 1 },
+      ],
+      tokens: [
+        { id: 'fire_emblem', weight: 2 },
+        { id: 'fire_ring', weight: 1 },
+      ],
     },
   },
   {
@@ -546,11 +544,11 @@ t . Fire Emblem
     prizes: {
       exp: 1300,
       equips: ['dragon', 'fire_sword'],
-      tokens: ['fire_emblem'],
+      tokens: ['fire_ring'],
     },
   },
 
-/*//////////////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////////////
 Robot City
 
 w . Blood Chainsaw

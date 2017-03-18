@@ -331,7 +331,7 @@ export default [
     tier: 7,
     bonus: {
       con: 30,
-      str: 15,
+      str: 20,
       ref: 10,
     },
   },
@@ -538,19 +538,20 @@ export default [
     name: 'Fire Ring',
     description: 'none',
     type: 'token',
-    tier: 5,
+    tier: 6,
     bonus: {
-      flow: 10,
-      str: 45,
+      flow: 15,
+      str: 20,
+      acc: 40,
     },
     fire: (attacker, defender, rolls) => ({
-      noCast: (rolls.aAim < 18),
+      noCast: (rolls.aAim < 16),
       defender: {
-        hp: - ( 35 + attacker.level/4),
+        hp: - ( 45 + attacker.level/3),
       },
       log: {
         type: 'damage',
-        value: 35 + attacker.level/4,
+        value: 45 + attacker.level/3,
       },
     }),
   },
