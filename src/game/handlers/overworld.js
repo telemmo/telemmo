@@ -5,8 +5,10 @@ import {
 function view (_) {
   return [
     _(':globe_with_meridians: Welcome to the overworld! :globe_with_meridians:'),
-    _('\nOur telegram group is @telemmo, join and chat with us!'),
-    _('To know more about this bot, send /about'),
+    '',
+    _('Our telegram group is @telemmo, join and chat with us!'),
+    '',
+    _('/about to know more about this bot'),
   ].join('\n')
 }
 
