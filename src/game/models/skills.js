@@ -434,7 +434,7 @@ export default [
         con: attacker.con * 0.2
       },
       log: {
-        type: 'heal',
+        type: 'heal (+CON)',
         value: (attacker.level/5),
       },
     }),
@@ -448,7 +448,7 @@ export default [
         str: attacker.str * 0.4
       },
       log: {
-        type: 'heal',
+        type: 'heal (+STR)',
         value: (attacker.level/5),
       },
     }),
