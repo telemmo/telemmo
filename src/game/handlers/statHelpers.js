@@ -1,3 +1,7 @@
+import {
+  values,
+} from 'ramda'
+
 export const statIds = {
   strength: 'str',
   constitution: 'con',
@@ -6,48 +10,48 @@ export const statIds = {
   flow: 'flow',
 }
 
-function cost (stat) {
-  return 5 * Math.floor(stat / 8) + 5
+export function statUpgradeCost (currentStatScore, amountToIncrease = 1) {
+  if (amountToIncrease <= 0) { return 0 }
+  const upgradeCost = (
+    currentStatScore < 5
+    ? 0
+    : 5 + (5 * Math.floor(currentStatScore / 8))
+  )
+
+  return upgradeCost + statUpgradeCost(currentStatScore + 1, amountToIncrease - 1)
 }
 
-export function getStatCost (char, statName) {
-  const statId = statIds[statName]
-  const statCost = cost(char[statId])
-  return statCost
-}
+export function affordableUpgrades (currentStatScore, availablePoints) {
+  const upgradeCost = statUpgradeCost(currentStatScore)
+  if (availablePoints < upgradeCost) { return 0 }
 
-export function getStatSpent (char, statName) {
-  const statId = statIds[statName]
-
-  let totalCost = 0
-  let currentAmount = char[statId]
-  while (currentAmount > 5) {
-    totalCost += (cost(currentAmount -1))
-    currentAmount -= 1
-  }
-
-  return totalCost
-}
-
-export function getTotalStats (
-  char,
-  currentLevel = char.level,
-  points = 0
-) {
-  if (currentLevel === 0) { return points }
-  return getTotalStats(
-    char,
-    currentLevel -1,
-    points + currentLevel + 15
+  return 1 + affordableUpgrades(
+    currentStatScore + 1,
+    availablePoints - upgradeCost,
   )
 }
-export function getSpent (char) {
-  const stats =
-    ['strength', 'constitution', 'reflex', 'accuracy', 'flow']
-      .reduce((acc, statName) => acc + getStatSpent(char, statName), 0)
-  return stats
+
+export function statDowngradeRefund (currentStatScore, amountToDecrease = 1) {
+  return statUpgradeCost(currentStatScore - amountToDecrease, amountToDecrease)
 }
-export function getCurrentStatPoints (char) {
-  return getTotalStats(char) - getSpent(char)
+
+export function statPointsSpent (statScore) {
+  return statUpgradeCost(0, statScore)
+}
+
+export function totalStatPoints (charLevel) {
+  if (charLevel <= 0) { return 0 }
+  return charLevel + 15 + totalStatPoints(charLevel - 1)
+}
+
+export function totalStatPointsSpent (char) {
+  return values(statIds).reduce(
+    (acc, statId) => acc + statPointsSpent(char[statId]),
+    0,
+  )
+}
+
+export function unspentStatPoints (char) {
+  return totalStatPoints(char.level) - totalStatPointsSpent(char)
 }
 

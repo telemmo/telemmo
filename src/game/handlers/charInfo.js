@@ -10,7 +10,7 @@ import { ObjectId } from 'mongodb'
 import { level, nextLevelBar } from '../core/level'
 import membersExp from '../core/membersExp'
 
-import { getCurrentStatPoints } from './statHelpers'
+import { unspentStatPoints } from './statHelpers'
 
 import {
   showBonus,
@@ -61,7 +61,7 @@ export default function call (dao, provider, _, msg) {
         _('<b>Reflex: </b> %s %s', char.ref, equipBonuses('ref')),
         _('<b>Accuracy: </b> %s %s', char.acc, equipBonuses('acc')),
         _('<b>Flow: </b> %s %s', char.flow, equipBonuses('flow')),
-        _('<b>StatPoints: </b> %s', getCurrentStatPoints(char)),
+        _('<b>StatPoints: </b> %s', unspentStatPoints(char)),
         '',
         _('Get stronger with /improve_stats.'),
         _('Equip yourself in /inventory.'),

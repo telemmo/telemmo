@@ -1,6 +1,7 @@
 import {
   pipe,
   curry,
+  toPairs,
   splitEvery,
   merge,
   head,
@@ -9,7 +10,7 @@ import { ObjectId } from 'mongodb'
 
 import membersExp from '../core/membersExp'
 import { level } from '../core/level'
-import { getStatCost, getCurrentStatPoints } from './statHelpers'
+import { statUpgradeCost, unspentStatPoints, statIds } from './statHelpers'
 import {
   showBonus,
   equippedIds,
@@ -17,30 +18,21 @@ import {
   mergeEquipBonuses,
 } from './equipHelpers'
 
-function buttons (char, statNames) {
-  return statNames.map(statName =>
-    `:heavy_plus_sign: /up_${statName} (-${getStatCost(char, statName)})`
+function statUpgradeButtons (char) {
+  return toPairs(statIds).map(([statName, statId]) =>
+    `:heavy_plus_sign: /up_${statName} (-${statUpgradeCost(char[statId])})`,
   )
 }
 
 function keyboard (char) {
-  return splitEvery(2,
-    buttons(char, [
-      'strength',
-      'constitution',
-      'reflex',
-      'accuracy',
-      'flow',
-    ]).concat([
-      ':arrow_left: /overworld',
-    ]),
+  return splitEvery(
+    2,
+    [...statUpgradeButtons(char), ':arrow_left: /overworld'],
   )
 }
 
 export default function call (dao, provider, _, msg) {
-  return dao.character.find({
-      _id: msg.player.currentCharId
-    })
+  return dao.character.find({ _id: msg.player.currentCharId })
     .then(head)
     .then(char => membersExp(dao, [ObjectId(char.id)])
       .then(head)
@@ -63,10 +55,13 @@ export default function call (dao, provider, _, msg) {
       text: [
         _('Improve your character!'),
         '',
+        _('Change stats in large amounts with'),
+        _('/up_flow_10 or /refund_flow_7'),
+        '',
         _('/reset_stats for free anytime!'),
         '',
         _('<b>Level:</b> %s', char.level),
-        _('<b>StatPoints: </b> %s', getCurrentStatPoints(char)),
+        _('<b>StatPoints: </b> %s', unspentStatPoints(char)),
         '',
         _('Base stats and equipment bonuses:'),
         _('<b>Strength: </b> %s %s', char.str, equipBonuses('str')),
