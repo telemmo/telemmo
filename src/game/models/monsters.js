@@ -682,7 +682,7 @@ t . Dynamo
      level: 240,
      prizes: {
        exp: 240,
-       items: ['Golem Blood'],
+       items: ['Golems blood'],
        equips: ['golem'],
        tokens: ['pandoras_box'],
      },
@@ -698,8 +698,8 @@ t . Dynamo
      level: 265,
      prizes: {
        exp: 280,
-       items: ['Tentacle'],
-       equips: ['plague_staff'],
+       items: ['Dark ink'],
+       equips: ['tentacle_whip'],
        tokens: ['pandoras_box'],
      },
    },
@@ -714,7 +714,7 @@ t . Dynamo
      level: 280,
      prizes: {
        exp: 3000,
-       equips: ['unholy', 'plague_staff'],
+       equips: ['unholy', 'grim_scythe'],
        tokens: ['pandoras_box'],
      },
    },
