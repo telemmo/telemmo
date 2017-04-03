@@ -637,8 +637,8 @@ t . Dynamo
 
  /* #<{(|//////////////////////////////////////////////////////////////////////////////
  Deeps Below
- w . Plague Staff
- s . Unholy
+ w . Tentacle Whip, Plague Staff
+ s . Golem, Unholy
  t . Pandora's Box Shard
  */
     {
