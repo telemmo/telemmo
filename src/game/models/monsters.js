@@ -683,7 +683,7 @@ t . Dynamo
      prizes: {
        exp: 240,
        items: ['Golem Blood'],
-       equips: ['unholy'],
+       equips: ['golem'],
        tokens: ['pandoras_box'],
      },
    },
