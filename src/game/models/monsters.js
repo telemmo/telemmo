@@ -654,7 +654,7 @@ t . Dynamo
      prizes: {
        exp: 200,
        items: ['Spider Leg'],
-       tokens: ['Pandoras Box'],
+       tokens: ['pandoras_box'],
     },
 },
       id: 'urork',
@@ -668,7 +668,7 @@ t . Dynamo
       prizes: {
         exp: 220,
         items: ['Shattered blade'],
-        tokens: ['Pandoras Box'],
+        tokens: ['pandoras_box'],
  },
 ,
  {
@@ -683,8 +683,8 @@ t . Dynamo
      prizes: {
        exp: 240,
        items: ['Golem Blood'],
-       equips: ['Unholy'],
-       tokens: ['Pandoras Box'],
+       equips: ['unholy'],
+       tokens: ['pandoras_box'],
      },
    },
    {
@@ -699,8 +699,8 @@ t . Dynamo
      prizes: {
        exp: 280,
        items: ['Tentacle'],
-       equips: ['Plague Staff'],
-       tokens: ['Pandoras Box'],
+       equips: ['plague_staff'],
+       tokens: ['pandoras_box'],
      },
    },
    {
@@ -714,8 +714,8 @@ t . Dynamo
      level: 280,
      prizes: {
        exp: 3000,
-       equips: ['Unholy', 'Plague Staff'],
-       tokens: ['Pandoras Box'],
+       equips: ['unholy', 'plague_staff'],
+       tokens: ['pandoras_box'],
      },
    },
 ]
