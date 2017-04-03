@@ -233,6 +233,53 @@ export default [
       },
     }),
   },
+   {
+    id: 'tentacle_whip',
+    name: 'Tentacle Whip',
+    description: 'Reminds you of something you saw in an anime once.',
+    type: 'weapon',
+    tier: 9,
+    bonus: {
+      str: 40,
+      con: 30,
+      ref: 10,
+      acc: 35,
+      },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aHit < 14),
+      defender: {
+        hp: -45 - (attacker.level / 4),
+      },
+      log: {
+        type: 'damage',
+        value: 45 + (attacker.level / 4),
+      },
+    }),
+  },
+   {
+    id: 'grim_scythe',
+    name: 'Grim Scythe',
+    description: 'There is a spooky skeleton inside of you.',
+    type: 'weapon',
+    tier: 9,
+    bonus: {
+      str: 40,
+      con: 25,
+      ref: 20,
+      acc: 20,
+      Flow: 20,
+    },
+    fire: (attacker, defender, rolls) => ({
+      noCast: (rolls.aHit < 14),
+      defender: {
+        hp: -50 - (attacker.level / 4),
+      },
+      log: {
+        type: 'damage',
+        value: 50 + (attacker.level / 4),
+      },
+    }),
+  },
   // Sets
   {
     id: 'bronze_armor',
@@ -402,6 +449,32 @@ export default [
       con: 40,
       str: 20,
       ref: 25,
+    },
+  },
+   {
+    id: 'golem',
+    name: 'Golem Armor',
+    description: 'You had to use a chisel, but you managed to skin that monster.',
+    type: 'set',
+    tier: 9,
+    bonus: {
+      con: 50,
+      str: 25,
+      ref: 30,
+     },
+  },
+  {
+    id: 'unholy',
+    name: 'Unholy Robes',
+    description: 'Smells like Death.',
+    type: 'set',
+    tier: 9,
+    bonus: {
+      con: 50,
+      str: 25,
+      ref: 25,
+      acc: 10,
+      flow: 10,
     },
   },
   // Tokens
@@ -574,6 +647,28 @@ export default [
       log: {
         type: 'heal',
         value: 30 + (attacker.level / 4),
+      },
+    }),
+  },
+   {
+    id: 'pandoras_box',
+    name: 'Pandoras Box',
+    description: 'You might not like what you find inside.',
+    type: 'token',
+    tier: 7,
+    bonus: {
+      flow: 40,
+      str: 30,
+      },
+    fire: (attacker, defender, rolls) => ({
+      noCast: rolls.aSkill < 14,
+      attacker: {
+        hp: 40 + (attacker.level / 4),
+        ref: attacker.str * 0.2,
+      },
+      log: {
+        type: 'heal (+STR)',
+        value: 40 + (attacker.level / 4),
       },
     }),
   },
