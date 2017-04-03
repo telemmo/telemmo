@@ -188,7 +188,7 @@ export default [
 
   {
     id: 'deeps_below',
-    name: 'Deeps Below',
+    name: 'the Deeps Below',
     monsters: [
       {
         id: 'colossal_spider',
