@@ -101,5 +101,9 @@ export default [
     condition: msg => msg.player.currentCharId,
     error: handlers.start
   },
+   {
+    match: /\/wiki/,
+    handler: handlers.wiki,
+   },
 ]
 
