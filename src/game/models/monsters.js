@@ -637,7 +637,6 @@ t . Dynamo
 
  /* #<{(|//////////////////////////////////////////////////////////////////////////////
  Deeps Below
-
  w . Plague Staff
  s . Unholy
  t . Pandora's Box Shard
@@ -645,28 +644,28 @@ t . Dynamo
     {
      id: 'colossal_spider',
      name: 'Colossal Spider',
-     str: 150,
+     str: 140,
      ref: 130,
-     acc: 150,
+     acc: 140,
      con: 130,
-     flow: 150,
-     level: 200,
+     flow: 140,
+     level: 195,
      prizes: {
-       exp: 200,
+       exp: 210,
        items: ['Spider Leg'],
        tokens: ['pandoras_box'],
     },
 },
       id: 'urork',
       name: 'Urork',
-      str: 150,
-      ref: 165,
-      acc: 150,
-      con: 165,
-      flow: 150,
-      level: 215,
+      str: 140,
+      ref: 155,
+      acc: 140,
+      con: 150,
+      flow: 145,
+      level: 210,
       prizes: {
-        exp: 220,
+        exp: 230,
         items: ['Shattered blade'],
         tokens: ['pandoras_box'],
  },
@@ -674,14 +673,14 @@ t . Dynamo
  {
      id: 'golem',
      name: 'Golem',
-     str: 200,
-     ref: 200,
-     acc: 200,
-     con: 200,
-     flow: 200,
-     level: 240,
+     str: 165,
+     ref: 165,
+     acc: 165,
+     con: 165,
+     flow: 170,
+     level: 225,
      prizes: {
-       exp: 240,
+       exp: 250,
        items: ['Golems blood'],
        equips: ['golem'],
        tokens: ['pandoras_box'],
@@ -690,12 +689,12 @@ t . Dynamo
    {
      id: 'kraken',
      name: 'Kraken',
-     str: 225,
-     ref: 225,
-     acc: 225,
-     con: 225,
-     flow: 225,
-     level: 265,
+     str: 185,
+     ref: 185,
+     acc: 185,
+     con: 185,
+     flow: 185,
+     level: 275,
      prizes: {
        exp: 280,
        items: ['Dark ink'],
@@ -706,16 +705,15 @@ t . Dynamo
    {
      id: 'death',
      name: 'Death',
-     str: 250,
-     ref: 250,
-     acc: 250,
-     con: 250,
-     flow: 250,
-     level: 280,
+     str: 200,
+     ref: 200,
+     acc: 200,
+     con: 200,
+     flow: 200,
+     level: 270,
      prizes: {
        exp: 3000,
        equips: ['unholy', 'grim_scythe'],
        tokens: ['pandoras_box'],
      },
    },
-]
