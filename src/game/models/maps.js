@@ -185,4 +185,32 @@ export default [
       },
     ],
   },
+
+  {
+    id: 'deeps_below',
+    name: 'the Deeps Below',
+    monsters: [
+      {
+        id: 'colossal_spider',
+        influence: 20,
+      },
+      {
+        id: 'urork',
+        influence: 15,
+      },
+      {
+        id: 'golem',
+        influence: 8,
+      },
+      {
+        id: 'kraken',
+        influence: 4,
+      },
+      {
+        id: 'death',
+        influence: 1,
+      },
+    ],
+  },
+
 ]
