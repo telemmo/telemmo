@@ -634,89 +634,88 @@ t . Dynamo
       tokens: ['dynamo'],
     },
   },
+
+ /* #<{(|//////////////////////////////////////////////////////////////////////////////
+ Deeps Below
+
+ w . Plague Staff
+ s . Unholy
+ t . Pandora's Box Shard
+ */
+    {
+     id: 'colossal_spider',
+     name: 'Colossal Spider',
+     str: 150,
+     ref: 130,
+     acc: 150,
+     con: 130,
+     flow: 150,
+     level: 200,
+     prizes: {
+       exp: 200,
+       items: ['Spider Leg'],
+       tokens: ['Pandoras Box'],
+    },
+},
+      id: 'urork',
+      name: 'Urork',
+      str: 150,
+      ref: 165,
+      acc: 150,
+      con: 165,
+      flow: 150,
+      level: 215,
+      prizes: {
+        exp: 220,
+        items: ['Shattered blade'],
+        tokens: ['Pandoras Box'],
+ },
+,
+ {
+     id: 'golem',
+     name: 'Golem',
+     str: 200,
+     ref: 200,
+     acc: 200,
+     con: 200,
+     flow: 200,
+     level: 240,
+     prizes: {
+       exp: 240,
+       items: ['Golem Blood'],
+       equips: ['Unholy'],
+       tokens: ['Pandoras Box'],
+     },
+   },
+   {
+     id: 'kraken',
+     name: 'Kraken',
+     str: 225,
+     ref: 225,
+     acc: 225,
+     con: 225,
+     flow: 225,
+     level: 265,
+     prizes: {
+       exp: 280,
+       items: ['Tentacle'],
+       equips: ['Plague Staff'],
+       tokens: ['Pandoras Box'],
+     },
+   },
+   {
+     id: 'death',
+     name: 'Death',
+     str: 250,
+     ref: 250,
+     acc: 250,
+     con: 250,
+     flow: 250,
+     level: 280,
+     prizes: {
+       exp: 3000,
+       equips: ['Unholy', 'Plague Staff'],
+       tokens: ['Pandoras Box'],
+     },
+   },
 ]
-// #<{(|//////////////////////////////////////////////////////////////////////////////
-// Deeps Below
-//
-// w . Plague Staff
-// s . Unholy
-// t . Pandora's Box Shard
-//
-// |)}>#
-//   {
-//     id: 'colossal_spider',
-//     name: 'Colossal Spider',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'urork',
-//     name: 'Urork',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'golem',
-//     name: 'Golem',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'kraken',
-//     name: 'Kraken',
-//     str: 0,
-//     ref: 0,
-//     acc: 0,
-//     con: 0,
-//     flow: 0,
-//     prizes: {
-//       exp: 0,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-//   {
-//     id: 'death',
-//     name: 'Death',
-//     stance: 'death',
-//     str: 100,
-//     ref: 100,
-//     acc: 100,
-//     con: 100,
-//     flow: 100,
-//     prizes: {
-//       exp: 100,
-//       items: ['?'],
-//       equips: ['?'],
-//       tokens: ['?'],
-//     },
-//   },
-// ]
