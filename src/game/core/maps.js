@@ -3,49 +3,48 @@ export function charsByMap (dao) {
     {
       $match: {
         finishedAt: {
-          $exists: false
+          $exists: false,
         },
         deletedAt: {
-          $exists: false
+          $exists: false,
         },
-        "source.name": "map"
-      }
+        'source.name': 'map',
+      },
     },
     {
       $group: {
-        _id: "$source.id",
+        _id: '$source.id',
         chars: {
-          $addToSet: "$teams.members.id"
-        }
-      }
+          $addToSet: '$teams.members.id',
+        },
+      },
     },
     {
-      $unwind: "$chars"
+      $unwind: '$chars',
     },
     {
-      $unwind: "$chars"
+      $unwind: '$chars',
     },
     {
-      $unwind: "$chars"
+      $unwind: '$chars',
     },
     {
       $match: {
         chars: {
-          $type: 7
+          $type: 7,
         },
         _id: {
-          $ne: "green_fields"
-        }
-      }
+          $ne: 'green_fields',
+        },
+      },
     },
     {
       $group: {
-        _id: "$_id",
+        _id: '$_id',
         chars: {
-          $addToSet: "$chars"
-        }
-      }
-    }
+          $addToSet: '$chars',
+        },
+      },
+    },
   ])
-    .toArray()
 }

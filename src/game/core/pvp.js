@@ -1,7 +1,7 @@
 import {
-  toPairs,
+  map,
+  mapObjIndexed,
   without,
-  pipe,
 } from 'ramda'
 import { charsByMap } from './maps'
 import { run } from './combat'
@@ -9,21 +9,28 @@ import { run } from './combat'
 const randomFromArray = array =>
   array[Math.floor(Math.random() * array.length)]
 
-const randomEncounter = pipe(
-  toPairs,
-  map(([mapId, players]) => {
-    if (players.length < 2) {
-      return []
-    }
-    const first = randomFromArray(players)
-    const second = randomFromArray(without([first], players))
-    return [[first], [second]]
-  })
-)
+const randomEncounter = mapObjIndexed((players, mapId) => {
+  if (players.length < 2) {
+    return []
+  }
+  const first = randomFromArray(players)
+  const second = randomFromArray(without([first], players))
+  const teams = [[first], [second]]
 
-function encounter (dao) {
-  return charsByMap()
+  return {
+    mapId,
+    teams,
+  }
+})
+
+const encounterSource = enc => ({
+  name: 'pvp',
+  id: enc.mapId,
+})
+
+export function encounter (dao) {
+  return charsByMap(dao)
     .then(randomEncounter)
-    .then(map(run))
+    .then(map(enc => run(dao, encounterSource(enc), enc.teams)))
     .then(Promise.all)
 }

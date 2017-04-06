@@ -407,3 +407,97 @@ msgid "%s increased by 1!"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/game/handlers/about.js 10:74
+msgid "Github:"
+msgstr ""
+
+#: src/game/handlers/about.js 10:88
+msgid "github.com/telemmo/telemmo"
+msgstr ""
+
+#: src/game/handlers/about.js 10:125
+msgid "Reddit:"
+msgstr ""
+
+#: src/game/handlers/about.js 10:139
+msgid "reddit.com/r/telemmo"
+msgstr ""
+
+#: src/game/handlers/overworld.js 11:92
+msgid "Our telegram group is @telemmo, join and chat with us!"
+msgstr ""
+
+#: src/game/handlers/overworld.js 11:157
+msgid "/about to know more about this bot"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:13
+msgid "Improve your character!"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:47
+msgid "Change stats in large amounts with"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:88
+msgid "/up_flow_10 or /refund_flow_7"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:128
+msgid "/reset_stats for free anytime!"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:280
+msgid "Base stats and equipment bonuses:"
+msgstr ""
+
+#: src/game/handlers/charInfo.js 51:292
+msgid "<b>Level Progress :</b>
+<pre>%s</pre>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/charInfo.js 51:794
+msgid "Get stronger with /improve_stats."
+msgstr ""
+
+#: src/game/handlers/charInfo.js 51:834
+msgid "Equip yourself in /inventory."
+msgstr ""
+
+#: src/game/handlers/upStat.js 72:41
+msgid "Not enough points for that."
+msgstr ""
+
+#: src/game/handlers/upStat.js 72:79
+msgid "You need at least %s points."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 72:127
+msgid "But you have only %s points."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 72:250
+msgid "You can afford only %s upgrades."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 77:40
+msgid "You cant have less than 5 points."
+msgstr ""
+
+#: src/game/handlers/upStat.js 83:10
+msgid "%s %s by %s!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 83:90
+msgid "reduced"
+msgstr ""
+
+#: src/game/handlers/upStat.js 83:105
+msgid "increased"
+msgstr ""
+
