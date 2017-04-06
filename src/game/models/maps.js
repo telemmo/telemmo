@@ -185,7 +185,6 @@ export default [
       },
     ],
   },
-
   {
     id: 'deeps_below',
     name: 'the Deeps Below',
@@ -212,5 +211,4 @@ export default [
       },
     ],
   },
-
 ]

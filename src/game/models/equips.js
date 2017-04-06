@@ -233,7 +233,7 @@ export default [
       },
     }),
   },
-   {
+  {
     id: 'tentacle_whip',
     name: 'Tentacle Whip',
     description: 'Reminds you of something you saw in an anime once.',
@@ -244,7 +244,7 @@ export default [
       con: 30,
       ref: 10,
       acc: 35,
-      },
+    },
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 14),
       defender: {
@@ -256,7 +256,7 @@ export default [
       },
     }),
   },
-   {
+  {
     id: 'grim_scythe',
     name: 'Grim Scythe',
     description: 'There is a spooky skeleton inside of you.',
@@ -451,7 +451,7 @@ export default [
       ref: 25,
     },
   },
-   {
+  {
     id: 'golem',
     name: 'Golem Armor',
     description: 'You had to use a chisel, but you managed to skin that monster.',
@@ -461,7 +461,7 @@ export default [
       con: 50,
       str: 25,
       ref: 30,
-     },
+    },
   },
   {
     id: 'unholy',
@@ -650,7 +650,7 @@ export default [
       },
     }),
   },
-   {
+  {
     id: 'pandoras_box',
     name: 'Pandoras Box',
     description: 'You might not like what you find inside.',
@@ -659,7 +659,7 @@ export default [
     bonus: {
       flow: 40,
       str: 30,
-      },
+    },
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 14,
       attacker: {
