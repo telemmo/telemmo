@@ -107,14 +107,22 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/game/handlers/about.js 10:74
-msgid "Github: http://github.com/telemmo/telemmo"
+msgid "Github:"
 msgstr ""
 
-#: src/game/handlers/about.js 10:122
-msgid "Reddit: http://reddit.com/r/telemmo"
+#: src/game/handlers/about.js 10:88
+msgid "github.com/telemmo/telemmo"
 msgstr ""
 
-#: src/game/handlers/about.js 10:164
+#: src/game/handlers/about.js 10:125
+msgid "Reddit:"
+msgstr ""
+
+#: src/game/handlers/about.js 10:139
+msgid "reddit.com/r/telemmo"
+msgstr ""
+
+#: src/game/handlers/about.js 10:170
 msgid "Telegram: @telemmo"
 msgstr ""
 
@@ -153,13 +161,12 @@ msgstr ""
 msgid ":globe_with_meridians: Welcome to the overworld! :globe_with_meridians:"
 msgstr ""
 
-#: src/game/handlers/overworld.js 11:88
-msgid "
-Our telegram group is @telemmo, join and chat with us!"
+#: src/game/handlers/overworld.js 11:92
+msgid "Our telegram group is @telemmo, join and chat with us!"
 msgstr ""
 
-#: src/game/handlers/overworld.js 11:151
-msgid "To know more about this bot, send /about"
+#: src/game/handlers/overworld.js 11:157
+msgid "/about to know more about this bot"
 msgstr ""
 
 #: src/game/handlers/welcome.js 23:10
@@ -174,44 +181,58 @@ msgid ":earth_asia: Explore :earth_asia:
 Choose a map to explore"
 msgstr ""
 
-#: src/game/handlers/improveStats.js 49:13
-msgid "Improve your character. you can reset your stats for free with /reset_stats
-"
+#: src/game/handlers/improveStats.js 65:13
+msgid "Improve your character!"
 msgstr ""
 
-#: src/game/handlers/improveStats.js 49:97
-msgid "Level: %s"
+#: src/game/handlers/improveStats.js 65:47
+msgid "Change stats in large amounts with"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:88
+msgid "/up_flow_10 or /refund_flow_7"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:128
+msgid "/reset_stats for free anytime!"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:169
+msgid "<b>Level:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:125
-msgid "StatPoints: %s
-"
+#: src/game/handlers/improveStats.js 65:204
+msgid "<b>StatPoints: </b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:194
-msgid "Strength: %s"
+#: src/game/handlers/improveStats.js 65:280
+msgid "Base stats and equipment bonuses:"
+msgstr ""
+
+#: src/game/handlers/improveStats.js 65:320
+msgid "<b>Strength: </b> %s %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:223
-msgid "Constitution: %s"
+#: src/game/handlers/improveStats.js 65:381
+msgid "<b>Constitution: </b> %s %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:256
-msgid "Reflex: %s"
+#: src/game/handlers/improveStats.js 65:446
+msgid "<b>Reflex: </b> %s %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:283
-msgid "Accuracy: %s"
+#: src/game/handlers/improveStats.js 65:505
+msgid "<b>Accuracy: </b> %s %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/improveStats.js 49:312
-msgid "Flow: %s"
+#: src/game/handlers/improveStats.js 65:566
+msgid "<b>Flow: </b> %s %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -242,92 +263,47 @@ msgid "This character is currently exploring a map.
 Wait it come back before changing char."
 msgstr ""
 
-#: src/game/handlers/charInfo.js 53:62
+#: src/game/handlers/charInfo.js 31:62
 msgid "Invalid char Id"
 msgstr ""
 
-#: src/game/handlers/charInfo.js 73:13
+#: src/game/handlers/charInfo.js 51:13
 msgid "<b>Titles:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:67
+#: src/game/handlers/charInfo.js 51:67
 msgid "<b>Name:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:100
+#: src/game/handlers/charInfo.js 51:100
 msgid "<b>Class:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:163
+#: src/game/handlers/charInfo.js 51:163
 msgid "<b>Stance:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:226
-msgid "<b>Level:</b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:261
+#: src/game/handlers/charInfo.js 51:261
 msgid "<b>Exp:</b> %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:292
-msgid "
-<b>Level Progress :</b>
+#: src/game/handlers/charInfo.js 51:292
+msgid "<b>Level Progress :</b>
 <pre>%s</pre>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/charInfo.js 73:371
-msgid "
-Base stats and equipment bonuses
-%s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:416
-msgid "<b>Strength: </b> %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:477
-msgid "<b>Constitution: </b> %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:542
-msgid "<b>Reflex: </b> %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:601
-msgid "<b>Accuracy: </b> %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:662
-msgid "<b>Flow: </b> %s %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:721
-msgid "<b>StatPoints: </b> %s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/game/handlers/charInfo.js 73:809
-msgid "
-see /improve_stats to spend your StatPoints"
+#: src/game/handlers/charInfo.js 51:794
+msgid "Get stronger with /improve_stats."
 msgstr ""
 
-#: src/game/handlers/charInfo.js 73:861
-msgid "
-see /inventory for items and equips"
+#: src/game/handlers/charInfo.js 51:834
+msgid "Equip yourself in /inventory."
 msgstr ""
 
 #: src/game/handlers/changeStance.js 31:38
@@ -390,20 +366,47 @@ msgid "%s equipped!"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/game/handlers/upStat.js 41:29
+#: src/game/handlers/upStat.js 48:29
 msgid "Invalid stat."
 msgstr ""
 
-#: src/game/handlers/upStat.js 58:38
+#: src/game/handlers/upStat.js 66:40
 msgid "You cant have more than 100 points."
 msgstr ""
 
-#: src/game/handlers/upStat.js 63:36
-msgid "You dont have points for that."
+#: src/game/handlers/upStat.js 72:41
+msgid "Not enough points for that."
 msgstr ""
 
-#: src/game/handlers/upStat.js 66:10
-msgid "%s increased by 1!"
+#: src/game/handlers/upStat.js 72:79
+msgid "You need at least %s points."
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/game/handlers/upStat.js 72:127
+msgid "But you have only %s points."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 72:250
+msgid "You can afford only %s upgrades."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 77:40
+msgid "You cant have less than 5 points."
+msgstr ""
+
+#: src/game/handlers/upStat.js 83:10
+msgid "%s %s by %s!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/game/handlers/upStat.js 83:90
+msgid "reduced"
+msgstr ""
+
+#: src/game/handlers/upStat.js 83:105
+msgid "increased"
+msgstr ""
 
