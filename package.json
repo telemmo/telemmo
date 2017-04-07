@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dist": "webpack --progress --colors --config webpack.config.prod.js",
-    "prestart": "dist",
+    "prestart": "npm run dist",
     "start": "node dist/telemmo.js",
     "predev": "webpack --progress --colors --config webpack.config.dev.js",
     "dev": "node dist/telemmo.dev.js",
