@@ -51,7 +51,11 @@ function startCombat (combat) {
 export default function resumeCombats (dao, dispatch) {
   if (cluster.isMaster) {
     console.log('Resuming combats...')
-    return dao.combat.find({ finishedAt: { $exists: false } })
+    return dao.combat.find({
+      finishedAt: { $exists: false },
+      deletedAt: { $exists: false },
+      'source.name': 'map',
+    })
       .then(combats => Promise.all(combats.map(startCombat)))
       .then(combats => Promise.all(combats.map(combat =>
           dao.combat.update({ _id: combat.id }, combat))))

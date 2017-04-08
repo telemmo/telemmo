@@ -14,6 +14,7 @@ import castSkill from './castSkill'
 import randomSkillFromStance from './randomSkillFromStance'
 
 function turn (combat, finish, rolls) {
+  console.log('Running a turn:', { combat, finish, rolls })
   const { teams } = combat
   const attacker = teams[0].overall
   const defender = teams[1].overall

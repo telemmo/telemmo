@@ -12,32 +12,35 @@ import { encounter } from '../core/pvp'
 import { buildMembersQuery } from '../core/combat'
 import { renderCombat } from '../handlers/explore'
 
-function findPlayer (dao, char) {
-  return dao.player.find({ _id: char.id })
-    .then(pipe(objOf('player'), merge(char)))
-}
-
 function findChars (dao, combat) {
-  return dao.character
-    .find(buildMembersQuery(combat))
-    .map(partial(findPlayer, [dao]))
+  return dao.character.aggregate([
+    {
+      $match: buildMembersQuery(combat),
+    },
+    {
+      lookup: {
+        from: 'player',
+        localField: 'playerId',
+        foreignField: '_id',
+        as: 'player',
+      },
+    },
+  ])
 }
 
 function sendMessages (dao, dispatch, combat) {
+  console.log('sendMessages', { dao, dispatch, combat })
   return findChars(dao, combat)
     .map(char => renderCombat(char.player, combat))
     .map(dispatch)
 }
 
 function encounterPlayers (dao, dispatch) {
-  setTimeout(partial(encounterPlayers, [dao, dispatch]), 5000)
-
-  return encounter(dao)
-    .then(map(partial(sendMessages, [dao, dispatch])))
-    .then(Promise.all)
+  return Promise.all(encounter(dao))
+    .map(partial(sendMessages, [dao, dispatch]))
 }
 
 export default function startPvpEncounterTimer (dao, dispatch) {
   console.log('Starting ramdom PvP timer...')
-  encounterPlayers(dao, dispatch)
+  setInterval(() => encounterPlayers(dao, dispatch), 10000)
 }

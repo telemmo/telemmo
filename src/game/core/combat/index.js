@@ -103,12 +103,16 @@ function buildTeam (members) {
 function build (dao, source, tms) {
   return Promise.resolve(tms)
     .then(partial(addTeamsLevels, [dao]))
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Teams with levels:')))
     .then(teams =>
       Promise.all(teams.map(team =>
         Promise.all(team.map(buildCombatStats)))),
     )
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Teams combat stats:')))
     .then(map(buildTeam))
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Teams built:')))
     .then(initiative)
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Teams initiative:')))
     .then(initTurn => ({
       teams: initTurn.order,
       initialTeams: initTurn.order,
@@ -122,6 +126,7 @@ function build (dao, source, tms) {
     }))
     .then(assoc('token', cuid()))
     .then(assoc('source', source))
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Initial combat:')))
     .then(partial(upsertCombat, [dao]))
     .then(wait)
 }
@@ -153,7 +158,9 @@ export function start (combat) {
 }
 
 export function run (dao, source, teams) {
+  console.log('Running combat for:', JSON.stringify({ dao, source, teams }))
   return build(dao, source, teams)
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Combat built:')))
     .then(start)
     .then(partial(updateCombat, [dao]))
 }
