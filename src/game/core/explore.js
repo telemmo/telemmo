@@ -27,7 +27,7 @@ export function randomMonster (mapId) {
 const playerExplorations = pipe(
   prop('id'),
   objOf('teams.members.playerId'),
-  merge({ finishedAt: { $exists: false } }),
+  merge({ finishedAt: { $exists: false }, 'source.name': 'map' }),
 )
 
 export function exploreUntilDead (dao, player, gameMap, char) {

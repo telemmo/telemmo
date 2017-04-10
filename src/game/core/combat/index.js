@@ -47,7 +47,7 @@ function finish (combat) {
 function wait (combat) {
   const amount = process.env.NODE_ENV === 'production'
     ? 40000 + (Math.random() * 30000)
-    : 3141 + (Math.random() * 2000)
+    : 13141 + (Math.random() * 1000)
 
   return Promise.delay(amount)
     .then(always(combat))
@@ -56,6 +56,7 @@ function wait (combat) {
 function updateCombat (dao, combat) {
   const query = {
     token: combat.token,
+    source: combat.source,
   }
 
   return dao.combat.update(query, combat)
@@ -66,6 +67,7 @@ function upsertCombat (dao, combat) {
     'teams.members': {
       $elemMatch: {
         id: { $in: combatMemberIds(combat) },
+        source: combat.source,
       },
     },
   }
@@ -128,7 +130,6 @@ function build (dao, source, tms) {
     .then(assoc('source', source))
     .tap(pipe(JSON.stringify, console.log.bind(null, 'Initial combat:')))
     .then(partial(upsertCombat, [dao]))
-    .then(wait)
 }
 
 
@@ -161,7 +162,11 @@ export function run (dao, source, teams) {
   console.log('Running combat for:', JSON.stringify({ dao, source, teams }))
   return build(dao, source, teams)
     .tap(pipe(JSON.stringify, console.log.bind(null, 'Combat built:')))
+    .then(wait)
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Running combat rounds:')))
     .then(start)
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Combat finished:')))
     .then(partial(updateCombat, [dao]))
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Combat saved:')))
 }
 

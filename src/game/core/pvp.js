@@ -1,6 +1,5 @@
 import {
   map,
-  head,
   without,
   pipe,
   isEmpty,
@@ -40,6 +39,6 @@ export function encounter (dao) {
     .then(randomEncounter)
     .tap(pipe(JSON.stringify, console.log.bind(null, 'Random Encounter:')))
     .map(enc => run(dao, encounterSource(enc), enc.teams))
-    .tap(console.log.bind(null, 'Combat Result:'))
+    .tap(pipe(JSON.stringify, console.log.bind(null, 'Combat Result:')))
     .catch(console.log.bind(null, 'Error:'))
 }

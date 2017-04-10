@@ -27,8 +27,16 @@ export default function (dao, teams) {
     { $match: { winners: { $in: members } } },
     { $project: { prizes: 1 } },
     { $unwind: '$prizes' },
-    { $project: { exp: '$prizes.exp', charId: '$prizes.charId' } },
-    { $group: { _id: '$charId', exp: { $sum: '$exp' } } },
+    { $project: {
+      charId: '$prizes.charId',
+      exp: '$prizes.exp',
+      elo: '$prizes.elo',
+    } },
+    { $group: {
+      _id: '$charId',
+      exp: { $sum: '$exp' },
+      elo: { $sum: '$elo' },
+    } },
   ])
     .then(partial(mergeLevel, [teams]))
 }

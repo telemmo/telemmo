@@ -18,9 +18,8 @@ import cluster from 'cluster'
 
 import { start, buildMembersQuery } from '../core/combat'
 import { exploreUntilDead } from '../core/explore'
-import { renderCombat } from '../handlers/explore'
+import renderCombat from '../renderers/combat'
 import models from '../models'
-import _ from '../i18n'
 
 function continueExploration (dao, dispatch, combats) {
   const explorations = combats.map(
