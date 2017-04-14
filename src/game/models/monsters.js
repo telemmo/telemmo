@@ -434,6 +434,7 @@ t . Ice Ring
       tokens: ['ice_ring'],
     },
   },
+
 /* //////////////////////////////////////////////////////////////////////////////
 Volcanic Oasis
 
@@ -634,12 +635,15 @@ t . Dynamo
       tokens: ['dynamo'],
     },
   },
-  /* #<{(|//////////////////////////////////////////////////////////////////////////////
- Deeps Below
- w . Tentacle Whip, Plague Staff
- s . Golem, Unholy
- t . Pandora's Box Shard
- */
+
+/* #<{(|//////////////////////////////////////////////////////////////////////////////
+Deeps Below
+
+w . Tentacle Whip, Plague Staff
+s . Golem, Unholy
+t . Pandora's Box Shard
+
+*/
   {
     id: 'colossal_spider',
     name: 'Colossal Spider',
