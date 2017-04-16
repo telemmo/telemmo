@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "defender|rolls" }] */
+
 export default [
   // Arcane -  Mage
   {
@@ -5,11 +7,11 @@ export default [
     name: 'Pulse',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (15 + attacker.level/3),
+        hp: -15 + (attacker.level * 0.4),
       },
       log: {
         type: 'damage',
-        value: (15 + attacker.level/3),
+        value: 15 + (attacker.level * 0.4),
       },
     }),
   },
@@ -18,12 +20,12 @@ export default [
     name: 'Ice Shard',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (22 + attacker.level/4),
-        ref: - (defender.ref * 0.2)
+        hp: -15 + (attacker.level * 0.25),
+        ref: -defender.flow * 0.15,
       },
       log: {
-        type: 'damage (-REF)',
-        value: (22 + attacker.level/4),
+        type: 'damage (-FLOW)',
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -32,11 +34,11 @@ export default [
     name: 'Fireball',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (35 + attacker.level/3),
+        hp: -35 + (attacker.level * 0.45),
       },
       log: {
         type: 'damage',
-        value: (35 + attacker.level/3),
+        value: 35 + (attacker.level * 0.45),
       },
     }),
   },
@@ -45,11 +47,11 @@ export default [
     name: 'Maelstrom',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (50 + attacker.level/2),
+        hp: -45 + (attacker.level * 0.6),
       },
       log: {
         type: 'damage',
-        value: (50 + attacker.level/2),
+        value: 45 + (attacker.level * 0.6),
       },
     }),
   },
@@ -59,12 +61,12 @@ export default [
     name: 'Smog',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (11 + attacker.level/4),
-        acc: - (defender.acc * 0.2)
+        hp: -7 + (attacker.level * 0.17),
+        acc: -defender.acc * 0.15,
       },
       log: {
         type: 'damage (-ACC)',
-        value: (11 + attacker.level/4),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -73,12 +75,12 @@ export default [
     name: 'Slime',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (22 + attacker.level/4),
-        ref: - (defender.ref * 0.3)
+        hp: -15 + (attacker.level * 0.25),
+        ref: -defender.ref * 0.15,
       },
       log: {
         type: 'damage (-REF)',
-        value: (22 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -87,13 +89,13 @@ export default [
     name: 'Confusion',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (12 + attacker.level/4),
-        str: - (defender.str * 0.3),
-        con: - (defender.con * 0.3),
+        hp: -20 + (attacker.level * 0.25),
+        str: -defender.str * 0.15,
+        con: -defender.con * 0.15,
       },
       log: {
         type: 'damage (-STR -CON)',
-        value: (12 + attacker.level/4),
+        value: 20 + (attacker.level * 0.25),
       },
     }),
   },
@@ -102,26 +104,26 @@ export default [
     name: 'Mirage',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (1 + attacker.level/5),
-        acc: - (defender.acc * 0.35),
-        ref: - (defender.ref * 0.35),
-        str: - (defender.str * 0.35),
-        con: - (defender.con * 0.35),
-        flow: - (defender.flow * 0.35),
+        hp: -15 + (attacker.level * 0.15),
+        acc: -defender.acc * 0.11,
+        ref: -defender.ref * 0.11,
+        str: -defender.str * 0.11,
+        con: -defender.con * 0.11,
+        flow: -defender.flow * 0.11,
       },
       log: {
         type: 'damage (-ALL STATS)',
-        value: (1 + attacker.level/5),
+        value: 15 + (attacker.level * 0.15),
       },
     }),
   },
   // Endure - Fighter
   {
-    id: 'meditate',
-    name: 'Meditate',
+    id: 'taunt',
+    name: 'Taunt',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (1 + attacker.level/5),
+        hp: -7 + (attacker.level * 0.17),
       },
       attacker: {
         str: defender.str * 0.1,
@@ -129,7 +131,7 @@ export default [
       },
       log: {
         type: 'damage (+STR +ACC)',
-        value: (1 + attacker.level/5),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -138,11 +140,11 @@ export default [
     name: 'Bandage',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (10 + attacker.level/4),
+        hp: 15 + (attacker.level * 0.25),
       },
       log: {
         type: 'heal',
-        value: (10 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -151,12 +153,12 @@ export default [
     name: 'Shield Bash',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (30 + attacker.level/4),
-        flow: - (defender.flow * 0.1),
+        hp: -25 + (attacker.level * 0.35),
+        flow: -defender.flow * 0.15,
       },
       log: {
         type: 'damage (-FLOW)',
-        value: (30 + attacker.level/4),
+        value: 25 + (attacker.level * 0.35),
       },
     }),
   },
@@ -167,11 +169,11 @@ export default [
       attacker: {
         str: attacker.str * 0.3,
         con: attacker.con * 0.3,
-        hp: 10 + attacker.level/4,
+        hp: 16 + (attacker.level * 0.2),
       },
       log: {
         type: 'heal (+STR +CON)',
-        value: (10 + attacker.level/4),
+        value: 16 + (attacker.level * 0.2),
       },
     }),
   },
@@ -181,7 +183,7 @@ export default [
     name: 'Rage',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/4),
+        hp: -7 + (attacker.level * 0.17),
       },
       attacker: {
         str: attacker.str * 0.1,
@@ -189,7 +191,7 @@ export default [
       },
       log: {
         type: 'damage (+STR +CON)',
-        value: (10 + attacker.level/4),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -198,11 +200,11 @@ export default [
     name: 'Fast Strike',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
+        hp: -20 + (attacker.level * 0.35),
       },
       log: {
         type: 'damage',
-        value: (20 + attacker.level/4),
+        value: 20 + (attacker.level * 0.35),
       },
     }),
   },
@@ -211,15 +213,15 @@ export default [
     name: 'Blood Mask',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
+        hp: -20 + (attacker.level * 0.25),
       },
       attacker: {
         str: attacker.str * 0.25,
-        ref: attacker.ref * 0.25,
+        ref: attacker.ref * 0.15,
       },
       log: {
         type: 'damage (+STR +REF)',
-        value: (20 + attacker.level/4),
+        value: 20 + (attacker.level * 0.25),
       },
     }),
   },
@@ -228,11 +230,11 @@ export default [
     name: 'Massacre',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (35 + attacker.level/2),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: - (35 + attacker.level/2),
+        value: -40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -242,12 +244,12 @@ export default [
     name: 'Poison Dart',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/4),
-        ref: - (defender.ref * 0.2)
+        hp: -7 + (attacker.level * 0.17),
+        ref: -defender.ref * 0.15,
       },
       log: {
         type: 'damage (-REF)',
-        value: (10 + attacker.level/4),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -256,12 +258,12 @@ export default [
     name: 'Sand Attack',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
-        acc: - (defender.acc * 0.2)
+        hp: -15 + (attacker.level * 0.25),
+        acc: -defender.acc * 0.15,
       },
       log: {
         type: 'damage (-ACC)',
-        value: (20 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -270,11 +272,11 @@ export default [
     name: 'Deep Cut',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (30 + attacker.level/4),
+        hp: -30 + (attacker.level * 0.45),
       },
       log: {
         type: 'damage',
-        value: (30 + attacker.level/4),
+        value: 30 + (attacker.level * 0.45),
       },
     }),
   },
@@ -283,13 +285,13 @@ export default [
     name: 'Toxic Ballista',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (35 + attacker.level/4),
-        acc: - (defender.acc * 0.2),
-        ref: - (defender.ref * 0.2),
+        hp: -17 + (attacker.level * 0.17),
+        acc: -defender.acc * 0.225,
+        ref: -defender.ref * 0.225,
       },
       log: {
         type: 'damage (-ACC -REF)',
-        value: (35 + attacker.level/4),
+        value: 17 + (attacker.level * 0.17),
       },
     }),
   },
@@ -299,7 +301,7 @@ export default [
     name: 'Smoke Screen',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/5),
+        hp: -7 + (attacker.level * 0.17),
       },
       attacker: {
         acc: attacker.acc * 0.1,
@@ -307,7 +309,7 @@ export default [
       },
       log: {
         type: 'damage (+ACC +REF)',
-        value: (10 + attacker.level/5),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -316,15 +318,15 @@ export default [
     name: 'Conceal',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/5),
+        hp: -10 + (attacker.level * 0.15),
       },
       attacker: {
-        acc: attacker.acc * 0.3,
-        ref: attacker.ref * 0.3,
+        acc: attacker.acc * 0.2,
+        ref: attacker.ref * 0.2,
       },
       log: {
         type: 'damage (+ACC +REF)',
-        value: (20 + attacker.level/5),
+        value: 10 + (attacker.level * 0.15),
       },
     }),
   },
@@ -333,11 +335,11 @@ export default [
     name: 'Shadow Strike',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (50 + attacker.level/4),
+        hp: -30 + (attacker.level * 0.45),
       },
       log: {
         type: 'damage',
-        value: (50 + attacker.level/4),
+        value: 30 + (attacker.level * 0.45),
       },
     }),
   },
@@ -346,11 +348,11 @@ export default [
     name: 'Deathstab',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (50 + attacker.level/4),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: (50 + attacker.level/4),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -360,11 +362,11 @@ export default [
     name: 'Knuckles',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/4),
+        hp: -10 + (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: (10 + attacker.level/4),
+        value: 10 + (attacker.level * 0.25),
       },
     }),
   },
@@ -373,11 +375,11 @@ export default [
     name: 'Mantis Slash',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
+        hp: -20 + (attacker.level * 0.35),
       },
       log: {
         type: 'damage',
-        value: (20 + attacker.level/4),
+        value: 20 + (attacker.level * 0.35),
       },
     }),
   },
@@ -386,7 +388,7 @@ export default [
     name: 'Ying Strike',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (30 + attacker.level/4),
+        hp: -20 + (attacker.level * 0.25),
       },
       attacker: {
         str: attacker.str * 0.2,
@@ -394,7 +396,7 @@ export default [
       },
       log: {
         type: 'damage (+STR +ACC)',
-        value: (30 + attacker.level/4),
+        value: 20 + (attacker.level * 0.25),
       },
     }),
   },
@@ -403,11 +405,11 @@ export default [
     name: 'Emerald Punch',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (40 + attacker.level/3),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: (40 + attacker.level/3),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -417,11 +419,11 @@ export default [
     name: 'Heal',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (10 + attacker.level/5),
+        hp: 10 + (attacker.level * 0.2),
       },
       log: {
         type: 'heal',
-        value: (10 + attacker.level/5),
+        value: 10 + (attacker.level * 0.2),
       },
     }),
   },
@@ -430,12 +432,12 @@ export default [
     name: 'Bless',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (attacker.level/5),
-        con: attacker.con * 0.2
+        hp: 10 + (attacker.level * 0.2),
+        con: attacker.con * 0.2,
       },
       log: {
         type: 'heal (+CON)',
-        value: (attacker.level/5),
+        value: attacker.level * 0.2,
       },
     }),
   },
@@ -444,12 +446,12 @@ export default [
     name: 'Power Aura',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (attacker.level/5),
-        str: attacker.str * 0.4
+        hp: 10 + (attacker.level * 0.2),
+        str: attacker.str * 0.4,
       },
       log: {
         type: 'heal (+STR)',
-        value: (attacker.level/5),
+        value: attacker.level * 0.2,
       },
     }),
   },
@@ -458,11 +460,11 @@ export default [
     name: 'Divine Beam',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - ( 50 + (attacker.level/5)),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: (50 + attacker.level/5),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -472,14 +474,14 @@ export default [
     name: 'Scope',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/4),
+        hp: -7 + (attacker.level * 0.17),
       },
       attacker: {
         acc: attacker.acc * 0.2,
       },
       log: {
         type: 'damage (+ACC)',
-        value: (10 + attacker.level/4),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -488,14 +490,14 @@ export default [
     name: 'Herbal Scent',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
+        hp: -15 + (attacker.level * 0.25),
       },
       attacker: {
         con: attacker.con * 0.2,
       },
       log: {
         type: 'damage (+CON)',
-        value: (20 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -504,11 +506,11 @@ export default [
     name: 'Power Arrow',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (40 + attacker.level/4),
+        hp: -30 + (attacker.level * 0.45),
       },
       log: {
         type: 'damage',
-        value: (40 + attacker.level/4),
+        value: 30 + (attacker.level * 0.55),
       },
     }),
   },
@@ -517,11 +519,11 @@ export default [
     name: 'Headshot',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (40 + attacker.level/2),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: (40 + attacker.level/2),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -531,12 +533,12 @@ export default [
     name: 'Tripwire',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/7),
-        ref: - (defender.ref * 0.2)
+        hp: -7 + (attacker.level * 0.17),
+        ref: -defender.ref * 0.15,
       },
       log: {
         type: 'damage (-REF)',
-        value: (10 + attacker.level/7),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -545,14 +547,14 @@ export default [
     name: 'Patience',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
+        hp: -15 + (attacker.level * 0.25),
       },
       attacker: {
-        flow: attacker.flow * 0.2
+        flow: attacker.flow * 0.2,
       },
       log: {
         type: 'damage (+FLOW)',
-        value: (20 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -561,13 +563,13 @@ export default [
     name: 'Bear Trap',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (10 + attacker.level/4),
-        ref: - (defender.ref * 0.3),
-        acc: - (defender.acc * 0.3),
+        hp: -20 + (attacker.level * 0.25),
+        ref: -defender.ref * 0.15,
+        acc: -defender.acc * 0.15,
       },
       log: {
         type: 'damage (-REF -ACC)',
-        value: (10 + attacker.level/4),
+        value: 20 + (attacker.level * 0.25),
       },
     }),
   },
@@ -576,11 +578,11 @@ export default [
     name: 'Explosive Charge',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (40 + attacker.level/2),
+        hp: -40 + (attacker.level * 0.55),
       },
       log: {
         type: 'damage',
-        value: - (40 + attacker.level/2),
+        value: -40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -590,12 +592,12 @@ export default [
     name: 'Tune Weapon',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (2 + attacker.level/5),
-        str: attacker.str * 0.2
+        hp: 7 + (attacker.level * 0.15),
+        str: attacker.str * 0.2,
       },
       log: {
         type: 'heal (+STR)',
-        value: (2 + attacker.level/5),
+        value: 7 + (attacker.level * 0.15),
       },
     }),
   },
@@ -604,11 +606,11 @@ export default [
     name: 'Potion',
     fire: (attacker, defender, rolls) => ({
       attacker: {
-        hp: (20 + attacker.level/4),
+        hp: 15 + (attacker.level * 0.25),
       },
       log: {
         type: 'heal',
-        value: (20 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -617,11 +619,11 @@ export default [
     name: 'Runover',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - ( 35 + (attacker.level/5)),
+        hp: -35 + (attacker.level * 0.45),
       },
       log: {
         type: 'damage',
-        value: (35 + attacker.level/5),
+        value: 35 + (attacker.level * 0.45),
       },
     }),
   },
@@ -630,12 +632,12 @@ export default [
     name: 'Chemical Bomb',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - ( 10 + (attacker.level/4)),
-        con: - (defender.con * 0.3),
+        hp: -25 + (attacker.level * 0.3),
+        con: -defender.con * 0.3,
       },
       log: {
         type: 'damage (-CON)',
-        value: 10 + attacker.level/4,
+        value: 25 + (attacker.level * 0.3),
       },
     }),
   },
@@ -645,12 +647,12 @@ export default [
     name: 'Smart Hit',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (15 + attacker.level/4),
-        ref: - (defender.ref * 0.2)
+        hp: -7 + (attacker.level * 0.17),
+        ref: -defender.ref * 0.15,
       },
       log: {
         type: 'damage (-REF)',
-        value: (15 + attacker.level/4),
+        value: 7 + (attacker.level * 0.17),
       },
     }),
   },
@@ -659,12 +661,12 @@ export default [
     name: 'Calculated Blow',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/4),
-        con: - (defender.con * 0.1)
+        hp: -15 + (attacker.level * 0.25),
+        con: -defender.con * 0.15,
       },
       log: {
         type: 'damage (-CON)',
-        value: (20 + attacker.level/4),
+        value: 15 + (attacker.level * 0.25),
       },
     }),
   },
@@ -673,15 +675,13 @@ export default [
     name: 'Sabotage',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (25 + attacker.level/4),
-        str: - (defender.str * 0.1),
-        ref: - (defender.ref * 0.1),
-        acc: - (defender.acc * 0.1),
-        con: - (defender.con * 0.1),
+        hp: -20 + (attacker.level * 0.25),
+        ref: -defender.ref * 0.15,
+        acc: -defender.acc * 0.15,
       },
       log: {
-        type: 'damage (-STR -CON -REF -ACC)',
-        value: (25 + attacker.level/4),
+        type: 'damage (-REF -ACC)',
+        value: 20 + (attacker.level * 0.25),
       },
     }),
   },
@@ -690,16 +690,13 @@ export default [
     name: 'Hammer Down',
     fire: (attacker, defender, rolls) => ({
       defender: {
-        hp: - (20 + attacker.level/5),
-        acc: - (defender.acc * 0.3),
-        ref: - (defender.ref * 0.3),
-        str: - (defender.str * 0.3),
-        con: - (defender.con * 0.3),
-        flow: - (defender.flow * 0.3),
+        hp: -25 + (attacker.level * 0.3),
+        str: -defender.str * 0.15,
+        con: -defender.con * 0.15,
       },
       log: {
-        type: 'damage (-ALL STATS)',
-        value: (20 + attacker.level/5),
+        type: 'damage (-CON -STR)',
+        value: 25 + (attacker.level * 0.3),
       },
     }),
   },

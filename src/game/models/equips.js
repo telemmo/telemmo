@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "defender|rolls" }] */
+
 export default [
   // Weapons
   {
@@ -12,11 +14,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 19,
       defender: {
-        hp: -2 - (attacker.level / 10),
+        hp: -2 - (attacker.level * 0.1),
       },
       log: {
         type: 'damage',
-        value: 2 + (attacker.level / 10),
+        value: 2 + (attacker.level * 0.1),
       },
     }),
   },
@@ -32,11 +34,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 17,
       defender: {
-        hp: -5 - (attacker.level / 10),
+        hp: -5 - (attacker.level * 0.1),
       },
       log: {
         type: 'damage',
-        value: 5 + (attacker.level / 10),
+        value: 5 + (attacker.level * 0.1),
       },
     }),
   },
@@ -52,11 +54,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 19,
       defender: {
-        hp: -3 - (attacker.level / 10),
+        hp: -3 - (attacker.level * 0.1),
       },
       log: {
         type: 'damage',
-        value: 3 + (attacker.level / 10),
+        value: 3 + (attacker.level * 0.1),
       },
     }),
   },
@@ -72,11 +74,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aHit < 17,
       defender: {
-        hp: -10 - (attacker.level / 10),
+        hp: -10 - (attacker.level * 0.1),
       },
       log: {
         type: 'damage',
-        value: 10 + (attacker.level / 10),
+        value: 10 + (attacker.level * 0.1),
       },
     }),
   },
@@ -93,11 +95,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aAim < 17,
       defender: {
-        hp: -4 - (attacker.level / 10),
+        hp: -4 - (attacker.level * 0.1),
       },
       log: {
         type: 'damage',
-        value: 4 + (attacker.level / 10),
+        value: 4 + (attacker.level * 0.1),
       },
     }),
   },
@@ -113,11 +115,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 15 || rolls.aAim < 15),
       defender: {
-        hp: -20 - (attacker.level / 5),
+        hp: -20 - (attacker.level * 0.2),
       },
       log: {
         type: 'damage',
-        value: 20 + (attacker.level / 5),
+        value: 20 + (attacker.level * 0.2),
       },
     }),
   },
@@ -133,11 +135,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 10),
       defender: {
-        hp: -13 - (attacker.level / 4),
+        hp: -13 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 13 + (attacker.level / 4),
+        value: 13 + (attacker.level * 0.25),
       },
     }),
   },
@@ -156,11 +158,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aAim < 15),
       defender: {
-        hp: -30 - (attacker.level / 4),
+        hp: -30 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 30 + (attacker.level / 4),
+        value: 30 + (attacker.level * 0.25),
       },
     }),
   },
@@ -179,11 +181,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aAim < 15),
       defender: {
-        hp: -35 - (attacker.level / 4),
+        hp: -35 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 35 + (attacker.level / 4),
+        value: 35 + (attacker.level * 0.25),
       },
     }),
   },
@@ -202,11 +204,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aAim < 15),
       defender: {
-        hp: -35 - (attacker.level / 4),
+        hp: -35 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 35 + (attacker.level / 4),
+        value: 35 + (attacker.level * 0.25),
       },
     }),
   },
@@ -225,11 +227,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 10),
       defender: {
-        hp: -20 - (attacker.level / 5),
+        hp: -20 - (attacker.level * 0.2),
       },
       log: {
         type: 'damage',
-        value: 20 + (attacker.level / 5),
+        value: 20 + (attacker.level * 0.2),
       },
     }),
   },
@@ -248,11 +250,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 14),
       defender: {
-        hp: -45 - (attacker.level / 4),
+        hp: -45 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 45 + (attacker.level / 4),
+        value: 45 + (attacker.level * 0.25),
       },
     }),
   },
@@ -272,11 +274,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 14),
       defender: {
-        hp: -50 - (attacker.level / 4),
+        hp: -50 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 50 + (attacker.level / 4),
+        value: 50 + (attacker.level * 0.25),
       },
     }),
   },
@@ -490,11 +492,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 19,
       attacker: {
-        hp: 5 + (attacker.level / 10),
+        hp: 5 + (attacker.level * 0.1),
       },
       log: {
         type: 'heal',
-        value: 5 + (attacker.level / 10),
+        value: 5 + (attacker.level * 0.1),
       },
     }),
   },
@@ -510,12 +512,12 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 18,
       attacker: {
-        hp: 10 + (attacker.level / 10),
+        hp: 10 + (attacker.level * 0.1),
         flow: attacker.flow * 0.1,
       },
       log: {
         type: 'heal (+FLOW)',
-        value: 10 + (attacker.level / 10),
+        value: 10 + (attacker.level * 0.1),
       },
     }),
   },
@@ -531,12 +533,12 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 10 + (attacker.level / 5),
+        hp: 10 + (attacker.level * 0.2),
         con: attacker.con * 0.2,
       },
       log: {
         type: 'heal (+CON)',
-        value: 10 + (attacker.level / 5),
+        value: 10 + (attacker.level * 0.2),
       },
     }),
   },
@@ -553,12 +555,12 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 15 + (attacker.level / 5),
+        hp: 15 + (attacker.level * 0.2),
         ref: attacker.ref * 0.2,
       },
       log: {
         type: 'heal (+REF)',
-        value: 15 + (attacker.level / 5),
+        value: 15 + (attacker.level * 0.2),
       },
     }),
   },
@@ -577,11 +579,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 15,
       attacker: {
-        hp: 15 + (attacker.level / 5),
+        hp: 15 + (attacker.level * 0.2),
       },
       log: {
         type: 'heal',
-        value: 15 + (attacker.level / 5),
+        value: 15 + (attacker.level * 0.2),
       },
     }),
   },
@@ -598,11 +600,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 14,
       attacker: {
-        hp: 20 + (attacker.level / 5),
+        hp: 20 + (attacker.level * 0.2),
       },
       log: {
         type: 'heal',
-        value: 20 + (attacker.level / 5),
+        value: 20 + (attacker.level * 0.2),
       },
     }),
   },
@@ -620,11 +622,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aAim < 16),
       defender: {
-        hp: -35 - (attacker.level / 4),
+        hp: -35 - (attacker.level * 0.25),
       },
       log: {
         type: 'damage',
-        value: 35 + (attacker.level / 4),
+        value: 35 + (attacker.level * 0.25),
       },
     }),
   },
@@ -642,11 +644,11 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 14,
       attacker: {
-        hp: 30 + (attacker.level / 4),
+        hp: 30 + (attacker.level * 0.25),
       },
       log: {
         type: 'heal',
-        value: 30 + (attacker.level / 4),
+        value: 30 + (attacker.level * 0.25),
       },
     }),
   },
@@ -663,12 +665,12 @@ export default [
     fire: (attacker, defender, rolls) => ({
       noCast: rolls.aSkill < 14,
       attacker: {
-        hp: 40 + (attacker.level / 4),
+        hp: 40 + (attacker.level * 0.25),
         ref: attacker.str * 0.2,
       },
       log: {
         type: 'heal (+STR)',
-        value: 40 + (attacker.level / 4),
+        value: 40 + (attacker.level * 0.25),
       },
     }),
   },

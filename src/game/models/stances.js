@@ -54,7 +54,7 @@ export default [
     description: 'You boost your defensive stats by concentrating on endurance.',
     skills: [
       {
-        id: 'meditate',
+        id: 'taunt',
         influence: 15,
       },
       {
