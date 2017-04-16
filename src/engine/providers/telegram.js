@@ -6,7 +6,6 @@ import { Observable } from 'rx'
 
 import {
   always,
-  bind,
   partial,
 } from 'ramda'
 
@@ -20,22 +19,33 @@ function sendMessage (bot, chat, message, options) {
     return
   }
   bot.sendMessage(chat, emoji.emojify(message), options)
-  return Observable.of(false)
 }
 
 function start () {
-  const numWorkers = Number(process.env.HTTP_WORKERS)
-  const token = process.env.BOT_KEY
-  const domain = process.env.DOMAIN
-  const options = {
-    webHook: {
-      port: process.env.NODE_PORT,
-      key: process.env.SSL_KEY_PATH,
-      cert: process.env.SSL_CERT_PATH,
-    },
+  const {
+    BOT_KEY: token,
+    DOMAIN: domain,
+    NODE_PORT: port,
+    SSL_KEY_PATH: key,
+    SSL_CERT_PATH: cert,
+    HTTP_WORKERS: numWorkers,
+  } = process.env
+
+  let options = {
+    polling: true,
   }
 
-  if (cluster.isMaster) {
+  if (domain) {
+    options = {
+      webHook: {
+        port,
+        key,
+        cert,
+      },
+    }
+  }
+
+  if (numWorkers && cluster.isMaster) {
     console.log(`Master ${process.pid} is running`)
 
     Array.from({ length: numWorkers }).forEach(() => {

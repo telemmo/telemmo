@@ -25,4 +25,3 @@ function start (app) {
 export default {
   start,
 }
-
