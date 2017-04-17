@@ -654,6 +654,7 @@ t . Pandora's Box Shard
   {
     id: 'colossal_spider',
     name: 'Colossal Spider',
+    hp: 380,
     str: 140,
     ref: 130,
     acc: 140,
@@ -669,6 +670,7 @@ t . Pandora's Box Shard
   {
     id: 'urork',
     name: 'Urork',
+    hp: 405,
     str: 140,
     ref: 155,
     acc: 140,
@@ -684,6 +686,7 @@ t . Pandora's Box Shard
   {
     id: 'golem',
     name: 'Golem',
+    hp: 440,
     str: 165,
     ref: 165,
     acc: 165,
@@ -700,6 +703,7 @@ t . Pandora's Box Shard
   {
     id: 'kraken',
     name: 'Kraken',
+    hp: 510,
     str: 185,
     ref: 185,
     acc: 185,
@@ -716,12 +720,13 @@ t . Pandora's Box Shard
   {
     id: 'death',
     name: 'Death',
+    hp: 550,
     str: 200,
     ref: 200,
     acc: 200,
     con: 200,
     flow: 200,
-    level: 270,
+    level: 300,
     prizes: {
       exp: 3000,
       equips: ['unholy', 'grim_scythe'],
