@@ -666,7 +666,7 @@ export default [
       noCast: rolls.aSkill < 14,
       attacker: {
         hp: 40 + (attacker.level * 0.25),
-        ref: attacker.str * 0.2,
+        str: attacker.str * 0.2,
       },
       log: {
         type: 'heal (+STR)',
