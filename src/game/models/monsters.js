@@ -513,11 +513,12 @@ t . Fire Emblem
   {
     id: 'dragon',
     name: 'Dragon',
+    hp: 280,
     str: 80,
     ref: 80,
     acc: 80,
     con: 80,
-    flow: 90,
+    flow: 80,
     level: 115,
     prizes: {
       exp: 750,
@@ -536,11 +537,12 @@ t . Fire Emblem
   {
     id: 'shiny_dragon',
     name: 'Shiny Dragon',
-    str: 100,
-    ref: 100,
-    acc: 100,
-    con: 100,
-    flow: 100,
+    hp: 335,
+    str: 90,
+    ref: 90,
+    acc: 90,
+    con: 90,
+    flow: 90,
     level: 135,
     prizes: {
       exp: 1300,
