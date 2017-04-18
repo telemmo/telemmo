@@ -20,7 +20,7 @@ function addEquipStats (fighter) {
 function addHp (fighter) {
   const { hp = 0, str, con, acc, ref, level } = fighter
 
-  const initialHp = hp !== 0 ? hp : ((str + con + acc + ref) / 4) + level + 50
+  const initialHp = hp > 0 ? hp : ((str + con + acc + ref) / 4) + level + 50
 
   return merge(fighter, { initialHp, hp: initialHp })
 }
@@ -29,4 +29,3 @@ export const buildCombatStats = pipe(
   addEquipStats,
   addHp,
 )
-
