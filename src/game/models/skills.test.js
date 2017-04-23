@@ -1,13 +1,9 @@
-import {
-  pipe,
-} from 'ramda'
-
 import models from './index'
 
 
 function checkDamageSkillValues (firedSkill) {
   if (firedSkill.log.type.match(/\bdamage\b/)) {
-    expect(firedSkill.log.value === -firedSkill.defender.hp)
+    expect(firedSkill.log.value).toBe(-firedSkill.defender.hp)
   }
 
   return firedSkill
@@ -15,22 +11,23 @@ function checkDamageSkillValues (firedSkill) {
 
 function checkHealSkillValues (firedSkill) {
   if (firedSkill.log.type.match(/\bheal\b/)) {
-    expect(firedSkill.log.value === firedSkill.attacker.hp)
+    expect(firedSkill.log.value).toBe(firedSkill.attacker.hp)
   }
 
   return firedSkill
 }
 
-function checkSkillLogVsEffect () {
+function checkSkillEffectVsLog (skill) {
   const attacker = { level: 100, hp: 500, con: 50, str: 40, ref: 60, acc: 70, flow: 90 }
   const defender = { level: 80, hp: 300, con: 60, str: 70, ref: 50, acc: 40, flow: 75 }
   const rolls = {}
 
-  models.skills.all
-    .map(x => x.fire(attacker, defender, rolls))
-    .map(pipe(checkHealSkillValues, checkDamageSkillValues))
+  const firedSkill = skill.fire(attacker, defender, rolls)
+  checkHealSkillValues(firedSkill)
+  checkDamageSkillValues(firedSkill)
 }
 
-test('skills', () => {
-  checkSkillLogVsEffect()
+describe('checking skill effect vs log values', () => {
+  models.skills.all
+    .map(skill => test(skill.id, () => checkSkillEffectVsLog(skill)))
 })

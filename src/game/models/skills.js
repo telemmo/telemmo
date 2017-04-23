@@ -234,7 +234,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: -40 + (attacker.level * 0.55),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
@@ -437,7 +437,7 @@ export default [
       },
       log: {
         type: 'heal (+CON)',
-        value: attacker.level * 0.2,
+        value: 10 + (attacker.level * 0.2),
       },
     }),
   },
@@ -451,7 +451,7 @@ export default [
       },
       log: {
         type: 'heal (+STR)',
-        value: attacker.level * 0.2,
+        value: 10 + (attacker.level * 0.2),
       },
     }),
   },
@@ -510,7 +510,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: 30 + (attacker.level * 0.55),
+        value: 30 + (attacker.level * 0.45),
       },
     }),
   },
@@ -582,7 +582,7 @@ export default [
       },
       log: {
         type: 'damage',
-        value: -40 + (attacker.level * 0.55),
+        value: 40 + (attacker.level * 0.55),
       },
     }),
   },
