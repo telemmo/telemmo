@@ -1,4 +1,4 @@
-export const expRatio = 1
+export const expRatio = 2
 
 export const dropTypes = [
   {
