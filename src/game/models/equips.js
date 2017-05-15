@@ -269,7 +269,7 @@ export default [
       con: 25,
       ref: 20,
       acc: 20,
-      Flow: 20,
+      flow: 20,
     },
     fire: (attacker, defender, rolls) => ({
       noCast: (rolls.aHit < 14),
